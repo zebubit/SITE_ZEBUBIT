@@ -72,28 +72,29 @@ html {
         z-index: 50;
     }
 
-    /* 2. BODY AJUSTADO */
-body { 
+   /* 2. BODY EQUILIBRADO */
+        body { 
             font-family: 'Montserrat', sans-serif; 
             background-color: #000; 
             color: #e5e5e5; 
             overflow-x: hidden;
             
-            /* Caminho direto para a imagem */
             background-image: url('SITE3.webp'); 
-            
-            /* Ajuste para Celular: A foto acompanha o scroll e preenche tudo */
             background-attachment: scroll; 
-            background-size: cover; 
+            
+            /* Ajuste para não ficar 'gigante' */
+            background-size: contain; 
             background-position: center top; 
-            background-repeat: no-repeat;
+            background-repeat: repeat-y; /* Repete para baixo se o site for longo */
         }
 
-        /* Ajuste para Computador: Mantém o efeito fixo e a posição que você gosta */
+        /* Ajuste para Desktop (MacBook) */
         @media (min-width: 1024px) {
             body {
+                background-size: 100vw;
                 background-attachment: fixed;
                 background-position: center -50px;
+                background-repeat: no-repeat;
             }
         }
 
