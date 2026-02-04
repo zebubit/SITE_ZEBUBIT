@@ -1257,19 +1257,26 @@ html {
         if(badge) badge.classList.add('show');
     }, 5000);
 
-    // 5. FUNÇÕES DE MODAL
+    // 5. FUNÇÕES DE MODAL (VERSÃO CORRIGIDA)
     function fecharModais() { 
-        document.querySelectorAll('[id^="modal"]').forEach(m => m.classList.add('hidden')); 
+        document.querySelectorAll('[id^="modal"]').forEach(m => {
+            m.classList.add('hidden');
+            m.style.display = 'none'; // Garante que o bloqueio visual saia
+        }); 
     }
 
     function abrirCapturaGratis() { 
-        document.getElementById('modalGratis').classList.remove('hidden'); 
+        const m = document.getElementById('modalGratis');
+        m.classList.remove('hidden'); 
+        m.style.display = 'flex'; // Força o alinhamento central
     }
 
     function prepararPagamento(link, nomeProduto) { 
         linkCompraAtual = link; 
         nomeProdutoAtual = nomeProduto || "PRODUTO ZEBU BIT"; 
-        document.getElementById('modalDados').classList.remove('hidden'); 
+        const m = document.getElementById('modalDados');
+        m.classList.remove('hidden'); 
+        m.style.display = 'flex'; // ESSENCIAL: Faz o modal aparecer no centro
     }
 
     // 6. CAPTURA DE LEADS E FLUXO DE PAGAMENTO
@@ -1293,30 +1300,45 @@ html {
         fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: params })
         .catch(error => console.error('Erro ao registrar lead:', error));
 
+        // Transição entre Modais
         document.getElementById('modalDados').classList.add('hidden'); 
-        document.getElementById('modalPagamentoEscolha').classList.remove('hidden'); 
+        document.getElementById('modalDados').style.display = 'none';
+        
+        const mPagamento = document.getElementById('modalPagamentoEscolha');
+        mPagamento.classList.remove('hidden'); 
+        mPagamento.style.display = 'flex'; // Abre a escolha de pagamento centralizada
     }
 
-    // 7. FINALIZAÇÃO DE PAGAMENTO
+    // 7. FINALIZAÇÃO DE PAGAMENTO (AJUSTADO)
     function finalizarComCartao() { 
-        window.open(linkCompraAtual, '_blank', 'noopener,noreferrer'); 
+        if (linkCompraAtual) {
+            window.open(linkCompraAtual, '_blank', 'noopener,noreferrer'); 
+        }
         fecharModais();
     }
 
     function exibirPixDireto() { 
-        document.getElementById('modalPagamentoEscolha').classList.add('hidden'); 
-        document.getElementById('modalPixManual').classList.remove('hidden'); 
+        const mPagamento = document.getElementById('modalPagamentoEscolha');
+        const mPix = document.getElementById('modalPixManual');
+
+        if(mPagamento) {
+            mPagamento.classList.add('hidden'); 
+            mPagamento.style.display = 'none';
+        }
+        if(mPix) {
+            mPix.classList.remove('hidden'); 
+            mPix.style.display = 'flex'; // Força o modal do PIX a aparecer no centro
+        }
     }
 
     function finalizarPixWhats() {
         const nome = document.getElementById('nome').value || "Soberano";
         const msg = `Olá Dione! Finalizei o PIX para: ${nomeProdutoAtual}.\n\nNome: ${nome}\nSegue o comprovante em anexo.`;
-        // Proteção aplicada ao link do WhatsApp
         window.open(`https://api.whatsapp.com/send?phone=5534993421500&text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
         fecharModais();
     }
 
-    // 8. CARTÃO AURUM
+    // 8. CARTÃO AURUM (SINCRONIZADO COM O LEAD)
     function enviarSolicitacaoAurum() {
         const nome = document.getElementById('lead-nome').value;
         const email = document.getElementById('lead-email').value;
@@ -1334,12 +1356,10 @@ html {
         window.open('https://backoffice.aurum.foundation/u/U20120', '_blank', 'noopener,noreferrer');
     }
 
-    // 9. FUNÇÃO DO FAQ (ABRIR/FECHAR RESPOSTAS)
+    // 9. FUNÇÃO DO FAQ (PERFEITA - NÃO MEXER)
     function toggleFaq(button) {
         const item = button.parentElement;
         item.classList.toggle('active');
-
-        // Fecha as outras perguntas para manter o visual limpo e soberano
         const todosItens = document.querySelectorAll('.faq-item');
         todosItens.forEach(outroItem => {
             if (outroItem !== item) {
@@ -1348,7 +1368,7 @@ html {
         });
     }
 
-    // 11. CAPTURA LEAD GRÁTIS
+    // 11. CAPTURA LEAD GRÁTIS (AJUSTADO PARA MOBILE)
     function enviarLeadWhats() {
         const nome = document.getElementById('leadNome').value;
         const email = document.getElementById('leadEmail').value;
@@ -1370,7 +1390,6 @@ html {
         const msg = `Olá Dione! Quero meu e-book grátis: Bitcoin para Iniciantes.\n\nNome: ${nome}\nEmail: ${email}`;
         
         setTimeout(() => {
-            // Blindagem aplicada no envio do lead
             window.open(`https://api.whatsapp.com/send?phone=5534993421500&text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
             fecharModais();
         }, 600);
