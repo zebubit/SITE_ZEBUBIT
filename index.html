@@ -409,10 +409,11 @@ html {
     backdrop-filter: blur(10px);
 }
 
-.coin-box { display: flex; align-items: center; gap: 5px; }
-.coin-name { color: #94a3b8; }
-.price-up { color: #22c55e; }
-.price-down { color: #ef4444; }
+.coin-box { 
+    display: flex; 
+    align-items: center; 
+    gap: 5px; 
+    transition: transform 0.3s ease;
 }
 
 .coin-box:hover {
@@ -424,49 +425,65 @@ html {
     font-size: 10px;
     letter-spacing: 1px;
     font-weight: 800;
+    text-transform: uppercase;
 }
 
-.price-up { color: #22c55e; font-family: 'Courier New', monospace; font-size: 12px; }
-.price-down { color: #ef4444; font-family: 'Courier New', monospace; font-size: 12px; }
+.price-up { 
+    color: #22c55e; 
+    font-family: 'Courier New', monospace; 
+    font-size: 12px; 
+}
+
+.price-down { 
+    color: #ef4444; 
+    font-family: 'Courier New', monospace; 
+    font-size: 12px; 
+}
 
 /* NOTIFICAÇÃO DE VENDA (SOCIAL PROOF) - VERSÃO PREMIUM MAIOR */
 #notification-container {
     position: fixed;
-    bottom: 90px; /* Um pouco mais alto para não encostar na barra */
+    bottom: 90px; /* Acima da barra de preços */
     left: 20px;
     z-index: 10002;
     background: rgba(15, 15, 15, 0.98);
     border: 1px solid #3b82f6;
     border-radius: 12px;
     padding: 15px 20px;
-    display: none; /* O Script vai mudar para 'flex' ao mostrar */
+    display: none; /* Ativado via Script */
     align-items: center;
     gap: 15px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-    min-width: 300px; /* Ficou mais robusta */
+    min-width: 300px;
     animation: slideIn 0.6s ease-out;
 }
 
-/* Formatação do Texto Interno */
+.notif-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid #3b82f6;
+}
+
 .notif-text { 
-    font-size: 13px; /* Aumentamos para ficar bem visível */
+    font-size: 13px; 
     color: #fff; 
     line-height: 1.4;
+    font-family: sans-serif;
 }
 
 .notif-text b { 
     color: #3b82f6; 
     font-size: 15px; 
-    display: block; /* Nome em destaque em cima */
+    display: block; 
 }
 
-/* Animação de Entrada */
 @keyframes slideIn {
     from { transform: translateX(-120%); }
     to { transform: translateX(0); }
 }
 
-/* Ajuste no fundo do site para acomodar o Ticker maior */
+/* Ajuste no fundo do site para não esconder conteúdo atrás da barra */
 body { padding-bottom: 80px !important; }
 
 </style>
@@ -1604,7 +1621,6 @@ body { padding-bottom: 80px !important; }
     // 13. LÓGICA DO TICKER DE PREÇOS LIVE (PREMIUM - 5 MOEDAS + CORES)
     async function carregarPrecos() {
         try {
-            // Buscamos as 5 moedas com a variação de 24h para as cores
             const url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,binancecoin,ripple&vs_currencies=usd&include_24hr_change=true';
             const res = await fetch(url);
             const d = await res.json();
@@ -1622,10 +1638,7 @@ body { padding-bottom: 80px !important; }
                 if (el) {
                     const preco = m.data.usd.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
                     const mudanca = m.data.usd_24h_change;
-
                     el.innerHTML = preco;
-                    
-                    // Aplica Verde se subiu e Vermelho se caiu
                     el.className = mudanca >= 0 ? 'price-up' : 'price-down';
                 }
             });
@@ -1634,59 +1647,57 @@ body { padding-bottom: 80px !important; }
         }
     }
 
-    // --- LÓGICA DA PROVA SOCIAL (VERSÃO PREMIUM 8 SEGUNDOS) ---
+    // --- LÓGICA DA PROVA SOCIAL (AJUSTADA PARA O PASSO 1) ---
     const nomes = ["Ricardo M.", "Ana Paula S.", "Marcos Oliveira", "Juliana F.", "Bruno Costa", "Carla Menezes", "Thiago Souza", "Felipe D.", "Patrícia G."];
     const acoes = ["acaba de comprar combo total.", "solicitou o Cartão Aurum.", "entrou no Hub de Elite.", "garantiu 4 sessoes de mentoria."];
 
     function mostrarProvaSocial() {
-        const proof = document.getElementById('social-proof');
+        const proof = document.getElementById('notification-container'); // ID sincronizado com o CSS
         const nomeEl = document.getElementById('proof-name');
         const acaoEl = document.getElementById('proof-action');
 
-        const nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)];
-        const acaoAleatoria = acoes[Math.floor(Math.random() * acoes.length)];
+        if (proof && nomeEl && acaoEl) {
+            const nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)];
+            const acaoAleatoria = acoes[Math.floor(Math.random() * acoes.length)];
 
-        if (nomeEl && acaoEl) {
             nomeEl.innerHTML = `<b>${nomeAleatorio}</b>`;
             acaoEl.innerHTML = acaoAleatoria;
+
+            // Mostra a janelinha
+            proof.style.display = 'flex'; 
+
+            // FICA VISÍVEL POR 8 SEGUNDOS
+            setTimeout(() => {
+                proof.style.display = 'none';
+            }, 8000);
         }
-
-        // Mostra a janelinha
-        proof.classList.add('show');
-        proof.style.display = 'flex'; 
-
-        // FICA VISÍVEL POR 8 SEGUNDOS
-        setTimeout(() => {
-            proof.classList.remove('show');
-            setTimeout(() => { proof.style.display = 'none'; }, 500); // Esconde após a animação
-        }, 8000);
     }
 
-    // Inicia os processos de Preço
+    // Inicia os processos
     carregarPrecos();
     setInterval(carregarPrecos, 60000);
 
-    // Ciclo da Prova Social (inicia em 5s e repete a cada 20s)
+    // Ciclo da Prova Social (Inicia em 5s e repete a cada 20s)
     setTimeout(() => {
         mostrarProvaSocial();
         setInterval(mostrarProvaSocial, 20000);
     }, 5000);
 </script>
 
-    <div id="social-proof">
-        <img src="https://i.pravatar.cc/100" class="notif-img" style="width:45px; height:45px; border-radius:50%; border:2px solid #3b82f6; margin-right:12px;">
-        <div class="proof-text">
-            <span id="proof-name" style="font-size:15px; font-weight:bold; color:#3b82f6; display:block;">...</span>
-            <span id="proof-action" style="font-size:13px; color:#fff;">carregando acesso...</span>
+    <div id="notification-container">
+        <img src="https://i.pravatar.cc/100" class="notif-img">
+        <div class="notif-text">
+            <span id="proof-name">...</span>
+            <span id="proof-action">carregando...</span>
         </div>
     </div>
 
     <div id="ticker-soberano">
-        <div class="coin-item"><span class="coin-label">Bitcoin</span><br><span id="p-btc" class="coin-price">...</span></div>
-        <div class="coin-item"><span class="coin-label">Ethereum</span><br><span id="p-eth" class="coin-price">...</span></div>
-        <div class="coin-item"><span class="coin-label">Solana</span><br><span id="p-sol" class="coin-price">...</span></div>
-        <div class="coin-item"><span class="coin-label">Binance</span><br><span id="p-bnb" class="coin-price">...</span></div>
-        <div class="coin-item"><span class="coin-label">Ripple</span><br><span id="p-xrp" class="coin-price">...</span></div>
+        <div class="coin-box"><span class="coin-name">Bitcoin</span><span id="p-btc">...</span></div>
+        <div class="coin-box"><span class="coin-name">Ethereum</span><span id="p-eth">...</span></div>
+        <div class="coin-box"><span class="coin-name">Solana</span><span id="p-sol">...</span></div>
+        <div class="coin-box"><span class="coin-name">Binance</span><span id="p-bnb">...</span></div>
+        <div class="coin-box"><span class="coin-name">Ripple</span><span id="p-xrp">...</span></div>
     </div>
     
 </body>
