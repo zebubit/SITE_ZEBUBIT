@@ -393,33 +393,50 @@ html {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    border-bottom: 1px solid rgba(59, 130, 246, 0.5);
+    background: rgba(0, 0, 0, 0.6); /* Transparência para o efeito vidro */
+    backdrop-filter: blur(15px); /* Desfoque premium atrás da barra */
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.3);
     z-index: 10000;
-    padding: 8px 0;
+    padding: 10px 0;
     display: flex;
-    justify-content: space-evenly; /* Distribui as moedas para ocupar o espaço */
+    justify-content: space-evenly;
     align-items: center;
-    font-size: 11px;
-    font-weight: bold;
-    color: #ffffff;
-    letter-spacing: 1px;
-    backdrop-filter: blur(5px);
+    transition: all 0.4s ease; /* Suaviza a interação */
+}
+
+/* Efeito ao passar o mouse na barra */
+#ticker-soberano:hover {
+    background: rgba(0, 0, 0, 0.85);
+    border-bottom: 1px solid #3b82f6;
 }
 
 .coin-box {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.coin-name { color: #94a3b8; } /* Cinza para o nome da moeda */
+/* Moeda "ganha vida" ao passar o mouse */
+.coin-box:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+}
 
-.price-up { color: #22c55e; }   /* Verde para alta */
-.price-down { color: #ef4444; } /* Vermelho para queda */
+.coin-name { 
+    color: #94a3b8; 
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
 
-/* Ajuste de respiro para o topo do site */
-body { padding-top: 40px !important; }
+.price-up { color: #22c55e; font-family: 'Courier New', monospace; font-size: 12px; }
+.price-down { color: #ef4444; font-family: 'Courier New', monospace; font-size: 12px; }
+
+/* Ajuste para o site não ficar por baixo da barra */
+body { padding-top: 50px !important; }
 
 </style>
 <body class="bg-black">
