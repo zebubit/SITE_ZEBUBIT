@@ -387,40 +387,49 @@ html {
     );
 }
 
-/* NOVO: BARRA DE PREÇOS (TICKER) */
+/* NOVO: BARRA DE PREÇOS (TICKER PREMIUM) */
 #ticker-soberano {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    border-bottom: 1px solid #3b82f6;
+    background: rgba(0, 0, 0, 0.95);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.5);
     z-index: 10000;
-    padding: 6px 0;
+    padding: 8px 0;
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    justify-content: space-evenly; /* Distribui as moedas para ocupar o espaço */
+    align-items: center;
     font-size: 11px;
     font-weight: bold;
     color: #ffffff;
     letter-spacing: 1px;
+    backdrop-filter: blur(5px);
 }
 
-#ticker-soberano span b {
-    color: #3b82f6;
-    margin-left: 4px;
+.coin-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-/* Empurra o site para baixo para a barra não cobrir o topo */
-body { padding-top: 35px !important; }
+.coin-name { color: #94a3b8; } /* Cinza para o nome da moeda */
+
+.price-up { color: #22c55e; }   /* Verde para alta */
+.price-down { color: #ef4444; } /* Vermelho para queda */
+
+/* Ajuste de respiro para o topo do site */
+body { padding-top: 40px !important; }
 
 </style>
 <body class="bg-black">
     <div id="ticker-soberano">
-        <span>BTC <b id="p-btc">...</b></span>
-        <span>ETH <b id="p-eth">...</b></span>
-        <span>SOL <b id="p-sol">...</b></span>
-    </div>
+    <div class="coin-box"><span class="coin-name">BTC</span> <span id="p-btc">...</span></div>
+    <div class="coin-box"><span class="coin-name">ETH</span> <span id="p-eth">...</span></div>
+    <div class="coin-box"><span class="coin-name">SOL</span> <span id="p-sol">...</span></div>
+    <div class="coin-box"><span class="coin-name">BNB</span> <span id="p-bnb">...</span></div>
+    <div class="coin-box"><span class="coin-name">XRP</span> <span id="p-xrp">...</span></div>
+</div>
 
     <div id="spotlight"></div>
 
@@ -1551,18 +1560,36 @@ body { padding-top: 35px !important; }
         spotlight.style.setProperty('--y', e.clientY + 'px');
     });
 
-    // 13. LÓGICA DO TICKER DE PREÇOS LIVE
+    // 13. LÓGICA DO TICKER DE PREÇOS LIVE (PREMIUM - 5 MOEDAS + CORES)
     async function carregarPrecos() {
         try {
-            const url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd';
+            // Buscamos as 5 moedas com a variação de 24h para as cores
+            const url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,binancecoin,ripple&vs_currencies=usd&include_24hr_change=true';
             const res = await fetch(url);
-            const dados = await res.json();
+            const d = await res.json();
             
-            document.getElementById('p-btc').innerHTML = `$${dados.bitcoin.usd.toLocaleString()}`;
-            document.getElementById('p-eth').innerHTML = `$${dados.ethereum.usd.toLocaleString()}`;
-            document.getElementById('p-sol').innerHTML = `$${dados.solana.usd.toLocaleString()}`;
-        } catch (erro) {
-            console.log("Erro ao atualizar preços");
+            const moedas = [
+                { id: 'btc', data: d.bitcoin },
+                { id: 'eth', data: d.ethereum },
+                { id: 'sol', data: d.solana },
+                { id: 'bnb', data: d.binancecoin },
+                { id: 'xrp', data: d.ripple }
+            ];
+
+            moedas.forEach(m => {
+                const el = document.getElementById(`p-${m.id}`);
+                if (el) {
+                    const preco = m.data.usd.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+                    const mudanca = m.data.usd_24h_change;
+
+                    el.innerHTML = preco;
+                    
+                    // Aplica Verde se subiu e Vermelho se caiu
+                    el.className = mudanca >= 0 ? 'price-up' : 'price-down';
+                }
+            });
+        } catch (e) {
+            console.log("Erro na API de preços");
         }
     }
 
