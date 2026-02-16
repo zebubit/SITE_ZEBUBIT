@@ -341,6 +341,17 @@ html {
             transition: transform 0.3s ease;
             color: #f59e0b;
         }
+
+        @keyframes scroll-logos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.animate-scroll-logos {
+    display: flex;
+    width: max-content;
+    animation: scroll-logos 30s linear infinite;
+}
+</style>
     </style>
 </head>
 <body class="bg-black">
