@@ -1656,8 +1656,8 @@ body { padding-bottom: 80px !important; }
         "https://cdn-icons-png.flaticon.com/512/11129/11129528.png" // Card/Cartão
     ];
 
-    const nomes = ["Ricardo M.", "Ana Paula S.", "Marcos Oliveira", "Juliana F.", "Bruno Costa", "Carla Menezes", "Thiago Souza", "Felipe D.", "Patrícia G.", "Gabriel S.", "Luciana K."];
-    const acoes = ["acaba de comprar o combo total.", "solicitou o Cartão Aurum.", "entrou no Hub de Elite.", "garantiu 4 sessões de mentoria.", "liberou o acesso VIP agora."];
+    const nomes = ["Ricardo M.", "Ana Paula S.", "Marcos Oliveira", "Juliana F.", "Bruno Costa", "Carla Menezes", "Thiago Souza", "Felipe D.", "Patrícia G.", "Gabriel S.", "Luciana K.", "Juliano J.", "Marcelo Nogueira.", "Alexsndro R.", "Marcos Paulo."];
+    const acoes = ["acaba de comprar o combo total.", "solicitou o Cartão Aurum.", "entrou no Hub de Elite.", "garantiu 4 sessões de mentoria.", "Acessou Hub de Cartoes.", "Comprou Soberania Digital.", "Solicitou cartao Ether.fi.", "Pediu Ebook Free.", "liberou o acesso VIP agora."];
 
     function mostrarProvaSocial() {
         const proof = document.getElementById('notification-container');
@@ -1688,7 +1688,7 @@ body { padding-bottom: 80px !important; }
     carregarPrecos();
     setInterval(carregarPrecos, 60000);
 
-    // Ciclo da Prova Social (Inicia em 5s e repete a cada 20s)
+    // Ciclo da Prova Social (Inicia em 5s e repete a cada 30s)
     setTimeout(() => {
         mostrarProvaSocial();
         setInterval(mostrarProvaSocial, 20000);
