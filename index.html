@@ -429,31 +429,45 @@ html {
 .price-up { color: #22c55e; font-family: 'Courier New', monospace; font-size: 12px; }
 .price-down { color: #ef4444; font-family: 'Courier New', monospace; font-size: 12px; }
 
-/* NOTIFICAÇÃO DE PROVA SOCIAL (BALÃO QUE APARECE) */
-#social-proof {
+/* NOTIFICAÇÃO DE VENDA (SOCIAL PROOF) - VERSÃO PREMIUM MAIOR */
+#notification-container {
     position: fixed;
-    bottom: 60px; /* Fica acima da barra de preços */
+    bottom: 90px; /* Um pouco mais alto para não encostar na barra */
     left: 20px;
-    background: rgba(0, 0, 0, 0.95);
+    z-index: 10002;
+    background: rgba(15, 15, 15, 0.98);
     border: 1px solid #3b82f6;
-    padding: 10px 15px;
-    border-radius: 8px;
-    display: flex;
+    border-radius: 12px;
+    padding: 15px 20px;
+    display: none; /* O Script vai mudar para 'flex' ao mostrar */
     align-items: center;
-    gap: 10px;
-    z-index: 9998;
-    transform: translateX(-150%); /* Escondido */
-    transition: transform 0.5s ease-in-out;
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+    gap: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    min-width: 300px; /* Ficou mais robusta */
+    animation: slideIn 0.6s ease-out;
 }
 
-#social-proof.show { transform: translateX(0); } /* Entra na tela */
+/* Formatação do Texto Interno */
+.notif-text { 
+    font-size: 13px; /* Aumentamos para ficar bem visível */
+    color: #fff; 
+    line-height: 1.4;
+}
 
-.proof-text { font-size: 11px; color: #fff; }
-.proof-text b { color: #3b82f6; }
+.notif-text b { 
+    color: #3b82f6; 
+    font-size: 15px; 
+    display: block; /* Nome em destaque em cima */
+}
 
-/* IMPORTANTE: Espaço no fundo para o Ticker */
-body { padding-bottom: 50px !important; }
+/* Animação de Entrada */
+@keyframes slideIn {
+    from { transform: translateX(-120%); }
+    to { transform: translateX(0); }
+}
+
+/* Ajuste no fundo do site para acomodar o Ticker maior */
+body { padding-bottom: 80px !important; }
 
 </style>
 <body class="bg-black">
@@ -1620,9 +1634,9 @@ body { padding-bottom: 50px !important; }
         }
     }
 
-    // --- LÓGICA DA PROVA SOCIAL (NOMES ALEATÓRIOS) ---
+    // --- LÓGICA DA PROVA SOCIAL (VERSÃO PREMIUM 8 SEGUNDOS) ---
     const nomes = ["Ricardo M.", "Ana Paula S.", "Marcos Oliveira", "Juliana F.", "Bruno Costa", "Carla Menezes", "Thiago Souza", "Felipe D.", "Patrícia G."];
-    const acoes = ["acaba de liberar o acesso.", "solicitou o Cartão Aurum.", "entrou no Hub de Elite.", "garantiu a vaga no Hub."];
+    const acoes = ["acaba de comprar combo total.", "solicitou o Cartão Aurum.", "entrou no Hub de Elite.", "garantiu 4 sessoes de mentoria."];
 
     function mostrarProvaSocial() {
         const proof = document.getElementById('social-proof');
@@ -1632,41 +1646,48 @@ body { padding-bottom: 50px !important; }
         const nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)];
         const acaoAleatoria = acoes[Math.floor(Math.random() * acoes.length)];
 
-        nomeEl.innerHTML = `<b>${nomeAleatorio}</b>`;
-        acaoEl.innerHTML = acaoAleatoria;
+        if (nomeEl && acaoEl) {
+            nomeEl.innerHTML = `<b>${nomeAleatorio}</b>`;
+            acaoEl.innerHTML = acaoAleatoria;
+        }
 
+        // Mostra a janelinha
         proof.classList.add('show');
+        proof.style.display = 'flex'; 
 
+        // FICA VISÍVEL POR 8 SEGUNDOS
         setTimeout(() => {
             proof.classList.remove('show');
-        }, 6000);
+            setTimeout(() => { proof.style.display = 'none'; }, 500); // Esconde após a animação
+        }, 8000);
     }
 
-    // Inicia os processos
+    // Inicia os processos de Preço
     carregarPrecos();
     setInterval(carregarPrecos, 60000);
 
-    // Ciclo da Prova Social (inicia em 4s e repete a cada 18s)
+    // Ciclo da Prova Social (inicia em 5s e repete a cada 20s)
     setTimeout(() => {
         mostrarProvaSocial();
-        setInterval(mostrarProvaSocial, 18000);
-    }, 4000);
+        setInterval(mostrarProvaSocial, 20000);
+    }, 5000);
 </script>
 
     <div id="social-proof">
+        <img src="https://i.pravatar.cc/100" class="notif-img" style="width:45px; height:45px; border-radius:50%; border:2px solid #3b82f6; margin-right:12px;">
         <div class="proof-text">
-            <span id="proof-name">...</span><br>
-            <small id="proof-action">carregando acesso...</small>
+            <span id="proof-name" style="font-size:15px; font-weight:bold; color:#3b82f6; display:block;">...</span>
+            <span id="proof-action" style="font-size:13px; color:#fff;">carregando acesso...</span>
         </div>
     </div>
 
     <div id="ticker-soberano">
-    <div class="coin-box"><span class="coin-name">BTC</span> <span id="p-btc">...</span></div>
-    <div class="coin-box"><span class="coin-name">ETH</span> <span id="p-eth">...</span></div>
-    <div class="coin-box"><span class="coin-name">SOL</span> <span id="p-sol">...</span></div>
-    <div class="coin-box"><span class="coin-name">BNB</span> <span id="p-bnb">...</span></div>
-    <div class="coin-box"><span class="coin-name">XRP</span> <span id="p-xrp">...</span></div>
-</div>
+        <div class="coin-item"><span class="coin-label">Bitcoin</span><br><span id="p-btc" class="coin-price">...</span></div>
+        <div class="coin-item"><span class="coin-label">Ethereum</span><br><span id="p-eth" class="coin-price">...</span></div>
+        <div class="coin-item"><span class="coin-label">Solana</span><br><span id="p-sol" class="coin-price">...</span></div>
+        <div class="coin-item"><span class="coin-label">Binance</span><br><span id="p-bnb" class="coin-price">...</span></div>
+        <div class="coin-item"><span class="coin-label">Ripple</span><br><span id="p-xrp" class="coin-price">...</span></div>
+    </div>
     
 </body>
 </html>
