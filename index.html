@@ -1647,23 +1647,35 @@ body { padding-bottom: 80px !important; }
         }
     }
 
-    // --- LÓGICA DA PROVA SOCIAL (AJUSTADA PARA O PASSO 1) ---
-    const nomes = ["Ricardo M.", "Ana Paula S.", "Marcos Oliveira", "Juliana F.", "Bruno Costa", "Carla Menezes", "Thiago Souza", "Felipe D.", "Patrícia G."];
-    const acoes = ["acaba de comprar combo total.", "solicitou o Cartão Aurum.", "entrou no Hub de Elite.", "garantiu 4 sessoes de mentoria."];
+    // --- LÓGICA DA PROVA SOCIAL (FOTOS E NOMES DINÂMICOS) ---
+    const provasSociais = [
+        { n: "Ricardo M.", a: "acaba de comprar o combo total.", img: "1" },
+        { n: "Ana Paula S.", a: "solicitou o Cartão Aurum.", img: "2" },
+        { n: "Marcos Oliveira", a: "pediu o ebook free.", img: "3" },
+        { n: "Juliana F.", a: "garantiu 4 sessões de mentoria.", img: "4" },
+        { n: "Bruno Costa", a: "acabou de acessar a revista.", img: "5" },
+        { n: "Carla Menezes", a: "quer saber sobre o cartao Ether.fi.", img: "6" },
+        { n: "Felipe D.", a: "acaba de comprar Soberania Digital.", img: "7" },
+        { n: "Patrícia G.", a: "Quer saber mais sobre Mentoria.", img: "8" },
+        { n: "Thiago Souza", a: "acaba de comprar o combo total.", img: "9" },
+        { n: "Gabriel S.", a: "liberou o limite Black agora.", img: "10" },
+        { n: "Luciana K.", a: "entrou para a Mentoria Individual.", img: "11" }
+    ];
 
     function mostrarProvaSocial() {
-        const proof = document.getElementById('notification-container'); // ID sincronizado com o CSS
+        const proof = document.getElementById('notification-container');
         const nomeEl = document.getElementById('proof-name');
         const acaoEl = document.getElementById('proof-action');
+        const imgEl = proof ? proof.querySelector('.notif-img') : null;
 
-        if (proof && nomeEl && acaoEl) {
-            const nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)];
-            const acaoAleatoria = acoes[Math.floor(Math.random() * acoes.length)];
+        if (proof && nomeEl && acaoEl && imgEl) {
+            const sorteio = provasSociais[Math.floor(Math.random() * provasSociais.length)];
 
-            nomeEl.innerHTML = `<b>${nomeAleatorio}</b>`;
-            acaoEl.innerHTML = acaoAleatoria;
+            nomeEl.innerHTML = `<b>${sorteio.n}</b>`;
+            acaoEl.innerHTML = sorteio.a;
+            // O código abaixo troca a foto dinamicamente usando um ID único para cada pessoa
+            imgEl.src = `https://i.pravatar.cc/100?u=${sorteio.img}`; 
 
-            // Mostra a janelinha
             proof.style.display = 'flex'; 
 
             // FICA VISÍVEL POR 8 SEGUNDOS
@@ -1673,7 +1685,7 @@ body { padding-bottom: 80px !important; }
         }
     }
 
-    // Inicia os processos
+    // Inicia os processos de Preço
     carregarPrecos();
     setInterval(carregarPrecos, 60000);
 
