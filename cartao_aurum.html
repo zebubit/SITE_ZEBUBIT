@@ -33,6 +33,22 @@
             margin: 0;
         }
 
+        /* --- ADICIONE O SPOTLIGHT AQUI --- */
+        #spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(
+                circle 250px at var(--x) var(--y), 
+                rgba(245, 158, 11, 0.15), 
+                transparent 80%
+            );
+        }
+
         .font-serif { font-family: 'Playfair Display', serif; }
 
         /* CORREÇÃO TÉCNICA DO FUNDO: Otimizado para MacBook e Smartphones */
@@ -141,6 +157,8 @@
     </style>
 </head>
 <body class="min-h-screen py-8 px-4 flex flex-col items-center">
+    <div id="spotlight"></div>
+    
     <div id="video-background"></div>
 
     <div class="max-w-4xl mx-auto text-center mb-10">
@@ -272,6 +290,12 @@
         notify.classList.add('show');
     }
 }, 5000);
+
+        const spotlight = document.getElementById('spotlight');
+window.addEventListener('mousemove', e => {
+    spotlight.style.setProperty('--x', e.clientX + 'px');
+    spotlight.style.setProperty('--y', e.clientY + 'px');
+});
     </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
