@@ -483,11 +483,84 @@ html {
     to { transform: translateX(0); }
 }
 
+/* MODAL DE SAÍDA PREMIUM COM CRONÔMETRO */
+#exit-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(10px);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 30000;
+}
+
+#exit-card {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(0, 0, 0, 1));
+    border: 2px solid rgba(59, 130, 246, 0.4);
+    padding: 40px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 450px;
+    box-shadow: 0 0 50px rgba(59, 130, 246, 0.3);
+    animation: modalFadeIn 0.4s ease-out;
+}
+
+#countdown-timer {
+    font-size: 52px;
+    font-family: 'Courier New', monospace;
+    color: #fff;
+    font-weight: 900;
+    margin: 20px 0;
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+}
+
+.btn-resgate {
+    background: #3b82f6;
+    color: #fff !important;
+    padding: 16px 32px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+.btn-resgate:hover {
+    transform: scale(1.05);
+    background: #2563eb;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
 /* Ajuste no fundo do site para não esconder conteúdo atrás da barra */
 body { padding-bottom: 80px !important; }
 
 </style>
 <body class="bg-black">
+
+    <div id="exit-modal">
+        <div id="exit-card">
+            <span style="color: #3b82f6; font-weight: bold; letter-spacing: 2px; font-size: 11px; text-transform: uppercase;">Oportunidade Única</span>
+            <h2 style="color: #fff; font-size: 26px; margin: 10px 0;">NÃO VÁ EMBORA! 🛡️</h2>
+            <p style="color: #94a3b8; font-size: 15px;">Detectamos sua saída. Liberei uma condição especial por tempo limitado:</p>
+            
+            <div id="countdown-timer">15:00</div>
+
+            <a href="https://api.whatsapp.com/send?phone=5534993421500&text=Dione, não quero perder minha condição especial!" class="btn-resgate">
+                RESGATAR AGORA
+            </a>
+            
+            <button onclick="document.getElementById('exit-modal').style.display='none'" 
+                    style="display: block; width: 100%; margin-top: 20px; background: none; border: none; color: #475569; cursor: pointer; font-size: 13px;">
+                Vou pensar mais um pouco...
+            </button>
+        </div>
+    </div>
 
     <div id="spotlight"></div>
 
@@ -1688,11 +1761,46 @@ body { padding-bottom: 80px !important; }
     carregarPrecos();
     setInterval(carregarPrecos, 60000);
 
-    // Ciclo da Prova Social (Inicia em 5s e repete a cada 30s)
+    // Ciclo da Prova Social (Inicia em 5s e repete a cada 20s)
     setTimeout(() => {
         mostrarProvaSocial();
         setInterval(mostrarProvaSocial, 20000);
     }, 5000);
+
+    // --- LÓGICA DO MODAL DE SAÍDA COM CRONÔMETRO ---
+    let tempoRestante = 15 * 60; 
+    let cronometroIniciado = false;
+
+    function iniciarRelogioSoberano() {
+        if (cronometroIniciado) return;
+        cronometroIniciado = true;
+        const display = document.getElementById('countdown-timer');
+        const intervalo = setInterval(function () {
+            let minutos = Math.floor(tempoRestante / 60);
+            let segundos = tempoRestante % 60;
+            minutos = minutos < 10 ? '0' + minutos : minutos;
+            segundos = segundos < 10 ? '0' + segundos : segundos;
+            if (display) display.innerHTML = minutos + ":" + segundos;
+            if (--tempoRestante < 0) {
+                clearInterval(intervalo);
+                if (display) display.innerHTML = "00:00";
+            }
+        }, 1000);
+    }
+
+    document.addEventListener('mouseleave', (e) => {
+        if (e.clientY < 0) {
+            const jaMostrou = localStorage.getItem('soberania_exit_v1');
+            if (!jaMostrou) {
+                const modal = document.getElementById('exit-modal');
+                if (modal) {
+                    modal.style.display = 'flex';
+                    iniciarRelogioSoberano();
+                    localStorage.setItem('soberania_exit_v1', 'true');
+                }
+            }
+        }
+    });
 </script>
 
     <div id="notification-container">
