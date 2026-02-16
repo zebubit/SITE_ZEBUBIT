@@ -81,29 +81,51 @@
 <body class="min-h-screen py-8 px-4 flex flex-col items-center">
     <div id="video-background"></div>
 
-    <div class="max-w-4xl mx-auto text-center mb-10">
-        <h1 class="text-5xl md:text-6xl font-serif font-bold text-white mb-2 italic">Aurum Visa Card</h1>
-        <p class="text-amber-500 font-bold text-xs uppercase tracking-[0.5em]">O Cartão Intraçável da Aurum</p>
+    <div class="max-w-4xl mx-auto text-center mb-12">
+        <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-4 italic drop-shadow-2xl">Elite Cards Hub</h1>
+        <p class="text-amber-500 font-bold text-xs md:text-sm uppercase tracking-[0.6em] animate-pulse">Escolha sua Liberdade Financeira</p>
     </div>
 
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 w-full text-center">
-        <div class="glass p-6 rounded-3xl">
-            <h4 class="text-amber-500 font-black text-xs uppercase mb-2">Zero KYC</h4>
-            <p class="text-gray-200 text-[13px] leading-relaxed font-light">Sua identidade é sua. Adquira e utilize sem enviar documentos ou fotos.</p>
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 w-full">
+        
+        <div class="glass p-8 rounded-[3rem] border border-amber-500/30 flex flex-col items-center text-center relative hover:scale-[1.02] transition-all duration-500">
+            <div class="absolute top-6 right-6">
+                <span class="bg-amber-500/10 text-amber-500 text-[10px] font-black px-3 py-1 rounded-full uppercase border border-amber-500/20">Zero KYC</span>
+            </div>
+            <img src="aurum-card-preview.jpeg" alt="Cartão Aurum" class="w-56 h-auto drop-shadow-[0_20px_40px_rgba(245,158,11,0.4)] mb-6">
+            <h3 class="text-white text-2xl font-serif italic mb-4">Aurum Visa</h3>
+            <p class="text-gray-300 text-sm font-light mb-6">A ferramenta definitiva para quem preza pelo anonimato. Off-ramp direto, sem CPF e sem rastros estatais.</p>
+            <ul class="text-left w-full space-y-2 mb-8 text-[12px] text-gray-400">
+                <li class="flex items-center gap-2"><span class="text-amber-500">✔</span> Sem documentos ou burocracia</li>
+                <li class="flex items-center gap-2"><span class="text-amber-500">✔</span> Limites elevados de saque</li>
+                <li class="flex items-center gap-2"><span class="text-amber-500">✔</span> Bandeira Visa Internacional</li>
+            </ul>
+            <a href="#solicitacao-area" class="w-full bg-amber-500 text-black font-black py-4 rounded-xl uppercase tracking-widest text-[12px] hover:bg-white transition-all no-underline">
+                Selecionar Aurum
+            </a>
         </div>
-        <div class="glass p-6 rounded-3xl">
-            <h4 class="text-amber-500 font-black text-xs uppercase mb-2">Sem CPF</h4>
-            <p class="text-gray-200 text-[13px] leading-relaxed font-light">Desvinculado do sistema estatal. Liberdade total para movimentar seus ganhos.</p>
-        </div>
-        <div class="glass p-6 rounded-3xl">
-            <h4 class="text-amber-500 font-black text-xs uppercase mb-2">Aceitação Global</h4>
-            <p class="text-gray-200 text-[13px] leading-relaxed font-light">Bandeira Visa. Use em qualquer lugar do mundo ou em compras online.</p>
+
+        <div class="glass p-8 rounded-[3rem] border border-blue-500/30 flex flex-col items-center text-center relative hover:scale-[1.02] transition-all duration-500">
+            <div class="absolute top-6 right-6">
+                <span class="bg-blue-500/10 text-blue-400 text-[10px] font-black px-3 py-1 rounded-full uppercase border border-blue-500/20">DeFi Rewards</span>
+            </div>
+            <img src="https://mint.ether.fi/etherfi_card_v2.png" alt="Ether.fi Card" class="w-56 h-auto drop-shadow-[0_20px_40px_rgba(59,130,246,0.4)] mb-6">
+            <h3 class="text-white text-2xl font-serif italic mb-4">Ether.fi Card</h3>
+            <p class="text-gray-300 text-sm font-light mb-6">Gaste suas criptos enquanto mantém o rendimento de staking. Tecnologia DeFi pura com cashback em cada compra.</p>
+            <ul class="text-left w-full space-y-2 mb-8 text-[12px] text-gray-400">
+                <li class="flex items-center gap-2"><span class="text-blue-400">✔</span> Rendimento nativo em ETH</li>
+                <li class="flex items-center gap-2"><span class="text-blue-400">✔</span> Até 3% de Cashback</li>
+                <li class="flex items-center gap-2"><span class="text-blue-400">✔</span> Gestão total via App</li>
+            </ul>
+            <a href="SEU_LINK_DE_AFILIADO_AQUI" target="_blank" class="w-full bg-blue-600 text-white font-black py-4 rounded-xl uppercase tracking-widest text-[12px] hover:bg-white hover:text-blue-600 transition-all no-underline">
+                Obter Ether.fi
+            </a>
         </div>
     </div>
 
-    <div class="max-w-xl w-full glass p-8 rounded-[2.5rem] text-center border-amber-500/20 mb-8">
-        <h3 class="text-white text-xl font-bold mb-1">Solicitar Acesso ao Cartão</h3>
-        <p class="text-gray-400 text-[10px] mb-8 uppercase tracking-widest font-light italic">Passo Único: Identificação Segura</p>
+    <div id="solicitacao-area" class="max-w-xl w-full glass p-8 md:p-12 rounded-[3rem] text-center border-amber-500/20 mb-12">
+        <h3 class="text-white text-2xl font-bold mb-2">Solicitar Cartão Aurum</h3>
+        <p class="text-gray-400 text-[10px] mb-8 uppercase tracking-[0.3em] font-light italic">Identificação Segura para Registro de Lead</p>
         
         <div class="space-y-4">
             <input type="text" id="lead-nome" placeholder="Nome ou Codinome" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl focus:border-amber-500 outline-none transition text-white text-sm">
@@ -111,25 +133,27 @@
             <input type="text" id="lead-whatsapp" placeholder="WhatsApp para contato" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl focus:border-amber-500 outline-none transition text-white text-sm">
    
             <button onclick="enviarSolicitacaoAurum()" class="btn-gold w-full py-5 rounded-xl uppercase tracking-[0.2em] shadow-2xl font-black text-sm">
-                🚀 Obter Meu Cartão Aurum
+                🚀 Finalizar e Acessar Portal Aurum
             </button>
         </div>
 
-        <a href="https://dionefolador.com/aurumcard.pdf" target="_blank" rel="noopener noreferrer" 
-          class="mt-6 text-gray-500 hover:text-amber-500 text-[10px] uppercase tracking-[0.1em] transition-all flex items-center justify-center gap-2 group">
-            <svg class="w-4 h-4 group-hover:scale-110 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-            </svg>
-            Apresentação e Eventos Globais (PDF)
+        <a href="https://dionefolador.com/aurumcard.pdf" target="_blank"
+          class="mt-8 text-gray-500 hover:text-amber-500 text-[10px] uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 group no-underline">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+            Download Whitepaper Aurum (PDF)
         </a>
     </div>
 
-    <div class="mt-8 glass py-3 px-8 rounded-full border-amber-500/20">
-        <p class="text-amber-500 font-bold text-[10px] uppercase tracking-[0.3em]">A ZEBUBIT PREZA PELA SUA LIBERDADE FINANCEIRA</p>
+    <div class="flex items-center gap-6 opacity-40 grayscale mb-12">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Visa_2021.svg" class="h-5" alt="Visa">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-7" alt="Mastercard">
+    </div>
+
+    <div class="mb-12 glass py-3 px-8 rounded-full border-amber-500/10">
+        <p class="text-amber-500 font-bold text-[9px] uppercase tracking-[0.4em]">Soberania Financeira e Autocustódia • 2026</p>
     </div>
 
 <script>
-    // 1. ENDEREÇO DA SUA PLANILHA (Sincronizado com o seu Google Apps Script)
     const scriptURL = 'https://script.google.com/macros/s/AKfycbztx3iM1DTrSJjMvfeZywDnI2k64NRJx-FX1J9rvmCduLi8iDTCEB-0aCtlWogQH6z8bA/exec';
 
     function enviarSolicitacaoAurum() {
@@ -138,33 +162,25 @@
         const whatsapp = document.getElementById('lead-whatsapp').value;
 
         if(!nome || !email || !whatsapp) {
-            alert('Dione solicita: Por favor, preencha todos os campos para prosseguir com a soberania financeira.');
+            alert('Por favor, preencha todos os campos para garantir seu acesso.');
             return;
         }
 
-        // 2. REGISTRO NO ARQUIVO DE LEADS (PLANILHA DRIVE)
         const params = new URLSearchParams();
         params.append('nome', nome);
         params.append('email', email);
         params.append('whatsapp', whatsapp);
-        params.append('produto', 'CARTÃO AURUM (SOLICITAÇÃO)');
+        params.append('produto', 'HUB CARTÕES - AURUM');
 
-        // Disparo para a planilha em segundo plano
         fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: params })
-        .catch(err => console.log("Erro de rede, mas seguindo para o portal..."));
+        .catch(err => console.log("Erro de registro"));
 
-        // 3. REDIRECIONAMENTO SOBERANO (Com blindagem aplicada)
         const meuLinkIndicacao = 'https://backoffice.aurum.foundation/u/U20120'; 
-
-        // Abrimos o portal com segurança total: 'noopener,noreferrer'
         window.open(meuLinkIndicacao, '_blank', 'noopener,noreferrer');
 
-        // Feedback imediato no formulário
         const btn = document.querySelector('button[onclick="enviarSolicitacaoAurum()"]');
-        btn.innerHTML = "SOLICITAÇÃO ENVIADA!";
-        // Ajuste visual para indicar sucesso
+        btn.innerHTML = "SOLICITAÇÃO REGISTRADA!";
         btn.style.background = "#059669"; 
-        btn.style.color = "#ffffff";
     }
 </script>
 </body>
