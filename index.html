@@ -279,9 +279,11 @@ html {
             animation: pulse-whatsapp 2s infinite;
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(37, 211, 102, 0.8);
+        .whatsapp-float {
+    position: fixed;
+    bottom: 50px !important; /* Subimos o botão para ficar acima da barra */
+    right: 20px;
+    z-index: 10001;
         }
 
         @keyframes pulse-whatsapp {
@@ -390,26 +392,27 @@ html {
 /* NOVO: BARRA DE PREÇOS (TICKER PREMIUM NO RODAPÉ) */
 #ticker-soberano {
     position: fixed;
-    bottom: 0; /* Fixa na base da tela */
+    bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.85); /* Vidro escuro */
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-top: 1px solid rgba(59, 130, 246, 0.3); /* Linha agora no topo da barra */
+    background: rgba(0, 0, 0, 0.95);
+    border-top: 1px solid rgba(59, 130, 246, 0.5);
     z-index: 10000;
-    padding: 12px 0;
+    padding: 8px 0;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    transition: all 0.4s ease;
+    font-family: sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: #fff;
+    backdrop-filter: blur(10px);
 }
 
-.coin-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
+.coin-box { display: flex; align-items: center; gap: 5px; }
+.coin-name { color: #94a3b8; }
+.price-up { color: #22c55e; }
+.price-down { color: #ef4444; }
 }
 
 .coin-box:hover {
@@ -427,7 +430,7 @@ html {
 .price-down { color: #ef4444; font-family: 'Courier New', monospace; font-size: 12px; }
 
 /* IMPORTANTE: Resetamos o topo e damos espaço no fundo do site */
-body { padding-top: 0 !important; padding-bottom: 60px !important; }
+body { padding-bottom: 50px !important; }
 
 </style>
 <body class="bg-black">
