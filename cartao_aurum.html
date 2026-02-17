@@ -154,11 +154,50 @@
     70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
+
+/* CURSOR ANIMADO AURUM - INTEGRADO */
+#magic-cursor {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    background: #f59e0b;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 100000; /* Acima de tudo, inclusive do spotlight */
+    transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 0;
+    font-weight: 900;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+}
+
+#magic-cursor.active {
+    width: 115px;
+    height: 115px;
+    background: rgba(245, 158, 11, 0.98);
+    font-size: 10px;
+    letter-spacing: 1px;
+    box-shadow: 0 0 40px rgba(245, 158, 11, 0.5);
+}
+
+/* Esconde o cursor padrão em telas grandes */
+@media (min-width: 1024px) {
+    body, a, button, #spotlight { cursor: none !important; }
+}
+
     </style>
 </head>
 <body class="min-h-screen py-8 px-4 flex flex-col items-center">
+    <div id="magic-cursor"></div>
+
     <div id="spotlight"></div>
-    
     <div id="video-background"></div>
 
     <div class="max-w-4xl mx-auto text-center mb-10">
@@ -291,18 +330,48 @@
     }
 }, 5000);
 
-        const spotlight = document.getElementById('spotlight');
-window.addEventListener('mousemove', e => {
-    spotlight.style.setProperty('--x', e.clientX + 'px');
-    spotlight.style.setProperty('--y', e.clientY + 'px');
-});
-    </script>
+// INTELIGÊNCIA DO CURSOR + SPOTLIGHT
+const spotlight = document.getElementById('spotlight');
+const cursor = document.getElementById('magic-cursor');
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <a href="https://wa.me/5534993421500?text=Olá+Dione,+estou+no+Hub+de+Cartões+e+tenho+uma+dúvida." 
-       class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-        <span class="whatsapp-notify" id="notify-hub">1</span>
-    </a>
+window.addEventListener('mousemove', e => {
+    const x = e.clientX;
+    const y = e.clientY;
+
+    // Move a Lanterna (Spotlight)
+    spotlight.style.setProperty('--x', x + 'px');
+    spotlight.style.setProperty('--y', y + 'px');
+
+    // Move o Cursor Aurum
+    cursor.style.left = x + 'px';
+    cursor.style.top = y + 'px';
+});
+
+// EFEITO DE EXPANSÃO NOS BOTÕES
+const interactiveElements = document.querySelectorAll('a, button, .card-premium');
+interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        cursor.classList.add('active');
+        // Texto dinâmico para o Hub
+        if (el.classList.contains('whatsapp-float')) {
+            cursor.innerHTML = 'SUPORTE';
+        } else {
+            cursor.innerHTML = 'ACESSAR';
+        }
+    });
+    
+    el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('active');
+        cursor.innerHTML = '';
+    });
+});
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<a href="https://wa.me/5534993421500?text=Olá+Dione,+estou+no+Hub+de+Cartões+e+tenho+uma+dúvida." 
+   class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-notify" id="notify-hub">1</span>
+</a>
 </body>
 </html>
