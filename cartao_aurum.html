@@ -199,8 +199,24 @@
             border: 2px solid #f59e0b;
         }
 
-        @media (min-width: 1024px) {
+        /* CONFIGURAÇÃO PARA PC (DESKTOP) */
+        @media (min-width: 1025px) {
             body, a, button, #spotlight, .card-premium { cursor: none !important; }
+        }
+
+        /* CONFIGURAÇÃO PARA CELULAR E TABLET (MOBILE) */
+        @media (max-width: 1024px) {
+            #magic-cursor, #spotlight {
+                display: none !important;
+            }
+            body, a, button {
+                cursor: auto !important;
+            }
+            /* Remove a inclinação 3D no celular para não bugar o toque */
+            .card-premium, .glass {
+                transform: none !important;
+                transition: none !important;
+            }
         }
     </style>
 </head>
@@ -336,22 +352,29 @@
         if (notify) notify.classList.add('show');
     }, 5000);
 
-    // 3. INTELIGÊNCIA UNIFICADA: MOUSE, CURSOR, SPOTLIGHT E TILT 3D
+    // 3. INTELIGÊNCIA UNIFICADA (DESKTOP ONLY PARA PERFORMANCE)
     const spotlight = document.getElementById('spotlight');
     const cursor = document.getElementById('magic-cursor');
     const cards = document.querySelectorAll('.glass');
 
     window.addEventListener('mousemove', e => {
+        // Bloqueia a execução se for celular (evita lag no touch)
+        if (window.innerWidth <= 1024) return;
+
         const x = e.clientX;
         const y = e.clientY;
 
         // Movimento Spotlight e Moeda Bitcoin
-        spotlight.style.setProperty('--x', x + 'px');
-        spotlight.style.setProperty('--y', y + 'px');
-        cursor.style.left = x + 'px';
-        cursor.style.top = y + 'px';
+        if (spotlight) {
+            spotlight.style.setProperty('--x', x + 'px');
+            spotlight.style.setProperty('--y', y + 'px');
+        }
+        if (cursor) {
+            cursor.style.left = x + 'px';
+            cursor.style.top = y + 'px';
+        }
 
-        // Lógica de Inclinação 3D nos Cards
+        // Lógica de Inclinação 3D nos Cards (Apenas Desktop)
         cards.forEach(card => {
             const rect = card.getBoundingClientRect();
             if (x > rect.left && x < rect.right && y > rect.top && y < rect.bottom) {
@@ -366,24 +389,28 @@
         });
     });
 
-    // 4. FRASES DINÂMICAS NA MOEDA
+    // 4. FRASES DINÂMICAS NA MOEDA (ATIVO APENAS SE CURSOR EXISTIR/DESKTOP)
     const interactiveElements = document.querySelectorAll('a, button, .glass, .whatsapp-float');
 
     interactiveElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
-            cursor.classList.add('active');
-            const textoBotao = el.innerText ? el.innerText.toUpperCase() : '';
+            if (window.innerWidth > 1024 && cursor) {
+                cursor.classList.add('active');
+                const textoBotao = el.innerText ? el.innerText.toUpperCase() : '';
 
-            if (textoBotao.includes('AURUM')) cursor.innerHTML = 'ELITE BLACK'; 
-            else if (textoBotao.includes('ETHER.FI')) cursor.innerHTML = 'GOLD CASH ⚡';
-            else if (textoBotao.includes('DESBLOQUEAR')) cursor.innerHTML = 'LIBERAR 🔓';
-            else if (el.classList.contains('whatsapp-float')) cursor.innerHTML = 'CHAMAR';
-            else cursor.innerHTML = 'VER MAIS';
+                if (textoBotao.includes('AURUM')) cursor.innerHTML = 'ELITE BLACK'; 
+                else if (textoBotao.includes('ETHER.FI')) cursor.innerHTML = 'GOLD CASH ⚡';
+                else if (textoBotao.includes('DESBLOQUEAR')) cursor.innerHTML = 'LIBERAR 🔓';
+                else if (el.classList.contains('whatsapp-float')) cursor.innerHTML = 'CHAMAR';
+                else cursor.innerHTML = 'VER MAIS';
+            }
         });
         
         el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('active');
-            cursor.innerHTML = '';
+            if (cursor) {
+                cursor.classList.remove('active');
+                cursor.innerHTML = '';
+            }
         });
     });
 </script>
