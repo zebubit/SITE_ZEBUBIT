@@ -354,21 +354,23 @@ interactiveElements.forEach(el => {
     el.addEventListener('mouseenter', () => {
         cursor.classList.add('active');
         
-        // --- CONFIGURAÇÃO DE FRASES POR BOTÃO ---
-        const textoBotao = el.innerText.toLowerCase();
-        const linkBotao = el.href ? el.href.toLowerCase() : '';
+        // Captura o texto de dentro do botão para decidir a frase
+        const textoBotao = el.innerText.toUpperCase();
 
-        if (linkBotao.includes('wa.me') || el.classList.contains('whatsapp-float')) {
-            cursor.innerHTML = 'SUPORTE VIP'; // No WhatsApp
+        if (textoBotao.includes('AURUM')) {
+            cursor.innerHTML = 'ELITE GOLD'; 
         } 
-        else if (textoBotao.includes('solicitar') || textoBotao.includes('acesso')) {
-            cursor.innerHTML = 'QUERO O MEU 💳'; // Nos botões de cartão
+        else if (textoBotao.includes('ETHER.FI')) {
+            cursor.innerHTML = 'CRYPTO ⚡';
         }
-        else if (textoBotao.includes('voltar') || linkBotao.includes('index')) {
-            cursor.innerHTML = 'RETORNAR'; // Se tiver botão de voltar
+        else if (textoBotao.includes('DESBLOQUEAR')) {
+            cursor.innerHTML = 'LIBERAR 🔓';
+        }
+        else if (el.classList.contains('whatsapp-float')) {
+            cursor.innerHTML = 'CHAMAR';
         }
         else {
-            cursor.innerHTML = 'EXPLORAR'; // Padrão para o resto
+            cursor.innerHTML = 'VER MAIS';
         }
     });
     
