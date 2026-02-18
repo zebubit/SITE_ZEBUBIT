@@ -149,7 +149,11 @@
     }
     @keyframes shine-effect { 0% { left: -60%; } 20% { left: 120%; } 100% { left: 120%; } }
 
-    /* 6. TICKER, SPOTLIGHT E SOCIAL PROOF (AUDITADO) */
+    Aqui está o bloco da Seção 6 atualizado. Nele, eu aumentei a notificação para o tamanho ideal (300px) e já incluí o efeito de movimento (Tilt 3D) para a sua revista não ficar mais estática.
+
+🛠️ Substitua a sua seleção por este bloco:
+CSS
+    /* 6. TICKER, SPOTLIGHT E SOCIAL PROOF (AUDITADO E AMPLIADO) */
     #ticker-soberano { 
         position: fixed; bottom: 0; left: 0; width: 100%; 
         background: rgba(0, 0, 0, 0.95); border-top: 1px solid rgba(59, 130, 246, 0.5); 
@@ -163,28 +167,39 @@
         background: radial-gradient(circle 250px at var(--x) var(--y), rgba(245, 158, 11, 0.15), transparent 80%); 
     }
 
-    /* NOTIFICAÇÃO ENCOLHIDA E DISCRETA */
+    /* NOTIFICAÇÃO COM TAMANHO IDEAL (300px) */
     #notification-container {
-        position: fixed; bottom: 85px; left: 15px; z-index: 10002;
-        background: rgba(10, 10, 10, 0.98); border: 1px solid #3b82f6; border-radius: 10px;
-        padding: 8px 12px; display: none; align-items: center; gap: 10px;
-        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.9); 
-        max-width: 250px; /* Impede que ela cresça demais */
+        position: fixed; bottom: 85px; left: 20px; z-index: 10002;
+        background: rgba(10, 10, 10, 0.98); border: 1px solid #3b82f6; border-radius: 12px;
+        padding: 12px 18px; display: none; align-items: center; gap: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 1); 
+        min-width: 300px; /* Aumentado para dar mais presença */
         animation: slideIn 0.6s ease-out;
     }
 
-    /* Ajuste da imagem dentro da notificação */
-    .notif-img { width: 35px !important; height: 35px !important; border-radius: 50%; border: 1px solid #3b82f6; }
-
-    /* Ajuste do texto dentro da notificação */
-    .notif-text { font-size: 11px !important; color: #fff; line-height: 1.2; font-family: sans-serif; }
-    .notif-text b { color: #3b82f6; font-size: 12px !important; display: block; margin-bottom: 2px; }
+    .notif-img { width: 45px !important; height: 45px !important; border-radius: 50%; border: 1px solid #3b82f6; }
+    .notif-text { font-size: 13px !important; color: #fff; line-height: 1.4; font-family: sans-serif; }
+    .notif-text b { color: #3b82f6; font-size: 15px !important; display: block; margin-bottom: 2px; }
 
     @keyframes slideIn { from { transform: translateX(-120%); } to { transform: translateX(0); } }
 
+    /* EFEITO DE MOVIMENTO NA REVISTA (TILT 3D) */
+    img[src*="Revista"] {
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        cursor: pointer;
+        will-change: transform;
+    }
+
+    img[src*="Revista"]:hover {
+        transform: perspective(1200px) rotateY(-15deg) rotateX(5deg) scale(1.05) !important;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.8) !important;
+        z-index: 50;
+    }
+
     /* 7. FAQ E CARROSSEL */
-    .faq-item { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 1rem; overflow: hidden; margin-bottom: 10px; }
-    .faq-question { width: 100%; padding: 1.5rem; display: flex; justify-content: space-between; cursor: pointer; color: white; font-weight: 600; background: none; border: none; }
+    .faq-item { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 1rem; overflow: hidden; margin-bottom: 10px; transition: all 0.3s ease; }
+    .faq-item:hover { border-color: rgba(245, 158, 11, 0.3); background: rgba(255, 255, 255, 0.05); }
+    .faq-question { width: 100%; padding: 1.5rem; display: flex; justify-content: space-between; cursor: pointer; color: white; font-weight: 600; background: none; border: none; align-items: center; }
     .faq-answer { max-height: 0; overflow: hidden; transition: all 0.3s ease-out; background: rgba(0, 0, 0, 0.2); }
     .faq-item.active .faq-answer { max-height: 500px; }
     .faq-icon { transition: transform 0.3s ease; color: #f59e0b; }
@@ -203,9 +218,33 @@
         #notification-container { bottom: 80px; left: 10px; min-width: 280px; }
     }
 
-        /* ESCONDE TEXTOS QUE FICARAM SOLTOS NO HTML */
-    #exit-modal, .exit-content, #exit-card { display: none; }
-        
+    /* 9. MODAL DE SAÍDA - SISTEMA INTELIGENTE */
+    #exit-modal {
+        display: none; /* Começa escondido para não poluir sua foto */
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        justify-content: center;
+        align-items: center;
+        z-index: 30000;
+    }
+
+    /* Esta classe será ativada pelo JavaScript ao tentar sair */
+    #exit-modal.active {
+        display: flex !important;
+    }
+
+    #exit-card {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(0, 0, 0, 1));
+        border: 2px solid rgba(59, 130, 246, 0.4);
+        padding: 40px;
+        border-radius: 24px;
+        text-align: center;
+        max-width: 450px;
+        box-shadow: 0 0 50px rgba(59, 130, 246, 0.3);
+    }
 </style>
 <body class="bg-black">
 
