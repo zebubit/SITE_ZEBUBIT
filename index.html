@@ -149,17 +149,37 @@
     }
     @keyframes shine-effect { 0% { left: -60%; } 20% { left: 120%; } 100% { left: 120%; } }
 
-    /* 6. TICKER, SPOTLIGHT E SOCIAL PROOF */
-    #ticker-soberano { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0, 0, 0, 0.95); border-top: 1px solid rgba(59, 130, 246, 0.5); z-index: 10000; padding: 8px 0; display: flex; justify-content: space-evenly; align-items: center; backdrop-filter: blur(10px); }
-    
-    #spotlight { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; background: radial-gradient(circle 250px at var(--x) var(--y), rgba(245, 158, 11, 0.15), transparent 80%); }
-
-    #notification-container {
-        position: fixed; bottom: 90px; left: 20px; z-index: 10002;
-        background: rgba(15, 15, 15, 0.98); border: 1px solid #3b82f6; border-radius: 12px;
-        padding: 15px 20px; display: none; align-items: center; gap: 15px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8); min-width: 300px; animation: slideIn 0.6s ease-out;
+    /* 6. TICKER, SPOTLIGHT E SOCIAL PROOF (AUDITADO) */
+    #ticker-soberano { 
+        position: fixed; bottom: 0; left: 0; width: 100%; 
+        background: rgba(0, 0, 0, 0.95); border-top: 1px solid rgba(59, 130, 246, 0.5); 
+        z-index: 10000; padding: 8px 0; display: flex; 
+        justify-content: space-evenly; align-items: center; backdrop-filter: blur(10px); 
     }
+    
+    #spotlight { 
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+        pointer-events: none; z-index: 1; 
+        background: radial-gradient(circle 250px at var(--x) var(--y), rgba(245, 158, 11, 0.15), transparent 80%); 
+    }
+
+    /* NOTIFICAÇÃO ENCOLHIDA E DISCRETA */
+    #notification-container {
+        position: fixed; bottom: 85px; left: 15px; z-index: 10002;
+        background: rgba(10, 10, 10, 0.98); border: 1px solid #3b82f6; border-radius: 10px;
+        padding: 8px 12px; display: none; align-items: center; gap: 10px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.9); 
+        max-width: 250px; /* Impede que ela cresça demais */
+        animation: slideIn 0.6s ease-out;
+    }
+
+    /* Ajuste da imagem dentro da notificação */
+    .notif-img { width: 35px !important; height: 35px !important; border-radius: 50%; border: 1px solid #3b82f6; }
+
+    /* Ajuste do texto dentro da notificação */
+    .notif-text { font-size: 11px !important; color: #fff; line-height: 1.2; font-family: sans-serif; }
+    .notif-text b { color: #3b82f6; font-size: 12px !important; display: block; margin-bottom: 2px; }
+
     @keyframes slideIn { from { transform: translateX(-120%); } to { transform: translateX(0); } }
 
     /* 7. FAQ E CARROSSEL */
@@ -182,6 +202,10 @@
         .whatsapp-float { bottom: 70px !important; }
         #notification-container { bottom: 80px; left: 10px; min-width: 280px; }
     }
+
+        /* ESCONDE TEXTOS QUE FICARAM SOLTOS NO HTML */
+    #exit-modal, .exit-content, #exit-card { display: none; }
+        
 </style>
 <body class="bg-black">
 
