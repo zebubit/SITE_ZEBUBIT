@@ -81,20 +81,29 @@ html {
         z-index: 50;
     }
 
-   /* 2. BODY EQUILIBRADO */
+   /* 2. BODY EQUILIBRADO COM PROTEÇÃO DE CONTRASTE */
         body { 
             font-family: 'Montserrat', sans-serif; 
             background-color: #000; 
             color: #e5e5e5; 
             overflow-x: hidden;
             
-            background-image: url('SITE33.webp'); 
-            background-attachment: scroll; 
+            /* Criamos uma sobreposição escura sobre a imagem para destacar os logos */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('SITE33.webp');
+            background-attachment: fixed; 
             
-            /* Ajuste para não ficar 'gigante' */
-            background-size: contain; 
+            background-size: cover; /* Mudei para cover para preencher melhor sem distorcer */
             background-position: center top; 
-            background-repeat: repeat-y; /* Repete para baixo se o site for longo */
+            background-repeat: no-repeat;
+        }
+
+        /* FORÇAR NITIDEZ NOS LOGOS */
+        .logo-footer, img[alt*="Visa"], img[alt*="Mastercard"] {
+            filter: brightness(1.2) contrast(1.1) !important;
+            opacity: 1 !important;
+            z-index: 10;
+            position: relative;
+        }
         }
 
         /* Ajuste para Desktop (MacBook) */
