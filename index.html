@@ -9,6 +9,14 @@
       gtag('config', 'G-CR8X94R6J6');
     </script>
 
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; 
+                   script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://cdn.tailwindcss.com; 
+                   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+                   font-src https://fonts.gstatic.com;
+                   img-src 'self' https: data:;
+                   connect-src 'self' https://api.coingecko.com https://script.google.com https://www.google-analytics.com;">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dione Folador | Soberania Digital & Investimentos</title>
@@ -1638,34 +1646,48 @@ body { padding-bottom: 100px !important; }
         m.style.display = 'flex'; // ESSENCIAL: Faz o modal aparecer no centro
     }
 
-    // 6. CAPTURA DE LEADS E FLUXO DE PAGAMENTO
+    // 6. CAPTURA DE LEADS E FLUXO DE PAGAMENTO (OTIMIZADO)
     function irParaPagamento() { 
-        const nome = document.getElementById('nome').value;
-        const email = document.getElementById('email').value;
-        const whatsapp = document.getElementById('whatsapp').value;
+        const nome = document.getElementById('nome').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const whatsapp = document.getElementById('whatsapp').value.trim();
         const lgpd = document.getElementById('lgpd').checked;
 
+        // Validação Robusta
         if(!nome || !email || !whatsapp || !lgpd) { 
-            alert("Por favor, preencha seus dados e aceite os termos para avançarmos."); 
+            alert("Por favor, preencha todos os campos e aceite os termos para prosseguir com sua reserva de soberania."); 
             return; 
         }
 
+        // Preparação dos parâmetros para o Google Apps Script
         const params = new URLSearchParams();
         params.append('nome', nome);
         params.append('email', email);
         params.append('whatsapp', whatsapp);
-        params.append('produto', nomeProdutoAtual); 
+        params.append('produto', nomeProdutoAtual || "PRODUTO SOBERANIA"); 
 
-        fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: params })
-        .catch(error => console.error('Erro ao registrar lead:', error));
+        // Envio Seguro (Compatível com a CSP implementada no Passo 1)
+        fetch(scriptURL, { 
+            method: 'POST', 
+            mode: 'no-cors', 
+            body: params 
+        })
+        .then(() => console.log('Lead registrado estrategicamente.'))
+        .catch(error => console.error('Erro na comunicação com o servidor de leads:', error));
 
-        // Transição entre Modais
-        document.getElementById('modalDados').classList.add('hidden'); 
-        document.getElementById('modalDados').style.display = 'none';
-        
+        // Transição Fluida entre Modais
+        const mDados = document.getElementById('modalDados');
         const mPagamento = document.getElementById('modalPagamentoEscolha');
-        mPagamento.classList.remove('hidden'); 
-        mPagamento.style.display = 'flex'; // Abre a escolha de pagamento centralizada
+
+        if (mDados) {
+            mDados.classList.add('hidden'); 
+            mDados.style.display = 'none';
+        }
+        
+        if (mPagamento) {
+            mPagamento.classList.remove('hidden'); 
+            mPagamento.style.display = 'flex'; // Abre a escolha de pagamento centralizada
+        }
     }
 
     // 7. FINALIZAÇÃO DE PAGAMENTO (AJUSTADO)
@@ -1875,6 +1897,18 @@ body { padding-bottom: 100px !important; }
         }
     });
 </script>
+
+    <div id="lgpd-banner" style="display: none; position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 500px; background: rgba(10, 10, 10, 0.98); border: 1px solid rgba(245, 158, 11, 0.5); backdrop-filter: blur(20px); padding: 25px; border-radius: 24px; z-index: 10005; box-shadow: 0 25px 60px rgba(0,0,0,1); text-align: center;">
+        <div style="margin-bottom: 15px;">
+            <span style="color: #f59e0b; font-weight: 900; font-size: 10px; uppercase; tracking-[0.2em]; display: block; margin-bottom: 5px;">Privacidade & Soberania</span>
+            <p style="color: #d1d5db; font-size: 14px; line-height: 1.6; font-family: 'Montserrat', sans-serif;">
+                Utilizamos inteligência de dados para otimizar sua experiência tática. Ao continuar, você concorda com nossa política de segurança.
+            </p>
+        </div>
+        <button onclick="aceitarLGPD()" style="background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%); color: #000; font-weight: 900; text-transform: uppercase; font-size: 11px; padding: 12px 40px; border-radius: 12px; cursor: pointer; border: none; letter-spacing: 2px; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);">
+            Aceitar e Avançar
+        </button>
+    </div>
 
     <div id="notification-container">
         <img src="https://i.pravatar.cc/100" class="notif-img">
