@@ -32,7 +32,7 @@
     <script src="https://cdn.tailwindcss.com"></script> 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
-    /* 1. ESTRUTURA E FUNDO */
+    /* 1. RESET E FUNDO */
     html { scroll-behavior: smooth; }
     body { 
         font-family: 'Montserrat', sans-serif; background-color: #000; color: #e5e5e5; overflow-x: hidden;
@@ -40,55 +40,46 @@
         background-attachment: fixed; background-size: cover; background-position: center top; padding-bottom: 80px !important; 
     }
 
-    /* 2. LOGOS VIVOS (VISA/MASTER) */
-    .logo-footer {
-        filter: drop-shadow(0px 0px 8px rgba(0,0,0,1)) brightness(1.2) contrast(1.1) !important;
-        opacity: 1 !important; max-height: 28px; width: auto;
-        animation: pulse-logos-vivos 2s infinite ease-in-out;
-        z-index: 10; position: relative;
+    /* 2. BOTAO ZAP (RESTAURADO) */
+    .whatsapp-float {
+        position: fixed; bottom: 20px !important; right: 20px;
+        width: 60px; height: 60px; background-color: #25d366; color: #FFF;
+        border-radius: 50px; display: flex; align-items: center; justify-content: center;
+        font-size: 30px; box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); z-index: 9999;
     }
-    @keyframes pulse-logos-vivos { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
 
-    .logo-container { display: flex; align-items: center; justify-content: center; gap: 20px; padding: 15px; background: rgba(0, 0, 0, 0.2); border-radius: 50px; backdrop-filter: blur(5px); }
-
-    /* 3. CARDS E NAVEGAÇÃO */
-    .comentario-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
-    .comentario-card:hover { transform: translateY(-12px) scale(1.02); border-color: rgba(245, 158, 11, 0.6); box-shadow: 0 20px 40px -15px rgba(245, 158, 11, 0.3); background: rgba(20, 20, 20, 0.9) !important; z-index: 50; }
-    .nav-glass { background: rgba(255, 255, 255, 0.02) !important; backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
-    .bg-card-premium { background: rgba(15, 15, 15, 0.8) !important; backdrop-filter: blur(10px); border: 1px solid rgba(245, 158, 11, 0.2); }
-
-    /* 4. WHATSAPP E NOTIFICAÇÃO */
-    .whatsapp-float { position: fixed; bottom: 50px !important; right: 20px; width: 60px; height: 60px; background-color: #25d366; color: #FFF; border-radius: 50px; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); z-index: 10001; animation: pulse-whatsapp 2s infinite; }
-    @keyframes pulse-whatsapp { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
-
-    /* 5. TICKER E MOEDAS (FORÇANDO CORES E IMAGENS) */
-    #ticker-soberano { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0, 0, 0, 0.95); border-top: 1px solid rgba(59, 130, 246, 0.5); z-index: 10000; padding: 10px 0; display: flex !important; }
-    
-    /* Vida nas Moedas - Verde e Vermelho Fortes */
-    .price-up { color: #22c55e !important; font-weight: bold !important; display: inline-block !important; }
-    .price-down { color: #ef4444 !important; font-weight: bold !important; display: inline-block !important; }
-    .coin-box { display: flex !important; align-items: center !important; visibility: visible !important; opacity: 1 !important; }
-    .ticker-track img { width: 22px !important; height: 22px !important; display: block !important; object-fit: contain; }
-
-    /* 6. NOTIFICAÇÃO E REVISTA */
-    #notification-container { position: fixed; bottom: 85px; left: 20px; z-index: 10002; background: rgba(10, 10, 10, 0.98); border: 1px solid #3b82f6; border-radius: 12px; padding: 12px 18px; min-width: 300px; display: none; align-items: center; gap: 12px; box-shadow: 0 10px 30px rgba(0,0,0,1); animation: slideIn 0.6s ease-out; }
-    .notif-img { width: 45px !important; height: 45px !important; border-radius: 50%; border: 1px solid #3b82f6; }
-    
-    img[src*="Revista"] { transition: all 0.6s ease !important; cursor: pointer; will-change: transform; }
-    img[src*="Revista"]:hover { transform: perspective(1200px) rotateY(-15deg) rotateX(5deg) scale(1.05) !important; z-index: 50; filter: brightness(1.1); }
-
-    /* 7. MODAL DE SAÍDA (O GATILHO) */
-    #exit-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(10px); justify-content: center; align-items: center; z-index: 99999; }
-    #exit-modal.active { display: flex !important; }
-
-    /* 8. ADAPTAÇÃO MOBILE */
-    @media (max-width: 1024px) {
-        .whatsapp-float { bottom: 70px !important; }
-        #notification-container { bottom: 80px; left: 10px; min-width: 280px; }
+    /* 3. EBOOKS E CAPAS (TAMANHO CONTROLADO) */
+    .capa-container { width: 100%; max-width: 320px; margin: 0 auto; perspective: 1000px; }
+    img[src*="Revista"], .ebook-img { 
+        max-width: 100%; height: auto; transition: 0.5s; cursor: pointer; 
     }
-    
-    .ticker-track { display: flex; width: fit-content; animation: scroll 45s linear infinite; }
+    img[src*="Revista"]:hover { transform: perspective(1000px) rotateY(-15deg) scale(1.02); }
+
+    /* 4. BOTÃO MENTORIA (O "TOP" DE VOLTA) */
+    .btn-mentoria-viva {
+        background: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #b45309 100%) !important;
+        color: #000 !important; font-weight: 900; padding: 15px 30px; border-radius: 8px;
+        text-transform: uppercase; letter-spacing: 2px; display: inline-block;
+        animation: pulse-gold 2s infinite; border: none !important;
+    }
+    @keyframes pulse-gold { 0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); } 50% { box-shadow: 0 0 0 15px rgba(245, 158, 11, 0); } }
+
+    /* 5. TICKER (PREÇOS ESPALHADOS E COLORIDOS) */
+    #ticker-soberano { 
+        position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0, 0, 0, 0.95); 
+        border-top: 1px solid rgba(59, 130, 246, 0.5); z-index: 10000; padding: 12px 0; 
+    }
+    .ticker-track { display: flex; width: fit-content; animation: scroll 45s linear infinite; gap: 40px; }
+    .coin-box { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+    .price-up { color: #22c55e !important; font-weight: bold; }
+    .price-down { color: #ef4444 !important; font-weight: bold; }
     @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* 6. MODAL DE SAÍDA E LOGOS */
+    #exit-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 100000; justify-content: center; align-items: center; backdrop-filter: blur(10px); }
+    #exit-modal.active { display: flex !important; }
+    .logo-footer { max-height: 25px; filter: brightness(1.2); animation: pulse-logo 2s infinite; }
+    @keyframes pulse-logo { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 </style>
 <body class="bg-black">
 
