@@ -88,18 +88,20 @@ html {
             color: #e5e5e5; 
             overflow-x: hidden;
             
-            background-image: url('SITE33.webp'); 
+            /* Adicionada a película de 50% de preto para dar contraste */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('SITE33.webp'); 
             background-attachment: scroll; 
             
-            /* Ajuste para não ficar 'gigante' */
             background-size: contain; 
             background-position: center top; 
-            background-repeat: repeat-y; /* Repete para baixo se o site for longo */
+            background-repeat: repeat-y;
         }
 
         /* Ajuste para Desktop (MacBook) */
         @media (min-width: 1024px) {
             body {
+                /* Mantendo os 50% de preto também no Desktop */
+                background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('SITE33.webp');
                 background-size: 100vw;
                 background-attachment: fixed;
                 background-position: center -50px;
