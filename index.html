@@ -456,22 +456,22 @@ html {
     font-size: 12px; 
 }
 
-/* NOTIFICAÇÃO DE VENDA (SOCIAL PROOF) - VERSÃO PREMIUM MAIOR */
+/* NOTIFICAÇÃO DE VENDA (SOCIAL PROOF) - MOVIDA PARA O TOPO ESQUERDO */
 #notification-container {
     position: fixed;
-    bottom: 90px; /* Acima da barra de preços */
+    top: 110px; /* Posicionado estrategicamente abaixo do nav-glass */
     left: 20px;
     z-index: 10002;
-    background: rgba(15, 15, 15, 0.98);
+    background: rgba(10, 10, 10, 0.98);
     border: 1px solid #3b82f6;
     border-radius: 12px;
     padding: 15px 20px;
-    display: none; /* Ativado via Script */
+    display: none; 
     align-items: center;
     gap: 15px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
     min-width: 300px;
-    animation: slideIn 0.6s ease-out;
+    animation: slideInFromLeft 0.6s ease-out;
 }
 
 .notif-img {
@@ -479,6 +479,7 @@ html {
     height: 45px;
     border-radius: 50%;
     border: 2px solid #3b82f6;
+    object-fit: cover;
 }
 
 .notif-text { 
@@ -494,9 +495,9 @@ html {
     display: block; 
 }
 
-@keyframes slideIn {
-    from { transform: translateX(-120%); }
-    to { transform: translateX(0); }
+@keyframes slideInFromLeft {
+    from { transform: translateX(-120%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
 }
 
 /* MODAL DE SAÍDA PREMIUM COM CRONÔMETRO */
