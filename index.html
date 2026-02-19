@@ -294,7 +294,7 @@ html {
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* ESTILO DO FAQ */
+       /* ESTILO DO FAQ */
         .faq-item {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -347,49 +347,55 @@ html {
         }
 
         @keyframes scroll-logos {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-.animate-scroll-logos {
-    display: flex;
-    width: max-content;
-    animation: scroll-logos 30s linear infinite;
-}
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
 
+        .animate-scroll-logos {
+            display: flex;
+            width: max-content;
+            animation: scroll-logos 30s linear infinite;
+        }
+
+        /* AJUSTE DE NITIDEZ DOS LOGOS (VISA/MASTER) */
         @keyframes neon-glow {
-        0%, 100% {
-            filter: grayscale(100%) opacity(30%);
-            transform: scale(1);
+            0%, 100% {
+                /* Sombra preta para destacar na foto clara e transparência suave */
+                filter: grayscale(100%) opacity(0.4) drop-shadow(0 0 2px rgba(0,0,0,0.8));
+                transform: scale(1);
+            }
+            50% {
+                /* Brilho neon, cores vivas e nitidez máxima */
+                filter: grayscale(0%) opacity(1) drop-shadow(0 0 12px rgba(255, 255, 255, 0.4)) contrast(1.2);
+                transform: scale(1.08);
+            }
         }
-        50% {
-            filter: grayscale(0%) opacity(100%) drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
-            transform: scale(1.05);
+
+        .atencao-global-animada {
+            animation: neon-glow 3s ease-in-out infinite;
+            display: inline-block;
+            will-change: transform, filter;
         }
-    }
 
-    .atencao-global-animada {
-        animation: neon-glow 3s ease-in-out infinite;
-    }
-
-    .delay-master {
-        animation-delay: 1.5s;
-    }
+        .delay-master {
+            animation-delay: 1.5s;
+        }
 
         /* EFEITO SPOTLIGHT DE ELITE */
-#spotlight {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-    background: radial-gradient(
-        circle 250px at var(--x) var(--y), 
-        rgba(245, 158, 11, 0.15), 
-        transparent 80%
-    );
-}
+        #spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(
+                circle 250px at var(--x) var(--y), 
+                rgba(245, 158, 11, 0.15), 
+                transparent 80%
+            );
+        }
 
 /* NOVO: BARRA DE PREÇOS (TICKER PREMIUM NO RODAPÉ) */
 #ticker-soberano {
