@@ -9,24 +9,34 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('SITE33.webp');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    z-index: -1;
+    will-change: transform;
+}
+
 body { 
     font-family: 'Montserrat', sans-serif; 
     background-color: #000; 
     color: #e5e5e5; 
     overflow-x: hidden;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('SITE33.webp'); 
-    background-size: contain; 
-    background-position: center top; 
-    background-repeat: repeat-y;
+    margin: 0;
     padding-bottom: 120px !important;
 }
 
 @media (min-width: 1024px) {
-    body {
+    body::before {
         background-size: 100vw;
-        background-attachment: fixed;
         background-position: center -50px;
-        background-repeat: no-repeat;
     }
 }
 
