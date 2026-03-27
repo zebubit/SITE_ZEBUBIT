@@ -1,0 +1,23 @@
+# Dione Folador | Strategic Intelligence
+# https://dionefolador.com/
+
+User-agent: *
+Allow: /
+# Bloqueios de Segurança e Arquivos Internos
+Disallow: /PIX00.jpeg
+Disallow: /PIX39.pdf
+Disallow: /PIX59.pdf
+Disallow: /PIXEMBRANCO.pdf
+Disallow: /README.md
+Disallow: /private/
+Disallow: /config/
+Disallow: /backup/
+
+# Proteção de Conteúdo Estratégico (Evita que IAs usem seu conteúdo sem pagar)
+User-agent: GPTBot
+Disallow: /
+User-agent: CCBot
+Disallow: /
+
+# Indicação do Mapa para o Google
+Sitemap: https://dionefolador.com/sitemap.xml

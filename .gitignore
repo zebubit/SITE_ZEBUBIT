@@ -1,0 +1,15 @@
+# Pastas de arquivos antigos/substituídos
+FOTOS  E ARQUIVOS VELHOS  /
+FOTOS  SUBISTITUIDAS/
+NAO NESSESSARIO/
+
+# PDFs de pagamento (dados sensíveis)
+PIX39.pdf
+PIX59.pdf
+PIXEMBRANCO.pdf
+
+# Vídeos (arquivos grandes, não necessários no repositório)
+VIDEOS/
+
+# Sistema
+.DS_Store

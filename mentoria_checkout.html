@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CR8X94R6J6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CR8X94R6J6');
+    </script>
+
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; 
+                   script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://cdn.tailwindcss.com;
+                   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+                   font-src https://fonts.gstatic.com;
+                   img-src 'self' https: data:;
+                   connect-src 'self' https://script.google.com https://www.google-analytics.com;">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Mentoria | Dione Folador</title>
+    
+    <link rel="icon" type="image/webp" href="SITE33.webp">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+    body { 
+        font-family: 'Montserrat', sans-serif; 
+        background-color: #000; 
+        color: #fff; 
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        
+        /* AJUSTE PARA A FOTO FICAR NO MÁXIMO TOPO */
+        background-image: url('mento1.webp'); 
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center top; /* Garante que o topo da foto apareça primeiro */
+    }
+
+    .font-serif { font-family: 'Playfair Display', serif; }
+
+    #video-background {
+        position: fixed;
+        top: 0; /* Alinhado ao topo absoluto */
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        object-fit: cover;
+        object-position: top; /* Se estiver usando vídeo, ele também cola no topo */
+        display: block; 
+    }
+
+    /* O restante das suas classes (glass, subir-sessao, btn-gold) continuam iguais */
+    .glass { 
+        background: rgba(0, 0, 0, 0.75); 
+        backdrop-filter: blur(15px); 
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1); 
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* EFEITO DE SALTAR E DESTACAR AO PASSAR O MOUSE */
+    .glass:hover {
+        transform: translateY(-15px) scale(1.02); /* Faz o pacote subir e crescer levemente */
+        border-color: rgba(245, 158, 11, 0.5); /* Acende a borda em dourado */
+        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.9), 0 0 20px rgba(245, 158, 11, 0.2);
+        background: rgba(255, 255, 255, 0.03); /* Dá um leve brilho interno */
+    }
+
+   /* Empurra os pacotes para o rodapé */
+    .subir-sessao { margin-top: 90px; } 
+
+    /* Estilo do botão dourado */
+    .btn-gold { 
+        background: linear-gradient(to right, #d97706, #f59e0b); 
+        color: #000;
+        font-weight: 900;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Efeito ao passar o mouse no botão */
+    .btn-gold:hover { 
+        transform: scale(1.05); 
+        box-shadow: 0 0 25px rgba(245, 158, 11, 0.5); 
+    }
+</style>
+</head>
+<body class="min-h-screen py-4 px-4 bg-black">
+
+    <video autoplay muted loop playsinline id="video-background">
+        <source src=".mp4" type="video/mp4">
+        Seu navegador não suporta vídeos.
+    </video>
+
+    <div class="max-w-4xl mx-auto text-center mb-8">
+        <h1 class="text-5xl md:text-6xl font-serif font-bold text-white mb-2 italic">Private Strategy</h1>
+        <p class="text-amber-500 font-bold text-xs uppercase tracking-[0.5em]">Consultoria Estratégica Individual</p>
+    </div>
+
+    <div class="max-w-2xl mx-auto glass p-8 rounded-[2.5rem] mb-12">
+        <h3 class="text-sm font-bold mb-6 text-center uppercase tracking-[0.3em] text-gray-200">Passo 1: Identificação do Cliente</h3>
+        <div class="space-y-4">
+            <input type="text" id="lead-nome" placeholder="Seu Nome Completo" class="w-full bg-white/5 border border-white/10 p-4 rounded-2xl focus:border-amber-500 outline-none transition text-white">
+            <input type="email" id="lead-email" placeholder="Seu Melhor E-mail" class="w-full bg-white/5 border border-white/10 p-4 rounded-2xl focus:border-amber-500 outline-none transition text-white">
+            <input type="tel" id="lead-whatsapp" placeholder="WhatsApp para contato" class="w-full bg-white/5 border border-white/10 p-4 rounded-2xl focus:border-amber-500 outline-none transition text-white">
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto subir-sessao">
+        <h3 class="text-sm font-bold mb-8 text-center uppercase tracking-[0.3em] text-gray-200 text-shadow-lg">Passo 2: Seleção do Plano</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div class="glass p-8 rounded-[2rem] flex flex-col justify-between border-white/5 hover:border-amber-500/40 transition-all group">
+                <div class="text-center">
+                    <span class="text-[10px] text-gray-500 uppercase font-black">Sessão Única</span>
+                    <h4 class="text-2xl font-bold text-white mt-2">1 Aula</h4>
+                    <p class="text-amber-500 text-2xl font-black mt-2">R$ 1.199</p>
+                </div>
+                <button onclick="irParaPagamento('1 Aula')" class="btn-gold w-full py-4 rounded-xl uppercase text-[10px] tracking-widest mt-6">Contratar Agora</button>
+            </div>
+
+            <div class="glass p-10 rounded-[2rem] flex flex-col justify-between border-white/5 hover:border-amber-500/40 transition-all group">
+                <div class="text-center">
+                    <span class="text-[10px] text-gray-500 uppercase font-black">Combo Silver</span>
+                    <h4 class="text-2xl font-bold text-white mt-2">4 Sessões</h4>
+                    <p class="text-amber-500 text-2xl font-black mt-2">R$ 3.999</p>
+                </div>
+                <button onclick="irParaPagamento('4 Sessões')" class="btn-gold w-full py-4 rounded-xl uppercase text-[10px] tracking-widest mt-6">Contratar Agora</button>
+            </div>
+
+            <div class="glass p-8 rounded-[2rem] flex flex-col justify-between border-amber-500/60 relative bg-amber-500/5 shadow-[0_0_40px_rgba(245,158,11,0.1)]">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-500 text-black text-[9px] font-black px-4 py-1 rounded-full uppercase">Mais Procurado</div>
+                <div class="text-center">
+                    <span class="text-[10px] text-amber-500 uppercase font-black">Combo Gold</span>
+                    <h4 class="text-2xl font-bold text-white mt-2">8 Sessões</h4>
+                    <p class="text-amber-500 text-2xl font-black mt-2">R$ 7.199</p>
+                </div>
+                <button onclick="irParaPagamento('8 Sessões')" class="btn-gold w-full py-4 rounded-xl uppercase text-[10px] tracking-widest mt-6 scale-105 shadow-lg">Contratar Agora</button>
+            </div>
+
+            <div class="glass p-8 rounded-[2rem] flex flex-col justify-between border-white/5 hover:border-amber-500/40 transition-all group">
+                <div class="text-center">
+                    <span class="text-[10px] text-gray-500 uppercase font-black">Combo Black</span>
+                    <h4 class="text-2xl font-bold text-white mt-2">12 Sessões</h4>
+                    <p class="text-amber-500 text-2xl font-black mt-2">R$ 9.999</p>
+                </div>
+                <button onclick="irParaPagamento('12 Sessões')" class="btn-gold w-full py-4 rounded-xl uppercase text-[10px] tracking-widest mt-6">Contratar Agora</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+    // 1. CONEXÃO OFICIAL ZEBU BIT
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbztx3iM1DTrSJjMvfeZywDnI2k64NRJx-FX1J9rvmCduLi8iDTCEB-0aCtlWogQH6z8bA/exec';
+
+    function irParaPagamento(plano) {
+    const nome = document.getElementById('lead-nome').value;
+    const email = document.getElementById('lead-email').value;
+    const whatsapp = document.getElementById('lead-whatsapp').value; // Certifique-se que o ID é igual ao do HTML acima
+
+    if(!nome || !email || !whatsapp) {
+        alert('Dione solicita: Por favor, preencha todos os campos para prosseguir.');
+        return;
+    }
+
+    const params = new URLSearchParams();
+    params.append('nome', nome);
+    params.append('email', email);
+    params.append('whatsapp', whatsapp); // Agora o dado vai subir para a planilha
+    params.append('produto', `MENTORIA: ${plano}`);
+
+        fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: params })
+        .catch(error => console.error('Erro ao salvar lead:', error));
+
+        // 3. DEFINIÇÃO DE LINKS DE CHECKOUT (MERCADO PAGO)
+        const checkouts = {
+            '1 Aula': 'https://mpago.li/2tEsTbm',
+            '4 Sessões': 'https://mpago.la/1FyNA68',
+            '8 Sessões': 'https://mpago.la/1mipF5f',
+            '12 Sessões': 'https://mpago.la/1rWmgx9'
+        };
+
+        const linkFinal = checkouts[plano];
+
+        // 4. PREPARAÇÃO DO WHATSAPP
+        const mensagem = `Dione, tenho interesse na Mentoria!\nCliente: ${nome}\nE-mail: ${email}\nPlano: ${plano}`;
+        const urlWhats = `https://api.whatsapp.com/send?phone=5534993421500&text=${encodeURIComponent(mensagem)}`;
+
+        // 5. EXECUÇÃO DO FLUXO (PLANILHA -> WHATSAPP -> PAGAMENTO)
+        if(linkFinal && linkFinal.includes('mpago.')) {
+            
+            // Abre o WhatsApp em uma nova aba blindada (0.8s)
+            // Agora com segurança total contra sequestro de aba
+            setTimeout(() => {
+                window.open(urlWhats, '_blank', 'noopener,noreferrer');
+            }, 800); 
+
+            // Redireciona para o Mercado Pago após 3.5 segundos
+            setTimeout(() => {
+                window.location.href = linkFinal;
+            }, 3500); 
+
+        } else {
+            // Caso o link não exista, abre o suporte com blindagem também
+            alert('Lead registrado! Redirecionando para o suporte via WhatsApp.');
+            window.open(urlWhats, '_blank', 'noopener,noreferrer');
+        }
+    }
+    
+</script>
+</body>
+</html>

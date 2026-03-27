@@ -1,0 +1,465 @@
+/* ARQUIVO DE DESIGN SOBERANO - DIONE FOLADOR 2026 */
+:root {
+    --gold: #f59e0b;
+    --gold-dark: #d97706;
+    --blue-power: #3b82f6;
+    --black-pure: #000;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('SITE33.webp');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    z-index: -1;
+    will-change: transform;
+}
+
+body { 
+    font-family: 'Montserrat', sans-serif; 
+    background-color: #000; 
+    color: #e5e5e5; 
+    overflow-x: hidden;
+    margin: 0;
+    padding-bottom: 120px !important;
+}
+
+@media (min-width: 1024px) {
+    body::before {
+        background-size: 100vw;
+        background-position: center -50px;
+    }
+}
+
+/* UTILITÁRIOS SOBERANOS */
+.bg-black { background-color: #000 !important; }
+.text-amber-500 { color: var(--gold) !important; }
+.bg-amber-500 { background-color: var(--gold) !important; }
+.font-bold { font-weight: 700; }
+.uppercase { text-transform: uppercase; }
+
+/* ===== ANIMAÇÃO ÚNICA PARAMETRIZADA (REDUÇÃO DE CARGA) ===== */
+@keyframes pulse-universal {
+    0%, 100% { 
+        transform: scale(1); 
+        box-shadow: 0 0 0 0 var(--pulse-color, rgba(255,255,255,0.7)); 
+    }
+    70% { 
+        transform: scale(var(--pulse-scale, 1.05)); 
+        box-shadow: 0 0 0 15px transparent; 
+    }
+}
+
+/* COMPONENTES */
+.nav-glass {
+    background: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(15px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comentario-card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.comentario-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(245, 158, 11, 0.6);
+    box-shadow: 0 20px 40px -15px rgba(245, 158, 11, 0.3);
+    background: rgba(20, 20, 20, 0.9) !important;
+}
+
+.btn-mentoria-viva {
+    background: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #b45309 100%) !important;
+    color: #000 !important;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 15px 30px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    text-decoration: none;
+    --pulse-color: rgba(245, 158, 11, 0.6);
+    --pulse-scale: 1;
+    animation: pulse-universal 2s infinite !important;
+}
+
+/* WHATSAPP FLUTUANTE NEON */
+.whatsapp-float {
+    position: fixed;
+    bottom: 50px !important;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    border-radius: 50px;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --pulse-color: rgba(37, 211, 102, 0.7);
+    --pulse-scale: 1.05;
+    animation: pulse-universal 2s infinite !important;
+}
+
+.whatsapp-notify {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 22px;
+    height: 22px;
+    background-color: #ff0000;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    opacity: 0; 
+    transform: scale(0);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.whatsapp-notify.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ESTILO DO FAQ */
+.faq-item { 
+    background: rgba(255, 255, 255, 0.03); 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    border-radius: 1rem; 
+    margin-bottom: 10px; 
+    overflow: hidden; 
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: rgba(245, 158, 11, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.faq-question { 
+    width: 100%; 
+    padding: 1.5rem; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    cursor: pointer; 
+    color: white; 
+    font-weight: 600; 
+    background: none; 
+    border: none; 
+    text-align: left;
+}
+
+.faq-answer { 
+    max-height: 0; 
+    overflow: hidden; 
+    transition: all 0.3s ease-out; 
+    background: rgba(0,0,0,0.2); 
+}
+
+.faq-answer p { padding: 1.5rem; color: #9ca3af; line-height: 1.6; }
+.faq-item.active .faq-answer { max-height: 500px; }
+.faq-item.active .faq-icon { transform: rotate(180deg); }
+
+/* NOTIFICAÇÃO DE PROVA SOCIAL */
+
+        /* REFINAMENTO DE ELEMENTOS ESPECÍFICOS */
+.bg-card-premium { 
+    background: rgba(15, 15, 15, 0.8) !important; 
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(245, 158, 11, 0.2); 
+}
+
+.modal-bg { 
+    background: rgba(0, 0, 0, 0.95); 
+    backdrop-filter: blur(10px); 
+}
+
+/* CARROSSEL DE CRIPTOS (TICKER) */
+.ticker-container {
+    width: 100%;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.6); 
+    margin: 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 10;
+}
+
+.ticker-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 35s linear infinite; /* Velocidade otimizada na auditoria */
+    will-change: transform;
+}
+
+.ticker-track img {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+    transition: all 0.3s ease;
+}
+
+.ticker-track img:hover {
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+    transform: scale(1.2);
+}
+
+/* ANIMAÇÃO DE BRILHO ADICIONAL PARA BOTÕES */
+@keyframes shine-effect {
+    0% { left: -60%; }
+    20% { left: 120%; }
+    100% { left: 120%; }
+}
+
+.btn-mentoria-viva::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: rotate(30deg);
+    animation: shine-effect 3s infinite;
+}
+
+/* ROLAGEM DE LOGOS ADICIONAIS (VISA/MASTER) */
+@keyframes scroll-logos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.animate-scroll-logos {
+    display: flex;
+    width: max-content;
+    animation: scroll-logos 30s linear infinite;
+}
+
+        /* AJUSTE DE NITIDEZ DOS LOGOS (VISA/MASTER) */
+
+.delay-master {
+    animation-delay: 1.5s;
+}
+
+/* EFEITO SPOTLIGHT DE ELITE */
+#spotlight {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(
+        circle 250px at var(--x) var(--y), 
+        rgba(245, 158, 11, 0.15), 
+        transparent 80%
+    );
+}
+
+/* NOTIFICAÇÃO DE VENDA (SOCIAL PROOF) - TRAVA DE SEGURANÇA */
+#notification-container {
+    position: fixed;
+    top: 110px;
+    left: 20px;
+    z-index: 10002;
+    background: rgba(10, 10, 10, 0.98);
+    border: 1px solid var(--blue-power);
+    border-radius: 12px;
+    padding: 12px 18px;
+    display: none; 
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+    max-width: 320px; /* Trava para não ficar gigante */
+    animation: slideInFromLeft 0.6s ease-out;
+}
+
+.notif-img {
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50%;
+    border: 2px solid var(--blue-power);
+    object-fit: cover;
+}
+
+/* REINJEÇÃO DE MOVIMENTO (CORREÇÃO DO CARROSSEL E REVISTA) */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInFromLeft {
+    from { transform: translateX(-120%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* MODAL DE SAÍDA */
+#exit-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 30000;
+}
+
+#exit-card {
+    background: linear-gradient(135deg, #0f172a, #000);
+    border: 2px solid rgba(59, 130, 246, 0.4);
+    padding: 40px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 450px;
+    animation: modalFadeIn 0.4s ease-out;
+}
+
+/* CARD DA REVISTA E EFEITOS 3D */
+.perspective-1200 { perspective: 1200px; }
+
+img[src="Revista.jpeg"] {
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.group:hover img[src="Revista.jpeg"] {
+    transform: rotateY(0deg) rotateX(0deg) scale(1.05) !important;
+    border-color: var(--gold) !important;
+}
+
+.btn-ler-agora {
+    background: var(--gold);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+}
+
+/* 1. MOTOR DE ANIMAÇÕES FINAIS (BRILHO E FLASH) */
+@keyframes neon-glow-soberano {
+    0%, 100% { filter: grayscale(100%) opacity(0.5); transform: scale(1); }
+    50% { filter: grayscale(0%) opacity(1) drop-shadow(0 0 15px #f59e0b); transform: scale(1.08); }
+}
+
+@keyframes flash-swipe {
+    0% { left: -110%; }
+    30% { left: 120%; }
+    100% { left: 120%; }
+}
+
+/* 2. REATIVAÇÃO DO SELO DA REVISTA */
+.atencao-global-animada {
+    animation: neon-glow-soberano 3s ease-in-out infinite !important;
+    display: inline-block !important;
+}
+
+/* 3. EFEITO FLASH NOS BOTÕES */
+/* Botão Soberania Avançada (Flash Prata/Branco) */
+.btn-flash-prata { position: relative; overflow: hidden; }
+.btn-flash-prata::after {
+    content: ''; position: absolute; top: -50%; left: -110%; width: 25%; height: 200%;
+    background: rgba(255, 255, 255, 0.3); transform: rotate(30deg);
+    animation: flash-swipe 4s infinite;
+}
+
+/* Botão Cartões (Flash Dourado) */
+.btn-flash-ouro { position: relative; overflow: hidden; }
+.btn-flash-ouro::after {
+    content: ''; position: absolute; top: -50%; left: -110%; width: 25%; height: 200%;
+    background: rgba(245, 158, 11, 0.5); transform: rotate(30deg);
+    animation: flash-swipe 4s infinite;
+}
+
+/* 4. AJUSTE DE ELEGÂNCIA: PROVA SOCIAL E CAPAS */
+#notification-container { max-width: 250px !important; padding: 10px 15px !important; }
+.notif-text b { font-size: 13px !important; }
+.notif-text { font-size: 11px !important; }
+
+.capa-container { width: 100%; max-width: 350px; margin: 0 auto; perspective: 1200px; display: flex; justify-content: center; }
+.capa-container img { width: 100%; border-radius: 15px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.8)); transition: all 0.6s ease; }
+.capa-container:hover img { transform: rotateY(-18deg) rotateX(6deg) scale(1.05); }
+
+/* ESPAÇO FINAL — consolidado na regra final */
+
+/* ============================================================
+   AJUSTE DE AUDITORIA FINAL - SINCRONIZAÇÃO DE PREÇOS E LGPD
+   ============================================================ */
+
+/* 1. Cores Dinâmicas com Prioridade Máxima (Sobrescreve qualquer erro) */
+.price-up { 
+    color: #22c55e !important; 
+    font-family: 'Courier New', monospace !important; 
+    font-weight: 900 !important;
+}
+
+.price-down { 
+    color: #ef4444 !important; 
+    font-family: 'Courier New', monospace !important; 
+    font-weight: 900 !important;
+}
+
+/* 2. Travamento do Ticker no Rodapé (Garante que ele não suma) */
+#ticker-soberano {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 45px !important;
+    background: rgba(0, 0, 0, 0.95) !important;
+    border-top: 1px solid #3b82f6 !important; /* Blue Power */
+    display: flex !important;
+    justify-content: space-evenly !important;
+    align-items: center !important;
+    z-index: 99999 !important;
+    backdrop-filter: blur(15px) !important;
+}
+
+/* 3. Ajuste do Banner LGPD (Para ele finalmente aparecer) */
+#lgpd-banner {
+    z-index: 100000 !important; /* Fica acima do ticker */
+    display: none; /* Controlado pelo JavaScript */
+}
+
+/* 4. Respiro do Rodapé para não cobrir o conteúdo */
+body {
+    padding-bottom: 160px !important;
+}
+
+/* 5. TICKER INFERIOR — classes do rodapé de preços */
+.coin-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    padding: 0 10px;
+}
+
+.coin-name {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: rgba(255, 255, 255, 0.5);
+}
