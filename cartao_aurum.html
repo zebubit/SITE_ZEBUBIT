@@ -41,22 +41,6 @@
             margin: 0;
         }
 
-        /* --- SPOTLIGHT --- */
-        #spotlight {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            background: radial-gradient(
-                circle 250px at var(--x) var(--y), 
-                rgba(245, 158, 11, 0.15), 
-                transparent 80%
-            );
-        }
-
         .font-serif { font-family: 'Playfair Display', serif; }
 
         /* FUNDO OTIMIZADO */
@@ -165,62 +149,8 @@
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* CURSOR MOEDA BITCOIN */
-        #magic-cursor {
-            position: fixed;
-            width: 45px; 
-            height: 45px;
-            background-image: url('cursor1.webp');
-            background-size: cover;
-            background-position: center;
-            border-radius: 50%;
-            border: 1px solid rgba(245, 158, 11, 0.4);
-            pointer-events: none;
-            z-index: 100000;
-            transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-                        height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-                        background-color 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: black;
-            font-size: 0;
-            font-weight: 900;
-            text-transform: uppercase;
-            white-space: nowrap;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
-        }
-
-        #magic-cursor.active {
-            width: 130px; 
-            height: 130px;
-            background-image: url('cursor1.webp');
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: multiply;
-            background-color: rgba(0, 0, 0, 0.45); 
-            color: #f59e0b; 
-            font-size: 11px;
-            letter-spacing: 2px;
-            box-shadow: 0 0 50px rgba(245, 158, 11, 0.7);
-            border: 2px solid #f59e0b;
-        }
-
-        /* CONFIGURAÇÃO PARA PC (DESKTOP) */
-        @media (min-width: 1025px) {
-            body, a, button, #spotlight, .card-premium { cursor: none !important; }
-        }
-
-        /* CONFIGURAÇÃO PARA CELULAR E TABLET (MOBILE) */
+        /* Remove tilt no mobile */
         @media (max-width: 1024px) {
-            #magic-cursor, #spotlight {
-                display: none !important;
-            }
-            body, a, button {
-                cursor: auto !important;
-            }
-            /* Remove a inclinação 3D no celular para não bugar o toque */
             .card-premium, .glass {
                 transform: none !important;
                 transition: none !important;
@@ -229,9 +159,6 @@
     </style>
 </head>
 <body class="min-h-screen py-8 px-4 flex flex-col items-center">
-    <div id="magic-cursor"></div>
-
-    <div id="spotlight"></div>
     <div id="video-background"></div>
 
     <div class="max-w-4xl mx-auto text-center mb-10">
@@ -267,7 +194,7 @@
                 <span class="bg-amber-500/10 text-amber-500 text-[10px] font-black px-3 py-1 rounded-full uppercase border border-amber-500/20 tracking-tighter">Soberania Global</span>
             </div>
             
-            <img src="aurum-card-preview.jpeg" alt="Cartão Aurum" class="w-56 h-auto drop-shadow-[0_20px_40px_rgba(245,158,11,0.4)] mb-6">
+            <img src="aurum-card-preview.webp" alt="Cartão Aurum" class="w-56 h-auto drop-shadow-[0_20px_40px_rgba(245,158,11,0.4)] mb-6">
             
             <h3 class="text-white text-3xl font-serif italic mb-2">Aurum Visa</h3>
             <p class="text-amber-500 text-[10px] font-bold uppercase tracking-widest mb-8">Liderado por Brian Benson (Ex-Diretor Binance)</p>
@@ -292,7 +219,7 @@
                 <span class="bg-blue-500/10 text-blue-400 text-[10px] font-black px-3 py-1 rounded-full uppercase border border-blue-500/20 tracking-tighter">DeFi Institutional</span>
             </div>
             
-            <img src="etherfi-card.jpg" alt="Ether.fi Card" class="w-72 h-auto mt-10 mb-8 drop-shadow-[0_20px_40px_rgba(59,130,246,0.4)] transition-all">
+            <img src="etherfi-card.webp" alt="Ether.fi Card" class="w-72 h-auto mt-10 mb-8 drop-shadow-[0_20px_40px_rgba(59,130,246,0.4)] transition-all">
             
             <h3 class="text-white text-3xl font-serif italic mb-2">Ether.fi Card</h3>
             <p class="text-blue-400 text-[10px] font-bold uppercase tracking-widest mb-8">O Gigante do Liquid Staking no Ethereum</p>
@@ -374,64 +301,20 @@
         if (notify) notify.classList.add('show');
     }, 5000);
 
-    // 3. INTELIGÊNCIA UNIFICADA (DESKTOP ONLY PARA PERFORMANCE)
-    const spotlight = document.getElementById('spotlight');
-    const cursor = document.getElementById('magic-cursor');
+    // 3. TILT 3D NOS CARDS (DESKTOP)
     const cards = document.querySelectorAll('.glass');
 
     window.addEventListener('mousemove', e => {
-        // Bloqueia a execução se for celular (evita lag no touch)
         if (window.innerWidth <= 1024) return;
-
-        const x = e.clientX;
-        const y = e.clientY;
-
-        // Movimento Spotlight e Moeda Bitcoin
-        if (spotlight) {
-            spotlight.style.setProperty('--x', x + 'px');
-            spotlight.style.setProperty('--y', y + 'px');
-        }
-        if (cursor) {
-            cursor.style.left = x + 'px';
-            cursor.style.top = y + 'px';
-        }
-
-        // Lógica de Inclinação 3D nos Cards (Apenas Desktop)
+        const x = e.clientX, y = e.clientY;
         cards.forEach(card => {
             const rect = card.getBoundingClientRect();
             if (x > rect.left && x < rect.right && y > rect.top && y < rect.bottom) {
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-                const rotateX = (centerY - y) / 15; 
-                const rotateY = (x - centerX) / 15;
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                const cx = rect.left + rect.width / 2;
+                const cy = rect.top + rect.height / 2;
+                card.style.transform = `perspective(1000px) rotateX(${(cy - y) / 15}deg) rotateY(${(x - cx) / 15}deg) scale3d(1.02,1.02,1.02)`;
             } else {
-                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-            }
-        });
-    });
-
-    // 4. FRASES DINÂMICAS NA MOEDA (ATIVO APENAS SE CURSOR EXISTIR/DESKTOP)
-    const interactiveElements = document.querySelectorAll('a, button, .glass, .whatsapp-float');
-
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            if (window.innerWidth > 1024 && cursor) {
-                cursor.classList.add('active');
-                const textoBotao = el.innerText ? el.innerText.toUpperCase() : '';
-
-                if (textoBotao.includes('AURUM')) cursor.innerHTML = 'ELITE BLACK'; 
-                else if (textoBotao.includes('ETHER.FI')) cursor.innerHTML = 'GOLD CASH ⚡';
-                else if (textoBotao.includes('DESBLOQUEAR')) cursor.innerHTML = 'LIBERAR 🔓';
-                else if (el.classList.contains('whatsapp-float')) cursor.innerHTML = 'CHAMAR';
-                else cursor.innerHTML = 'VER MAIS';
-            }
-        });
-        
-        el.addEventListener('mouseleave', () => {
-            if (cursor) {
-                cursor.classList.remove('active');
-                cursor.innerHTML = '';
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)`;
             }
         });
     });
