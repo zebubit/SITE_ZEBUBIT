@@ -39,9 +39,12 @@
     <meta property="og:title" content="Dione Folador | Soberania Digital & Investimentos">
     <meta property="og:description" content="Assuma o controle real do seu patrimônio. Mentoria em Cripto e Autocustódia.">
     <meta property="og:image" content="https://dionefolador.com/SITE33.webp">
-    
+    <meta property="og:locale" content="pt_BR">
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@DioneFol">
+    <meta name="twitter:title" content="Dione Folador | Soberania Digital & Autocustódia Cripto">
+    <meta name="twitter:description" content="Mentoria exclusiva em Criptomoedas, Autocustódia e Inteligência Financeira. 13+ anos de experiência no mercado.">
     <meta name="twitter:image" content="https://dionefolador.com/SITE33.webp">
     
     <link rel="icon" type="image/webp" href="https://dionefolador.com/SITE33.webp">
@@ -63,6 +66,11 @@
     /* HONEYPOT — NUNCA MOSTRAR */
     .hp-trap { opacity:0; position:absolute; top:0; left:0; height:0; width:0; z-index:-1; pointer-events:none; }
 
+    .lang-switcher { display:flex; gap:10px; padding-left:16px; border-left:1px solid rgba(255,255,255,0.1); align-items:center; }
+    .lang-switcher button { font-size:10px; letter-spacing:.18em; opacity:.45; text-transform:uppercase; transition:opacity .25s,color .25s; padding:2px 0; background:none; border:none; color:#fff; cursor:pointer; font-weight:800; font-family:'Montserrat',sans-serif; }
+    .lang-switcher button.active { opacity:1; color:#f59e0b; }
+    .lang-switcher button:hover { opacity:.85; }
+
 </style>
 
     <script type="application/ld+json">
@@ -72,8 +80,20 @@
       "name": "Dione Folador",
       "url": "https://dionefolador.com",
       "image": "https://dionefolador.com/SITE1.webp",
-      "jobTitle": "Estrategista de Criptomoedas",
-      "description": "Mentor em Soberania Digital e Autocustódia com 13+ anos de experiência"
+      "jobTitle": "Estrategista de Criptomoedas e Mentor em Soberania Digital",
+      "description": "Mentor em Soberania Digital e Autocustódia com 13+ anos de experiência no mercado de criptomoedas.",
+      "telephone": "+55-34-99342-1500",
+      "email": "zebubit@gmail.com",
+      "sameAs": [
+        "https://instagram.com/dionefol",
+        "https://twitter.com/DioneFol"
+      ],
+      "knowsAbout": ["Bitcoin", "Criptomoedas", "Autocustódia", "Soberania Digital", "Inteligência Financeira"],
+      "offers": {
+        "@type": "Offer",
+        "name": "Mentoria em Soberania Digital e Autocustódia Cripto",
+        "url": "https://dionefolador.com/mentoria_checkout.html"
+      }
     }
     </script>
 </head>
@@ -81,18 +101,18 @@
 
     <div id="exit-modal">
         <div id="exit-card">
-            <span style="color: #3b82f6; font-weight: bold; letter-spacing: 2px; font-size: 11px; text-transform: uppercase;">Oportunidade Única</span>
-            <h2 style="color: #fff; font-size: 26px; margin: 10px 0;">NÃO VÁ EMBORA! 🛡️</h2>
-            <p style="color: #94a3b8; font-size: 15px;">Detectamos sua saída. Liberei uma condição especial por tempo limitado:</p>
+            <span style="color: #3b82f6; font-weight: bold; letter-spacing: 2px; font-size: 11px; text-transform: uppercase;" data-i18n="exit.tag">Oportunidade Única</span>
+            <h2 style="color: #fff; font-size: 26px; margin: 10px 0;" data-i18n="exit.title">NÃO VÁ EMBORA! 🛡️</h2>
+            <p style="color: #94a3b8; font-size: 15px;" data-i18n="exit.sub">Detectamos sua saída. Liberei uma condição especial por tempo limitado:</p>
             
             <div id="countdown-timer">15:00</div>
 
             <a href="https://api.whatsapp.com/send?phone=5534993421500&text=Ol%C3%A1%20Dione!%20Vim%20pelo%20site%20dionefolador.com%20e%20n%C3%A3o%20quero%20perder%20minha%20condi%C3%A7%C3%A3o%20especial!%20Pode%20me%20ajudar%3F" class="btn-resgate">
-                RESGATAR AGORA
+                <span data-i18n="exit.cta">RESGATAR AGORA</span>
             </a>
-            
-            <button onclick="document.getElementById('exit-modal').style.display='none'" 
-                    style="display: block; width: 100%; margin-top: 20px; background: none; border: none; color: #475569; cursor: pointer; font-size: 13px;">
+
+            <button onclick="document.getElementById('exit-modal').style.display='none'"
+                    style="display: block; width: 100%; margin-top: 20px; background: none; border: none; color: #475569; cursor: pointer; font-size: 13px;" data-i18n="exit.dismiss">
                 Vou pensar mais um pouco...
             </button>
         </div>
@@ -114,7 +134,7 @@
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <div class="flex flex-col">
             <span class="text-white font-bold text-lg tracking-tighter leading-none">DIONE <span class="text-amber-500">FOLADOR</span></span>
-            <span class="text-[10px] text-amber-500/90 uppercase tracking-[0.3em] font-bold">Strategic Intelligence</span>
+            <span class="text-[10px] text-amber-500/90 uppercase tracking-[0.3em] font-bold" data-i18n="nav.tagline">Strategic Intelligence</span>
         </div>
 
         <div class="hidden lg:flex items-center gap-3">
@@ -167,10 +187,17 @@
     <svg class="w-3.5 h-3.5 text-amber-500" fill="currentColor" viewBox="0 0 24 24">
         <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/>
     </svg>
-    <span class="text-[11px] font-black text-amber-500 uppercase tracking-tighter whitespace-nowrap">
+    <span class="text-[11px] font-black text-amber-500 uppercase tracking-tighter whitespace-nowrap" data-i18n="nav.verified">
         Identity Verified
     </span>
 </div>
+
+<div class="lang-switcher">
+    <button data-lang="pt" class="active">PT</button>
+    <button data-lang="en">EN</button>
+    <button data-lang="es">ES</button>
+</div>
+
             </div>
         </div>
     </nav>
@@ -193,16 +220,16 @@
     <h1 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter">
         Dione <span class="text-amber-500">Folador</span>
     </h1>
-    <p class="text-amber-500 font-bold text-xs uppercase tracking-[0.4em]">
+    <p class="text-amber-500 font-bold text-xs uppercase tracking-[0.4em]" data-i18n="hero.subtitle">
         Soberania Digital & Autocustódia
     </p>
 </div>
 
             <div class="bg-gradient-to-b from-amber-950/40 to-transparent border border-amber-500/40 p-8 md:p-10 rounded-[2.5rem] mt-8 max-w-3xl">
-                <p class="text-gray-200 text-lg md:text-xl leading-relaxed font-light">
-                    Investidor e estrategista com mais de <span class="text-amber-500 font-bold border-b border-amber-500/30">13 anos de experiência</span> na linha de frente do mercado cripto. 
+                <p class="text-gray-200 text-lg md:text-xl leading-relaxed font-light" data-i18n="hero.bio">
+                    Investidor e estrategista com mais de <span class="text-amber-500 font-bold border-b border-amber-500/30">13 anos de experiência</span> na linha de frente do mercado cripto.
                 </p>
-                <p class="text-gray-300 text-base md:text-lg mt-4 leading-relaxed italic font-serif">
+                <p class="text-gray-300 text-base md:text-lg mt-4 leading-relaxed italic font-serif" data-i18n="hero.quote">
                     "Atravessei os ciclos mais turbulentos da história, transformando volatilidade em liberdade. Minha missão é ensinar você a assumir a <span class="text-white font-semibold">autocustódia real</span> e construir uma soberania inabalável, eliminando de vez a dependência de intermediários."
                 </p>
             </div>
@@ -211,13 +238,13 @@
         <div class="w-full max-w-5xl mx-auto mt-16 mb-16 py-12 px-8 bg-zinc-900/30 border border-white/5 rounded-[3rem] backdrop-blur-sm">
             <div class="grid md:grid-cols-2 gap-10 items-center">
                 <div class="space-y-4 text-center md:text-left">
-                    <span class="text-amber-500 font-bold tracking-widest uppercase text-[10px]">Histórico de Mercado</span>
-                    <h2 class="text-2xl md:text-3xl font-serif text-white italic">Destaque na mídia especializada desde 2017</h2>
-                    <p class="text-gray-300 text-sm leading-relaxed">
+                    <span class="text-amber-500 font-bold tracking-widest uppercase text-[10px]" data-i18n="media.label">Histórico de Mercado</span>
+                    <h2 class="text-2xl md:text-3xl font-serif text-white italic" data-i18n="media.title">Destaque na mídia especializada desde 2017</h2>
+                    <p class="text-gray-300 text-sm leading-relaxed" data-i18n="media.desc">
                         Convidado pela <span class="text-white">Revista Ponto Crítico</span> em sua edição de aniversário para projetar o futuro das finanças. Uma prova de que as estratégias de soberania que ensino hoje são frutos de quase uma década de validação pública.
                     </p>
                     <a href="https://online.flipbuilder.com/srzz/uhpc/index.html#p=2" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-amber-500 hover:text-amber-400 font-bold text-sm transition-all group">
-                         <span>Ver matéria original (Págs. 1 & 34/35)</span>
+                         <span data-i18n="media.link">Ver matéria original (Págs. 1 & 34/35)</span>
                          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                          </svg>
@@ -245,14 +272,14 @@
     <div class="bg-black border border-amber-500/40 rounded-[2.5rem] p-10 text-center relative overflow-hidden shadow-[0_0_50px_rgba(245,158,11,0.1)]">
         
         <div class="absolute top-5 right-5 md:right-10">
-            <span class="bg-red-600 text-white text-[10px] font-black px-3 py-1 rounded-full animate-pulse">
+            <span class="bg-red-600 text-white text-[10px] font-black px-3 py-1 rounded-full animate-pulse" data-i18n="btc.badge">
                 APENAS 5 VAGAS
             </span>
         </div>
 
         <div class="relative z-10">
-            <h3 class="text-white text-3xl font-bold tracking-tighter mb-2">Consultoria Bitcoin 1h</h3>
-            <p class="text-gray-400 text-sm max-w-md mx-auto mb-8">
+            <h3 class="text-white text-3xl font-bold tracking-tighter mb-2" data-i18n="btc.title">Consultoria Bitcoin 1h</h3>
+            <p class="text-gray-400 text-sm max-w-md mx-auto mb-8" data-i18n="btc.desc">
                 Estratégia personalizada, segurança e soberania digital diretamente comigo.
             </p>
             
@@ -263,17 +290,17 @@
 
             <a href="https://mpago.la/28d4s8n" target="_blank" rel="noopener noreferrer" 
                class="btn-mentoria-viva inline-block px-10 py-5 no-underline text-sm tracking-[0.2em] uppercase">
-               🔥 RESERVAR MINHA VAGA
+               <span data-i18n="btc.cta">🔥 RESERVAR MINHA VAGA</span>
             </a>
 
-            <p class="text-amber-500/80 text-[11px] mt-4 font-bold animate-pulse">
+            <p class="text-amber-500/80 text-[11px] mt-4 font-bold animate-pulse" data-i18n="btc.urgency">
                 ⚠️ Atenção: Restam apenas 2 vagas para esta semana.
             </p>
 
             <div class="mt-6 flex justify-center items-center gap-4 text-[10px] text-gray-500 uppercase tracking-widest">
-                <span>🔒 Pagamento Seguro</span>
+                <span data-i18n="btc.safe">🔒 Pagamento Seguro</span>
                 <span class="h-1 w-1 bg-gray-700 rounded-full"></span>
-                <span>⚡ Acesso Imediato</span>
+                <span data-i18n="btc.instant">⚡ Acesso Imediato</span>
             </div>
         </div>
     </div>
@@ -287,11 +314,11 @@
                          class="rounded-2xl shadow-2xl transition-all duration-500 hover:scale-105 filter drop-shadow-[0_0_30px_rgba(16,185,129,0.2)]">
                 </div>
                 <div class="space-y-6 text-center md:text-left">
-                    <span class="text-emerald-400 text-xs uppercase tracking-[0.4em] font-black">Acesso Gratuito</span>
-                    <h3 class="text-4xl md:text-5xl font-serif font-bold text-white italic leading-tight">Bitcoin para Iniciantes</h3>
-                    <p class="text-gray-400 text-lg leading-relaxed">Prepare-se para o novo sistema financeiro. Aprenda os fundamentos essenciais com quem vive o mercado há mais de uma década.</p>
-                    <button onclick="abrirCapturaGratis()" 
-                            class="relative z-30 w-full py-5 bg-emerald-500/10 hover:bg-emerald-500 text-white hover:text-black font-black rounded-xl uppercase border border-emerald-500/30 transition-all transform hover:scale-105 active:scale-95">
+                    <span class="text-emerald-400 text-xs uppercase tracking-[0.4em] font-black" data-i18n="ebook.tag">Acesso Gratuito</span>
+                    <h3 class="text-4xl md:text-5xl font-serif font-bold text-white italic leading-tight" data-i18n="ebook.title">Bitcoin para Iniciantes</h3>
+                    <p class="text-gray-400 text-lg leading-relaxed" data-i18n="ebook.desc">Prepare-se para o novo sistema financeiro. Aprenda os fundamentos essenciais com quem vive o mercado há mais de uma década.</p>
+                    <button onclick="abrirCapturaGratis()"
+                            class="relative z-30 w-full py-5 bg-emerald-500/10 hover:bg-emerald-500 text-white hover:text-black font-black rounded-xl uppercase border border-emerald-500/30 transition-all transform hover:scale-105 active:scale-95" data-i18n="ebook.cta">
                         📥 BAIXAR E-BOOK AGORA
                     </button>
                 </div>
@@ -339,15 +366,15 @@
         <div class="flex-1 space-y-8 text-center md:text-left">
             <div class="space-y-2">
                 <h3 class="text-3xl md:text-5xl font-serif font-bold text-white italic leading-tight">Soberania Digital</h3>
-                <p class="text-blue-400 uppercase tracking-[0.3em] font-bold text-sm">Volume 01 • O Mapa da Autocustódia</p>
+                <p class="text-blue-400 uppercase tracking-[0.3em] font-bold text-sm" data-i18n="vol1.label">Volume 01 • O Mapa da Autocustódia</p>
             </div>
-            <p class="text-gray-300 text-lg leading-relaxed max-w-md mx-auto md:mx-0">
+            <p class="text-gray-300 text-lg leading-relaxed max-w-md mx-auto md:mx-0" data-i18n="vol1.desc">
                 Pare de deixar seu patrimônio nas mãos de corretoras. Aprenda a configurar sua própria <span class="text-white font-semibold">infraestrutura de segurança</span> e assuma o controle real sobre seus ativos.
             </p>
             <div class="space-y-4">
                 <p class="text-blue-400 font-bold text-5xl">R$ 39,99</p>
                 <button onclick="prepararPagamento(_d('Ql5eWlkQBQVHWktNRQRGQwUYeHhuaV95'), 'E-BOOK VOL 1')"
-                        class="relative z-30 w-full py-5 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white font-black rounded-xl uppercase shadow-[0_0_20px_rgba(245,158,11,0.3)] transition transform hover:scale-105 active:scale-95">
+                        class="relative z-30 w-full py-5 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white font-black rounded-xl uppercase shadow-[0_0_20px_rgba(245,158,11,0.3)] transition transform hover:scale-105 active:scale-95" data-i18n="vol1.cta">
                     🔥 ADQUIRIR VOLUME 1
                 </button>
             </div>
@@ -362,17 +389,17 @@
         </div>
         <div class="flex-1 space-y-8 text-center md:text-left">
             <div class="space-y-2">
-                <div class="inline-block px-3 py-1 bg-zinc-800 border border-zinc-600 rounded-full text-[10px] text-zinc-400 uppercase tracking-widest font-black mb-2">Módulo Avançado</div>
+                <div class="inline-block px-3 py-1 bg-zinc-800 border border-zinc-600 rounded-full text-[10px] text-zinc-400 uppercase tracking-widest font-black mb-2" data-i18n="vol2.tag">Módulo Avançado</div>
                 <h3 class="text-3xl md:text-5xl font-serif font-bold text-white italic leading-tight">Soberania Avançada</h3>
-                <p class="text-slate-400 uppercase tracking-[0.3em] font-bold text-sm">Volume 02 • Invisibilidade & Guerra</p>
+                <p class="text-slate-400 uppercase tracking-[0.3em] font-bold text-sm" data-i18n="vol2.label">Volume 02 • Invisibilidade & Guerra</p>
             </div>
-            <p class="text-gray-400 text-lg leading-relaxed max-w-md mx-auto md:mx-0">
+            <p class="text-gray-400 text-lg leading-relaxed max-w-md mx-auto md:mx-0" data-i18n="vol2.desc">
                 Aprenda a tornar seus ativos <span class="text-white font-semibold">indetectáveis</span>. Táticas de guerra digital para proteção contra confiscos e rastreio avançado.
             </p>
             <div class="space-y-4">
     <p class="text-slate-200 font-bold text-5xl">R$ 59,99</p>
     <button onclick="prepararPagamento(_d('Ql5eWlkQBQVHWktNRQRGQwUbTV5nQ15D'), 'E-BOOK VOL 2')"
-            class="btn-flash-prata relative z-30 w-full py-5 bg-gradient-to-r from-slate-700 to-slate-800 text-white font-black rounded-xl uppercase shadow-lg transition transform hover:scale-105">
+            class="btn-flash-prata relative z-30 w-full py-5 bg-gradient-to-r from-slate-700 to-slate-800 text-white font-black rounded-xl uppercase shadow-lg transition transform hover:scale-105" data-i18n="vol2.cta">
         🥷 ACESSO TÁTICO
     </button>
             </div>
@@ -381,7 +408,7 @@
 </div>
 
 <div class="w-full text-center py-10 px-6">
-    <h4 class="text-white/90 font-serif italic text-2xl md:text-3xl leading-relaxed max-w-2xl mx-auto mb-6">
+    <h4 class="text-white/90 font-serif italic text-2xl md:text-3xl leading-relaxed max-w-2xl mx-auto mb-6" data-i18n="quote.text">
         "A segurança parcial é uma ilusão. A liberdade plena exige a <span class="text-amber-500 font-bold underline decoration-amber-500/30">estratégia completa</span>."
     </h4>
     <div class="h-[1px] w-40 bg-gradient-to-r from-transparent via-amber-500/40 to-transparent mx-auto"></div>
@@ -394,15 +421,15 @@
         </div>
     </div>
     <div class="space-y-4">
-        <div class="inline-block px-4 py-1 bg-amber-500 text-black text-[10px] font-black uppercase rounded-full">Melhor Custo-Benefício</div>
-        <h3 class="text-3xl md:text-5xl font-serif font-bold text-white italic leading-tight">Combo: Soberania Total</h3>
-        <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+        <div class="inline-block px-4 py-1 bg-amber-500 text-black text-[10px] font-black uppercase rounded-full" data-i18n="combo.tag">Melhor Custo-Benefício</div>
+        <h3 class="text-3xl md:text-5xl font-serif font-bold text-white italic leading-tight" data-i18n="combo.title">Combo: Soberania Total</h3>
+        <p class="text-gray-300 text-lg max-w-2xl mx-auto" data-i18n="combo.desc">
             Domine desde a base da autocustódia até a invisibilidade tática. <span class="text-white font-bold">Leve os dois volumes com desconto</span> e garanta sua liberdade plena.
         </p>
         <div class="pt-6">
             <p class="text-amber-500 font-bold text-6xl mb-4">R$ 89,99</p>
             <button onclick="prepararPagamento(_d('Ql5eWlkQBQVHWktNRQRGQwUYUk5ycEkT'), 'COMBO SOBERANIA')" 
-                    class="relative z-30 w-full py-6 bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600 bg-[length:200%_auto] text-black font-black rounded-xl uppercase shadow-[0_0_30px_rgba(245,158,11,0.4)] transition transform hover:scale-105 active:scale-95">
+                    class="relative z-30 w-full py-6 bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600 bg-[length:200%_auto] text-black font-black rounded-xl uppercase shadow-[0_0_30px_rgba(245,158,11,0.4)] transition transform hover:scale-105 active:scale-95" data-i18n="combo.cta">
                 🔥 GARANTIR ESTRATÉGIA COMPLETA
             </button>
         </div>
@@ -413,24 +440,24 @@
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-amber-500/80 to-transparent"></div>
 
     <div class="text-center mb-4">
-        <h3 class="text-white text-4xl md:text-5xl font-serif font-bold uppercase tracking-[0.2em] italic drop-shadow-2xl">Mentoria Individual</h3>
+        <h3 class="text-white text-4xl md:text-5xl font-serif font-bold uppercase tracking-[0.2em] italic drop-shadow-2xl" data-i18n="mentoria.title">Mentoria Individual</h3>
         <div class="h-1 w-24 bg-amber-500/60 mx-auto mt-6"></div>
-        <p class="text-amber-500 text-sm font-black uppercase tracking-[0.5em] mt-6 animate-pulse">Private Strategy • Vagas Limitadas</p>
+        <p class="text-amber-500 text-sm font-black uppercase tracking-[0.5em] mt-6 animate-pulse" data-i18n="mentoria.tag">Private Strategy • Vagas Limitadas</p>
     </div>
 
     <a href="mentoria_checkout.html" 
        class="btn-mentoria-viva w-full max-w-2xl font-black py-8 rounded-3xl uppercase tracking-[0.3em] text-center transition-all transform hover:scale-[1.05] text-xl shadow-[0_20px_40px_rgba(217,119,6,0.4)] no-underline flex items-center justify-center">
-        🚀 Quero Saber Sobre a Mentoria
+        <span data-i18n="mentoria.cta">🚀 Quero Saber Sobre a Mentoria</span>
     </a>
-    
+
     <div class="text-center">
-        <p class="text-gray-200 text-[16px] uppercase tracking-[0.3em] font-medium mb-2">Acompanhamento Personalizado</p>
-        <p class="text-amber-500/70 text-[13px] uppercase tracking-[0.5em] italic">Estratégia Exclusiva por Dione Folador</p>
+        <p class="text-gray-200 text-[16px] uppercase tracking-[0.3em] font-medium mb-2" data-i18n="mentoria.acc">Acompanhamento Personalizado</p>
+        <p class="text-amber-500/70 text-[13px] uppercase tracking-[0.5em] italic" data-i18n="mentoria.by">Estratégia Exclusiva por Dione Folador</p>
     </div>
 </div>
          
         <div class="w-full p-8 rounded-[3rem] bg-purple-950/20 border border-purple-500/60 text-center shadow-2xl">
-            <h3 class="text-3xl font-serif font-bold text-white italic mb-12">Liquidez Centralizada (KYC)</h3>
+            <h3 class="text-3xl font-serif font-bold text-white italic mb-12" data-i18n="kyc.title">Liquidez Centralizada (KYC)</h3>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
                 <a href="https://www.binance.info/activity/referral-entry/CPA/together-v4?hl=en&ref=CPA_0046C6R7U0" target="_blank" rel="noopener noreferrer" class="group p-6 bg-black/60 border border-purple-500/20 rounded-2xl hover:border-purple-400 transition">
                     <img src="./BINANCE.webp" class="h-10 mx-auto mb-4 group-hover:scale-110 transition"><span class="text-white text-[11px] font-black uppercase tracking-widest">BINANCE</span>
@@ -454,7 +481,7 @@
         </div>
 
         <div class="w-full p-10 rounded-[3rem] bg-[#0d1b2a] border border-blue-500/60 text-center shadow-2xl">
-            <h3 class="text-3xl font-serif font-bold text-white italic mb-12">Soberania & Web3 (NO-KYC)</h3>
+            <h3 class="text-3xl font-serif font-bold text-white italic mb-12" data-i18n="nokyc.title">Soberania & Web3 (NO-KYC)</h3>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
     <a href="https://www.exodus.com/" target="_blank" rel="noopener noreferrer" class="group p-6 bg-black/60 border border-blue-500/20 rounded-2xl hover:border-blue-400 transition">                    
         <img src="./EXODUS.webp" class="h-10 mx-auto mb-2 group-hover:scale-110 transition">
@@ -486,18 +513,18 @@
             <span class="text-amber-500 font-black text-[10px] md:text-[12px] uppercase tracking-[0.5em] mb-6">Off-Ramp & DeFi Ecosystem</span>
             
             <div class="max-w-3xl mx-auto">
-                <h2 class="text-white text-4xl md:text-6xl font-serif italic mb-6 leading-tight">
+                <h2 class="text-white text-4xl md:text-6xl font-serif italic mb-6 leading-tight" data-i18n="cards.title">
                     Cartões de Elite: <br>
                     <span class="text-amber-500">O poder da escolha</span> em suas mãos.
                 </h2>
-                <p class="text-gray-200 font-light leading-relaxed text-base md:text-lg mb-8">
+                <p class="text-gray-200 font-light leading-relaxed text-base md:text-lg mb-8" data-i18n="cards.desc">
                     Complemente sua estratégia Web3 com ferramentas de elite. Seja através da soberania absoluta do Cartão Aurum ou da eficiência DeFi do Ether.fi.
                 </p>
             </div>
 
             <a href="cartao_aurum.html" 
    class="btn-flash-ouro bg-white text-black hover:bg-amber-500 hover:text-white font-black py-4 px-10 rounded-2xl uppercase tracking-[0.2em] transition-all transform hover:scale-105 mb-10 no-underline shadow-lg">
-    <span>💳 CONHECER CARTÕES DE ELITE</span>
+    <span data-i18n="cards.cta">💳 CONHECER CARTÕES DE ELITE</span>
 </a>
 
             <div class="flex items-center gap-6 mt-4">
@@ -514,7 +541,7 @@
                 
                 <div class="h-4 w-[1px] bg-white/20"></div>
                 
-                <span class="text-white/50 text-[10px] uppercase tracking-widest font-bold">Aceitação Global</span>
+                <span class="text-white/50 text-[10px] uppercase tracking-widest font-bold" data-i18n="cards.global">Aceitação Global</span>
             </div>
         </div> 
     </div> 
@@ -522,13 +549,13 @@
         
 <section class="py-18 px-6 max-w-7xl mx-auto relative z-20">
     <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">A Voz da Soberania</h2>
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4" data-i18n="testimonials.title">A Voz da Soberania</h2>
         <div class="flex items-center justify-center gap-2 mb-4">
             <span class="h-[1px] w-8 bg-amber-500/50"></span>
-            <p class="text-amber-500 font-bold text-sm uppercase tracking-[0.3em]">Alunos e Mentorados • Resultados Reais</p>
+            <p class="text-amber-500 font-bold text-sm uppercase tracking-[0.3em]" data-i18n="testimonials.sub">Alunos e Mentorados • Resultados Reais</p>
             <span class="h-[1px] w-8 bg-amber-500/50"></span>
         </div>
-        <p class="text-gray-200 font-medium italic text-sm">Toque nos cards para seguir os perfis no Instagram</p>
+        <p class="text-gray-200 font-medium italic text-sm" data-i18n="testimonials.tip">Toque nos cards para seguir os perfis no Instagram</p>
     </div>
 
 <div class="comentario-card bg-white/5 backdrop-blur-xl p-10 rounded-[2rem] border border-white/10 hover:border-amber-500/40 transition-all duration-500 group relative overflow-hidden">
@@ -822,18 +849,18 @@
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 italic font-serif">Private Strategy</h2>
-            <p class="text-amber-500 font-bold text-sm uppercase tracking-[0.3em]">Selecione o seu plano de acompanhamento</p>
+            <p class="text-amber-500 font-bold text-sm uppercase tracking-[0.3em]" data-i18n="strategy.sub">Selecione o seu plano de acompanhamento</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             
             <div class="bg-white/5 border border-white/10 p-8 rounded-3xl flex flex-col justify-between hover:border-amber-500/50 transition-all group">
                 <div>
-                    <p class="text-gray-400 text-[10px] mb-4 uppercase font-bold">1 Aula Individual</p>
+                    <p class="text-gray-400 text-[10px] mb-4 uppercase font-bold" data-i18n="plan1.label">1 Aula Individual</p>
                     <h4 class="text-amber-500 text-3xl font-bold mb-2">R$ 1.199,00</h4>
-                    <p class="text-gray-500 text-[10px] italic mb-6">Sessão única estratégica</p>
+                    <p class="text-gray-500 text-[10px] italic mb-6" data-i18n="plan1.sub">Sessão única estratégica</p>
                 </div>
-                <button onclick="window.open('mentoria_checkout.html', '_blank')" class="w-full py-4 bg-white/5 text-white rounded-xl group-hover:bg-amber-500 group-hover:text-black transition-all font-black uppercase text-xs tracking-widest">Selecionar</button>
+                <button onclick="window.open('mentoria_checkout.html', '_blank')" class="w-full py-4 bg-white/5 text-white rounded-xl group-hover:bg-amber-500 group-hover:text-black transition-all font-black uppercase text-xs tracking-widest" data-i18n="plan.select">Selecionar</button>
             </div>
 
             <div class="bg-white/5 border border-white/10 p-8 rounded-3xl flex flex-col justify-between hover:border-amber-500/50 transition-all group">
@@ -842,11 +869,11 @@
                     <h4 class="text-amber-500 text-3xl font-bold mb-2">R$ 3.999,00</h4>
                     <p class="text-gray-500 text-[10px] italic mb-6">R$ 999,75 por aula</p>
                 </div>
-                <button onclick="window.open('mentoria_checkout.html', '_blank')" class="w-full py-4 bg-white/5 text-white rounded-xl group-hover:bg-amber-500 group-hover:text-black transition-all font-black uppercase text-xs tracking-widest">Selecionar</button>
+                <button onclick="window.open('mentoria_checkout.html', '_blank')" class="w-full py-4 bg-white/5 text-white rounded-xl group-hover:bg-amber-500 group-hover:text-black transition-all font-black uppercase text-xs tracking-widest" data-i18n="plan.select">Selecionar</button>
             </div>
 
             <div class="bg-amber-500/10 border-2 border-amber-500 p-8 rounded-3xl flex flex-col justify-between relative shadow-[0_0_50px_rgba(245,158,11,0.2)]">
-                <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-500 text-black text-[10px] font-black px-4 py-1 rounded-full uppercase">Recomendado</span>
+                <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-500 text-black text-[10px] font-black px-4 py-1 rounded-full uppercase" data-i18n="plan.recommended">Recomendado</span>
                 <div>
                     <p class="text-amber-500 text-[10px] mb-4 uppercase font-bold">8 Sessões (25% OFF)</p>
                     <h4 class="text-amber-500 text-3xl font-bold mb-2">R$ 7.199,00</h4>
@@ -861,7 +888,7 @@
                     <h4 class="text-amber-500 text-3xl font-bold mb-2">R$ 9.999,00</h4>
                     <p class="text-gray-500 text-[10px] italic mb-6">R$ 833,25 por aula</p>
                 </div>
-                <button onclick="window.open('mentoria_checkout.html', '_blank')" class="w-full py-4 bg-white/5 text-white rounded-xl group-hover:bg-amber-500 group-hover:text-black transition-all font-black uppercase text-xs tracking-widest">Selecionar</button>
+                <button onclick="window.open('mentoria_checkout.html', '_blank')" class="w-full py-4 bg-white/5 text-white rounded-xl group-hover:bg-amber-500 group-hover:text-black transition-all font-black uppercase text-xs tracking-widest" data-i18n="plan.select">Selecionar</button>
             </div>
 
         </div>
@@ -870,67 +897,67 @@
 
 <section id="faq" class="max-w-4xl mx-auto px-6 py-20 relative z-40">
     <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-serif font-bold text-white italic mb-4">Dúvidas Frequentes</h2>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-white italic mb-4" data-i18n="faq.title">Dúvidas Frequentes</h2>
         <div class="h-1 w-20 bg-amber-500 mx-auto rounded-full"></div>
     </div>
 
     <div class="space-y-4">
         <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-                <span>Como recebo o acesso aos produtos após o pagamento?</span>
+                <span data-i18n="faq.q1">Como recebo o acesso aos produtos após o pagamento?</span>
                 <svg class="faq-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div class="faq-answer">
-                <p>Assim que o Mercado Pago confirmar o pagamento, você receberá o acesso automaticamente no seu e-mail cadastrado. Também oferecemos suporte via WhatsApp para garantir que você acesse seu material ou agende sua mentoria sem complicações.</p>
+                <p data-i18n="faq.a1">Assim que o Mercado Pago confirmar o pagamento, você receberá o acesso automaticamente no seu e-mail cadastrado. Também oferecemos suporte via WhatsApp para garantir que você acesse seu material ou agende sua mentoria sem complicações.</p>
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-                <span>Não entendo nada de tecnologia, o conteúdo serve para mim?</span>
+                <span data-i18n="faq.q2">Não entendo nada de tecnologia, o conteúdo serve para mim?</span>
                 <svg class="faq-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div class="faq-answer">
-                <p>Com certeza. Minha metodologia foi desenhada para quem está começando do zero. A linguagem é simples, direta e focada na prática, eliminando o "technobabble" e focando no que realmente protege o seu patrimônio.</p>
+                <p data-i18n="faq.a2">Com certeza. Minha metodologia foi desenhada para quem está começando do zero. A linguagem é simples, direta e focada na prática, eliminando o "technobabble" e focando no que realmente protege o seu patrimônio.</p>
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-                <span>Meus ativos estão seguros durante a mentoria?</span>
+                <span data-i18n="faq.q3">Meus ativos estão seguros durante a mentoria?</span>
                 <svg class="faq-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div class="faq-answer">
-                <p>Sim. Eu nunca solicito suas chaves privadas ou senhas. O objetivo é ensinar você a ter autonomia total. Você detém 100% do controle em todas as etapas do processo.</p>
+                <p data-i18n="faq.a3">Sim. Eu nunca solicito suas chaves privadas ou senhas. O objetivo é ensinar você a ter autonomia total. Você detém 100% do controle em todas as etapas do processo.</p>
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-                <span>Qual a diferença entre o Volume 01 e o Volume 02?</span>
+                <span data-i18n="faq.q4">Qual a diferença entre o Volume 01 e o Volume 02?</span>
                 <svg class="faq-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div class="faq-answer">
-                <p>O Volume 01 foca na <strong>Soberania e Autocustódia</strong>. O Volume 02 é o nível avançado de <strong>Invisibilidade e Guerra</strong>, focado em táticas para tornar seus ativos indetectáveis e protegê-los contra ameaças sistêmicas.</p>
+                <p data-i18n="faq.a4">O Volume 01 foca na <strong>Soberania e Autocustódia</strong>. O Volume 02 é o nível avançado de <strong>Invisibilidade e Guerra</strong>, focado em táticas para tornar seus ativos indetectáveis e protegê-los contra ameaças sistêmicas.</p>
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-                <span>Como funciona o protocolo de herança digital?</span>
+                <span data-i18n="faq.q5">Como funciona o protocolo de herança digital?</span>
                 <svg class="faq-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div class="faq-answer">
-                <p>Na mentoria Private, desenhamos um protocolo onde sua família pode acessar o patrimônio em caso de necessidade, mas sem que ninguém (nem eu, nem eles) tenha acesso enquanto você estiver no comando.</p>
+                <p data-i18n="faq.a5">Na mentoria Private, desenhamos um protocolo onde sua família pode acessar o patrimônio em caso de necessidade, mas sem que ninguém (nem eu, nem eles) tenha acesso enquanto você estiver no comando.</p>
             </div>
         </div>
     </div>
 
     <div class="mt-16 text-center">
-        <p class="text-gray-400 mb-6 italic">Ainda tem alguma dúvida técnica ou específica?</p>
+        <p class="text-gray-400 mb-6 italic" data-i18n="faq.contact">Ainda tem alguma dúvida técnica ou específica?</p>
         <a href="https://wa.me/5534993421500?text=Ol%C3%A1%20Dione!%20Vim%20pelo%20site%20dionefolador.com%20e%20tenho%20uma%20d%C3%BAvida%20sobre%20os%20e-books%20e%20mentoria." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 bg-amber-500 hover:bg-amber-600 text-black font-bold rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(245,158,11,0.3)]">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.938 3.659 1.432 5.631 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            <span>Conversar com Dione</span>
+            <span data-i18n="faq.cta">Conversar com Dione</span>
         </a>
     </div>
 </section>
@@ -943,14 +970,14 @@
             <span class="text-[10px] text-amber-500/80 uppercase tracking-[0.4em] font-black">Strategic Intelligence</span>
         </div>
         
-        <p class="text-gray-500 text-sm max-w-md italic leading-relaxed">
+        <p class="text-gray-500 text-sm max-w-md italic leading-relaxed" data-i18n="footer.quote">
             "A liberdade digital não é um direito garantido, é uma infraestrutura construída diariamente através da soberania individual."
         </p>
 
         <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400">
-            <a href="#pacotes-mentoria" class="hover:text-amber-500 transition-colors">Mentoria Private</a>
-            <a href="#faq" class="hover:text-amber-500 transition-colors">Dúvidas Frequentes</a>
-            <a href="https://wa.me/5534993421500?text=Ol%C3%A1%20Dione!%20Vim%20pelo%20site%20dionefolador.com%20e%20preciso%20de%20suporte." target="_blank" rel="noopener noreferrer" class="hover:text-emerald-500 transition-colors">Suporte Direto</a>
+            <a href="#pacotes-mentoria" class="hover:text-amber-500 transition-colors" data-i18n="footer.mentoria">Mentoria Private</a>
+            <a href="#faq" class="hover:text-amber-500 transition-colors" data-i18n="footer.faq">Dúvidas Frequentes</a>
+            <a href="https://wa.me/5534993421500?text=Ol%C3%A1%20Dione!%20Vim%20pelo%20site%20dionefolador.com%20e%20preciso%20de%20suporte." target="_blank" rel="noopener noreferrer" class="hover:text-emerald-500 transition-colors" data-i18n="footer.support">Suporte Direto</a>
             <a href="https://dionefolador.com/" class="text-amber-500 hover:text-white transition-colors border-b border-amber-500/30">DioneFolador.com</a>
         </div>
 
@@ -962,12 +989,12 @@
         <div class="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
         <div class="flex flex-col md:flex-row justify-between w-full items-center gap-6 border-t border-white/5 pt-8">
-            <div class="text-gray-600 text-[10px] uppercase tracking-widest font-medium">
+            <div class="text-gray-600 text-[10px] uppercase tracking-widest font-medium" data-i18n="footer.rights">
                 © 2026 ZEBU BIT • DIONE FOLADOR • TODOS OS DIREITOS RESERVADOS
             </div>
             <div class="flex gap-6"> 
-                <a href="privacy.html" class="text-gray-500 hover:text-white transition-colors text-[10px] uppercase tracking-widest no-underline">Políticas</a>
-                <a href="terms.html" class="text-gray-500 hover:text-white transition-colors text-[10px] uppercase tracking-widest no-underline">Termos</a>
+                <a href="privacy.html" class="text-gray-500 hover:text-white transition-colors text-[10px] uppercase tracking-widest no-underline" data-i18n="footer.policies">Políticas</a>
+                <a href="terms.html" class="text-gray-500 hover:text-white transition-colors text-[10px] uppercase tracking-widest no-underline" data-i18n="footer.terms">Termos</a>
             </div>
         </div>
     </div>
@@ -977,15 +1004,15 @@
 
     <div id="modalGratis" class="fixed inset-0 z-[10000] hidden flex items-center justify-center p-4 bg-black/95">
         <div class="w-full max-w-md bg-zinc-900 border-2 border-emerald-500/50 rounded-[2rem] p-8 text-center shadow-[0_0_50px_rgba(16,185,129,0.2)]">
-            <h3 class="text-white text-2xl italic font-serif">Quase lá!</h3>
-            <p class="text-emerald-400 text-[10px] uppercase font-black mt-2">Preencha para receber o acesso</p>
+            <h3 class="text-white text-2xl italic font-serif" data-i18n="modal.gratis.title">Quase lá!</h3>
+            <p class="text-emerald-400 text-[10px] uppercase font-black mt-2" data-i18n="modal.gratis.sub">Preencha para receber o acesso</p>
             <div class="space-y-4 mt-6">
                 <input type="text" id="leadNome" placeholder="Seu Nome" class="w-full p-4 bg-black border border-white/10 rounded-xl text-white outline-none focus:border-emerald-500 transition">
                 <input type="email" id="leadEmail" placeholder="Seu E-mail principal" class="w-full p-4 bg-black border border-white/10 rounded-xl text-white outline-none focus:border-emerald-500 transition">
                 <input class="hp-trap" type="text" id="modalGratis_trap" name="website" autocomplete="off" tabindex="-1">
                 <input type="tel" id="leadWhatsapp" placeholder="WhatsApp com DDD" class="w-full p-4 bg-black border border-white/10 rounded-xl text-white outline-none focus:border-emerald-500 transition">
-                <button onclick="enviarLeadWhats()" class="w-full py-5 bg-emerald-500 text-black font-black rounded-xl hover:bg-emerald-400 transition shadow-lg">🚀 RECEBER NO WHATSAPP</button>
-                <button onclick="fecharModais()" class="text-gray-500 text-[10px] uppercase font-bold mt-4 hover:text-white transition">CANCELAR</button>
+                <button onclick="enviarLeadWhats()" class="w-full py-5 bg-emerald-500 text-black font-black rounded-xl hover:bg-emerald-400 transition shadow-lg" data-i18n="modal.gratis.cta">🚀 RECEBER NO WHATSAPP</button>
+                <button onclick="fecharModais()" class="text-gray-500 text-[10px] uppercase font-bold mt-4 hover:text-white transition" data-i18n="modal.gratis.cancel">CANCELAR</button>
             </div>
         </div>
     </div>
@@ -993,8 +1020,8 @@
     <div id="modalDados" class="fixed inset-0 z-[10000] hidden flex items-center justify-center p-4 modal-bg">
         <div class="w-full max-w-md bg-zinc-900 border border-amber-500/30 rounded-[2rem] p-8 space-y-5 shadow-2xl">
             <div class="text-center">
-                <h4 class="text-2xl font-serif text-white italic">Dados para Acesso</h4>
-                <p class="text-amber-500/60 text-[10px] uppercase font-black">Sua segurança em primeiro lugar</p>
+                <h4 class="text-2xl font-serif text-white italic" data-i18n="modal.dados.title">Dados para Acesso</h4>
+                <p class="text-amber-500/60 text-[10px] uppercase font-black" data-i18n="modal.dados.sub">Sua segurança em primeiro lugar</p>
             </div>
             <div class="space-y-4">
                 <input type="text" id="nome" placeholder="Nome Completo" class="w-full p-4 bg-black border border-white/10 rounded-xl text-white outline-none focus:border-amber-500 transition">
@@ -1003,17 +1030,17 @@
                 <input type="tel" id="whatsapp" placeholder="WhatsApp com DDD" class="w-full p-4 bg-black border border-white/10 rounded-xl text-white outline-none focus:border-amber-500 transition">
                 <div class="flex items-start gap-3 px-2">
                     <input type="checkbox" id="lgpd" class="mt-1 accent-amber-500 h-4 w-4">
-                    <label for="lgpd" class="text-[10px] text-gray-500 leading-tight">Aceito os termos da LGPD e autorizo o contato para envio do acesso.</label>
+                    <label for="lgpd" class="text-[10px] text-gray-500 leading-tight" data-i18n="modal.dados.lgpd">Aceito os termos da LGPD e autorizo o contato para envio do acesso.</label>
                 </div>
-                <button onclick="irParaPagamento()" class="w-full py-4 bg-amber-600 hover:bg-amber-500 text-white font-black rounded-xl transition shadow-lg">💳 PROSSEGUIR</button>
-                <button onclick="fecharModais()" class="w-full text-gray-600 text-[10px] uppercase font-bold hover:text-white transition">VOLTAR</button>
+                <button onclick="irParaPagamento()" class="w-full py-4 bg-amber-600 hover:bg-amber-500 text-white font-black rounded-xl transition shadow-lg" data-i18n="modal.dados.cta">💳 PROSSEGUIR</button>
+                <button onclick="fecharModais()" class="w-full text-gray-600 text-[10px] uppercase font-bold hover:text-white transition" data-i18n="modal.dados.back">VOLTAR</button>
             </div>
         </div>
     </div>
 
     <div id="modalPagamentoEscolha" class="fixed inset-0 z-[10001] hidden flex items-center justify-center p-4 modal-bg">
         <div class="bg-zinc-900 border border-amber-500/30 p-8 rounded-[2rem] w-full max-w-md text-center space-y-6 shadow-2xl">
-            <h4 class="text-xl font-serif text-white italic">Como deseja finalizar?</h4>
+            <h4 class="text-xl font-serif text-white italic" data-i18n="modal.pay.title">Como deseja finalizar?</h4>
             <div class="grid gap-4">
                 <button onclick="exibirPixDireto()" class="p-5 bg-black/60 border border-white/5 rounded-2xl hover:border-amber-500/50 text-white font-bold transition">⚡ PIX (Manual)</button>
                 
@@ -1026,7 +1053,7 @@
                     <span class="text-[8px] uppercase tracking-tighter text-gray-400">Pagar via Transação Direta</span>
                 </a>
             </div>
-            <button onclick="fecharModais()" class="text-gray-600 text-[10px] uppercase font-bold hover:text-white transition">Cancelar</button>
+            <button onclick="fecharModais()" class="text-gray-600 text-[10px] uppercase font-bold hover:text-white transition" data-i18n="modal.pay.cancel">Cancelar</button>
         </div>
     </div>
 
@@ -1039,7 +1066,7 @@
         </div>
         
         <div class="space-y-3">
-            <p class="text-[10px] text-zinc-500 uppercase tracking-widest font-bold">Chave PIX (Copia e Cola)</p>
+            <p class="text-[10px] text-zinc-500 uppercase tracking-widest font-bold" data-i18n="modal.pix.label">Chave PIX (Copia e Cola)</p>
             <p id="pix-display" class="text-amber-500 font-mono text-xs bg-black p-4 rounded-xl border border-amber-500/20 break-all select-all shadow-inner cursor-pointer" onclick="copiarPix()" title="Clique para copiar">
                 Carregando...
             </p>
@@ -1053,7 +1080,7 @@
 
         <div class="space-y-4 pt-4 border-t border-white/5">
             <button onclick="finalizarPixWhats()" class="w-full py-5 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-black rounded-2xl hover:from-emerald-500 hover:to-emerald-600 transition shadow-lg uppercase text-xs tracking-widest">
-                🚀 Enviar Comprovante agora
+                <span data-i18n="modal.pix.cta">🚀 Enviar Comprovante agora</span>
             </button>
             
             <div class="text-[10px] text-gray-300 space-y-2 uppercase tracking-tight">
@@ -1062,7 +1089,7 @@
             </div>
         </div>
 
-        <button onclick="fecharModais()" class="text-gray-600 text-[10px] uppercase font-bold hover:text-white transition pt-2">Voltar ao site</button>
+        <button onclick="fecharModais()" class="text-gray-600 text-[10px] uppercase font-bold hover:text-white transition pt-2" data-i18n="modal.pix.back">Voltar ao site</button>
    </div>
 </div>
 
@@ -1362,6 +1389,347 @@
     }
     setTimeout(() => { mostrarProvaSocial(); setInterval(mostrarProvaSocial, 20000); }, 5000);
 
+    // ──────────────────────────────────────────
+    // MULTILINGUAL — PT / EN / ES
+    // ──────────────────────────────────────────
+    const translations = {
+      pt: {
+        'nav.tagline': 'Strategic Intelligence',
+        'nav.verified': 'Identidade Verificada',
+        'exit.tag': 'Oportunidade Única',
+        'exit.title': 'NÃO VÁ EMBORA! 🛡️',
+        'exit.sub': 'Detectamos sua saída. Liberei uma condição especial por tempo limitado:',
+        'exit.cta': 'RESGATAR AGORA',
+        'exit.dismiss': 'Vou pensar mais um pouco...',
+        'hero.subtitle': 'Soberania Digital & Autocustódia',
+        'hero.bio': 'Investidor e estrategista com mais de <span class="text-amber-500 font-bold border-b border-amber-500/30">13 anos de experiência</span> na linha de frente do mercado cripto.',
+        'hero.quote': '"Atravessei os ciclos mais turbulentos da história, transformando volatilidade em liberdade. Minha missão é ensinar você a assumir a <span class="text-white font-semibold">autocustódia real</span> e construir uma soberania inabalável, eliminando de vez a dependência de intermediários."',
+        'media.label': 'Histórico de Mercado',
+        'media.title': 'Destaque na mídia especializada desde 2017',
+        'media.desc': 'Convidado pela <span class="text-white">Revista Ponto Crítico</span> em sua edição de aniversário para projetar o futuro das finanças. Uma prova de que as estratégias de soberania que ensino hoje são frutos de quase uma década de validação pública.',
+        'media.link': 'Ver matéria original (Págs. 1 & 34/35)',
+        'btc.badge': 'APENAS 5 VAGAS',
+        'btc.title': 'Consultoria Bitcoin 1h',
+        'btc.desc': 'Estratégia personalizada, segurança e soberania digital diretamente comigo.',
+        'btc.cta': '🔥 RESERVAR MINHA VAGA',
+        'btc.urgency': '⚠️ Atenção: Restam apenas 2 vagas para esta semana.',
+        'btc.safe': '🔒 Pagamento Seguro',
+        'btc.instant': '⚡ Acesso Imediato',
+        'ebook.tag': 'Acesso Gratuito',
+        'ebook.title': 'Bitcoin para Iniciantes',
+        'ebook.desc': 'Prepare-se para o novo sistema financeiro. Aprenda os fundamentos essenciais com quem vive o mercado há mais de uma década.',
+        'ebook.cta': '📥 BAIXAR E-BOOK AGORA',
+        'vol1.label': 'Volume 01 • O Mapa da Autocustódia',
+        'vol1.desc': 'Pare de deixar seu patrimônio nas mãos de corretoras. Aprenda a configurar sua própria <span class="text-white font-semibold">infraestrutura de segurança</span> e assuma o controle real sobre seus ativos.',
+        'vol1.cta': '🔥 ADQUIRIR VOLUME 1',
+        'vol2.tag': 'Módulo Avançado',
+        'vol2.label': 'Volume 02 • Invisibilidade & Guerra',
+        'vol2.desc': 'Aprenda a tornar seus ativos <span class="text-white font-semibold">indetectáveis</span>. Táticas de guerra digital para proteção contra confiscos e rastreio avançado.',
+        'vol2.cta': '🥷 ACESSO TÁTICO',
+        'quote.text': '"A segurança parcial é uma ilusão. A liberdade plena exige a <span class="text-amber-500 font-bold underline decoration-amber-500/30">estratégia completa</span>."',
+        'combo.tag': 'Melhor Custo-Benefício',
+        'combo.title': 'Combo: Soberania Total',
+        'combo.desc': 'Domine desde a base da autocustódia até a invisibilidade tática. <span class="text-white font-bold">Leve os dois volumes com desconto</span> e garanta sua liberdade plena.',
+        'combo.cta': '🔥 GARANTIR ESTRATÉGIA COMPLETA',
+        'mentoria.title': 'Mentoria Individual',
+        'mentoria.tag': 'Private Strategy • Vagas Limitadas',
+        'mentoria.cta': '🚀 Quero Saber Sobre a Mentoria',
+        'mentoria.acc': 'Acompanhamento Personalizado',
+        'mentoria.by': 'Estratégia Exclusiva por Dione Folador',
+        'kyc.title': 'Liquidez Centralizada (KYC)',
+        'nokyc.title': 'Soberania & Web3 (NO-KYC)',
+        'cards.title': 'Cartões de Elite:<br><span class="text-amber-500">O poder da escolha</span> em suas mãos.',
+        'cards.desc': 'Complemente sua estratégia Web3 com ferramentas de elite. Seja através da soberania absoluta do Cartão Aurum ou da eficiência DeFi do Ether.fi.',
+        'cards.cta': '💳 CONHECER CARTÕES DE ELITE',
+        'cards.global': 'Aceitação Global',
+        'testimonials.title': 'A Voz da Soberania',
+        'testimonials.sub': 'Alunos e Mentorados • Resultados Reais',
+        'testimonials.tip': 'Toque nos cards para seguir os perfis no Instagram',
+        'strategy.sub': 'Selecione o seu plano de acompanhamento',
+        'plan1.label': '1 Aula Individual',
+        'plan1.sub': 'Sessão única estratégica',
+        'plan.recommended': 'Recomendado',
+        'plan.select': 'Selecionar',
+        'faq.title': 'Dúvidas Frequentes',
+        'faq.q1': 'Como recebo o acesso aos produtos após o pagamento?',
+        'faq.a1': 'Assim que o Mercado Pago confirmar o pagamento, você receberá o acesso automaticamente no seu e-mail cadastrado. Também oferecemos suporte via WhatsApp para garantir que você acesse seu material ou agende sua mentoria sem complicações.',
+        'faq.q2': 'Não entendo nada de tecnologia, o conteúdo serve para mim?',
+        'faq.a2': 'Com certeza. Minha metodologia foi desenhada para quem está começando do zero. A linguagem é simples, direta e focada na prática, eliminando o "technobabble" e focando no que realmente protege o seu patrimônio.',
+        'faq.q3': 'Meus ativos estão seguros durante a mentoria?',
+        'faq.a3': 'Sim. Eu nunca solicito suas chaves privadas ou senhas. O objetivo é ensinar você a ter autonomia total. Você detém 100% do controle em todas as etapas do processo.',
+        'faq.q4': 'Qual a diferença entre o Volume 01 e o Volume 02?',
+        'faq.a4': 'O Volume 01 foca na <strong>Soberania e Autocustódia</strong>. O Volume 02 é o nível avançado de <strong>Invisibilidade e Guerra</strong>, focado em táticas para tornar seus ativos indetectáveis e protegê-los contra ameaças sistêmicas.',
+        'faq.q5': 'Como funciona o protocolo de herança digital?',
+        'faq.a5': 'Na mentoria Private, desenhamos um protocolo onde sua família pode acessar o patrimônio em caso de necessidade, mas sem que ninguém (nem eu, nem eles) tenha acesso enquanto você estiver no comando.',
+        'faq.contact': 'Ainda tem alguma dúvida técnica ou específica?',
+        'faq.cta': 'Conversar com Dione',
+        'footer.quote': '"A liberdade digital não é um direito garantido, é uma infraestrutura construída diariamente através da soberania individual."',
+        'footer.mentoria': 'Mentoria Private',
+        'footer.faq': 'Dúvidas Frequentes',
+        'footer.support': 'Suporte Direto',
+        'footer.rights': '© 2026 ZEBU BIT • DIONE FOLADOR • TODOS OS DIREITOS RESERVADOS',
+        'footer.policies': 'Políticas',
+        'footer.terms': 'Termos',
+        'modal.gratis.title': 'Quase lá!',
+        'modal.gratis.sub': 'Preencha para receber o acesso',
+        'modal.gratis.cta': '🚀 RECEBER NO WHATSAPP',
+        'modal.gratis.cancel': 'CANCELAR',
+        'modal.dados.title': 'Dados para Acesso',
+        'modal.dados.sub': 'Sua segurança em primeiro lugar',
+        'modal.dados.lgpd': 'Aceito os termos da LGPD e autorizo o contato para envio do acesso.',
+        'modal.dados.cta': '💳 PROSSEGUIR',
+        'modal.dados.back': 'VOLTAR',
+        'modal.pay.title': 'Como deseja finalizar?',
+        'modal.pay.cancel': 'Cancelar',
+        'modal.pix.label': 'Chave PIX (Copia e Cola)',
+        'modal.pix.cta': '🚀 Enviar Comprovante agora',
+        'modal.pix.back': 'Voltar ao site',
+        'lgpd.tag': 'Segurança Digital & LGPD',
+        'lgpd.desc': 'Utilizamos inteligência de dados para otimizar sua jornada de soberania.',
+        'lgpd.cta': 'ACEITAR E PROSSEGUIR',
+        'ph.nome': 'Seu Nome',
+        'ph.email.gratis': 'Seu E-mail principal',
+        'ph.whats': 'WhatsApp com DDD',
+        'ph.nome.completo': 'Nome Completo',
+        'ph.email.melhor': 'Seu Melhor E-mail',
+      },
+      en: {
+        'nav.tagline': 'Strategic Intelligence',
+        'nav.verified': 'Identity Verified',
+        'exit.tag': 'Exclusive Opportunity',
+        'exit.title': "DON'T LEAVE! 🛡️",
+        'exit.sub': 'We detected your exit. I released a special limited-time offer:',
+        'exit.cta': 'CLAIM NOW',
+        'exit.dismiss': "I'll think about it...",
+        'hero.subtitle': 'Digital Sovereignty & Self-Custody',
+        'hero.bio': 'Investor and strategist with over <span class="text-amber-500 font-bold border-b border-amber-500/30">13 years of experience</span> at the forefront of the crypto market.',
+        'hero.quote': '"I\'ve navigated the most turbulent cycles in history, turning volatility into freedom. My mission is to teach you to take <span class="text-white font-semibold">real self-custody</span> and build unshakeable sovereignty, eliminating dependence on intermediaries once and for all."',
+        'media.label': 'Market Track Record',
+        'media.title': 'Featured in specialized media since 2017',
+        'media.desc': 'Invited by <span class="text-white">Revista Ponto Crítico</span> at their anniversary edition to project the future of finance. Proof that the sovereignty strategies I teach today stem from nearly a decade of public validation.',
+        'media.link': 'View original article (Pgs. 1 & 34/35)',
+        'btc.badge': 'ONLY 5 SPOTS',
+        'btc.title': 'Bitcoin Consulting 1h',
+        'btc.desc': 'Personalized strategy, security and digital sovereignty directly with me.',
+        'btc.cta': '🔥 RESERVE MY SPOT',
+        'btc.urgency': '⚠️ Warning: Only 2 spots left this week.',
+        'btc.safe': '🔒 Secure Payment',
+        'btc.instant': '⚡ Instant Access',
+        'ebook.tag': 'Free Access',
+        'ebook.title': 'Bitcoin for Beginners',
+        'ebook.desc': 'Prepare for the new financial system. Learn the essential fundamentals from someone who has lived this market for over a decade.',
+        'ebook.cta': '📥 DOWNLOAD E-BOOK NOW',
+        'vol1.label': 'Volume 01 • The Self-Custody Map',
+        'vol1.desc': 'Stop leaving your assets in the hands of exchanges. Learn to configure your own <span class="text-white font-semibold">security infrastructure</span> and take real control over your assets.',
+        'vol1.cta': '🔥 GET VOLUME 1',
+        'vol2.tag': 'Advanced Module',
+        'vol2.label': 'Volume 02 • Invisibility & War',
+        'vol2.desc': 'Learn to make your assets <span class="text-white font-semibold">undetectable</span>. Digital warfare tactics for protection against seizures and advanced tracking.',
+        'vol2.cta': '🥷 TACTICAL ACCESS',
+        'quote.text': '"Partial security is an illusion. Full freedom demands the <span class="text-amber-500 font-bold underline decoration-amber-500/30">complete strategy</span>."',
+        'combo.tag': 'Best Value',
+        'combo.title': 'Combo: Total Sovereignty',
+        'combo.desc': 'Master everything from self-custody basics to tactical invisibility. <span class="text-white font-bold">Get both volumes at a discount</span> and guarantee your full freedom.',
+        'combo.cta': '🔥 SECURE COMPLETE STRATEGY',
+        'mentoria.title': 'Individual Mentoring',
+        'mentoria.tag': 'Private Strategy • Limited Spots',
+        'mentoria.cta': '🚀 Learn About Mentoring',
+        'mentoria.acc': 'Personalized Coaching',
+        'mentoria.by': 'Exclusive Strategy by Dione Folador',
+        'kyc.title': 'Centralized Liquidity (KYC)',
+        'nokyc.title': 'Sovereignty & Web3 (NO-KYC)',
+        'cards.title': 'Elite Cards:<br><span class="text-amber-500">The power of choice</span> in your hands.',
+        'cards.desc': 'Complement your Web3 strategy with elite tools. Whether through the absolute sovereignty of the Aurum Card or the DeFi efficiency of Ether.fi.',
+        'cards.cta': '💳 DISCOVER ELITE CARDS',
+        'cards.global': 'Global Acceptance',
+        'testimonials.title': 'The Voice of Sovereignty',
+        'testimonials.sub': 'Students & Mentored • Real Results',
+        'testimonials.tip': 'Tap cards to follow profiles on Instagram',
+        'strategy.sub': 'Select your coaching plan',
+        'plan1.label': '1 Individual Session',
+        'plan1.sub': 'Single strategic session',
+        'plan.recommended': 'Recommended',
+        'plan.select': 'Select',
+        'faq.title': 'Frequently Asked Questions',
+        'faq.q1': 'How do I receive access to products after payment?',
+        'faq.a1': 'Once Mercado Pago confirms the payment, you will automatically receive access at your registered email. We also offer WhatsApp support to ensure you access your material or schedule your mentoring without complications.',
+        'faq.q2': "I don't understand technology — is this content for me?",
+        'faq.a2': 'Absolutely. My methodology is designed for those starting from zero. The language is simple, direct and practice-focused, cutting through the technobabble and zeroing in on what truly protects your assets.',
+        'faq.q3': 'Are my assets safe during the mentoring?',
+        'faq.a3': 'Yes. I never ask for your private keys or passwords. The goal is to teach you to have full autonomy. You hold 100% control at every step of the process.',
+        'faq.q4': "What's the difference between Volume 01 and Volume 02?",
+        'faq.a4': 'Volume 01 focuses on <strong>Sovereignty and Self-Custody</strong>. Volume 02 is the advanced level of <strong>Invisibility and War</strong>, focused on tactics to make your assets undetectable and protect them against systemic threats.',
+        'faq.q5': 'How does the digital inheritance protocol work?',
+        'faq.a5': 'In Private mentoring, we design a protocol where your family can access the assets in case of need, but without anyone (not me, not them) having access while you are in command.',
+        'faq.contact': 'Still have a technical or specific question?',
+        'faq.cta': 'Talk to Dione',
+        'footer.quote': '"Digital freedom is not a guaranteed right — it is an infrastructure built daily through individual sovereignty."',
+        'footer.mentoria': 'Private Mentoring',
+        'footer.faq': 'FAQ',
+        'footer.support': 'Direct Support',
+        'footer.rights': '© 2026 ZEBU BIT • DIONE FOLADOR • ALL RIGHTS RESERVED',
+        'footer.policies': 'Policies',
+        'footer.terms': 'Terms',
+        'modal.gratis.title': 'Almost there!',
+        'modal.gratis.sub': 'Fill in to receive access',
+        'modal.gratis.cta': '🚀 RECEIVE ON WHATSAPP',
+        'modal.gratis.cancel': 'CANCEL',
+        'modal.dados.title': 'Access Details',
+        'modal.dados.sub': 'Your security comes first',
+        'modal.dados.lgpd': 'I accept the privacy terms and authorize contact for access delivery.',
+        'modal.dados.cta': '💳 PROCEED',
+        'modal.dados.back': 'BACK',
+        'modal.pay.title': 'How would you like to complete?',
+        'modal.pay.cancel': 'Cancel',
+        'modal.pix.label': 'PIX Key (Copy & Paste)',
+        'modal.pix.cta': '🚀 Send Receipt Now',
+        'modal.pix.back': 'Back to site',
+        'lgpd.tag': 'Digital Security & Privacy',
+        'lgpd.desc': 'We use data intelligence to optimize your sovereignty journey.',
+        'lgpd.cta': 'ACCEPT & CONTINUE',
+        'ph.nome': 'Your Name',
+        'ph.email.gratis': 'Your Main Email',
+        'ph.whats': 'WhatsApp with country code',
+        'ph.nome.completo': 'Full Name',
+        'ph.email.melhor': 'Your Best Email',
+      },
+      es: {
+        'nav.tagline': 'Inteligencia Estratégica',
+        'nav.verified': 'Identidad Verificada',
+        'exit.tag': 'Oportunidad Única',
+        'exit.title': '¡NO TE VAYAS! 🛡️',
+        'exit.sub': 'Detectamos tu salida. Liberé una condición especial por tiempo limitado:',
+        'exit.cta': 'RECLAMAR AHORA',
+        'exit.dismiss': 'Lo pensaré un poco más...',
+        'hero.subtitle': 'Soberanía Digital & Autocustodia',
+        'hero.bio': 'Inversor y estratega con más de <span class="text-amber-500 font-bold border-b border-amber-500/30">13 años de experiencia</span> en la vanguardia del mercado cripto.',
+        'hero.quote': '"He atravesado los ciclos más turbulentos de la historia, transformando la volatilidad en libertad. Mi misión es enseñarte a asumir la <span class="text-white font-semibold">autocustodia real</span> y construir una soberanía inquebrantable, eliminando de una vez la dependencia de intermediarios."',
+        'media.label': 'Historial de Mercado',
+        'media.title': 'Destacado en medios especializados desde 2017',
+        'media.desc': 'Invitado por la <span class="text-white">Revista Ponto Crítico</span> en su edición de aniversario para proyectar el futuro de las finanzas. Prueba de que las estrategias de soberanía que enseño hoy son fruto de casi una década de validación pública.',
+        'media.link': 'Ver artículo original (Págs. 1 & 34/35)',
+        'btc.badge': 'SOLO 5 CUPOS',
+        'btc.title': 'Consultoría Bitcoin 1h',
+        'btc.desc': 'Estrategia personalizada, seguridad y soberanía digital directamente conmigo.',
+        'btc.cta': '🔥 RESERVAR MI CUPO',
+        'btc.urgency': '⚠️ Atención: Solo quedan 2 cupos esta semana.',
+        'btc.safe': '🔒 Pago Seguro',
+        'btc.instant': '⚡ Acceso Inmediato',
+        'ebook.tag': 'Acceso Gratuito',
+        'ebook.title': 'Bitcoin para Principiantes',
+        'ebook.desc': 'Prepárate para el nuevo sistema financiero. Aprende los fundamentos esenciales con quien vive este mercado hace más de una década.',
+        'ebook.cta': '📥 DESCARGAR E-BOOK AHORA',
+        'vol1.label': 'Volumen 01 • El Mapa de la Autocustodia',
+        'vol1.desc': 'Deja de poner tu patrimonio en manos de exchanges. Aprende a configurar tu propia <span class="text-white font-semibold">infraestructura de seguridad</span> y toma el control real sobre tus activos.',
+        'vol1.cta': '🔥 ADQUIRIR VOLUMEN 1',
+        'vol2.tag': 'Módulo Avanzado',
+        'vol2.label': 'Volumen 02 • Invisibilidad & Guerra',
+        'vol2.desc': 'Aprende a hacer tus activos <span class="text-white font-semibold">indetectables</span>. Tácticas de guerra digital para protección contra confiscaciones y rastreo avanzado.',
+        'vol2.cta': '🥷 ACCESO TÁCTICO',
+        'quote.text': '"La seguridad parcial es una ilusión. La libertad plena exige la <span class="text-amber-500 font-bold underline decoration-amber-500/30">estrategia completa</span>."',
+        'combo.tag': 'Mejor Costo-Beneficio',
+        'combo.title': 'Combo: Soberanía Total',
+        'combo.desc': 'Domina desde la base de la autocustodia hasta la invisibilidad táctica. <span class="text-white font-bold">Llévate los dos volúmenes con descuento</span> y garantiza tu libertad plena.',
+        'combo.cta': '🔥 GARANTIZAR ESTRATEGIA COMPLETA',
+        'mentoria.title': 'Mentoría Individual',
+        'mentoria.tag': 'Private Strategy • Cupos Limitados',
+        'mentoria.cta': '🚀 Conocer la Mentoría',
+        'mentoria.acc': 'Acompañamiento Personalizado',
+        'mentoria.by': 'Estrategia Exclusiva por Dione Folador',
+        'kyc.title': 'Liquidez Centralizada (KYC)',
+        'nokyc.title': 'Soberanía & Web3 (NO-KYC)',
+        'cards.title': 'Tarjetas de Elite:<br><span class="text-amber-500">El poder de la elección</span> en tus manos.',
+        'cards.desc': 'Complementa tu estrategia Web3 con herramientas de elite. A través de la soberanía absoluta de la Tarjeta Aurum o la eficiencia DeFi de Ether.fi.',
+        'cards.cta': '💳 CONOCER TARJETAS DE ELITE',
+        'cards.global': 'Aceptación Global',
+        'testimonials.title': 'La Voz de la Soberanía',
+        'testimonials.sub': 'Alumnos y Mentoreados • Resultados Reales',
+        'testimonials.tip': 'Toca las tarjetas para seguir perfiles en Instagram',
+        'strategy.sub': 'Selecciona tu plan de acompañamiento',
+        'plan1.label': '1 Sesión Individual',
+        'plan1.sub': 'Sesión estratégica única',
+        'plan.recommended': 'Recomendado',
+        'plan.select': 'Seleccionar',
+        'faq.title': 'Preguntas Frecuentes',
+        'faq.q1': '¿Cómo recibo el acceso a los productos después del pago?',
+        'faq.a1': 'Una vez que Mercado Pago confirme el pago, recibirás el acceso automáticamente en tu email registrado. También ofrecemos soporte por WhatsApp para garantizar que accedas a tu material o programes tu mentoría sin complicaciones.',
+        'faq.q2': 'No entiendo de tecnología — ¿el contenido es para mí?',
+        'faq.a2': 'Por supuesto. Mi metodología está diseñada para quienes están empezando desde cero. El lenguaje es simple, directo y enfocado en la práctica, eliminando el "technobabble" y centrándose en lo que realmente protege tu patrimonio.',
+        'faq.q3': '¿Mis activos están seguros durante la mentoría?',
+        'faq.a3': 'Sí. Nunca solicito tus claves privadas o contraseñas. El objetivo es enseñarte a tener autonomía total. Tienes el 100% del control en todas las etapas del proceso.',
+        'faq.q4': '¿Cuál es la diferencia entre el Volumen 01 y el Volumen 02?',
+        'faq.a4': 'El Volumen 01 se centra en la <strong>Soberanía y Autocustodia</strong>. El Volumen 02 es el nivel avanzado de <strong>Invisibilidad y Guerra</strong>, con tácticas para hacer tus activos indetectables y protegerlos contra amenazas sistémicas.',
+        'faq.q5': '¿Cómo funciona el protocolo de herencia digital?',
+        'faq.a5': 'En la mentoría Private, diseñamos un protocolo donde tu familia puede acceder al patrimonio en caso de necesidad, pero sin que nadie (ni yo, ni ellos) tenga acceso mientras estés al mando.',
+        'faq.contact': '¿Aún tienes alguna duda técnica o específica?',
+        'faq.cta': 'Hablar con Dione',
+        'footer.quote': '"La libertad digital no es un derecho garantizado, es una infraestructura construida diariamente a través de la soberanía individual."',
+        'footer.mentoria': 'Mentoría Private',
+        'footer.faq': 'Preguntas Frecuentes',
+        'footer.support': 'Soporte Directo',
+        'footer.rights': '© 2026 ZEBU BIT • DIONE FOLADOR • TODOS LOS DERECHOS RESERVADOS',
+        'footer.policies': 'Políticas',
+        'footer.terms': 'Términos',
+        'modal.gratis.title': '¡Casi ahí!',
+        'modal.gratis.sub': 'Completa para recibir el acceso',
+        'modal.gratis.cta': '🚀 RECIBIR POR WHATSAPP',
+        'modal.gratis.cancel': 'CANCELAR',
+        'modal.dados.title': 'Datos de Acceso',
+        'modal.dados.sub': 'Tu seguridad es lo primero',
+        'modal.dados.lgpd': 'Acepto los términos de privacidad y autorizo el contacto para el envío del acceso.',
+        'modal.dados.cta': '💳 PROCEDER',
+        'modal.dados.back': 'VOLVER',
+        'modal.pay.title': '¿Cómo deseas finalizar?',
+        'modal.pay.cancel': 'Cancelar',
+        'modal.pix.label': 'Clave PIX (Copiar y Pegar)',
+        'modal.pix.cta': '🚀 Enviar Comprobante ahora',
+        'modal.pix.back': 'Volver al sitio',
+        'lgpd.tag': 'Seguridad Digital & Privacidad',
+        'lgpd.desc': 'Utilizamos inteligencia de datos para optimizar tu jornada de soberanía.',
+        'lgpd.cta': 'ACEPTAR Y CONTINUAR',
+        'ph.nome': 'Tu Nombre',
+        'ph.email.gratis': 'Tu Email Principal',
+        'ph.whats': 'WhatsApp con código de país',
+        'ph.nome.completo': 'Nombre Completo',
+        'ph.email.melhor': 'Tu Mejor Email',
+      }
+    };
+
+    const phMap = {
+      'leadNome':    'ph.nome',
+      'leadEmail':   'ph.email.gratis',
+      'leadWhatsapp':'ph.whats',
+      'nome':        'ph.nome.completo',
+      'email':       'ph.email.melhor',
+      'whatsapp':    'ph.whats',
+    };
+
+    function setLanguage(lang) {
+      if (!translations[lang]) lang = 'pt';
+      document.documentElement.lang = lang === 'pt' ? 'pt-br' : lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const v = translations[lang][el.getAttribute('data-i18n')];
+        if (v !== undefined) el.innerHTML = v;
+      });
+      Object.entries(phMap).forEach(([id, key]) => {
+        const el = document.getElementById(id);
+        if (el) { const v = translations[lang][key]; if (v) el.placeholder = v; }
+      });
+      document.querySelectorAll('.lang-switcher button').forEach(b =>
+        b.classList.toggle('active', b.dataset.lang === lang));
+      try { localStorage.setItem('lang_dione', lang); } catch(e) {}
+    }
+
+    document.querySelectorAll('.lang-switcher button').forEach(b =>
+      b.addEventListener('click', () => setLanguage(b.dataset.lang)));
+
+    (function(){
+      let initLang = 'pt';
+      try { const s = localStorage.getItem('lang_dione'); if (s && translations[s]) initLang = s; } catch(e) {}
+      setLanguage(initLang);
+    })();
+    // ──────────────────────────────────────────
+
     let tempoRestante = 15 * 60; let cronometroIniciado = false;
     function iniciarRelogioSoberano() {
         if (cronometroIniciado) return; cronometroIniciado = true;
@@ -1382,13 +1750,13 @@
 
 <div id="lgpd-banner" style="display: none; position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%); width: 95%; max-width: 480px; background: rgba(5, 5, 5, 0.95); border: 1px solid rgba(245, 158, 11, 0.6); padding: 20px; border-radius: 24px; z-index: 9999999; box-shadow: 0 20px 60px rgba(0,0,0,1); text-align: center; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);">
     <div style="margin-bottom: 15px;">
-        <span style="color: #f59e0b; font-weight: 900; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 5px;">Segurança Digital & LGPD</span>
-        <p style="color: #d1d5db; font-size: 13px; line-height: 1.5; font-family: 'Montserrat', sans-serif;">
+        <span style="color: #f59e0b; font-weight: 900; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 5px;" data-i18n="lgpd.tag">Segurança Digital & LGPD</span>
+        <p style="color: #d1d5db; font-size: 13px; line-height: 1.5; font-family: 'Montserrat', sans-serif;" data-i18n="lgpd.desc">
             Utilizamos inteligência de dados para otimizar sua jornada de soberania.
         </p>
     </div>
     <button onclick="aceitarLGPD()" style="background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%); color: #000; font-weight: 900; text-transform: uppercase; font-size: 11px; padding: 12px 0; width: 100%; border-radius: 12px; cursor: pointer; border: none; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);">
-        ACEITAR E PROSSEGUIR
+        <span data-i18n="lgpd.cta">ACEITAR E PROSSEGUIR</span>
     </button>
 </div>
 
