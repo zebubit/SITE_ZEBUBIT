@@ -4,7 +4,7 @@
 User-agent: *
 Allow: /
 # Bloqueios de Segurança e Arquivos Internos
-Disallow: /PIX00.jpeg
+Disallow: /PIX00.webp
 Disallow: /PIX39.pdf
 Disallow: /PIX59.pdf
 Disallow: /PIXEMBRANCO.pdf
