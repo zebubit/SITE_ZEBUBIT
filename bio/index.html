@@ -208,6 +208,34 @@
   .link--cta { border-color: rgba(245,158,11,.5); background: rgba(245, 158, 11, 0.1); }
   .link--cta .link-title::after { content: " ⭐"; }
 
+  /* ─── CTA "quero um link igual" ─── */
+  .cta-bio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+    width: 100%;
+    margin-top: 1.8rem;
+    padding: 1.05rem 1rem;
+    border-radius: 16px;
+    border: 1.5px dashed rgba(245, 158, 11, 0.5);
+    background: rgba(245, 158, 11, 0.07);
+    color: var(--gold-light);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: .92rem;
+    text-align: center;
+    line-height: 1.3;
+    transition: transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
+  }
+  .cta-bio:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+    background: rgba(245, 158, 11, 0.15);
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.18);
+  }
+  .cta-bio svg { width: 21px; height: 21px; flex-shrink: 0; color: #25D366; }
+
   /* ─── FOOTER ─── */
   .footer {
     text-align: center;
@@ -382,6 +410,12 @@
       <span class="link-sub">Segunda maior exchange</span>
     </span>
     <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+
+  <!-- CTA: quero um link da bio igual -->
+  <a class="cta-bio reveal" href="https://wa.me/5534993421500?text=Ol%C3%A1!%20Gostei%20da%20sua%20bio%20e%20quero%20um%20link%20da%20bio%20igual%20a%20esse%20pro%20meu%20Instagram." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.04c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-2.99s.75-2.12 1.01-2.41c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.82 2.04.89 2.19.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.29.37-.42.5-.14.14-.28.29-.12.56.16.27.72 1.18 1.54 1.91 1.06.95 1.96 1.24 2.23 1.38.27.14.43.12.59-.07.16-.19.68-.79.86-1.07.18-.27.36-.22.61-.13.24.09 1.55.73 1.81.86.27.14.45.2.51.31.07.11.07.62-.17 1.3z"/></svg>
+    Quero um link da bio igual a esse
   </a>
 
   <!-- FOOTER -->
