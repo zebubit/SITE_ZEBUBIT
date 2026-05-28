@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dione Folador | Links Oficiais</title>
+<meta name="description" content="Links oficiais de Dione Folador. Autocustódia, blindagem financeira, mentoria cripto, assessoria digital e as corretoras que eu indico.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://dionefolador.com/bio/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dione Folador | Links Oficiais">
+<meta property="og:description" content="Autocustódia, blindagem financeira, mentoria cripto e assessoria digital. Comece por aqui.">
+<meta property="og:image" content="https://dionefolador.com/bio/dione.webp">
+<meta property="og:url" content="https://dionefolador.com/bio/">
+
+<link rel="icon" href="../zebuoficial.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --gold: #f59e0b;
+    --gold-light: #fbbf24;
+    --gold-deep: #b45309;
+    --bg: #060606;
+    --card: rgba(255, 255, 255, 0.045);
+    --card-border: rgba(245, 158, 11, 0.16);
+    --text: #f6f5f3;
+    --muted: #9b9994;
+    --sans: 'Montserrat', sans-serif;
+    --serif: 'Playfair Display', serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Brilho dourado de fundo */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(560px circle at 50% -5%, rgba(245, 158, 11, 0.16), transparent 60%),
+      radial-gradient(700px circle at 50% 110%, rgba(180, 83, 9, 0.10), transparent 60%);
+    pointer-events: none;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 2.6rem 1.25rem 3rem;
+  }
+
+  /* ─── HEADER ─── */
+  .header { text-align: center; margin-bottom: 2.2rem; }
+
+  .avatar-ring {
+    width: 124px;
+    height: 124px;
+    margin: 0 auto 1.1rem;
+    border-radius: 50%;
+    padding: 3px;
+    background: conic-gradient(from 210deg, var(--gold-deep), var(--gold), var(--gold-light), var(--gold), var(--gold-deep));
+    box-shadow: 0 0 28px rgba(245, 158, 11, 0.35);
+  }
+  .avatar-ring img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    border: 3px solid var(--bg);
+    background: #1a1a1a;
+  }
+
+  .name {
+    font-family: var(--serif);
+    font-size: 1.95rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    line-height: 1.1;
+  }
+  .verified { color: var(--gold-light); font-size: 1.1rem; vertical-align: middle; }
+
+  .tagline {
+    color: var(--muted);
+    font-size: .9rem;
+    font-weight: 500;
+    margin-top: .5rem;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .tagline strong { color: var(--gold-light); font-weight: 600; }
+
+  .followers {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    margin-top: .9rem;
+    padding: .3rem .85rem;
+    border: 1px solid var(--card-border);
+    border-radius: 100px;
+    background: var(--card);
+    font-size: .78rem;
+    color: var(--muted);
+  }
+  .followers b { color: var(--text); }
+
+  .socials { display: flex; justify-content: center; gap: .7rem; margin-top: 1.1rem; }
+  .socials a {
+    width: 42px; height: 42px;
+    display: grid; place-items: center;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    background: var(--card);
+    color: var(--text);
+    transition: transform .25s ease, border-color .25s ease, background .25s ease;
+  }
+  .socials a:hover { transform: translateY(-3px); border-color: var(--gold); background: rgba(245,158,11,.12); }
+  .socials svg { width: 21px; height: 21px; }
+
+  /* ─── SEÇÕES ─── */
+  .section-label {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-size: .68rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin: 2rem .4rem .85rem;
+    opacity: .9;
+  }
+
+  /* ─── LINKS ─── */
+  .link {
+    display: flex;
+    align-items: center;
+    gap: .95rem;
+    width: 100%;
+    padding: .9rem 1.05rem;
+    margin-bottom: .8rem;
+    border-radius: 16px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    color: var(--text);
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
+  }
+  .link:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+    background: rgba(245, 158, 11, 0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  }
+
+  .link-ico {
+    flex-shrink: 0;
+    width: 46px; height: 46px;
+    border-radius: 12px;
+    display: grid; place-items: center;
+    overflow: hidden;
+    background: rgba(255,255,255,.06);
+  }
+  .link-ico img { width: 100%; height: 100%; object-fit: cover; }
+  .link-ico svg { width: 23px; height: 23px; color: var(--gold-light); }
+
+  .link-txt { flex: 1; min-width: 0; }
+  .link-title { font-weight: 700; font-size: .96rem; line-height: 1.25; }
+  .link-sub { font-size: .76rem; color: var(--muted); margin-top: .1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .link-arrow { flex-shrink: 0; color: var(--muted); transition: transform .25s, color .25s; }
+  .link:hover .link-arrow { transform: translateX(3px); color: var(--gold); }
+  .link-arrow svg { width: 18px; height: 18px; }
+
+  /* ─── DESTAQUE (Site Oficial) ─── */
+  .link--featured {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+    border: none;
+    color: #1a1208;
+    box-shadow: 0 8px 30px rgba(245, 158, 11, 0.3);
+  }
+  .link--featured .link-ico { background: rgba(0,0,0,.18); }
+  .link--featured .link-sub { color: rgba(26,18,8,.7); }
+  .link--featured .link-arrow { color: rgba(26,18,8,.6); }
+  .link--featured:hover { background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%); box-shadow: 0 12px 38px rgba(245, 158, 11, 0.45); }
+
+  /* ─── MENTORIA (CTA forte) ─── */
+  .link--cta { border-color: rgba(245,158,11,.5); background: rgba(245, 158, 11, 0.1); }
+  .link--cta .link-title::after { content: " ⭐"; }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    text-align: center;
+    margin-top: 2.6rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,.07);
+    font-size: .78rem;
+    color: var(--muted);
+  }
+  .footer a { color: var(--gold-light); text-decoration: none; font-weight: 600; }
+  .footer a:hover { text-decoration: underline; }
+  .disclaimer { font-size: .68rem; color: #6b6963; margin-top: .8rem; line-height: 1.5; }
+
+  /* ─── REVEAL (leve, sem Lenis) ─── */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header class="header reveal">
+    <div class="avatar-ring">
+      <img src="dione.webp" alt="Dione Folador" width="124" height="124">
+    </div>
+    <h1 class="name">Dione Folador <span class="verified" aria-label="verificado">✔</span></h1>
+    <p class="tagline">Especialista em <strong>Autocustódia</strong> e <strong>Blindagem Financeira</strong>. Assuma o controle total do seu patrimônio.</p>
+    <span class="followers">🔥 <b>1,1 mi</b> seguidores no Instagram</span>
+    <div class="socials">
+      <a href="https://instagram.com/dionefol" target="_blank" rel="noopener" aria-label="Instagram Dione Folador">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://wa.me/5534993421500?text=Ol%C3%A1%20Dione!%20Vim%20pela%20sua%20bio%20do%20Instagram." target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.04c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-2.99s.75-2.12 1.01-2.41c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.82 2.04.89 2.19.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.29.37-.42.5-.14.14-.28.29-.12.56.16.27.72 1.18 1.54 1.91 1.06.95 1.96 1.24 2.23 1.38.27.14.43.12.59-.07.16-.19.68-.79.86-1.07.18-.27.36-.22.61-.13.24.09 1.55.73 1.81.86.27.14.45.2.51.31.07.11.07.62-.17 1.3z"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- DESTAQUE -->
+  <a class="link link--featured reveal" href="https://dionefolador.com" target="_blank" rel="noopener">
+    <span class="link-ico"><img src="dione.webp" alt=""></span>
+    <span class="link-txt">
+      <span class="link-title">Site Oficial</span>
+      <span class="link-sub">dionefolador.com</span>
+    </span>
+    <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+
+  <!-- ASSESSORIAS -->
+  <span class="section-label reveal">Minhas Assessorias</span>
+
+  <a class="link reveal" href="https://wa.me/5534993421500?text=Ol%C3%A1%20Dione!%20Tenho%20interesse%20na%20assessoria%20cripto%20(autocust%C3%B3dia%20e%20blindagem%20financeira)." target="_blank" rel="noopener">
+    <span class="link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>
+    <span class="link-txt">
+      <span class="link-title">Assessoria Cripto</span>
+      <span class="link-sub">Autocustódia e blindagem. Fale comigo</span>
+    </span>
+    <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+
+  <a class="link reveal" href="https://zebubit.com.br" target="_blank" rel="noopener">
+    <span class="link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 14h2"/></svg></span>
+    <span class="link-txt">
+      <span class="link-title">Assessoria Digital</span>
+      <span class="link-sub">zebubit.com.br</span>
+    </span>
+    <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+
+  <!-- MENTORIA & AURUM -->
+  <span class="section-label reveal">Mentoria & Aurum</span>
+
+  <a class="link link--cta reveal" href="https://dionefolador.com/mentoria_checkout.html" target="_blank" rel="noopener">
+    <span class="link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+    <span class="link-txt">
+      <span class="link-title">Mentoria</span>
+      <span class="link-sub">Aprenda cripto e finanças do zero</span>
+    </span>
+    <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+
+  <a class="link reveal" href="https://dionefolador.com/cartao_aurum.html" target="_blank" rel="noopener">
+    <span class="link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
+    <span class="link-txt">
+      <span class="link-title">Cartão Aurum</span>
+      <span class="link-sub">Seu cartão cripto premium</span>
+    </span>
+    <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+
+  <!-- IMÓVEIS -->
+  <span class="section-label reveal">Imóveis à Venda</span>
+
+  <a class="link reveal" href="https://casa-estancia-ipes.netlify.app" target="_blank" rel="noopener">
+    <span class="link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></span>
+    <span class="link-txt">
+      <span class="link-title">Casa à Venda</span>
+      <span class="link-sub">Estância dos Ipês</span>
+    </span>
+    <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+
+  <a class="link reveal" href="https://terreno-lourdes-uberaba.netlify.app" target="_blank" rel="noopener">
+    <span class="link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V8l6-4 6 4v12"/><path d="M10 20v-5h4v5"/></svg></span>
+    <span class="link-txt">
+      <span class="link-title">Terreno à Venda</span>
+      <span class="link-sub">Bairro Lourdes, Uberaba</span>
+    </span>
+    <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+
+  <!-- REDES / CONTATO -->
+  <span class="section-label reveal">Fale Comigo</span>
+
+  <a class="link reveal" href="https://wa.me/5534993421500?text=Ol%C3%A1%20Dione!%20Vim%20pela%20sua%20bio." target="_blank" rel="noopener">
+    <span class="link-ico"><svg viewBox="0 0 24 24" fill="currentColor" style="color:#25D366"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.04c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-2.99s.75-2.12 1.01-2.41c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.82 2.04.89 2.19.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.29.37-.42.5-.14.14-.28.29-.12.56.16.27.72 1.18 1.54 1.91 1.06.95 1.96 1.24 2.23 1.38.27.14.43.12.59-.07.16-.19.68-.79.86-1.07.18-.27.36-.22.61-.13.24.09 1.55.73 1.81.86.27.14.45.2.51.31.07.11.07.62-.17 1.3z"/></svg></span>
+    <span class="link-txt">
+      <span class="link-title">WhatsApp</span>
+      <span class="link-sub">Fale direto comigo</span>
+    </span>
+    <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+
+  <a class="link reveal" href="https://instagram.com/zebubit" target="_blank" rel="noopener">
+    <span class="link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="color:#E1306C"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+    <span class="link-txt">
+      <span class="link-title">Instagram Zebubit</span>
+      <span class="link-sub">Autocustódia e blindagem financeira</span>
+    </span>
+    <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+
+  <!-- CORRETORAS -->
+  <span class="section-label reveal">Corretoras que eu Indico</span>
+
+  <a class="link reveal" href="https://www.binance.info/activity/referral-entry/CPA/together-v4?hl=en&ref=CPA_0046C6R7U0" target="_blank" rel="noopener">
+    <span class="link-ico"><img src="../BINANCE.webp" alt="Binance"></span>
+    <span class="link-txt">
+      <span class="link-title">Binance</span>
+      <span class="link-sub">Aprenda a investir agora</span>
+    </span>
+    <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+
+  <a class="link reveal" href="https://www.gate.io/signup/UQNHAFEM?ref_type=102" target="_blank" rel="noopener">
+    <span class="link-ico"><img src="../GATEIO.webp" alt="Gate.io"></span>
+    <span class="link-txt">
+      <span class="link-title">Gate.io</span>
+      <span class="link-sub">Tenha também a Gate</span>
+    </span>
+    <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+
+  <a class="link reveal" href="https://share.bitget.com/u/1HJ2Z6VC" target="_blank" rel="noopener">
+    <span class="link-ico"><img src="../BITGET.webp" alt="Bitget"></span>
+    <span class="link-txt">
+      <span class="link-title">Bitget</span>
+      <span class="link-sub">Bitget crescendo forte</span>
+    </span>
+    <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+
+  <a class="link reveal" href="https://coinbase.com/join/PV92CQJ?src=ios-link" target="_blank" rel="noopener">
+    <span class="link-ico"><img src="../COINBASE.webp" alt="Coinbase"></span>
+    <span class="link-txt">
+      <span class="link-title">Coinbase</span>
+      <span class="link-sub">Segunda maior exchange</span>
+    </span>
+    <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="footer reveal">
+    <p>Desenvolvido por <a href="https://zebubit.com.br" target="_blank" rel="noopener">Zebubit Assessoria</a></p>
+    <p class="disclaimer">As corretoras acima são indicações com links de parceria. Cripto envolve risco. Faça sua própria pesquisa antes de investir.</p>
+  </footer>
+
+</div>
+
+<script>
+/* Reveal leve via IntersectionObserver (sem Lenis, mobile-safe) */
+(function() {
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry, i) {
+      if (entry.isIntersecting) {
+        var el = entry.target;
+        setTimeout(function(){ el.classList.add('in'); }, Math.min(i * 40, 200));
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(e){ io.observe(e); });
+})();
+</script>
+</body>
+</html>
