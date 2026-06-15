@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soberania Digital · Tire sua cripto do risco | Dione Folador</title>
+<meta name="description" content="Aprenda a proteger e crescer seu patrimônio em cripto, do zero ao avançado. Guia grátis + ebooks da linha Soberania Digital por Dione Folador.">
+<meta name="theme-color" content="#0c0a06">
+<meta property="og:title" content="Soberania Digital · Dione Folador">
+<meta property="og:description" content="Tire sua cripto do alcance dos hackers e construa patrimônio com soberania.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#d9a838; --gold-2:#f2cf6b; --gold-deep:#a87a1e;
+    --bg:#0c0a06; --bg-2:#15110a; --card:#1a160d;
+    --txt:#efe9da; --mut:#a99e85; --line:rgba(217,168,56,.22);
+    --serif:'Cinzel',Georgia,serif; --sans:'Montserrat',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--txt);line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.1;color:#fff}
+  .g{background:linear-gradient(180deg,#f7e3a1,#d9a838 60%,#a87a1e);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 6vw}
+  section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .eyebrow{font-weight:700;letter-spacing:.3em;text-transform:uppercase;font-size:.72rem;color:var(--gold-2)}
+  .btn{display:inline-flex;align-items:center;gap:.6rem;font-weight:700;font-size:1rem;padding:1.05rem 2.2rem;border-radius:50px;cursor:pointer;border:0;transition:transform .2s,box-shadow .2s,filter .2s;font-family:var(--sans)}
+  .btn-gold{background:linear-gradient(135deg,#f2cf6b,#d9a838 55%,#a87a1e);color:#1a1305;box-shadow:0 12px 34px rgba(217,168,56,.35)}
+  .btn-gold:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--gold-2);border:1.5px solid var(--gold)}
+  .btn-ghost:hover{background:rgba(217,168,56,.1)}
+
+  /* HERO */
+  .hero{position:relative;min-height:92vh;display:flex;align-items:center;text-align:center;overflow:hidden;
+    background:radial-gradient(110% 70% at 50% 0%, #2a2210 0%, #100c06 55%, #000 100%)}
+  .hero .bokeh{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(217,168,56,.4),transparent 65%);filter:blur(10px)}
+  .hero .b1{width:600px;height:600px;top:-200px;right:-160px}
+  .hero .b2{width:380px;height:380px;bottom:-120px;left:-120px;opacity:.6}
+  .hero .wrap{position:relative;z-index:2}
+  .hero h1{font-size:clamp(2.4rem,6vw,4.4rem);margin:1.2rem 0}
+  .hero p.lead{font-size:1.2rem;color:var(--txt);max-width:640px;margin:0 auto 2.2rem;font-weight:400}
+  .hero .actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  .hero .micro{margin-top:1.6rem;font-size:.85rem;color:var(--mut)}
+
+  /* PROBLEMA */
+  .prob{background:var(--bg-2)}
+  .prob .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-top:2.5rem}
+  .pill{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.8rem}
+  .pill .ic{font-size:1.6rem;margin-bottom:.6rem}
+  .pill h3{font-family:var(--sans);font-weight:700;font-size:1.1rem;color:#fff;margin-bottom:.4rem}
+  .pill p{font-size:.95rem;color:var(--mut);font-weight:300}
+
+  /* PRODUTOS */
+  .prods{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.6rem;margin-top:3rem;align-items:stretch}
+  .prod{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s,border-color .3s}
+  .prod:hover{transform:translateY(-6px);box-shadow:0 26px 60px rgba(0,0,0,.5);border-color:rgba(217,168,56,.55)}
+  .prod.feat{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset}
+  .prod .cap{aspect-ratio:1/1.32;background:linear-gradient(160deg,#2a2210,#0c0a06);display:grid;place-items:center;position:relative;overflow:hidden}
+  .prod .cap img{width:100%;height:100%;object-fit:cover}
+  .prod .tag{position:absolute;top:12px;left:12px;background:var(--gold);color:#1a1305;font-weight:800;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .7rem;border-radius:50px;z-index:2}
+  .prod .tag.free{background:#fff}
+  .prod .body{padding:1.5rem;display:flex;flex-direction:column;flex:1}
+  .prod h3{font-family:var(--sans);font-weight:700;font-size:1.15rem;color:#fff;margin-bottom:.4rem;line-height:1.25}
+  .prod .desc{font-size:.9rem;color:var(--mut);font-weight:300;flex:1;margin-bottom:1.1rem}
+  .prod .price{font-family:var(--serif);font-size:1.7rem;color:var(--gold-2);margin-bottom:.2rem}
+  .prod .price small{font-family:var(--sans);font-size:.8rem;color:var(--mut)}
+  .prod .price s{font-size:1rem;color:var(--mut);margin-right:.4rem}
+  .prod .btn{width:100%;justify-content:center;margin-top:.8rem;font-size:.95rem;padding:.9rem}
+
+  /* COMBO */
+  .combo{background:linear-gradient(135deg,#1f1809,#15110a);border:1.5px solid var(--gold);border-radius:24px;padding:clamp(2rem,5vw,3.5rem);text-align:center;margin-top:3rem}
+  .combo h2{margin-bottom:.6rem}
+  .combo .price{font-family:var(--serif);font-size:2.6rem;color:var(--gold-2);margin:1rem 0 .2rem}
+  .combo .price s{font-size:1.3rem;color:var(--mut);margin-right:.6rem}
+
+  /* AUTOR */
+  .author{background:var(--bg-2)}
+  .author .row{display:grid;grid-template-columns:1fr 1.6fr;gap:3rem;align-items:center}
+  .author .ph{aspect-ratio:1;border-radius:20px;background:linear-gradient(160deg,#2a2210,#0c0a06);display:grid;place-items:center;border:1px solid var(--line)}
+  .author .ph .mono{font-family:var(--serif);font-size:4rem;color:var(--gold)}
+
+  /* FAQ */
+  .faq details{border-bottom:1px solid var(--line);padding:1.2rem 0}
+  .faq summary{font-weight:600;cursor:pointer;color:#fff;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:'+';color:var(--gold);font-size:1.4rem;line-height:1}
+  .faq details[open] summary::after{content:'\2212'}
+  .faq p{color:var(--mut);font-weight:300;margin-top:.8rem}
+
+  /* RODAPÉ */
+  footer{background:#070502;border-top:1px solid var(--line);padding:3rem 6vw;text-align:center;color:var(--mut);font-size:.85rem}
+  footer a{color:var(--gold-2)}
+  .secure{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;margin:1.4rem 0;color:var(--mut);font-size:.82rem}
+
+  .center{text-align:center}
+  .divider{width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.2rem auto}
+  @media(max-width:760px){ .author .row{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="bokeh b1"></div><div class="bokeh b2"></div>
+  <div class="wrap">
+    <span class="eyebrow">Método Soberania Digital</span>
+    <h1>Sua cripto está <span class="g">segura</span><br>de verdade?</h1>
+    <p class="lead">Aprenda, do zero e sem tecniquês, a tirar suas moedas do risco das corretoras e blindar seu patrimônio. Como os grandes fazem lá fora, em português claro.</p>
+    <div class="actions">
+      <a href="#produtos" class="btn btn-gold">Ver os ebooks</a>
+      <a href="#gratis" class="btn btn-ghost">Começar pelo guia grátis</a>
+    </div>
+    <div class="micro">🔒 Pagamento seguro · Entrega imediata no seu e-mail</div>
+  </div>
+</header>
+
+<!-- PROBLEMA -->
+<section class="prob">
+  <div class="wrap center">
+    <span class="eyebrow">A verdade que ninguém conta</span>
+    <h2 style="margin-top:1rem">"Não é sua chave,<br>não é sua moeda."</h2>
+    <div class="divider"></div>
+    <p style="color:var(--mut);max-width:620px;margin:0 auto">Deixar suas moedas paradas na corretora é correr riscos que muita gente só entende tarde demais:</p>
+    <div class="grid">
+      <div class="pill"><div class="ic">🏦</div><h3>Corretora quebra</h3><p>Já aconteceu com gigantes mundiais. Clientes perderam tudo.</p></div>
+      <div class="pill"><div class="ic">🔒</div><h3>Conta bloqueada</h3><p>Ordem judicial ou suspeita e seu dinheiro fica preso.</p></div>
+      <div class="pill"><div class="ic">💻</div><h3>Hacker invade</h3><p>Corretora é alvo gigante. Se invadem, levam de todos.</p></div>
+      <div class="pill"><div class="ic">🔑</div><h3>Você não tem a chave</h3><p>Enquanto está lá, é só uma promessa. Não é seu de fato.</p></div>
+    </div>
+    <p style="margin-top:2.5rem;font-family:var(--serif);font-size:1.4rem;color:var(--gold-2)">A boa notícia: dá pra resolver isso. E é mais simples do que parece.</p>
+  </div>
+</section>
+
+<!-- PRODUTOS -->
+<section id="produtos">
+  <div class="wrap center">
+    <span class="eyebrow">A linha completa</span>
+    <h2 style="margin-top:1rem">Do zero à soberania total</h2>
+    <div class="divider"></div>
+    <p style="color:var(--mut);max-width:600px;margin:0 auto">Escolha por onde começar. Cada ebook é direto ao ponto, sem enrolação.</p>
+  </div>
+  <div class="wrap">
+    <div class="prods">
+
+      <!-- BLINDADA (destaque) -->
+      <div class="prod feat">
+        <div class="cap"><span class="tag">Lançamento</span><img src="cap-blindada.jpg" alt="Soberania Blindada"></div>
+        <div class="body">
+          <h3>Soberania Blindada</h3>
+          <div class="desc">Transforme um celular velho no cofre mais seguro do mundo. Passo a passo da carteira fria, sem ser técnico.</div>
+          <div class="price"><s>R$47</s>R$27 <small>à vista</small></div>
+          <button class="btn btn-gold" data-buy="blindada">Comprar agora</button>
+        </div>
+      </div>
+
+      <!-- VOL 1 -->
+      <div class="prod">
+        <div class="cap"><img src="cap-vol1.jpg" alt="Soberania Digital Vol 1"></div>
+        <div class="body">
+          <h3>Soberania Digital · Vol 1</h3>
+          <div class="desc">A base completa pra começar a investir em cripto com segurança, do zero ao primeiro investimento.</div>
+          <div class="price">R$47 <small>à vista</small></div>
+          <button class="btn btn-ghost" data-buy="vol1">Comprar</button>
+        </div>
+      </div>
+
+      <!-- VOL 2 -->
+      <div class="prod">
+        <div class="cap"><img src="cap-vol2.jpg" alt="Soberania Avançada Vol 2"></div>
+        <div class="body">
+          <h3>Soberania Avançada · Vol 2</h3>
+          <div class="desc">Estratégias avançadas pra blindar e fazer seu patrimônio crescer no longo prazo.</div>
+          <div class="price">R$67 <small>à vista</small></div>
+          <button class="btn btn-ghost" data-buy="vol2">Comprar</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COMBO -->
+    <div class="combo">
+      <span class="eyebrow">Melhor escolha</span>
+      <h2 style="margin-top:.8rem">Combo Soberania Completa</h2>
+      <p style="color:var(--mut);max-width:520px;margin:.6rem auto 0">Os 3 ebooks juntos (Blindada + Vol 1 + Vol 2). Tudo o que você precisa pra dominar e proteger sua cripto.</p>
+      <div class="price"><s>R$141</s>R$97</div>
+      <p style="color:var(--mut);font-size:.85rem;margin-bottom:1.4rem">pagamento único · acesso imediato</p>
+      <button class="btn btn-gold" data-buy="combo">Quero o combo completo</button>
+    </div>
+  </div>
+</section>
+
+<!-- GRÁTIS -->
+<section id="gratis" class="prob">
+  <div class="wrap center">
+    <span class="eyebrow">Comece sem gastar nada</span>
+    <h2 style="margin-top:1rem">Guia grátis: Bitcoin para Iniciantes</h2>
+    <div class="divider"></div>
+    <p style="color:var(--mut);max-width:600px;margin:0 auto 2rem">Do zero ao seu primeiro real na conta. Receba agora no seu e-mail e descubra se esse mundo é pra você.</p>
+    <a href="Guia-Gratis.pdf" download class="btn btn-gold" id="btnFree">📥 Baixar o guia grátis agora</a>
+    <p style="color:var(--mut);font-size:.8rem;margin-top:1rem">Sem spam. É só o conteúdo bom.</p>
+  </div>
+</section>
+
+<!-- AUTOR -->
+<section class="author">
+  <div class="wrap">
+    <div class="row">
+      <div class="ph"><div class="mono">DF</div></div>
+      <div>
+        <span class="eyebrow">Quem te ensina</span>
+        <h2 style="margin:.8rem 0">Dione Folador</h2>
+        <p style="color:var(--mut)">Eu traduzo o "economês" e o "tecniquês" pra português claro. Meu objetivo é simples: te dar a independência de cuidar do seu próprio dinheiro, sem depender de banco, de corretora ou de ninguém. Soberania de verdade.</p>
+        <p style="color:var(--mut);margin-top:1rem">Aqui você não encontra promessa de ficar rico rápido. Encontra o caminho real pra proteger e construir patrimônio com a cabeça no lugar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">Dúvidas</span><h2 style="margin-top:1rem">Perguntas frequentes</h2><div class="divider"></div></div>
+    <div class="faq" style="max-width:720px;margin:2rem auto 0">
+      <details><summary>Como recebo o ebook depois de pagar?</summary><p>Na hora. Assim que o pagamento é aprovado, você recebe o link de download no seu e-mail automaticamente. Também aparece na tela de confirmação.</p></details>
+      <details><summary>Quais formas de pagamento?</summary><p>PIX (aprovação na hora), cartão de crédito e boleto, com toda a segurança do Mercado Pago.</p></details>
+      <details><summary>Preciso entender de tecnologia?</summary><p>Não. Tudo é explicado em português claro, passo a passo, pensado pra quem está começando.</p></details>
+      <details><summary>É seguro fazer o que você ensina?</summary><p>Sim. Eu ensino justamente os cuidados de segurança. E sempre recomendo testar com valores pequenos antes de mover quantias maiores.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="secure"><span>🔒 Compra segura</span><span>⚡ Entrega imediata</span><span>💳 Mercado Pago</span></div>
+  <p>© <span id="ano">2026</span> Dione Folador · Soberania Digital · <a href="https://dionefolador.com" target="_blank" rel="noopener">dionefolador.com</a></p>
+  <p style="margin-top:.6rem;font-size:.78rem">Este material é educativo e não constitui recomendação de investimento.</p>
+</footer>
+
+<script>
+  document.getElementById('ano').textContent = new Date().getFullYear();
+
+  /* ===== CONFIG DA LOJA ===== */
+  var WHATS = '5534993421500'; // WhatsApp do Dione
+
+  // Catálogo (nome + preço). Mude os preços aqui quando quiser.
+  var PRODUTOS = {
+    blindada: { nome: 'Soberania Blindada', preco: 'R$27' },
+    vol1:     { nome: 'Soberania Digital Vol 1', preco: 'R$47' },
+    vol2:     { nome: 'Soberania Avançada Vol 2', preco: 'R$67' },
+    combo:    { nome: 'Combo Soberania Completa (os 3)', preco: 'R$97' }
+  };
+
+  // PARA O CHECKOUT "1 CLIQUE" NO MERCADO PAGO:
+  // crie um link de pagamento no seu Mercado Pago para cada item e cole aqui.
+  // Enquanto estiver vazio, o botão abre o WhatsApp com o pedido pronto.
+  var MP_LINKS = {
+    blindada: '',
+    vol1: '',
+    vol2: '',
+    combo: ''
+  };
+
+  document.querySelectorAll('[data-buy]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var item = b.getAttribute('data-buy');
+      var p = PRODUTOS[item] || {nome:item, preco:''};
+      if (MP_LINKS[item]) { // se tiver link do Mercado Pago, vai direto pro checkout
+        window.open(MP_LINKS[item], '_blank', 'noopener');
+        return;
+      }
+      // senão, abre o WhatsApp com o pedido pronto (você manda PIX/link e entrega)
+      var msg = 'Olá Dione! Quero comprar o ' + p.nome + ' (' + p.preco + '). Como faço o pagamento?';
+      window.open('https://wa.me/' + WHATS + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    });
+  });
+</script>
+</body>
+</html>
