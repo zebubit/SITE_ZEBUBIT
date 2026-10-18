@@ -11,7 +11,7 @@
 
     <meta http-equiv="Content-Security-Policy" 
           content="default-src 'self'; 
-                   script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://cdn.tailwindcss.com;
+                   script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
                    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
                    font-src https://fonts.gstatic.com;
                    img-src 'self' https: data:;
@@ -20,7 +20,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout Mentoria | Dione Folador</title>
-    
+
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://dionefolador.com/mentoria_checkout.html">
+
     <link rel="icon" type="image/webp" href="SITE33.webp">
 
     <link rel="stylesheet" href="tailwind.css">
@@ -36,10 +39,15 @@
         overflow-x: hidden;
         
         /* AJUSTE PARA A FOTO FICAR NO MÁXIMO TOPO */
-        background-image: url('mento1.webp'); 
+        background-image: url('mento1.webp');
         background-attachment: fixed;
         background-size: cover;
         background-position: center top; /* Garante que o topo da foto apareça primeiro */
+    }
+
+    /* fixed causa jank de scroll em mobile; mantém parallax só no desktop */
+    @media (max-width: 768px) {
+        body { background-attachment: scroll; }
     }
 
     .font-serif { font-family: 'Playfair Display', serif; }
@@ -86,11 +94,37 @@
     }
 
     /* Efeito ao passar o mouse no botão */
-    .btn-gold:hover { 
-        transform: scale(1.05); 
-        box-shadow: 0 0 25px rgba(245, 158, 11, 0.5); 
+    .btn-gold:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(245, 158, 11, 0.5);
     }
 </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Mentoria Private Strategy — Soberania Digital e Autocustódia Cripto",
+      "description": "Consultoria estratégica individual sobre Bitcoin, autocustódia e soberania digital com Dione Folador.",
+      "provider": {
+        "@type": "Person",
+        "name": "Dione Folador",
+        "url": "https://dionefolador.com"
+      },
+      "areaServed": "BR",
+      "url": "https://dionefolador.com/mentoria_checkout.html",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Planos de Mentoria",
+        "itemListElement": [
+          { "@type": "Offer", "name": "Sessão Única - 1 Aula", "price": "1199", "priceCurrency": "BRL", "availability": "https://schema.org/InStock", "url": "https://dionefolador.com/mentoria_checkout.html" },
+          { "@type": "Offer", "name": "Combo Silver - 4 Sessões", "price": "3999", "priceCurrency": "BRL", "availability": "https://schema.org/InStock", "url": "https://dionefolador.com/mentoria_checkout.html" },
+          { "@type": "Offer", "name": "Combo Gold - 8 Sessões", "price": "7199", "priceCurrency": "BRL", "availability": "https://schema.org/InStock", "url": "https://dionefolador.com/mentoria_checkout.html" },
+          { "@type": "Offer", "name": "Combo Black - 12 Sessões", "price": "9999", "priceCurrency": "BRL", "availability": "https://schema.org/InStock", "url": "https://dionefolador.com/mentoria_checkout.html" }
+        ]
+      }
+    }
+    </script>
 </head>
 <body class="min-h-screen py-4 px-4 bg-black">
 

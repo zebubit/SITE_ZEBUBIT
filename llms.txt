@@ -1,0 +1,15 @@
+# Dione Folador
+
+> Estrategista de criptomoedas e mentor em soberania digital e autocustódia, com mais de 13 anos de experiência no mercado cripto. Site pessoal com conteúdo sobre Bitcoin, autocustódia, carteiras Web3 e mentoria individual.
+
+## Produtos e serviços
+- Mentoria Private Strategy: consultoria estratégica individual sobre Bitcoin, autocustódia e soberania digital ([mentoria_checkout.html](https://dionefolador.com/mentoria_checkout.html))
+- Cartão WeFi: cartão Visa ligado a um Deobank (banco onchain), com link de indicação ([cartoes](https://dionefolador.com/cartoes))
+
+## Temas
+Bitcoin, autocustódia, carteiras (self-custody), soberania digital, exchanges centralizadas e descentralizadas, proteção patrimonial em cripto.
+
+## Contato
+- WhatsApp: +55 34 99342-1500
+- E-mail: zebubit@gmail.com
+- Instagram: https://instagram.com/dionefol
