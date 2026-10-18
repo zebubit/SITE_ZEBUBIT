@@ -463,3 +463,5 @@ body {
     letter-spacing: .08em;
     color: rgba(255, 255, 255, 0.5);
 }
+
+.brand-icon { display: block; width: 56px; height: 56px; border-radius: 14px; object-fit: cover; box-shadow: 0 8px 24px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.08); }
