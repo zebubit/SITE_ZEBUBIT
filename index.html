@@ -206,7 +206,11 @@
      <main class="relative z-10 w-full max-w-6xl mx-auto px-6 pt-52 pb-12 flex flex-col items-center gap-10">
         
         <div class="flex flex-wrap justify-center items-center gap-4 w-full pb-8 border-b border-white/5">
-            <!-- Aqui você pode adicionar qualquer outra seção de conteúdo se necessário -->
+            <a href="cartoes.html" class="wefi-pill">
+                <span aria-hidden="true">💳</span>
+                <span data-i18n="hero.wefi"><strong>NOVO</strong> · Adquira seu Cartão Cripto WeFi</span>
+                <span aria-hidden="true">→</span>
+            </a>
         </div>
    
         <div class="flex flex-col items-center text-center space-y-6 max-w-2xl mx-auto">
@@ -515,15 +519,15 @@
             
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-white text-4xl md:text-6xl font-serif italic mb-6 leading-tight" data-i18n="cards.title">
-                    Cartões de Elite: <br>
-                    <span class="text-amber-500">O poder da escolha</span> em suas mãos.
+                    Cartão de Elite: <br>
+                    <span class="text-amber-500">Seu banco onchain</span> na palma da mão.
                 </h2>
                 <p class="text-gray-200 font-light leading-relaxed text-base md:text-lg mb-8" data-i18n="cards.desc">
-                    Complemente sua estratégia Web3 com ferramentas de elite. Seja através da soberania absoluta do Cartão Aurum ou da eficiência DeFi do Ether.fi.
+                    Complemente sua estratégia Web3 com ferramentas de elite. Com o Cartão WeFi, você gasta direto do seu banco onchain, o Deobank.
                 </p>
             </div>
 
-            <a href="cartao_aurum.html" 
+            <a href="cartoes.html" 
    class="btn-flash-ouro bg-white text-black hover:bg-amber-500 hover:text-white font-black py-4 px-10 rounded-2xl uppercase tracking-[0.2em] transition-all transform hover:scale-105 mb-10 no-underline shadow-lg">
     <span data-i18n="cards.cta">💳 CONHECER CARTÕES DE ELITE</span>
 </a>
@@ -532,13 +536,7 @@
                 
                 <img src="visa.webp" 
                      alt="Visa" 
-                     class="h-7 md:h-9 atencao-global-animada object-contain" width="1024" height="576" loading="lazy" decoding="async">
-                
-                <div class="h-4 w-[1px] bg-white/20"></div>
-                
-                <img src="mastercard.webp" 
-                     alt="Mastercard" 
-                     class="h-8 md:h-10 atencao-global-animada delay-master object-contain" width="1200" height="717" loading="lazy" decoding="async">
+                     class="h-7 md:h-9 atencao-global-animada object-contain" style="width:auto" width="1024" height="576" loading="lazy" decoding="async">
                 
                 <div class="h-4 w-[1px] bg-white/20"></div>
                 
@@ -621,25 +619,6 @@
     </a>
 </div>
 
-        <div class="bg-white/5 backdrop-blur-xl p-8 rounded-[2rem] border border-white/10 hover:border-amber-500/40 transition-all duration-500 group relative overflow-hidden">
-    <div class="absolute -top-10 -right-10 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl"></div>
-    
-    <p class="text-gray-200 text-base italic leading-relaxed mb-8 group-hover:text-white transition-colors relative z-10">
-        "O Cartão Aurum é o elo que faltava para a soberania financeira real. Utilizo no meu dia a dia e a eficiência no off-ramp é indiscutível. Network e estratégia de alto nível com o Dione."
-    </p>
-    
-    <a href="https://www.instagram.com/arcanjobtc10/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 group/link relative z-10">
-        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-600 to-amber-400 p-[1px] shadow-[0_0_15px_rgba(245,158,11,0.2)] overflow-hidden">
-            <div class="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden">
-                <img src="soberano4.webp" alt="Arcanjo Marques" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" width="1080" height="1080" loading="lazy" decoding="async">
-            </div>
-        </div>
-        <div class="flex flex-col">
-            <p class="text-white font-bold text-sm uppercase tracking-widest group-hover:text-amber-500 transition-colors">Arcanjo Marques</p>
-            <span class="text-[10px] text-amber-400 font-bold uppercase tracking-tighter">Especialista BTC • Network Aurum</span>
-        </div>
-    </a>
-</div>
 
         <div class="bg-white/5 backdrop-blur-xl p-8 rounded-[2rem] border border-white/10 hover:border-amber-500/40 transition-all duration-500 group relative overflow-hidden">
     <div class="absolute -top-10 -right-10 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl"></div>
@@ -1288,8 +1267,8 @@
                 return;
             }
             linkSeguro = linkCompraAtual;
-        } else if(prodMatch.includes("AURUM")) {
-            window.open('https://backoffice.aurum.foundation/u/U20120', '_blank', 'noopener,noreferrer');
+        } else if(prodMatch.includes("WEFI")) {
+            window.open('https://app.wefi.co/register?ref=cwfc4q5lij', '_blank', 'noopener,noreferrer');
             fecharModais();
             return;
         }
@@ -1381,7 +1360,7 @@
 
     const iconesAtivos = ["https://cdn-icons-png.flaticon.com/512/25/25228.png", "https://cdn-icons-png.flaticon.com/512/5968/5968260.png", "https://cdn-icons-png.flaticon.com/512/7016/7016537.png", "https://cdn-icons-png.flaticon.com/512/2091/2091665.png", "https://cdn-icons-png.flaticon.com/512/11129/11129528.png"];
     const nomes = ["Ricardo M.", "Ana Paula S.", "Marcos Oliveira", "Juliana F.", "Bruno Costa", "Carla Menezes", "Thiago Souza", "Felipe D.", "Patrícia G.", "Gabriel S.", "Luciana K.", "Juliano J.", "Marcelo Nogueira.", "Alexsndro R.", "Marcos Paulo."];
-    const acoes = ["acaba de comprar o combo total.", "solicitou o Cartão Aurum.", "entrou no Hub de Elite.", "garantiu 4 sessões de mentoria.", "Acessou Hub de Cartoes.", "Comprou Soberania Digital.", "Solicitou cartao Ether.fi.", "Pediu Ebook Free.", "liberou o acesso VIP agora."];
+    const acoes = ["acaba de comprar o combo total.", "solicitou o Cartão WeFi.", "entrou no Hub de Elite.", "garantiu 4 sessões de mentoria.", "Acessou Hub de Cartoes.", "Comprou Soberania Digital.", "Solicitou o Cartão WeFi.", "Pediu Ebook Free.", "liberou o acesso VIP agora."];
 
     function mostrarProvaSocial() {
         const proof = document.getElementById('notification-container');
@@ -1412,6 +1391,7 @@
         'exit.cta': 'RESGATAR AGORA',
         'exit.dismiss': 'Vou pensar mais um pouco...',
         'hero.subtitle': 'Soberania Digital & Autocustódia',
+        'hero.wefi': '<strong>NOVO</strong> · Adquira seu Cartão Cripto WeFi',
         'hero.bio': 'Investidor e estrategista com mais de <span class="text-amber-500 font-bold border-b border-amber-500/30">13 anos de experiência</span> na linha de frente do mercado cripto.',
         'hero.quote': '"Atravessei os ciclos mais turbulentos da história, transformando volatilidade em liberdade. Minha missão é ensinar você a assumir a <span class="text-white font-semibold">autocustódia real</span> e construir uma soberania inabalável, eliminando de vez a dependência de intermediários."',
         'media.label': 'Histórico de Mercado',
@@ -1448,8 +1428,8 @@
         'mentoria.by': 'Estratégia Exclusiva por Dione Folador',
         'kyc.title': 'Liquidez Centralizada (KYC)',
         'nokyc.title': 'Soberania & Web3 (NO-KYC)',
-        'cards.title': 'Cartões de Elite:<br><span class="text-amber-500">O poder da escolha</span> em suas mãos.',
-        'cards.desc': 'Complemente sua estratégia Web3 com ferramentas de elite. Seja através da soberania absoluta do Cartão Aurum ou da eficiência DeFi do Ether.fi.',
+        'cards.title': 'Cartão de Elite:<br><span class="text-amber-500">Seu banco onchain</span> na palma da mão.',
+        'cards.desc': 'Complemente sua estratégia Web3 com ferramentas de elite. Com o Cartão WeFi, você gasta direto do seu banco onchain, o Deobank.',
         'cards.cta': '💳 CONHECER CARTÕES DE ELITE',
         'cards.global': 'Aceitação Global',
         'testimonials.title': 'A Voz da Soberania',
@@ -1512,6 +1492,7 @@
         'exit.cta': 'CLAIM NOW',
         'exit.dismiss': "I'll think about it...",
         'hero.subtitle': 'Digital Sovereignty & Self-Custody',
+        'hero.wefi': '<strong>NEW</strong> · Get your WeFi Crypto Card',
         'hero.bio': 'Investor and strategist with over <span class="text-amber-500 font-bold border-b border-amber-500/30">13 years of experience</span> at the forefront of the crypto market.',
         'hero.quote': '"I\'ve navigated the most turbulent cycles in history, turning volatility into freedom. My mission is to teach you to take <span class="text-white font-semibold">real self-custody</span> and build unshakeable sovereignty, eliminating dependence on intermediaries once and for all."',
         'media.label': 'Market Track Record',
@@ -1548,8 +1529,8 @@
         'mentoria.by': 'Exclusive Strategy by Dione Folador',
         'kyc.title': 'Centralized Liquidity (KYC)',
         'nokyc.title': 'Sovereignty & Web3 (NO-KYC)',
-        'cards.title': 'Elite Cards:<br><span class="text-amber-500">The power of choice</span> in your hands.',
-        'cards.desc': 'Complement your Web3 strategy with elite tools. Whether through the absolute sovereignty of the Aurum Card or the DeFi efficiency of Ether.fi.',
+        'cards.title': 'Elite Card:<br><span class="text-amber-500">Your onchain bank</span> in the palm of your hand.',
+        'cards.desc': 'Complement your Web3 strategy with elite tools. With the WeFi Card, you spend straight from your onchain bank, the Deobank.',
         'cards.cta': '💳 DISCOVER ELITE CARDS',
         'cards.global': 'Global Acceptance',
         'testimonials.title': 'The Voice of Sovereignty',
@@ -1612,6 +1593,7 @@
         'exit.cta': 'RECLAMAR AHORA',
         'exit.dismiss': 'Lo pensaré un poco más...',
         'hero.subtitle': 'Soberanía Digital & Autocustodia',
+        'hero.wefi': '<strong>NUEVO</strong> · Obtén tu Tarjeta Cripto WeFi',
         'hero.bio': 'Inversor y estratega con más de <span class="text-amber-500 font-bold border-b border-amber-500/30">13 años de experiencia</span> en la vanguardia del mercado cripto.',
         'hero.quote': '"He atravesado los ciclos más turbulentos de la historia, transformando la volatilidad en libertad. Mi misión es enseñarte a asumir la <span class="text-white font-semibold">autocustodia real</span> y construir una soberanía inquebrantable, eliminando de una vez la dependencia de intermediarios."',
         'media.label': 'Historial de Mercado',
@@ -1648,8 +1630,8 @@
         'mentoria.by': 'Estrategia Exclusiva por Dione Folador',
         'kyc.title': 'Liquidez Centralizada (KYC)',
         'nokyc.title': 'Soberanía & Web3 (NO-KYC)',
-        'cards.title': 'Tarjetas de Elite:<br><span class="text-amber-500">El poder de la elección</span> en tus manos.',
-        'cards.desc': 'Complementa tu estrategia Web3 con herramientas de elite. A través de la soberanía absoluta de la Tarjeta Aurum o la eficiencia DeFi de Ether.fi.',
+        'cards.title': 'Tarjeta de Elite:<br><span class="text-amber-500">Tu banco onchain</span> en la palma de tu mano.',
+        'cards.desc': 'Complementa tu estrategia Web3 con herramientas de elite. Con la Tarjeta WeFi, gastas directo desde tu banco onchain, el Deobank.',
         'cards.cta': '💳 CONOCER TARJETAS DE ELITE',
         'cards.global': 'Aceptación Global',
         'testimonials.title': 'La Voz de la Soberanía',

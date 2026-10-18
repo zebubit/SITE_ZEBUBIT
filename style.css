@@ -465,3 +465,11 @@ body {
 }
 
 .brand-icon { display: block; width: 56px; height: 56px; border-radius: 14px; object-fit: cover; box-shadow: 0 8px 24px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.08); }
+
+.wefi-pill { display: inline-flex; align-items: center; gap: 10px; padding: 12px 22px; border-radius: 999px; border: 1px solid rgba(200,255,61,.55); background: rgba(200,255,61,.08); color: #e9ffb0; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; box-shadow: 0 0 24px rgba(200,255,61,.18); animation: wefi-pill-glow 2.6s ease-in-out infinite; transition: background .3s ease, color .3s ease, transform .3s ease; }
+.wefi-pill strong { color: #c8ff3d; font-weight: 900; }
+.wefi-pill:hover { background: #c8ff3d; color: #000; transform: translateY(-2px); }
+.wefi-pill:hover strong { color: #000; }
+@keyframes wefi-pill-glow { 0%,100% { box-shadow: 0 0 18px rgba(200,255,61,.15); } 50% { box-shadow: 0 0 34px rgba(200,255,61,.38); } }
+@media (max-width: 480px) { .wefi-pill { font-size: 10px; letter-spacing: .06em; padding: 10px 16px; gap: 8px; } }
+@media (prefers-reduced-motion: reduce) { .wefi-pill { animation: none; } }

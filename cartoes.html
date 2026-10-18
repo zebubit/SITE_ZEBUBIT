@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CR8X94R6J6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CR8X94R6J6');
+    </script>
+
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; 
+                   script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
+                   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+                   font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+                   img-src 'self' https: data:;
+                   connect-src 'self' https://api.coingecko.com https://script.google.com https://www.google-analytics.com;">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão WeFi: seu Deobank onchain | Dione Folador</title>
+    <meta name="description" content="Cartão WeFi Visa ligado ao seu Deobank onchain: saldo cripto e fiat unificado, zero taxa de câmbio e custódia distribuída com MPC.">
+
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://dionefolador.com/cartoes.html">
+
+    <meta property="og:title" content="Cartão WeFi: seu Deobank onchain | Dione Folador">
+    <meta property="og:description" content="Cartão WeFi Visa ligado ao seu Deobank onchain, com custódia distribuída e zero taxa de câmbio.">
+    <meta property="og:image" content="https://dionefolador.com/wefi/wefi-card-app.webp">
+
+    <link rel="icon" type="image/webp" href="SITE33.webp">
+    <link rel="apple-touch-icon" href="SITE33.webp">
+
+    <link rel="stylesheet" href="tailwind.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:wght@700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:wght@700&display=swap"></noscript>
+    
+    <style>
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #000; 
+            color: #fff; 
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        /* FUNDO OTIMIZADO */
+        #video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./zebuoficial.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* EFEITO GLASSMOPHISM PREMIUM & TILT */
+        .glass { 
+            background: rgba(0, 0, 0, 0.45); 
+            backdrop-filter: blur(15px); 
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.6);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease-out;
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+        }
+
+        .card-premium:hover {
+            border-color: rgba(245, 158, 11, 0.6);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 20px rgba(245, 158, 11, 0.1);
+        }
+
+        .btn-gold { 
+            background: linear-gradient(to right, #d97706, #f59e0b); 
+            color: #000;
+            font-weight: 900;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-gold:hover { 
+            transform: scale(1.05); 
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.5); 
+        }
+
+        input::placeholder { color: rgba(255,255,255,0.3); }
+
+        /* BOTÃO WHATSAPP FLUTUANTE */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse-whatsapp 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.8);
+            color: #fff;
+        }
+
+        .whatsapp-notify {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 22px;
+            height: 22px;
+            background-color: #ff0000;
+            color: white;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 10000;
+        }
+
+        .whatsapp-notify.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @keyframes pulse-whatsapp {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* WEFI */
+        .text-lime { color: #c8ff3d; }
+        .wefi-hero-img { width: 100%; max-width: 520px; border-radius: 2rem; box-shadow: 0 30px 80px rgba(0,0,0,.7), 0 0 60px rgba(200,255,61,.12); border: 1px solid rgba(200,255,61,.25); }
+        .wefi-chip { display: inline-block; background: rgba(200,255,61,.1); color: #c8ff3d; border: 1px solid rgba(200,255,61,.3); font-size: 10px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; }
+        .wefi-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+        @media (min-width: 768px) { .wefi-grid { grid-template-columns: repeat(3, 1fr); } .wefi-split { grid-template-columns: 1fr 1fr !important; } }
+        .wefi-split { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
+        .wefi-split img { width: 100%; border-radius: 1.75rem; border: 1px solid rgba(255,255,255,.08); }
+        .wefi-item { padding: 1.5rem; border-radius: 1.5rem; text-align: left; border: 1px solid rgba(200,255,61,.15); }
+        .wefi-item h4 { color: #fff; font-weight: 900; font-size: 14px; margin: .5rem 0 .4rem; }
+        .wefi-item p { color: #d1d5db; font-size: 13px; line-height: 1.6; margin: 0; }
+        .wefi-icon { width: 40px; height: 40px; border-radius: 12px; background: rgba(200,255,61,.12); color: #c8ff3d; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+        .btn-lime { background: #c8ff3d; color: #000; font-weight: 900; transition: all .3s ease; }
+        .btn-lime:hover { background: #fff; box-shadow: 0 0 25px rgba(200,255,61,.5); }
+
+        /* Remove tilt no mobile */
+        @media (max-width: 1024px) {
+            .card-premium, .glass {
+                transform: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Hub de Indicação — Cartões Cripto Internacionais",
+      "description": "Indicação para obtenção de cartões internacionais Visa vinculados a criptoativos.",
+      "provider": {
+        "@type": "Person",
+        "name": "Dione Folador",
+        "url": "https://dionefolador.com"
+      },
+      "areaServed": "BR",
+      "url": "https://dionefolador.com/cartoes.html",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cartões Disponíveis",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "WeFi Card",
+            "url": "https://app.wefi.co/register?ref=cwfc4q5lij",
+            "seller": { "@type": "Organization", "name": "WeFi" }
+          }
+        ]
+      }
+    }
+    </script>
+</head>
+<body class="min-h-screen py-8 px-4 flex flex-col items-center">
+    <div id="video-background"></div>
+
+    <div class="max-w-4xl mx-auto text-center mb-10">
+        <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-4 italic">Elite Cards Hub</h1>
+        <p class="text-amber-500 font-bold text-xs md:text-sm uppercase tracking-[0.6em] animate-pulse">Liberação de Acesso e Soberania</p>
+    </div>
+
+    <div class="max-w-4xl w-full mx-auto text-center mb-16">
+        <img src="wefi/wefi-card-app.webp" alt="Cartão WeFi Visa Platinum e app WeFi" class="wefi-hero-img mx-auto mb-8" width="800" height="800" fetchpriority="high" decoding="async">
+        <span class="wefi-chip mb-4">Novo no Hub · Cartão WeFi</span>
+        <h2 class="text-3xl md:text-5xl font-serif italic font-bold text-white mt-4 mb-4">Seu banco onchain, <span class="text-lime">no seu bolso.</span></h2>
+        <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed max-w-2xl mx-auto">O cartão WeFi é ligado direto ao seu Deobank: um saldo único que junta moeda tradicional e stablecoins, aceito em qualquer lugar que aceite Visa, com os ativos em carteiras individuais protegidas por MPC.</p>
+    </div>
+
+    <div id="solicitacao-area" class="max-w-xl w-full glass card-premium p-8 md:p-12 rounded-[2.5rem] text-center border-amber-500/40 mb-16 shadow-[0_0_50px_rgba(245,158,11,0.2)]">
+        <h3 class="text-white text-2xl font-bold mb-2">Desbloquear Cartão WeFi</h3>
+        <p class="text-gray-400 text-[10px] mb-8 uppercase tracking-[0.3em] font-light italic">Preencha para liberar seu acesso</p>
+        
+        <div class="space-y-4 text-left">
+            <input type="hidden" id="lead-produto" value="CARTÃO WEFI">
+
+            <input type="text" id="lead-nome" placeholder="Seu Nome ou Codinome" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl focus:border-amber-500 outline-none transition text-white text-sm">
+            <input type="email" id="lead-email" placeholder="E-mail principal" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl focus:border-amber-500 outline-none transition text-white text-sm">
+            <input type="text" id="lead-whatsapp" placeholder="WhatsApp com DDD" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl focus:border-amber-500 outline-none transition text-white text-sm">
+   
+            <button onclick="enviarSolicitacaoHub()" class="btn-gold w-full py-5 rounded-xl uppercase tracking-[0.2em] shadow-2xl font-black text-sm">
+                🚀 Desbloquear Agora
+            </button>
+        </div>
+    </div>
+
+    <div class="max-w-xl mx-auto mb-20 w-full">
+        
+        <div class="glass card-premium p-8 rounded-[3rem] flex flex-col items-center text-center relative transition-all duration-500 bg-black/60" style="border:1px solid rgba(200,255,61,.35)">
+            <div class="absolute top-6 right-6">
+                <span class="wefi-chip">Deobank Onchain</span>
+            </div>
+
+            <img src="wefi/wefi-card-app.webp" alt="Cartão WeFi Visa Platinum" class="w-72 h-auto mt-10 mb-8 rounded-2xl" width="800" height="800" loading="lazy" decoding="async">
+
+            <h3 class="text-white text-3xl font-serif italic mb-2">WeFi Card</h3>
+            <p class="text-lime text-[10px] font-bold uppercase tracking-widest mb-8">Visa · Virtual, Plástico e Metal</p>
+
+            <p class="text-gray-300 text-sm font-light mb-6 leading-relaxed">
+                O cartão do seu banco onchain. Você gasta direto do saldo unificado da sua conta WeFi, com a bandeira <strong>Visa</strong> aceita em mais de 140 milhões de estabelecimentos no mundo.
+            </p>
+
+            <ul class="text-left w-full space-y-3 mb-8 text-[12px] text-gray-200">
+                <li class="flex items-start gap-2"><span class="text-lime">✔</span> <strong>Zero taxa de câmbio</strong> nas moedas suportadas.</li>
+                <li class="flex items-start gap-2"><span class="text-lime">✔</span> <strong>Saque em caixas eletrônicos</strong> no mundo todo.</li>
+                <li class="flex items-start gap-2"><span class="text-lime">✔</span> <strong>Recompensas:</strong> o programa Spending-as-Mining devolve parte do que você gasta.</li>
+            </ul>
+
+            <a href="#solicitacao-area" class="btn-lime w-full py-5 rounded-2xl uppercase tracking-widest text-xs no-underline">
+                Selecionar WeFi
+            </a>
+        </div>
+    </div>
+
+    <section class="max-w-6xl w-full mx-auto mb-20">
+        <div class="text-center mb-10">
+            <span class="wefi-chip">O que é a WeFi</span>
+            <h2 class="text-3xl md:text-5xl font-serif italic font-bold text-white mt-4">O banco que roda <span class="text-lime">na blockchain</span></h2>
+        </div>
+        <div class="wefi-split glass p-6 md:p-10 rounded-[3rem] bg-black/60">
+            <img src="wefi/wefi-chain.webp" alt="Infraestrutura onchain da WeFi" width="1200" height="816" loading="lazy" decoding="async">
+            <div class="text-left">
+                <p class="text-gray-200 text-sm md:text-base leading-relaxed mb-4">A WeFi é uma infraestrutura financeira que roda na própria blockchain, a <strong>WeChain</strong>. Em cima dela funcionam os <strong>Deobanks</strong>: bancos regulados em que cada movimentação fica registrada num livro contábil público e imutável.</p>
+                <p class="text-gray-300 text-sm leading-relaxed mb-6">Num banco tradicional o registro é fechado, controlado pela instituição, e a liquidação leva dias. No Deobank o registro é aberto, verificável em tempo real, e a liquidação acontece em segundos.</p>
+                <ul class="space-y-3 text-[13px] text-gray-200">
+                    <li class="flex items-start gap-2"><span class="text-lime">✔</span> Saldo único juntando moeda tradicional e cripto</li>
+                    <li class="flex items-start gap-2"><span class="text-lime">✔</span> Débito automático e pagamentos recorrentes</li>
+                    <li class="flex items-start gap-2"><span class="text-lime">✔</span> Crédito com análise de comportamento na própria rede</li>
+                    <li class="flex items-start gap-2"><span class="text-lime">✔</span> Comprovantes e documentos gerados pelo app</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-6xl w-full mx-auto mb-20">
+        <div class="text-center mb-10">
+            <span class="wefi-chip">Segurança</span>
+            <h2 class="text-3xl md:text-5xl font-serif italic font-bold text-white mt-4">Seu dinheiro <span class="text-lime">continua seu</span></h2>
+            <p class="text-gray-300 text-sm max-w-2xl mx-auto mt-4 leading-relaxed">A WeFi usa um modelo de duas carteiras que separa quem é dono do patrimônio de quem opera o dia a dia. Na prática:</p>
+        </div>
+
+        <div class="wefi-split glass p-6 md:p-10 rounded-[3rem] bg-black/60 mb-8">
+            <div class="text-left">
+                <h3 class="text-white text-2xl font-serif italic mb-4">Duas carteiras, dois papéis</h3>
+                <p class="text-gray-200 text-sm leading-relaxed mb-4"><strong class="text-lime">Carteira do dia a dia:</strong> cuida do cartão, das contas e dos recebimentos, com a experiência de um app de banco comum.</p>
+                <p class="text-gray-200 text-sm leading-relaxed"><strong class="text-lime">Cofre NFC:</strong> para guardar patrimônio de longo prazo. As chaves privadas ficam num cartão NFC que é seu, e cada transação exige encostar o cartão fisicamente.</p>
+            </div>
+            <img src="wefi/wefi-nfc.webp" alt="Cofre NFC da WeFi" width="1200" height="816" loading="lazy" decoding="async">
+        </div>
+
+        <div class="wefi-grid">
+            <div class="wefi-item glass bg-black/60"><div class="wefi-icon"><i class="fas fa-key"></i></div><h4>Carteiras com MPC</h4><p>As chaves são divididas por criptografia MPC. Nenhuma parte sozinha tem o controle total dos seus ativos.</p></div>
+            <div class="wefi-item glass bg-black/60"><div class="wefi-icon"><i class="fas fa-wallet"></i></div><h4>Carteira individual</h4><p>Seu saldo fica num endereço só seu, nunca misturado numa conta coletiva da empresa.</p></div>
+            <div class="wefi-item glass bg-black/60"><div class="wefi-icon"><i class="fas fa-hand"></i></div><h4>Nada se move sem você</h4><p>A WeFi não consegue movimentar seus ativos sem a sua autorização.</p></div>
+            <div class="wefi-item glass bg-black/60"><div class="wefi-icon"><i class="fas fa-ban"></i></div><h4>Sem empréstimo do seu saldo</h4><p>Seus ativos não são juntados com os de outros clientes nem emprestados a terceiros.</p></div>
+            <div class="wefi-item glass bg-black/60"><div class="wefi-icon"><i class="fas fa-link"></i></div><h4>Registro público</h4><p>Toda transação vai para um livro contábil onchain que não pode ser apagado nem alterado.</p></div>
+            <div class="wefi-item glass bg-black/60"><div class="wefi-icon"><i class="fas fa-user-shield"></i></div><h4>Monitoramento com IA</h4><p>A conta é vigiada por um sistema de segurança com inteligência artificial que identifica movimentações fora do padrão.</p></div>
+        </div>
+
+        <p class="text-gray-400 text-[11px] leading-relaxed text-center max-w-3xl mx-auto mt-8">Os serviços em moeda tradicional são operados pela Wefi Payments Limited, empresa de serviços monetários registrada no FINTRAC, o órgão de inteligência financeira do Canadá (registro M23563590). Como todo produto ligado a criptoativos, envolve riscos: confira taxas, limites e termos no app antes de usar.</p>
+    </section>
+
+    <div class="max-w-3xl mx-auto text-center mb-16 px-4">
+        <p class="text-gray-200 text-[11px] leading-relaxed uppercase tracking-widest">
+            O cartão WeFi utiliza a rede <strong>Visa</strong> para garantir aceitação global imediata. <br>
+            Trabalhamos apenas com soluções de alto padrão que respeitam a soberania do usuário.
+        </p>
+        <p class="text-gray-500 text-[10px] uppercase tracking-widest mt-4">Divulgação: o link acima é de indicação. Posso receber uma comissão da WeFi, sem custo adicional para você.</p>
+    </div>
+    <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbztx3iM1DTrSJjMvfeZywDnI2k64NRJx-FX1J9rvmCduLi8iDTCEB-0aCtlWogQH6z8bA/exec';
+
+    // 1. CAPTURA DE LEADS E REDIRECIONAMENTO COM RASTREIO SOBERANO
+    function enviarSolicitacaoHub() {
+        const nome = document.getElementById('lead-nome').value.trim();
+        const email = document.getElementById('lead-email').value.trim();
+        const whatsapp = document.getElementById('lead-whatsapp').value.trim();
+        const produto = document.getElementById('lead-produto').value;
+
+        // Validação de segurança solicitada por Dione
+        if(!nome || !email || !whatsapp) {
+            alert('Dione solicita: Por favor, preencha todos os campos para liberar seu acesso VIP.');
+            return;
+        }
+
+        // --- RASTREIO GOOGLE ANALYTICS (GTAG) ---
+        if (typeof gtag === 'function') {
+            gtag('event', 'click_cartao', {
+                'event_category': 'Conversão',
+                'event_label': produto
+            });
+        }
+
+        const params = new URLSearchParams();
+        params.append('nome', nome);
+        params.append('email', email);
+        params.append('whatsapp', whatsapp);
+        params.append('produto', `HUB CARDS: ${produto}`);
+
+        // Envio para a Planilha Google (Silencioso)
+        fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: params })
+            .catch(err => console.log("Rede protegida"));
+
+        // Definição dos links seguros
+        const linkFinal = "https://app.wefi.co/register?ref=cwfc4q5lij";
+
+        // Abertura em nova aba com proteção de integridade
+        window.open(linkFinal, '_blank', 'noopener,noreferrer');
+
+        // Feedback visual tático no botão
+        const btn = document.querySelector('button[onclick="enviarSolicitacaoHub()"]');
+        if (btn) {
+            btn.innerHTML = "✅ ACESSO LIBERADO!";
+            btn.style.background = "#059669"; 
+        }
+    }
+    // 2. NOTIFICAÇÃO WHATSAPP
+    setTimeout(() => {
+        const notify = document.getElementById('notify-hub');
+        if (notify) notify.classList.add('show');
+    }, 5000);
+
+    // 3. TILT 3D NOS CARDS (DESKTOP)
+    const cards = document.querySelectorAll('.glass');
+
+    window.addEventListener('mousemove', e => {
+        if (window.innerWidth <= 1024) return;
+        const x = e.clientX, y = e.clientY;
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if (x > rect.left && x < rect.right && y > rect.top && y < rect.bottom) {
+                const cx = rect.left + rect.width / 2;
+                const cy = rect.top + rect.height / 2;
+                card.style.transform = `perspective(1000px) rotateX(${(cy - y) / 15}deg) rotateY(${(x - cx) / 15}deg) scale3d(1.02,1.02,1.02)`;
+            } else {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)`;
+            }
+        });
+    });
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<a href="https://wa.me/5534993421500?text=Olá+Dione,+estou+no+Hub+de+Cartões+e+tenho+uma+dúvida." 
+   class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-notify" id="notify-hub">1</span>
+</a>
+</body>
+</html>
