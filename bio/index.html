@@ -91,6 +91,20 @@
   .soc:hover { transform: translateY(-2px); border-color: var(--gold); }
   .soc svg { width: 21px; height: 21px; }
 
+  /* ─── SITE OFICIAL ─── */
+  .site {
+    display: flex; align-items: center; gap: 12px; margin-top: 22px; padding: 12px 16px 12px 12px; min-height: 64px; border-radius: 18px;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold) 55%, var(--gold-deep)); color: #1a1208; text-align: left;
+    box-shadow: 0 12px 30px rgba(245,158,11,.3); transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .site:hover { transform: translateY(-3px); box-shadow: 0 16px 38px rgba(245,158,11,.42); }
+  .site-ico { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: rgba(0,0,0,.18); flex-shrink: 0; }
+  .site-ico svg { width: 22px; height: 22px; }
+  .site span:nth-child(2) { flex: 1; }
+  .site b { display: block; font-size: 1rem; font-weight: 800; line-height: 1.2; }
+  .site small { font-size: .8rem; font-weight: 600; opacity: .8; }
+  .site > svg { width: 20px; height: 20px; flex-shrink: 0; }
+
   /* ─── TÍTULOS DE SEÇÃO ─── */
   .label {
     display: flex; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 2.5px;
@@ -249,6 +263,11 @@
         <svg viewBox="0 0 24 24" fill="#25D366"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.04c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-2.99s.75-2.12 1.01-2.41c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.82 2.04.89 2.19.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.29.37-.42.5-.14.14-.28.29-.12.56.16.27.72 1.18 1.54 1.91 1.06.95 1.96 1.24 2.23 1.38.27.14.43.12.59-.07.16-.19.68-.79.86-1.07.18-.27.36-.22.61-.13.24.09 1.55.73 1.81.86.27.14.45.2.51.31.07.11.07.62-.17 1.3z"/></svg>
       </a>
     </div>
+    <a class="site" href="https://dionefolador.com" target="_blank" rel="noopener">
+      <span class="site-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span>
+      <span><b>Site Oficial</b><small>dionefolador.com</small></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
   </div>
 </header>
 
