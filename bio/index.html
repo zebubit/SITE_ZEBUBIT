@@ -183,6 +183,17 @@
   .play svg { width: 20px; height: 20px; fill: #1a1208; margin-left: 3px; }
   @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,.55), 0 8px 22px rgba(0,0,0,.55); } 60% { box-shadow: 0 0 0 14px rgba(245,158,11,0), 0 8px 22px rgba(0,0,0,.55); } }
 
+  /* ─── LANDING PAGES (carrossel de modelos) ─── */
+  .lp { margin-top: 4px; padding: 18px 0 18px; border-radius: 22px; border: 1px solid var(--card-border); background: linear-gradient(160deg, #1a1408, var(--card) 55%); overflow: hidden; }
+  .lp-head { padding: 0 18px; }
+  .lp-head .b-title { font-size: 1.3rem; }
+  .trilho { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 16px 18px 6px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .trilho::-webkit-scrollbar { display: none; }
+  .tela { flex: 0 0 140px; scroll-snap-align: center; border-radius: 14px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,.1); background: #000; box-shadow: 0 8px 22px rgba(0,0,0,.45); }
+  .tela img { width: 100%; height: 272px; object-fit: cover; object-position: top; }
+  .tela figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 9px 8px; font-size: .78rem; font-weight: 700; color: #fff; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.6) 38%, rgba(0,0,0,.92)); }
+  .lp .btn { margin: 14px 18px 0; }
+
   /* ─── WHATSAPP ─── */
   .wa {
     display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 20px; min-height: 64px;
@@ -370,6 +381,27 @@
     </a>
   </div>
 
+  <div class="lp reveal">
+    <div class="lp-head">
+      <span class="tag">Landing page</span>
+      <div class="b-title">Quer uma página assim?</div>
+      <p class="b-sub">Pra vender seu imóvel, produto ou serviço. Arraste e veja alguns modelos.</p>
+    </div>
+    <div class="trilho" id="trilho">
+      <figure class="tela"><img src="img/modelos/casa.webp" alt="Modelo de página: Casa à venda" width="390" height="760" loading="lazy"><figcaption>Casa à venda</figcaption></figure>
+      <figure class="tela"><img src="img/modelos/terreno.webp" alt="Modelo de página: Terreno à venda" width="390" height="760" loading="lazy"><figcaption>Terreno à venda</figcaption></figure>
+      <figure class="tela"><img src="img/modelos/mangiare.webp" alt="Modelo de página: Restaurante" width="390" height="760" loading="lazy"><figcaption>Restaurante</figcaption></figure>
+      <figure class="tela"><img src="img/modelos/laevidence.webp" alt="Modelo de página: Spa e estética" width="390" height="760" loading="lazy"><figcaption>Spa e estética</figcaption></figure>
+      <figure class="tela"><img src="img/modelos/pimpet.webp" alt="Modelo de página: Clínica veterinária" width="390" height="760" loading="lazy"><figcaption>Clínica veterinária</figcaption></figure>
+      <figure class="tela"><img src="img/modelos/acquastilo.webp" alt="Modelo de página: Escola de natação" width="390" height="760" loading="lazy"><figcaption>Escola de natação</figcaption></figure>
+      <figure class="tela"><img src="img/modelos/villacascais.webp" alt="Modelo de página: Restaurante" width="390" height="760" loading="lazy"><figcaption>Restaurante</figcaption></figure>
+      <figure class="tela"><img src="img/modelos/melyssa.webp" alt="Modelo de página: Cantora" width="390" height="760" loading="lazy"><figcaption>Cantora</figcaption></figure>
+      <figure class="tela"><img src="img/modelos/drluciano.webp" alt="Modelo de página: Médico" width="390" height="760" loading="lazy"><figcaption>Médico</figcaption></figure>
+      <figure class="tela"><img src="img/modelos/angels.webp" alt="Modelo de página: Confeitaria · Londres" width="390" height="760" loading="lazy"><figcaption>Confeitaria · Londres</figcaption></figure>
+    </div>
+    <a class="btn btn--shine" href="https://wa.me/5534993421500?text=Ol%C3%A1%20Dione!%20Vi%20os%20modelos%20na%20sua%20bio%20e%20quero%20uma%20landing%20page%20assim." target="_blank" rel="noopener">Quero uma página assim <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+
   <!-- WHATSAPP -->
   <span class="label reveal">Fale Comigo</span>
 
@@ -457,6 +489,31 @@
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   els.forEach(function(e){ io.observe(e); });
+})();
+
+/* Carrossel dos modelos: anda sozinho a cada 2,5s, pausa quando a pessoa toca */
+(function(){
+  var trilho = document.getElementById('trilho');
+  if (!trilho || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var timer = null, retomar = null, visivel = false;
+  function passo(){
+    var t = trilho.querySelector('.tela');
+    if (!t) return;
+    var largura = t.offsetWidth + 12;
+    var fim = trilho.scrollWidth - trilho.clientWidth - 4;
+    trilho.scrollTo({ left: trilho.scrollLeft >= fim ? 0 : trilho.scrollLeft + largura, behavior: 'smooth' });
+  }
+  function liga(){ if (!timer && visivel) timer = setInterval(passo, 2500); }
+  function desliga(){ if (timer) { clearInterval(timer); timer = null; } }
+  function pausar(){ desliga(); clearTimeout(retomar); retomar = setTimeout(liga, 6000); }
+  ['pointerdown','touchstart','wheel'].forEach(function(ev){ trilho.addEventListener(ev, pausar, { passive: true }); });
+  new IntersectionObserver(function(es){
+    visivel = es[0].isIntersecting;
+    if (visivel) {
+      trilho.querySelectorAll('img[loading="lazy"]').forEach(function(im){ im.loading = 'eager'; });
+      liga();
+    } else desliga();
+  }, { threshold: .2, rootMargin: '300px 0px' }).observe(trilho);
 })();
 </script>
 </body>
