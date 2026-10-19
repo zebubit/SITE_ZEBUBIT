@@ -190,8 +190,9 @@
   .trilho { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 16px 18px 6px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
   .trilho::-webkit-scrollbar { display: none; }
   .tela { flex: 0 0 140px; scroll-snap-align: center; border-radius: 14px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,.1); background: #000; box-shadow: 0 8px 22px rgba(0,0,0,.45); }
+  .tela { display: block; }
   .tela img { width: 100%; height: 272px; object-fit: cover; object-position: top; }
-  .tela figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 9px 8px; font-size: .78rem; font-weight: 700; color: #fff; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.6) 38%, rgba(0,0,0,.92)); }
+  .tela .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 9px 8px; font-size: .78rem; font-weight: 700; color: #fff; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.6) 38%, rgba(0,0,0,.92)); }
   .lp .btn { margin: 14px 18px 0; }
 
   /* ─── WHATSAPP ─── */
@@ -383,23 +384,21 @@
 
   <div class="lp reveal">
     <div class="lp-head">
-      <span class="tag">Landing page</span>
-      <div class="b-title">Quer uma página assim?</div>
-      <p class="b-sub">Pra vender seu imóvel, produto ou serviço. Arraste e veja alguns modelos.</p>
+      <span class="tag">Landing de imóvel</span>
+      <div class="b-title">Vende imóvel? Tenha uma página assim</div>
+      <p class="b-sub">Modelos pra casa, apartamento, fazenda, sala comercial e terreno. Arraste pra ver.</p>
     </div>
     <div class="trilho" id="trilho">
-      <figure class="tela"><img src="img/modelos/casa.webp" alt="Modelo de página: Casa à venda" width="390" height="760" loading="lazy"><figcaption>Casa à venda</figcaption></figure>
-      <figure class="tela"><img src="img/modelos/terreno.webp" alt="Modelo de página: Terreno à venda" width="390" height="760" loading="lazy"><figcaption>Terreno à venda</figcaption></figure>
-      <figure class="tela"><img src="img/modelos/mangiare.webp" alt="Modelo de página: Restaurante" width="390" height="760" loading="lazy"><figcaption>Restaurante</figcaption></figure>
-      <figure class="tela"><img src="img/modelos/laevidence.webp" alt="Modelo de página: Spa e estética" width="390" height="760" loading="lazy"><figcaption>Spa e estética</figcaption></figure>
-      <figure class="tela"><img src="img/modelos/pimpet.webp" alt="Modelo de página: Clínica veterinária" width="390" height="760" loading="lazy"><figcaption>Clínica veterinária</figcaption></figure>
-      <figure class="tela"><img src="img/modelos/acquastilo.webp" alt="Modelo de página: Escola de natação" width="390" height="760" loading="lazy"><figcaption>Escola de natação</figcaption></figure>
-      <figure class="tela"><img src="img/modelos/villacascais.webp" alt="Modelo de página: Restaurante" width="390" height="760" loading="lazy"><figcaption>Restaurante</figcaption></figure>
-      <figure class="tela"><img src="img/modelos/melyssa.webp" alt="Modelo de página: Cantora" width="390" height="760" loading="lazy"><figcaption>Cantora</figcaption></figure>
-      <figure class="tela"><img src="img/modelos/drluciano.webp" alt="Modelo de página: Médico" width="390" height="760" loading="lazy"><figcaption>Médico</figcaption></figure>
-      <figure class="tela"><img src="img/modelos/angels.webp" alt="Modelo de página: Confeitaria · Londres" width="390" height="760" loading="lazy"><figcaption>Confeitaria · Londres</figcaption></figure>
+      <a class="tela" href="https://zebubit.com.br/casaipes" target="_blank" rel="noopener"><img src="img/modelos/casa.webp" alt="Modelo de landing de imóvel: casa no ar" width="390" height="760" loading="lazy"><span class="cap">Casa · no ar</span></a>
+      <a class="tela" href="https://zebubit.com.br/terrenolourdes" target="_blank" rel="noopener"><img src="img/modelos/terreno.webp" alt="Modelo de landing de imóvel: terreno no ar" width="390" height="760" loading="lazy"><span class="cap">Terreno · no ar</span></a>
+      <a class="tela" href="https://zebubit.com.br/landings-imoveis" target="_blank" rel="noopener"><img src="img/modelos/luxo.webp" alt="Modelo de landing de imóvel: Luxo Clássico" width="390" height="760" loading="lazy"><span class="cap">Luxo Clássico</span></a>
+      <a class="tela" href="https://zebubit.com.br/landings-imoveis" target="_blank" rel="noopener"><img src="img/modelos/litoral.webp" alt="Modelo de landing de imóvel: Litoral Brisa" width="390" height="760" loading="lazy"><span class="cap">Litoral Brisa</span></a>
+      <a class="tela" href="https://zebubit.com.br/landings-imoveis" target="_blank" rel="noopener"><img src="img/modelos/rural.webp" alt="Modelo de landing de imóvel: Rural Sofisticado" width="390" height="760" loading="lazy"><span class="cap">Rural Sofisticado</span></a>
+      <a class="tela" href="https://zebubit.com.br/landings-imoveis" target="_blank" rel="noopener"><img src="img/modelos/urbano.webp" alt="Modelo de landing de imóvel: Urbano Moderno" width="390" height="760" loading="lazy"><span class="cap">Urbano Moderno</span></a>
+      <a class="tela" href="https://zebubit.com.br/landings-imoveis" target="_blank" rel="noopener"><img src="img/modelos/familiar.webp" alt="Modelo de landing de imóvel: Familiar Quente" width="390" height="760" loading="lazy"><span class="cap">Familiar Quente</span></a>
+      <a class="tela" href="https://zebubit.com.br/landings-imoveis" target="_blank" rel="noopener"><img src="img/modelos/comercial.webp" alt="Modelo de landing de imóvel: Comercial Corporativo" width="390" height="760" loading="lazy"><span class="cap">Comercial Corporativo</span></a>
     </div>
-    <a class="btn btn--shine" href="https://wa.me/5534993421500?text=Ol%C3%A1%20Dione!%20Vi%20os%20modelos%20na%20sua%20bio%20e%20quero%20uma%20landing%20page%20assim." target="_blank" rel="noopener">Quero uma página assim <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="btn btn--shine" href="https://zebubit.com.br/landings-imoveis" target="_blank" rel="noopener">Ver modelos e pacotes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 
   <!-- WHATSAPP -->
