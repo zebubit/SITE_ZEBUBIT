@@ -338,7 +338,7 @@
       z: 'Olá Dione! Vim pelo site dionefolador.com e quero falar com você.' },
 
     { k: ['quem e','quem é','dione','experiencia','experiência','sobre voce'],
-      r: 'Dione Folador é investidor e estrategista com mais de 13 anos no mercado cripto, com destaque na mídia especializada desde 2017. Ele traduz o "tecniquês" para português claro, para você cuidar do seu dinheiro sem depender de banco ou corretora.',
+      r: 'Dione Folador é investidor e estrategista no mercado cripto desde 2011, com destaque na mídia especializada desde 2017. Ele traduz o "tecniquês" para português claro, para você cuidar do seu dinheiro sem depender de banco ou corretora.',
       l: [VER_LOJA] },
 
     { k: ['obrigad','valeu','show','top','otimo','ótimo'],

@@ -1,6 +1,6 @@
 # Dione Folador
 
-> Estrategista de criptomoedas e mentor em soberania digital e autocustódia, com mais de 13 anos de experiência no mercado cripto. Site pessoal com conteúdo sobre Bitcoin, autocustódia, carteiras Web3 e mentoria individual.
+> Estrategista de criptomoedas e mentor em soberania digital e autocustódia, no mercado cripto desde 2011. Site pessoal com conteúdo sobre Bitcoin, autocustódia, carteiras Web3 e mentoria individual.
 
 ## Produtos e serviços
 - Mentoria Private Strategy: consultoria estratégica individual sobre Bitcoin, autocustódia e soberania digital ([mentoria_checkout.html](https://dionefolador.com/mentoria_checkout.html))
