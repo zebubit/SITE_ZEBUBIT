@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacidad y protección contra estafas en Bitcoin | Guía de Autocustodia de Bitcoin</title>
+<meta name="description" content="Cómo proteger tu Bitcoin de estafas reales (phishing, soporte falso, address poisoning, malware) y mantener tu privacidad dentro de la ley.">
+<meta name="author" content="Dione Folador">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dionefolador.com/guia/es/07-privacidade-e-golpes/">
+<link rel="alternate" hreflang="pt-BR" href="https://dionefolador.com/guia/07-privacidade-e-golpes/">
+<link rel="alternate" hreflang="en" href="https://dionefolador.com/guia/en/07-privacidade-e-golpes/">
+<link rel="alternate" hreflang="es" href="https://dionefolador.com/guia/es/07-privacidade-e-golpes/">
+<link rel="alternate" hreflang="x-default" href="https://dionefolador.com/guia/07-privacidade-e-golpes/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Privacidad y protección contra estafas en Bitcoin | Guía de Autocustodia de Bitcoin">
+<meta property="og:description" content="Cómo proteger tu Bitcoin de estafas reales (phishing, soporte falso, address poisoning, malware) y mantener tu privacidad dentro de la ley.">
+<meta property="og:url" content="https://dionefolador.com/guia/es/07-privacidade-e-golpes/">
+<meta property="og:image" content="https://dionefolador.com/bio/img/hero.webp">
+<meta property="og:locale" content="es">
+<meta name="theme-color" content="#060606">
+<link rel="icon" href="/zebuoficial.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f59e0b;--gold-l:#fbbf24;--bg:#060606;--card:#111110;--line:rgba(245,158,11,.2);--text:#ecebe8;--muted:#a9a59c;--serif:'Playfair Display',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-l)}img{max-width:100%;display:block}
+.top{position:sticky;top:0;z-index:20;background:rgba(6,6,6,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.marca{color:var(--text);text-decoration:none;font-weight:800;font-size:.9rem;letter-spacing:.02em}.marca span{color:var(--gold)}
+.langs{display:flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:#0d0d0c}
+.langs a{min-width:40px;min-height:32px;display:grid;place-items:center;border-radius:999px;font:700 12px var(--sans);letter-spacing:.08em;color:#d9d6cf;text-decoration:none}
+.langs a[aria-current]{background:var(--gold);color:#111}
+main{max-width:760px;margin:0 auto;padding:28px 16px 40px}
+.trilha{font-size:.78rem;color:var(--muted);margin-bottom:14px}.trilha a{color:var(--muted)}
+.kicker{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h1{font-family:var(--serif);font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.12;margin-bottom:14px}
+.meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:26px;line-height:1.45}.meta img{flex:none}
+.meta img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.meta b{color:var(--text)}
+.aviso{font-size:.86rem;color:#e9dcc0;background:rgba(245,158,11,.08);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:28px}
+article h2{font-family:var(--serif);font-size:1.55rem;line-height:1.25;margin:36px 0 12px;color:#fff}
+article h3{font-size:1.08rem;margin:24px 0 8px;color:var(--gold-l)}
+article p{margin:0 0 16px;font-size:1.03rem}
+article ul,article ol{margin:0 0 18px 22px}article li{margin:6px 0}
+article strong{color:#fff}
+article li.ck{list-style:none;margin-left:-22px;padding-left:30px;position:relative}article li.ck::before{content:'';position:absolute;left:0;top:.35em;width:16px;height:16px;border:2px solid var(--gold);border-radius:4px}
+article blockquote{margin:20px 0;padding:14px 16px;border-left:4px solid var(--gold);background:rgba(245,158,11,.07);border-radius:0 12px 12px 0}
+article blockquote p{margin:0}
+article code{font-size:.9em;background:#1a1916;padding:1px 6px;border-radius:6px}
+article table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:.92rem;display:block;overflow-x:auto}
+article th,article td{border:1px solid #2a2823;padding:8px 10px;text-align:left;vertical-align:top}article th{background:#17160f;color:var(--gold-l)}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:36px 0 10px}
+.nav a{display:block;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:var(--text);min-height:64px}
+.nav a small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+.nav a b{font-size:.92rem;line-height:1.3}.nav .prox{text-align:right;grid-column:2}
+.todos{display:block;text-align:center;margin:8px 0 30px;font-weight:700;font-size:.9rem}
+.cta{border:1px solid rgba(245,158,11,.45);border-radius:20px;padding:22px 18px;background:linear-gradient(160deg,#1a1408,var(--card) 60%);margin:30px 0}
+.cta h2{font-family:var(--serif);font-size:1.35rem;margin-bottom:6px}.cta p{color:#d8d4ca;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,var(--gold-l),var(--gold) 55%,#b45309);color:#1a1208;font-weight:800;text-decoration:none}
+.autor{display:flex;gap:14px;align-items:flex-start;border-top:1px solid #222;padding-top:24px;margin-top:10px}
+.autor img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none}
+.autor h2{font-size:1rem;margin-bottom:4px}.autor p{font-size:.9rem;color:var(--muted)}
+.lista{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.lista a{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card);text-decoration:none;color:var(--text)}
+.lista .n{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;min-width:34px}
+.lista b{display:block;font-size:1rem;line-height:1.3}.lista span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px;line-height:1.45}
+.lead{font-size:1.08rem;color:#d8d4ca;margin-bottom:22px}
+footer{border-top:1px solid #1d1d1b;margin-top:30px;padding:22px 16px 40px;text-align:center;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--gold-l)}
+@media(max-width:420px){.nav{grid-template-columns:1fr}.nav .prox{grid-column:1}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "headline": "Privacidad y protección contra estafas en Bitcoin", "description": "Cómo proteger tu Bitcoin de estafas reales (phishing, soporte falso, address poisoning, malware) y mantener tu privacidad dentro de la ley.", "inLanguage": "es", "url": "https://dionefolador.com/guia/es/07-privacidade-e-golpes/", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "author": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "publisher": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "isPartOf": {"@type": "CreativeWorkSeries", "name": "Guía de Autocustodia de Bitcoin", "url": "https://dionefolador.com/guia/es/"}, "image": "https://dionefolador.com/bio/img/hero.webp", "about": ["Bitcoin", "self-custody"], "isAccessibleForFree": true}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://dionefolador.com/"}, {"@type": "ListItem", "position": 2, "name": "Guía de Autocustodia de Bitcoin", "item": "https://dionefolador.com/guia/es/"}, {"@type": "ListItem", "position": 3, "name": "Privacidad y protección contra estafas en Bitcoin", "item": "https://dionefolador.com/guia/es/07-privacidade-e-golpes/"}]}]}</script>
+</head>
+<body>
+<header class="top"><div class="top-in"><a class="marca" href="/guia/es/">Dione <span>Folador</span> · Guía</a><nav class="langs" aria-label="Idioma / Language"><a href="/guia/07-privacidade-e-golpes/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/guia/en/07-privacidade-e-golpes/" hreflang="en" lang="en">EN</a><a href="/guia/es/07-privacidade-e-golpes/" hreflang="es" lang="es" aria-current="page">ES</a></nav></div></header>
+<main>
+<p class="trilha"><a href="https://dionefolador.com/">Inicio</a> › <a href="/guia/es/">Guía de Autocustodia de Bitcoin</a></p>
+<span class="kicker">Capítulo 7 de 8</span>
+<h1>Privacidad y protección contra estafas en Bitcoin</h1>
+<div class="meta"><img src="/bio/img/dione-guia.webp" alt="" width="34" height="34"><span>Por <b>Dione Folador</b> · Actualizado el 6 de noviembre de 2026 · 7 min de lectura</span></div>
+<p class="aviso">Contenido educativo. No es recomendación de inversión. Nadie legítimo te pedirá tu semilla: ni yo, ni el soporte de una billetera, ni un exchange.</p>
+<article><p>Puedes tener la mejor billetera física del mundo y tu semilla grabada en acero. Aun así, buena parte de las pérdidas de Bitcoin no viene de una falla técnica. Viene de personas engañadas. El estafador no rompe la criptografía de Bitcoin. Te convence de entregarle la clave o de enviar el dinero a la dirección equivocada.</p>
+<p>Por eso este capítulo junta <strong>privacidad</strong> y <strong>estafas</strong>. Mientras menos gente sepa que tienes Bitcoin, menos te conviertes en blanco.</p>
+<blockquote>
+<p>Nadie legítimo te pide tu semilla. Ni yo, ni el soporte de ninguna billetera, ni un exchange, ni un "especialista en recuperación". Si alguien te la pidió, es estafa. Sin excepción.</p>
+</blockquote>
+<h2>Privacidad es seguridad, no esconderse</h2>
+<p>Quiero dejar claro qué significa privacidad en esta guía. Es no exponer tu patrimonio a desconocidos, para no convertirte en blanco de estafas, extorsión, secuestro o filtración de datos. No es esconder patrimonio de la autoridad fiscal ni de la Justicia.</p>
+<p>En Brasil, tener Bitcoin en autocustodia es legal. Y Bitcoin debe declararse en el Impuesto sobre la Renta, en la ficha de Bienes y Derechos, en el grupo de criptoactivos. Cada país tiene sus propias reglas de declaración. Puedes ser discreto con el mundo y estar totalmente al día con el fisco. Las dos cosas van juntas. Para los detalles de tu caso, confírmalo con un contador.</p>
+<p>Tampoco existe el anonimato absoluto en Bitcoin. La blockchain es pública: cualquier persona ve todas las transacciones y el saldo de todas las direcciones. Lo que te protege es que una dirección no lleva tu nombre. Tu privacidad empieza a filtrarse cuando alguien logra vincular una dirección contigo.</p>
+<h2>Cómo se filtra tu privacidad</h2>
+<h3>KYC y filtraciones de bases de clientes</h3>
+<p>KYC (Know Your Customer, "conoce a tu cliente") es la verificación de identidad que los exchanges están obligados a hacer. Envías documento, selfie, domicilio. Es un requisito legal y cumplirlo es lo correcto. El riesgo es otro: las empresas son hackeadas. Ya ocurrieron filtraciones de bases de clientes de exchanges e incluso de fabricantes de billeteras físicas, con nombre, correo, teléfono y domicilio. Quien está en esas listas se vuelve blanco de phishing (mensajes falsos que imitan a empresas conocidas para robar datos o dinero) y, en el peor caso, de amenazas físicas.</p>
+<p>Lo que puedes hacer:
+- Usa un correo exclusivo para temas de Bitcoin, que no uses para nada más.
+- Activa la verificación en dos pasos con una aplicación, no por SMS.
+- Cuando sea posible, recibe tus paquetes en un lugar que no sea tu casa, como un punto de retiro.
+- Parte de la idea de que tus datos de registro algún día se van a filtrar. Planea tu seguridad contando con eso.</p>
+<h3>Reutilización de direcciones</h3>
+<p>Las billeteras serias generan una dirección nueva para cada pago que recibes, de forma automática. Usa siempre una nueva. Si reutilizas la misma dirección y se la das a varias personas, todas pueden ver su saldo y todo su historial. Quien te pagó una vez sabe cuánto tienes ahí.</p>
+<h3>UTXO, explicado de forma sencilla</h3>
+<p>Tu saldo no es un número único. Está formado por "monedas" separadas llamadas <strong>UTXO</strong> (Unspent Transaction Output, salida de transacción no gastada). Cada pago que recibes crea un UTXO. Si recibiste tres veces, tienes tres UTXO, como tres billetes en la cartera.</p>
+<p>Cuando le pagas a alguien, la billetera junta UTXO para cubrir el monto y te devuelve el cambio a una dirección tuya. Eso tiene dos efectos prácticos:</p>
+<ul>
+<li><strong>Privacidad:</strong> juntar UTXO en una misma transacción le muestra al mundo que tienen el mismo dueño. Si uno vino de un exchange con tus datos y otro de un origen que nadie vinculaba contigo, ahora quedan vinculados.</li>
+<li><strong>Comisión:</strong> la comisión de la red se cobra por el tamaño de la transacción en bytes, no por el monto enviado. Más UTXO de entrada significa una transacción más grande y una comisión más alta.</li>
+</ul>
+<p>Billeteras como Sparrow, Electrum y Nunchuk tienen <strong>control de monedas</strong> (coin control): eliges qué UTXO usar y puedes ponerle una etiqueta a cada uno ("vino del exchange X", "pago de cliente"). Etiquetar desde el principio ayuda mucho después.</p>
+<h3>Comisiones, también de forma sencilla</h3>
+<p>Cada bloque tiene espacio limitado. Quien paga más por byte (sat/vB, satoshis por byte virtual) entra primero, y con la red congestionada la comisión sube. Por eso, los UTXO muy pequeños pueden costar más gastarlos de lo que valen. Evita recibir en decenas de pedacitos.</p>
+<h2>Las estafas más comunes</h2>
+<h3>Semilla preimpresa en la caja</h3>
+<p>Compras una billetera física y adentro viene una tarjeta con 24 palabras "ya generadas para ti". Es estafa. La semilla tiene que generarla el propio dispositivo, frente a ti, en la primera configuración. Quien imprimió esa semilla tiene acceso a todo lo que deposites. Por eso: compra solo al fabricante o a un revendedor oficial, nunca usada, y revisa el sello y el firmware.</p>
+<h3>Soporte falso</h3>
+<p>Publicas una duda en redes sociales y enseguida aparece un "soporte oficial" en tus mensajes privados. Amable y rápido, al final te pide la semilla para "sincronizar" o "validar" la billetera. El soporte real no te escribe por privado y nunca pide la semilla. También existen falsos "recuperadores" que prometen devolver bitcoin robado a cambio de un pago. Es la segunda estafa contra quien ya sufrió la primera.</p>
+<h3>Sitio falso y aplicación falsa</h3>
+<p>Los estafadores compran anuncios en el buscador con sitios idénticos a los de billeteras conocidas. Descargas el programa falso, escribes tu semilla y pierdes todo. Protección: escribe tú mismo la dirección del sitio oficial y guárdala en favoritos. Descarga aplicaciones solo desde ahí. Cuando el proyecto publica la firma del archivo, verifícala.</p>
+<h3>Actualización falsa de firmware</h3>
+<p>Te llega un correo o aparece un aviso de que tu billetera necesita una actualización urgente, con un enlace. La actualización real viene solo de la aplicación o del sitio oficial del fabricante, al que entras desde tus favoritos, y se confirma en la pantalla del propio dispositivo. Una billetera seria nunca te pide escribir la semilla en la computadora o en el celular para actualizar.</p>
+<h3>Phishing por correo después de una filtración</h3>
+<p>Después de una filtración de una base de clientes llegan correos muy convincentes, con tu nombre y hasta el modelo de tu billetera, que dicen que tu cuenta fue comprometida y que necesitas "migrar los fondos" o "confirmar la semilla". Que sepan tu nombre y lo que compraste no prueba nada. No hagas clic. Entra al sitio oficial desde tus favoritos.</p>
+<h3>Envenenamiento de direcciones (address poisoning)</h3>
+<p>El estafador mira tu historial público y crea una dirección que empieza y termina con los mismos caracteres que una dirección que usas. Luego te envía un monto mínimo desde ella, para que esa dirección aparezca en tu historial. La próxima vez que copies "la dirección de siempre" del historial, podrías copiar la falsa. Esta estafa es más común en otras redes, pero también ocurre en Bitcoin.</p>
+<p>Protección: nunca copies una dirección del historial de transacciones. Tómala directamente de la fuente cada vez y revísala <strong>completa</strong>, no solo el inicio y el final.</p>
+<h3>Malware que cambia la dirección en el portapapeles</h3>
+<p>Hay virus que vigilan el portapapeles de la computadora o del celular. Cuando copias una dirección de Bitcoin, la cambian por una del estafador. Pegas sin darte cuenta.</p>
+<p>La defensa más fuerte es la billetera física: muestra la dirección de destino en su propia pantalla, que el virus de la computadora no controla. Revísala en la pantalla del dispositivo, carácter por carácter, antes de confirmar. Lo mismo vale para recibir: verifica en la pantalla de la billetera física que la dirección es la misma que le vas a pasar a quien te va a pagar.</p>
+<h2>Discreción en el día a día</h2>
+<p>La información más peligrosa es "esa persona tiene mucho Bitcoin". Algunas reglas que sigo y recomiendo:</p>
+<ul>
+<li>No cuentes cuánto tienes. Ni a amigos, ni en grupos, ni en redes sociales.</li>
+<li>No publiques capturas de saldo, de billetera ni de transacciones.</li>
+<li>No uses ropa, calcomanías ni placas que griten "tengo cripto".</li>
+<li>No hables de montos en lugares públicos.</li>
+<li>Si eres conocido por hablar de Bitcoin, usa passphrase y una billetera de distracción, como vimos en el capítulo Passphrase y seguridad contra la coacción.</li>
+</ul>
+<h2>Lista de verificación</h2>
+<ul>
+<li class="ck">Uso un correo exclusivo para temas de Bitcoin, con verificación en dos pasos por aplicación.</li>
+<li class="ck">Uso una dirección nueva en cada pago y nunca copio direcciones del historial.</li>
+<li class="ck">Reviso la dirección completa en la pantalla de la billetera física antes de enviar o recibir.</li>
+<li class="ck">Solo descargo billeteras y firmware desde el sitio oficial guardado en favoritos.</li>
+<li class="ck">Sé que nadie legítimo pide mi semilla y no respondo a "soporte" por privado.</li>
+<li class="ck">Etiqueto mis UTXO y entiendo que juntarlos vincula sus orígenes.</li>
+<li class="ck">No divulgo cuánto tengo y mi Bitcoin está declarado ante el fisco.</li>
+</ul>
+</article>
+<nav class="nav"><a href="/guia/es/06-no-proprio/"><small>← Anterior</small><b>Nodo propio de Bitcoin: verificar en vez de confiar</b></a><a class="prox" href="/guia/es/08-heranca-de-bitcoin/"><small>Siguiente →</small><b>Herencia de Bitcoin: cómo accederá tu familia</b></a></nav><a class="todos" href="/guia/es/">Todos los capítulos</a>
+<section class="cta"><h2>¿Quieres hacerlo con acompañamiento?</h2><p>En la mentoría individual configuras todo en tu propio dispositivo, conmigo guiando cada paso.</p><a class="btn" href="https://wa.me/5534993421500?text=%C2%A1Hola%20Dione!%20Le%C3%AD%20tu%20gu%C3%ADa%20de%20autocustodia%20y%20quiero%20saber%20sobre%20tu%20mentor%C3%ADa." target="_blank" rel="noopener">Hablar con Dione</a></section>
+<div class="autor"><img src="/bio/img/dione-guia.webp" alt="Dione Folador" width="64" height="64" loading="lazy"><div><h2>Sobre el autor: Dione Folador</h2><p>Dione Folador está en el mercado cripto desde 2011 y enseña autocustodia y seguridad de Bitcoin a quienes quieren tomar el control de su propio patrimonio. En Instagram es @dionefol.</p></div></div>
+</main>
+<footer><p>© 2026 Dione Folador · <a href="https://dionefolador.com/">dionefolador.com</a> · <a href="https://instagram.com/dionefol" rel="noopener">@dionefol</a></p><p style="margin-top:6px">Contenido educativo. No es recomendación de inversión. Nadie legítimo te pedirá tu semilla: ni yo, ni el soporte de una billetera, ni un exchange.</p></footer>
+<script src="https://biovenda.app.br/atendente/zebu.js" data-trilha="cripto" data-nome="Fol" data-api="dionefol-bio" data-whats="5534993421500" defer></script>
+</body>
+</html>

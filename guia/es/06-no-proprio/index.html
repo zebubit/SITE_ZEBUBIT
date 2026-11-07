@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nodo propio de Bitcoin: verificar en vez de confiar | Guía de Autocustodia de Bitcoin</title>
+<meta name="description" content="Por qué correr tu propio nodo de Bitcoin, qué verifica, cómo protege tu privacidad, opciones de hardware y cómo conectar tu billetera.">
+<meta name="author" content="Dione Folador">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dionefolador.com/guia/es/06-no-proprio/">
+<link rel="alternate" hreflang="pt-BR" href="https://dionefolador.com/guia/06-no-proprio/">
+<link rel="alternate" hreflang="en" href="https://dionefolador.com/guia/en/06-no-proprio/">
+<link rel="alternate" hreflang="es" href="https://dionefolador.com/guia/es/06-no-proprio/">
+<link rel="alternate" hreflang="x-default" href="https://dionefolador.com/guia/06-no-proprio/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nodo propio de Bitcoin: verificar en vez de confiar | Guía de Autocustodia de Bitcoin">
+<meta property="og:description" content="Por qué correr tu propio nodo de Bitcoin, qué verifica, cómo protege tu privacidad, opciones de hardware y cómo conectar tu billetera.">
+<meta property="og:url" content="https://dionefolador.com/guia/es/06-no-proprio/">
+<meta property="og:image" content="https://dionefolador.com/bio/img/hero.webp">
+<meta property="og:locale" content="es">
+<meta name="theme-color" content="#060606">
+<link rel="icon" href="/zebuoficial.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f59e0b;--gold-l:#fbbf24;--bg:#060606;--card:#111110;--line:rgba(245,158,11,.2);--text:#ecebe8;--muted:#a9a59c;--serif:'Playfair Display',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-l)}img{max-width:100%;display:block}
+.top{position:sticky;top:0;z-index:20;background:rgba(6,6,6,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.marca{color:var(--text);text-decoration:none;font-weight:800;font-size:.9rem;letter-spacing:.02em}.marca span{color:var(--gold)}
+.langs{display:flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:#0d0d0c}
+.langs a{min-width:40px;min-height:32px;display:grid;place-items:center;border-radius:999px;font:700 12px var(--sans);letter-spacing:.08em;color:#d9d6cf;text-decoration:none}
+.langs a[aria-current]{background:var(--gold);color:#111}
+main{max-width:760px;margin:0 auto;padding:28px 16px 40px}
+.trilha{font-size:.78rem;color:var(--muted);margin-bottom:14px}.trilha a{color:var(--muted)}
+.kicker{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h1{font-family:var(--serif);font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.12;margin-bottom:14px}
+.meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:26px;line-height:1.45}.meta img{flex:none}
+.meta img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.meta b{color:var(--text)}
+.aviso{font-size:.86rem;color:#e9dcc0;background:rgba(245,158,11,.08);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:28px}
+article h2{font-family:var(--serif);font-size:1.55rem;line-height:1.25;margin:36px 0 12px;color:#fff}
+article h3{font-size:1.08rem;margin:24px 0 8px;color:var(--gold-l)}
+article p{margin:0 0 16px;font-size:1.03rem}
+article ul,article ol{margin:0 0 18px 22px}article li{margin:6px 0}
+article strong{color:#fff}
+article li.ck{list-style:none;margin-left:-22px;padding-left:30px;position:relative}article li.ck::before{content:'';position:absolute;left:0;top:.35em;width:16px;height:16px;border:2px solid var(--gold);border-radius:4px}
+article blockquote{margin:20px 0;padding:14px 16px;border-left:4px solid var(--gold);background:rgba(245,158,11,.07);border-radius:0 12px 12px 0}
+article blockquote p{margin:0}
+article code{font-size:.9em;background:#1a1916;padding:1px 6px;border-radius:6px}
+article table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:.92rem;display:block;overflow-x:auto}
+article th,article td{border:1px solid #2a2823;padding:8px 10px;text-align:left;vertical-align:top}article th{background:#17160f;color:var(--gold-l)}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:36px 0 10px}
+.nav a{display:block;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:var(--text);min-height:64px}
+.nav a small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+.nav a b{font-size:.92rem;line-height:1.3}.nav .prox{text-align:right;grid-column:2}
+.todos{display:block;text-align:center;margin:8px 0 30px;font-weight:700;font-size:.9rem}
+.cta{border:1px solid rgba(245,158,11,.45);border-radius:20px;padding:22px 18px;background:linear-gradient(160deg,#1a1408,var(--card) 60%);margin:30px 0}
+.cta h2{font-family:var(--serif);font-size:1.35rem;margin-bottom:6px}.cta p{color:#d8d4ca;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,var(--gold-l),var(--gold) 55%,#b45309);color:#1a1208;font-weight:800;text-decoration:none}
+.autor{display:flex;gap:14px;align-items:flex-start;border-top:1px solid #222;padding-top:24px;margin-top:10px}
+.autor img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none}
+.autor h2{font-size:1rem;margin-bottom:4px}.autor p{font-size:.9rem;color:var(--muted)}
+.lista{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.lista a{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card);text-decoration:none;color:var(--text)}
+.lista .n{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;min-width:34px}
+.lista b{display:block;font-size:1rem;line-height:1.3}.lista span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px;line-height:1.45}
+.lead{font-size:1.08rem;color:#d8d4ca;margin-bottom:22px}
+footer{border-top:1px solid #1d1d1b;margin-top:30px;padding:22px 16px 40px;text-align:center;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--gold-l)}
+@media(max-width:420px){.nav{grid-template-columns:1fr}.nav .prox{grid-column:1}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "headline": "Nodo propio de Bitcoin: verificar en vez de confiar", "description": "Por qué correr tu propio nodo de Bitcoin, qué verifica, cómo protege tu privacidad, opciones de hardware y cómo conectar tu billetera.", "inLanguage": "es", "url": "https://dionefolador.com/guia/es/06-no-proprio/", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "author": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "publisher": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "isPartOf": {"@type": "CreativeWorkSeries", "name": "Guía de Autocustodia de Bitcoin", "url": "https://dionefolador.com/guia/es/"}, "image": "https://dionefolador.com/bio/img/hero.webp", "about": ["Bitcoin", "self-custody"], "isAccessibleForFree": true}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://dionefolador.com/"}, {"@type": "ListItem", "position": 2, "name": "Guía de Autocustodia de Bitcoin", "item": "https://dionefolador.com/guia/es/"}, {"@type": "ListItem", "position": 3, "name": "Nodo propio de Bitcoin: verificar en vez de confiar", "item": "https://dionefolador.com/guia/es/06-no-proprio/"}]}]}</script>
+</head>
+<body>
+<header class="top"><div class="top-in"><a class="marca" href="/guia/es/">Dione <span>Folador</span> · Guía</a><nav class="langs" aria-label="Idioma / Language"><a href="/guia/06-no-proprio/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/guia/en/06-no-proprio/" hreflang="en" lang="en">EN</a><a href="/guia/es/06-no-proprio/" hreflang="es" lang="es" aria-current="page">ES</a></nav></div></header>
+<main>
+<p class="trilha"><a href="https://dionefolador.com/">Inicio</a> › <a href="/guia/es/">Guía de Autocustodia de Bitcoin</a></p>
+<span class="kicker">Capítulo 6 de 8</span>
+<h1>Nodo propio de Bitcoin: verificar en vez de confiar</h1>
+<div class="meta"><img src="/bio/img/dione-guia.webp" alt="" width="34" height="34"><span>Por <b>Dione Folador</b> · Actualizado el 6 de noviembre de 2026 · 7 min de lectura</span></div>
+<p class="aviso">Contenido educativo. No es recomendación de inversión. Nadie legítimo te pedirá tu semilla: ni yo, ni el soporte de una billetera, ni un exchange.</p>
+<article><p>Ya tienes la clave en tu mano. La semilla está guardada, la billetera física firma, tal vez hasta armaste una multisig. Pero hay una pregunta que poca gente se hace: <strong>cuando tu billetera muestra el saldo, ¿de dónde sale esa información?</strong></p>
+<p>En la mayoría de los casos, sale del servidor de otra persona. Tu aplicación le pregunta a una computadora en internet "¿cuánto hay en estas direcciones?" y cree en la respuesta. Funciona, pero tiene dos costos: confías en que alguien te diga la verdad y le entregas a ese alguien la lista de tus direcciones.</p>
+<p>El <strong>nodo propio</strong> resuelve las dos cosas. En este capítulo te explico qué es, qué hace, cuánto cuesta y cómo conectar tu billetera a él.</p>
+<h2>Qué es un nodo</h2>
+<p>Un <strong>nodo completo</strong> (full node) es una computadora que corre un software de Bitcoin que descarga y revisa todos los bloques de la historia de la red, desde el primero, de 2009. La implementación de referencia y la más usada es <strong>Bitcoin Core</strong>, gratuita y de código abierto.</p>
+<p>Un punto que confunde a mucha gente: <strong>el nodo no guarda tus bitcoins</strong>. Tus claves siguen en la billetera física. El nodo es tu fuente de información confiable sobre la red y tu canal para transmitir transacciones. Si el nodo se daña, tus bitcoins siguen intactos y tu semilla sigue valiendo.</p>
+<p>Tampoco es minería. Un nodo no gasta energía compitiendo por bloques. Solo verifica.</p>
+<h2>Qué verifica el nodo</h2>
+<p>Cuando tu nodo descarga la blockchain por primera vez (proceso llamado sincronización inicial, o IBD), no acepta nada solo porque alguien se lo mandó. Revisa por su cuenta, entre otras reglas:</p>
+<ul>
+<li>que cada bloque tenga la <strong>prueba de trabajo</strong> exigida;</li>
+<li>que cada transacción tenga <strong>firmas válidas</strong> y solo gaste monedas que existen;</li>
+<li>que ninguna moneda se haya <strong>gastado dos veces</strong>;</li>
+<li>que la <strong>emisión</strong> respete el calendario, con el límite de 21 millones;</li>
+<li>que el tamaño del bloque y las demás <strong>reglas de consenso</strong> se hayan cumplido.</li>
+</ul>
+<p>Un detalle para quien busca precisión: para acelerar la sincronización, Bitcoin Core, por defecto, omite la revisión de las firmas de bloques antiguos que ya están enterrados bajo mucha prueba de trabajo (una configuración llamada assumevalid). Todas las demás reglas se siguen revisando, y la revisión completa se puede activar en la configuración.</p>
+<p>Si un bloque rompe cualquier regla, tu nodo lo rechaza. No importa quién lo minó ni cuántas personas digan lo contrario. De ahí viene la frase común en Bitcoin: "no confíes, verifica". Con un nodo, cuando aparece "confirmada" en tu billetera, fue tu propia computadora la que lo revisó.</p>
+<h2>Privacidad: lo que ve un servidor público</h2>
+<p>Cuando tu billetera usa un servidor público, ese servidor puede ver:</p>
+<ul>
+<li>las direcciones o la xpub que consultas, y por lo tanto tu saldo y tu historial;</li>
+<li>tu dirección IP, que puede indicar tu ciudad y tu proveedor de internet;</li>
+<li>cuándo transmites cada transacción.</li>
+</ul>
+<p>Eso no significa que el servidor vaya a robar algo. No tiene tus claves. Pero sí significa que alguien puede vincular una IP con un patrimonio. Ante una filtración o un servidor malintencionado, esa información se vuelve un mapa para estafas o ataques físicos. La discreción es seguridad.</p>
+<p>Con tu propio nodo, las consultas se quedan dentro de tu casa. Ningún servidor de terceros recibe la lista de tus direcciones. Las transacciones siguen siendo públicas en la blockchain, como siempre, pero nadie de afuera recibe de ti la información de qué direcciones son tuyas. Aquí la privacidad es protección personal, dentro de la ley. Sigues declarando tus bitcoins normalmente.</p>
+<h2>Opciones de hardware</h2>
+<p>No necesitas una computadora potente. Necesitas estabilidad y espacio en disco.</p>
+<ul>
+<li><strong>Disco:</strong> la blockchain completa ya tiene más de 700 GB, y solo crece. Usa un <strong>SSD de 2 TB</strong>. Uno de 1 TB ya queda justo. Los discos mecánicos y las tarjetas de memoria vuelven todo lento y tienden a corromper datos.</li>
+<li><strong>Memoria:</strong> 4 GB funcionan; 8 GB o más hacen la sincronización mucho más rápida.</li>
+<li><strong>Internet:</strong> la sincronización inicial descarga cientos de gigabytes. Después, el consumo baja bastante. Si tu plan tiene límite de datos, ajusta la configuración de subida.</li>
+<li><strong>Energía:</strong> un corte de luz en medio de una escritura puede corromper la base de datos. Un UPS (respaldo de batería) pequeño ayuda.</li>
+</ul>
+<p>Caminos comunes:</p>
+<ol>
+<li><strong>Una computadora que ya tienes.</strong> Instala Bitcoin Core en un equipo de escritorio o una laptop que quede encendida. Es la forma más barata de empezar.</li>
+<li><strong>Una mini PC o Raspberry Pi con SSD</strong>, usando un sistema listo para nodo. Ejemplos conocidos: <strong>Umbrel</strong>, <strong>Start9</strong> y <strong>RaspiBlitz</strong>. Instalan Bitcoin Core, un servidor Electrum y una interfaz en el navegador.</li>
+<li><strong>Un nodo armado de fábrica.</strong> Algunos proyectos venden el equipo ya montado. Cuesta más y ahorra trabajo.</li>
+</ol>
+<p>También existe el <strong>nodo podado</strong> (pruned). Valida todo de la misma forma, pero borra los bloques antiguos después de revisarlos, ocupando pocos gigabytes. Sirve para quien tiene poco disco. La limitación: la mayoría de los servidores Electrum necesita un nodo no podado.</p>
+<h2>Servidor Electrum: el puente con la billetera</h2>
+<p>Muchas billeteras no hablan directamente con Bitcoin Core. Hablan el protocolo Electrum. Por eso los sistemas de nodo suelen incluir su propio <strong>servidor Electrum</strong>, como Electrs o Fulcrum. Indexa la blockchain de tu nodo y responde rápido a las consultas de la billetera.</p>
+<p>El camino en resumen: la billetera física firma, el programa de la billetera (Sparrow, Electrum, Nunchuk, BlueWallet, entre otros) consulta al servidor Electrum, que consulta a tu Bitcoin Core.</p>
+<h2>Cómo conectar tu billetera</h2>
+<p>Estos pasos sirven para cualquier billetera seria, aunque cambien los nombres de los menús:</p>
+<ol>
+<li><strong>Espera a que termine la sincronización.</strong> Puede tardar desde un día hasta más de una semana, según el hardware y la internet. Mientras tanto, los saldos no aparecen correctos.</li>
+<li><strong>Anota la dirección de tu servidor.</strong> En la red de tu casa, es la IP local del nodo con el puerto del servidor Electrum. Fuera de casa, lo más seguro es usar la dirección <strong>Tor</strong> (una red que oculta de dónde viene la conexión y no exige abrir puertos en el router) que entrega el sistema del nodo, o una VPN privada.</li>
+<li><strong>En la billetera, cambia el servidor público por el tuyo.</strong> Busca la configuración de servidor o de red e ingresa la dirección. Algunas billeteras, como Sparrow, también se conectan directo a Bitcoin Core.</li>
+<li><strong>Desactiva la opción de recurrir a servidores públicos</strong>, si la billetera la tiene. Si no, puede consultar otro servidor cuando el tuyo esté caído.</li>
+<li><strong>Revisa.</strong> El saldo y el historial deben verse iguales. Haz una transacción pequeña y confirma que se transmite por tu nodo.</li>
+</ol>
+<blockquote>
+<p>Nunca expongas a internet el puerto de control (RPC) de Bitcoin Core, y nunca abras puertos en el router sin entender lo que haces. Para acceso remoto, usa Tor o una VPN.</p>
+</blockquote>
+<h2>Actualizaciones</h2>
+<p>Actualiza el software del nodo de vez en cuando, siempre desde la fuente oficial. Si instalas Bitcoin Core a mano, descárgalo de bitcoincore.org y verifica el hash y las firmas del archivo. En los sistemas listos, actualiza desde su propia interfaz. Desconfía de cualquier "actualización urgente" que llegue por correo, anuncio o mensaje. Es una estafa clásica.</p>
+<h2>Costo y esfuerzo: ¿es para ti?</h2>
+<p>Siendo directo:</p>
+<ul>
+<li><strong>Dinero:</strong> desde casi nada (una computadora que ya tienes) hasta el precio de una mini PC con SSD, más la electricidad, que es baja.</li>
+<li><strong>Tiempo:</strong> una tarde para instalar, algunos días de sincronización y unos minutos al mes para revisar que todo siga funcionando.</li>
+<li><strong>Conocimiento:</strong> los sistemas listos lo simplificaron mucho. Si llegaste hasta aquí en la guía, puedes con esto.</li>
+</ul>
+<p>El nodo no es un requisito para la autocustodia. Una billetera física bien configurada con una semilla bien guardada ya te pone muy adelante. El nodo es el paso siguiente para quien quiere independencia total: verificar las reglas por cuenta propia y dejar de entregar sus direcciones a terceros.</p>
+<h2>Lista de verificación</h2>
+<ul>
+<li class="ck">Entendí que el nodo verifica la red y no guarda mis claves</li>
+<li class="ck">Elegí el hardware, con un SSD de 2 TB para nodo completo</li>
+<li class="ck">Instalé Bitcoin Core o un sistema de nodo (Umbrel, Start9, RaspiBlitz o similar) desde la fuente oficial</li>
+<li class="ck">Esperé a que terminara la sincronización inicial</li>
+<li class="ck">Conecté mi billetera a mi propio servidor y desactivé los servidores públicos</li>
+<li class="ck">Probé con una transacción pequeña transmitida por mi nodo</li>
+<li class="ck">No dejé el puerto RPC expuesto y uso Tor o una VPN para el acceso desde afuera</li>
+</ul>
+</article>
+<nav class="nav"><a href="/guia/es/05-multisig/"><small>← Anterior</small><b>Multisig: autocustodia para un patrimonio mayor</b></a><a class="prox" href="/guia/es/07-privacidade-e-golpes/"><small>Siguiente →</small><b>Privacidad y protección contra estafas en Bitcoin</b></a></nav><a class="todos" href="/guia/es/">Todos los capítulos</a>
+<section class="cta"><h2>¿Quieres hacerlo con acompañamiento?</h2><p>En la mentoría individual configuras todo en tu propio dispositivo, conmigo guiando cada paso.</p><a class="btn" href="https://wa.me/5534993421500?text=%C2%A1Hola%20Dione!%20Le%C3%AD%20tu%20gu%C3%ADa%20de%20autocustodia%20y%20quiero%20saber%20sobre%20tu%20mentor%C3%ADa." target="_blank" rel="noopener">Hablar con Dione</a></section>
+<div class="autor"><img src="/bio/img/dione-guia.webp" alt="Dione Folador" width="64" height="64" loading="lazy"><div><h2>Sobre el autor: Dione Folador</h2><p>Dione Folador está en el mercado cripto desde 2011 y enseña autocustodia y seguridad de Bitcoin a quienes quieren tomar el control de su propio patrimonio. En Instagram es @dionefol.</p></div></div>
+</main>
+<footer><p>© 2026 Dione Folador · <a href="https://dionefolador.com/">dionefolador.com</a> · <a href="https://instagram.com/dionefol" rel="noopener">@dionefol</a></p><p style="margin-top:6px">Contenido educativo. No es recomendación de inversión. Nadie legítimo te pedirá tu semilla: ni yo, ni el soporte de una billetera, ni un exchange.</p></footer>
+<script src="https://biovenda.app.br/atendente/zebu.js" data-trilha="cripto" data-nome="Fol" data-api="dionefol-bio" data-whats="5534993421500" defer></script>
+</body>
+</html>

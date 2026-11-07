@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passphrase and Protection Against Coercion | Bitcoin Self-Custody Guide</title>
+<meta name="description" content="How the BIP39 passphrase creates a hidden wallet, the risk of forgetting it, how to store it apart from the seed and how to use a decoy wallet.">
+<meta name="author" content="Dione Folador">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dionefolador.com/guia/en/04-passphrase-e-coacao/">
+<link rel="alternate" hreflang="pt-BR" href="https://dionefolador.com/guia/04-passphrase-e-coacao/">
+<link rel="alternate" hreflang="en" href="https://dionefolador.com/guia/en/04-passphrase-e-coacao/">
+<link rel="alternate" hreflang="es" href="https://dionefolador.com/guia/es/04-passphrase-e-coacao/">
+<link rel="alternate" hreflang="x-default" href="https://dionefolador.com/guia/04-passphrase-e-coacao/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Passphrase and Protection Against Coercion | Bitcoin Self-Custody Guide">
+<meta property="og:description" content="How the BIP39 passphrase creates a hidden wallet, the risk of forgetting it, how to store it apart from the seed and how to use a decoy wallet.">
+<meta property="og:url" content="https://dionefolador.com/guia/en/04-passphrase-e-coacao/">
+<meta property="og:image" content="https://dionefolador.com/bio/img/hero.webp">
+<meta property="og:locale" content="en">
+<meta name="theme-color" content="#060606">
+<link rel="icon" href="/zebuoficial.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f59e0b;--gold-l:#fbbf24;--bg:#060606;--card:#111110;--line:rgba(245,158,11,.2);--text:#ecebe8;--muted:#a9a59c;--serif:'Playfair Display',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-l)}img{max-width:100%;display:block}
+.top{position:sticky;top:0;z-index:20;background:rgba(6,6,6,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.marca{color:var(--text);text-decoration:none;font-weight:800;font-size:.9rem;letter-spacing:.02em}.marca span{color:var(--gold)}
+.langs{display:flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:#0d0d0c}
+.langs a{min-width:40px;min-height:32px;display:grid;place-items:center;border-radius:999px;font:700 12px var(--sans);letter-spacing:.08em;color:#d9d6cf;text-decoration:none}
+.langs a[aria-current]{background:var(--gold);color:#111}
+main{max-width:760px;margin:0 auto;padding:28px 16px 40px}
+.trilha{font-size:.78rem;color:var(--muted);margin-bottom:14px}.trilha a{color:var(--muted)}
+.kicker{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h1{font-family:var(--serif);font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.12;margin-bottom:14px}
+.meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:26px;line-height:1.45}.meta img{flex:none}
+.meta img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.meta b{color:var(--text)}
+.aviso{font-size:.86rem;color:#e9dcc0;background:rgba(245,158,11,.08);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:28px}
+article h2{font-family:var(--serif);font-size:1.55rem;line-height:1.25;margin:36px 0 12px;color:#fff}
+article h3{font-size:1.08rem;margin:24px 0 8px;color:var(--gold-l)}
+article p{margin:0 0 16px;font-size:1.03rem}
+article ul,article ol{margin:0 0 18px 22px}article li{margin:6px 0}
+article strong{color:#fff}
+article li.ck{list-style:none;margin-left:-22px;padding-left:30px;position:relative}article li.ck::before{content:'';position:absolute;left:0;top:.35em;width:16px;height:16px;border:2px solid var(--gold);border-radius:4px}
+article blockquote{margin:20px 0;padding:14px 16px;border-left:4px solid var(--gold);background:rgba(245,158,11,.07);border-radius:0 12px 12px 0}
+article blockquote p{margin:0}
+article code{font-size:.9em;background:#1a1916;padding:1px 6px;border-radius:6px}
+article table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:.92rem;display:block;overflow-x:auto}
+article th,article td{border:1px solid #2a2823;padding:8px 10px;text-align:left;vertical-align:top}article th{background:#17160f;color:var(--gold-l)}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:36px 0 10px}
+.nav a{display:block;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:var(--text);min-height:64px}
+.nav a small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+.nav a b{font-size:.92rem;line-height:1.3}.nav .prox{text-align:right;grid-column:2}
+.todos{display:block;text-align:center;margin:8px 0 30px;font-weight:700;font-size:.9rem}
+.cta{border:1px solid rgba(245,158,11,.45);border-radius:20px;padding:22px 18px;background:linear-gradient(160deg,#1a1408,var(--card) 60%);margin:30px 0}
+.cta h2{font-family:var(--serif);font-size:1.35rem;margin-bottom:6px}.cta p{color:#d8d4ca;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,var(--gold-l),var(--gold) 55%,#b45309);color:#1a1208;font-weight:800;text-decoration:none}
+.autor{display:flex;gap:14px;align-items:flex-start;border-top:1px solid #222;padding-top:24px;margin-top:10px}
+.autor img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none}
+.autor h2{font-size:1rem;margin-bottom:4px}.autor p{font-size:.9rem;color:var(--muted)}
+.lista{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.lista a{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card);text-decoration:none;color:var(--text)}
+.lista .n{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;min-width:34px}
+.lista b{display:block;font-size:1rem;line-height:1.3}.lista span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px;line-height:1.45}
+.lead{font-size:1.08rem;color:#d8d4ca;margin-bottom:22px}
+footer{border-top:1px solid #1d1d1b;margin-top:30px;padding:22px 16px 40px;text-align:center;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--gold-l)}
+@media(max-width:420px){.nav{grid-template-columns:1fr}.nav .prox{grid-column:1}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "headline": "Passphrase and Protection Against Coercion", "description": "How the BIP39 passphrase creates a hidden wallet, the risk of forgetting it, how to store it apart from the seed and how to use a decoy wallet.", "inLanguage": "en", "url": "https://dionefolador.com/guia/en/04-passphrase-e-coacao/", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "author": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "publisher": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "isPartOf": {"@type": "CreativeWorkSeries", "name": "Bitcoin Self-Custody Guide", "url": "https://dionefolador.com/guia/en/"}, "image": "https://dionefolador.com/bio/img/hero.webp", "about": ["Bitcoin", "self-custody"], "isAccessibleForFree": true}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://dionefolador.com/"}, {"@type": "ListItem", "position": 2, "name": "Bitcoin Self-Custody Guide", "item": "https://dionefolador.com/guia/en/"}, {"@type": "ListItem", "position": 3, "name": "Passphrase and Protection Against Coercion", "item": "https://dionefolador.com/guia/en/04-passphrase-e-coacao/"}]}]}</script>
+</head>
+<body>
+<header class="top"><div class="top-in"><a class="marca" href="/guia/en/">Dione <span>Folador</span> · Guide</a><nav class="langs" aria-label="Idioma / Language"><a href="/guia/04-passphrase-e-coacao/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/guia/en/04-passphrase-e-coacao/" hreflang="en" lang="en" aria-current="page">EN</a><a href="/guia/es/04-passphrase-e-coacao/" hreflang="es" lang="es">ES</a></nav></div></header>
+<main>
+<p class="trilha"><a href="https://dionefolador.com/">Home</a> › <a href="/guia/en/">Bitcoin Self-Custody Guide</a></p>
+<span class="kicker">Chapter 4 of 8</span>
+<h1>Passphrase and Protection Against Coercion</h1>
+<div class="meta"><img src="/bio/img/dione-guia.webp" alt="" width="34" height="34"><span>By <b>Dione Folador</b> · Updated November 6, 2026 · 7 min read</span></div>
+<p class="aviso">Educational content. Not investment advice. No legitimate person will ever ask for your seed: not me, not wallet support, not an exchange.</p>
+<article><p>In the previous chapter the seed became the center of everything: whoever has the words has the bitcoin. The passphrase changes that rule. With it, the seed alone no longer opens your main wallet. In this chapter I explain how it works, where the danger is, and how to use a passphrase to protect yourself against theft of your backup and even against physical coercion.</p>
+<h2>What the passphrase is</h2>
+<p>The passphrase is extra text, chosen by you, that is added to the seed. It is part of the same <strong>BIP39</strong> standard, and many people call it the <strong>"25th word"</strong>. The name is a little misleading: it does not have to be a word from the list. It can be any text, with letters, numbers, spaces and symbols.</p>
+<p>Do not confuse it with the PIN. The <strong>PIN</strong> unlocks the device and lives only on it. If you forget your PIN, you reset the device and restore from the seed. The <strong>passphrase</strong> goes into the calculation of your keys. It is part of your backup, not of the device.</p>
+<h2>How it works</h2>
+<p>The wallet takes the seed and the passphrase together and runs them through a mathematical function (in BIP39, PBKDF2 with 2048 rounds). The result is the binary seed that generates all your keys.</p>
+<p>The practical consequences:</p>
+<ul>
+<li><strong>Every different passphrase generates a completely different wallet</strong>, with other addresses and another balance.</li>
+<li>The seed without a passphrase is also a valid wallet. It still exists.</li>
+<li><strong>There is no "wrong" passphrase.</strong> If you type "Bitcoin2011" instead of "bitcoin2011", the wallet opens normally, just empty. No error message appears.</li>
+</ul>
+<p>That last point is both the strength and the risk. The strength: a thief holding your seed has no way of knowing whether a passphrase exists or what it is. The risk: you get no warning when you make a mistake either.</p>
+<h2>The risk of forgetting</h2>
+<p>Be very clear with yourself: <strong>if you lose the passphrase, you lose the bitcoin</strong>. There is no support, no recovery, no "forgot my password". The seed without the correct passphrase opens a different, empty wallet.</p>
+<p>So:</p>
+<ul>
+<li><strong>Write the passphrase down on paper or metal.</strong> Do not rely on memory alone. Memory fails over time, under stress, after an accident.</li>
+<li>Write it exactly as it is: uppercase and lowercase, spaces, accents. Every detail changes the wallet. I prefer to avoid accents and special characters that are hard to type on the device, precisely to reduce errors.</li>
+<li><strong>Write down the wallet fingerprint.</strong> Many wallets and software like Sparrow show a short 8-character code that identifies the resulting wallet. If you type the passphrase and the fingerprint matches what you wrote down, the passphrase is right. This code cannot spend anything, but it reveals that a passphrase wallet exists and helps a thief test guesses. So keep the fingerprint with the passphrase, never with the seed.</li>
+<li>Run the full <strong>recovery test</strong>, as in the previous chapter, now with seed plus passphrase: restore, check the first address, and only then deposit larger amounts.</li>
+<li>When you connect the wallet to the computer software, do it with the passphrase already applied on the device. Without it, the software imports the xpub of the no-passphrase wallet and shows a different wallet, empty or the decoy.</li>
+</ul>
+<h3>Passphrase strength</h3>
+<p>If someone finds your seed, the passphrase is the last barrier. A short, predictable passphrase (your child's name, a birthday, "password123") can be found by trial and error. Use something long that has nothing to do with you, for example a sequence of several random words. Long and written down beats short and "memorized".</p>
+<h2>Store it separately</h2>
+<p>The passphrase only protects you if it is <strong>not in the same place as the seed</strong>. Seed and passphrase together in the same drawer are worth the same as a seed with no passphrase.</p>
+<p>The rule is simple:</p>
+<ul>
+<li>Seed in one place, passphrase in another.</li>
+<li>Whoever finds only the seed opens the wallet without a passphrase, which may be empty or hold very little.</li>
+<li>Whoever finds only the passphrase has meaningless text that opens nothing.</li>
+</ul>
+<p>Example setup: seed on metal in a discreet spot at home. Passphrase written in a sealed envelope at a trusted relative's house, or in a safe at another address. Neither paper says what it is.</p>
+<p>Think about your heirs right now, too. They will need both parts and clear instructions. That is the subject of the chapter Bitcoin Inheritance: How Your Family Gets Access, but the decision to use a passphrase has to take it into account.</p>
+<h2>Decoy wallet</h2>
+<p>This is where protection against coercion comes in. Coercion is when someone uses violence or threats to force you to hand over your bitcoin. This kind of crime has happened in many countries, and it usually targets people who became known for holding crypto.</p>
+<p>The passphrase lets you set up a <strong>decoy wallet</strong>:</p>
+<ol>
+<li>The seed <strong>without a passphrase</strong> opens a wallet with a small but believable amount.</li>
+<li>The seed <strong>with the passphrase</strong> opens the main wallet.</li>
+<li>Under threat, you can open the wallet without the passphrase. It is real, it has history, it has a balance.</li>
+</ol>
+<p>For the decoy to be convincing, it has to look used: actually receive into it, and leave an amount that makes sense for someone in your situation.</p>
+<p>Some devices let you set up a <strong>second PIN</strong> that opens a different wallet or triggers a different behavior. It is the same idea, applied at the unlock screen. Check your device's official documentation to see if it offers this.</p>
+<blockquote>
+<p>Your life is worth more than any amount of bitcoin. A decoy wallet is a layer of protection, not a plan to fight a criminal. Under a real threat, prioritize getting out alive and go to the police afterwards.</p>
+</blockquote>
+<p>Be honest about the limit: an informed criminal knows passphrases exist and may not believe you. That is why the decoy works best combined with the other layers below. For larger holdings, the multisig in the next chapter also makes coercion harder, because you cannot move everything alone, from a single place.</p>
+<p>And an important legal limit: the hidden wallet is protection against criminals, <strong>not against the tax authorities or the courts</strong>. Self-custody is legal, and all your bitcoin, including what sits in the passphrase wallet, must be reported for taxes according to the rules of your country. In Brazil, that means the Bens e Direitos section of the income tax return, in the crypto assets group. If you are unsure how to report it, check with an accountant.</p>
+<h2>Discretion: the best defense</h2>
+<p>The cheapest way to avoid coercion is for <strong>nobody to know you have bitcoin</strong>. Nobody kidnaps someone who does not look like a target.</p>
+<ul>
+<li><strong>Do not say how much you have.</strong> Not on social media, not at a barbecue, not in the family group chat.</li>
+<li>Do not post screenshots of balances, wallets, devices or profits.</li>
+<li>Do not leave your hardware wallet visible at home or in photos.</li>
+<li>Be careful with your shipping address. Customer databases of companies in this industry have already leaked, with names and addresses. If you can, receive packages somewhere other than your home, within the law.</li>
+<li>Be suspicious of people who approach you asking too many questions about crypto.</li>
+<li>Use a separate email for bitcoin matters, to reduce the damage if a customer database leaks.</li>
+</ul>
+<p>I teach self-custody in public, so I know the weight of this. Talking about the subject is one thing. Exposing your wealth is another. Privacy here is personal security for you and your family.</p>
+<h2>Checklist</h2>
+<ul>
+<li class="ck">I understand that the passphrase is different from the PIN and is part of the backup</li>
+<li class="ck">I chose a long passphrase unrelated to me and wrote it down exactly as it is</li>
+<li class="ck">I wrote down the fingerprint of the passphrase wallet to check it later</li>
+<li class="ck">I ran the recovery test with seed plus passphrase</li>
+<li class="ck">Seed and passphrase are stored in different places</li>
+<li class="ck">I set up a believable decoy wallet, if it makes sense for me</li>
+<li class="ck">I do not expose my holdings in public, and I have a plan for my heirs to access both parts</li>
+</ul>
+</article>
+<nav class="nav"><a href="/guia/en/03-seed-e-recuperacao/"><small>← Previous</small><b>12 or 24 Word Seed Phrase and the Recovery Test</b></a><a class="prox" href="/guia/en/05-multisig/"><small>Next →</small><b>Multisig: Self-Custody for Larger Holdings</b></a></nav><a class="todos" href="/guia/en/">All chapters</a>
+<section class="cta"><h2>Want to do this with guidance?</h2><p>In one-on-one mentoring, you set everything up on your own device, with me guiding each step.</p><a class="btn" href="https://wa.me/5534993421500?text=Hi%20Dione!%20I%20read%20your%20self-custody%20guide%20and%20I%27d%20like%20to%20know%20about%20your%20mentoring." target="_blank" rel="noopener">Talk to Dione</a></section>
+<div class="autor"><img src="/bio/img/dione-guia.webp" alt="Dione Folador" width="64" height="64" loading="lazy"><div><h2>About the author: Dione Folador</h2><p>Dione Folador has been in the crypto market since 2011 and teaches Bitcoin self-custody and security to people who want to take control of their own wealth. On Instagram, he is @dionefol.</p></div></div>
+</main>
+<footer><p>© 2026 Dione Folador · <a href="https://dionefolador.com/">dionefolador.com</a> · <a href="https://instagram.com/dionefol" rel="noopener">@dionefol</a></p><p style="margin-top:6px">Educational content. Not investment advice. No legitimate person will ever ask for your seed: not me, not wallet support, not an exchange.</p></footer>
+<script src="https://biovenda.app.br/atendente/zebu.js" data-trilha="cripto" data-nome="Fol" data-api="dionefol-bio" data-whats="5534993421500" defer></script>
+</body>
+</html>

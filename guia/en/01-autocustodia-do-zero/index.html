@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Custody from Scratch: Why Leave the Exchange | Bitcoin Self-Custody Guide</title>
+<meta name="description" content="What Bitcoin self-custody is, why &quot;not your keys, not your coins&quot; matters, and which risks you trade when you move your bitcoin off an exchange.">
+<meta name="author" content="Dione Folador">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dionefolador.com/guia/en/01-autocustodia-do-zero/">
+<link rel="alternate" hreflang="pt-BR" href="https://dionefolador.com/guia/01-autocustodia-do-zero/">
+<link rel="alternate" hreflang="en" href="https://dionefolador.com/guia/en/01-autocustodia-do-zero/">
+<link rel="alternate" hreflang="es" href="https://dionefolador.com/guia/es/01-autocustodia-do-zero/">
+<link rel="alternate" hreflang="x-default" href="https://dionefolador.com/guia/01-autocustodia-do-zero/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Self-Custody from Scratch: Why Leave the Exchange | Bitcoin Self-Custody Guide">
+<meta property="og:description" content="What Bitcoin self-custody is, why &quot;not your keys, not your coins&quot; matters, and which risks you trade when you move your bitcoin off an exchange.">
+<meta property="og:url" content="https://dionefolador.com/guia/en/01-autocustodia-do-zero/">
+<meta property="og:image" content="https://dionefolador.com/bio/img/hero.webp">
+<meta property="og:locale" content="en">
+<meta name="theme-color" content="#060606">
+<link rel="icon" href="/zebuoficial.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f59e0b;--gold-l:#fbbf24;--bg:#060606;--card:#111110;--line:rgba(245,158,11,.2);--text:#ecebe8;--muted:#a9a59c;--serif:'Playfair Display',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-l)}img{max-width:100%;display:block}
+.top{position:sticky;top:0;z-index:20;background:rgba(6,6,6,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.marca{color:var(--text);text-decoration:none;font-weight:800;font-size:.9rem;letter-spacing:.02em}.marca span{color:var(--gold)}
+.langs{display:flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:#0d0d0c}
+.langs a{min-width:40px;min-height:32px;display:grid;place-items:center;border-radius:999px;font:700 12px var(--sans);letter-spacing:.08em;color:#d9d6cf;text-decoration:none}
+.langs a[aria-current]{background:var(--gold);color:#111}
+main{max-width:760px;margin:0 auto;padding:28px 16px 40px}
+.trilha{font-size:.78rem;color:var(--muted);margin-bottom:14px}.trilha a{color:var(--muted)}
+.kicker{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h1{font-family:var(--serif);font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.12;margin-bottom:14px}
+.meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:26px;line-height:1.45}.meta img{flex:none}
+.meta img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.meta b{color:var(--text)}
+.aviso{font-size:.86rem;color:#e9dcc0;background:rgba(245,158,11,.08);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:28px}
+article h2{font-family:var(--serif);font-size:1.55rem;line-height:1.25;margin:36px 0 12px;color:#fff}
+article h3{font-size:1.08rem;margin:24px 0 8px;color:var(--gold-l)}
+article p{margin:0 0 16px;font-size:1.03rem}
+article ul,article ol{margin:0 0 18px 22px}article li{margin:6px 0}
+article strong{color:#fff}
+article li.ck{list-style:none;margin-left:-22px;padding-left:30px;position:relative}article li.ck::before{content:'';position:absolute;left:0;top:.35em;width:16px;height:16px;border:2px solid var(--gold);border-radius:4px}
+article blockquote{margin:20px 0;padding:14px 16px;border-left:4px solid var(--gold);background:rgba(245,158,11,.07);border-radius:0 12px 12px 0}
+article blockquote p{margin:0}
+article code{font-size:.9em;background:#1a1916;padding:1px 6px;border-radius:6px}
+article table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:.92rem;display:block;overflow-x:auto}
+article th,article td{border:1px solid #2a2823;padding:8px 10px;text-align:left;vertical-align:top}article th{background:#17160f;color:var(--gold-l)}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:36px 0 10px}
+.nav a{display:block;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:var(--text);min-height:64px}
+.nav a small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+.nav a b{font-size:.92rem;line-height:1.3}.nav .prox{text-align:right;grid-column:2}
+.todos{display:block;text-align:center;margin:8px 0 30px;font-weight:700;font-size:.9rem}
+.cta{border:1px solid rgba(245,158,11,.45);border-radius:20px;padding:22px 18px;background:linear-gradient(160deg,#1a1408,var(--card) 60%);margin:30px 0}
+.cta h2{font-family:var(--serif);font-size:1.35rem;margin-bottom:6px}.cta p{color:#d8d4ca;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,var(--gold-l),var(--gold) 55%,#b45309);color:#1a1208;font-weight:800;text-decoration:none}
+.autor{display:flex;gap:14px;align-items:flex-start;border-top:1px solid #222;padding-top:24px;margin-top:10px}
+.autor img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none}
+.autor h2{font-size:1rem;margin-bottom:4px}.autor p{font-size:.9rem;color:var(--muted)}
+.lista{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.lista a{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card);text-decoration:none;color:var(--text)}
+.lista .n{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;min-width:34px}
+.lista b{display:block;font-size:1rem;line-height:1.3}.lista span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px;line-height:1.45}
+.lead{font-size:1.08rem;color:#d8d4ca;margin-bottom:22px}
+footer{border-top:1px solid #1d1d1b;margin-top:30px;padding:22px 16px 40px;text-align:center;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--gold-l)}
+@media(max-width:420px){.nav{grid-template-columns:1fr}.nav .prox{grid-column:1}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "headline": "Self-Custody from Scratch: Why Leave the Exchange", "description": "What Bitcoin self-custody is, why \"not your keys, not your coins\" matters, and which risks you trade when you move your bitcoin off an exchange.", "inLanguage": "en", "url": "https://dionefolador.com/guia/en/01-autocustodia-do-zero/", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "author": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "publisher": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "isPartOf": {"@type": "CreativeWorkSeries", "name": "Bitcoin Self-Custody Guide", "url": "https://dionefolador.com/guia/en/"}, "image": "https://dionefolador.com/bio/img/hero.webp", "about": ["Bitcoin", "self-custody"], "isAccessibleForFree": true}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://dionefolador.com/"}, {"@type": "ListItem", "position": 2, "name": "Bitcoin Self-Custody Guide", "item": "https://dionefolador.com/guia/en/"}, {"@type": "ListItem", "position": 3, "name": "Self-Custody from Scratch: Why Leave the Exchange", "item": "https://dionefolador.com/guia/en/01-autocustodia-do-zero/"}]}]}</script>
+</head>
+<body>
+<header class="top"><div class="top-in"><a class="marca" href="/guia/en/">Dione <span>Folador</span> · Guide</a><nav class="langs" aria-label="Idioma / Language"><a href="/guia/01-autocustodia-do-zero/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/guia/en/01-autocustodia-do-zero/" hreflang="en" lang="en" aria-current="page">EN</a><a href="/guia/es/01-autocustodia-do-zero/" hreflang="es" lang="es">ES</a></nav></div></header>
+<main>
+<p class="trilha"><a href="https://dionefolador.com/">Home</a> › <a href="/guia/en/">Bitcoin Self-Custody Guide</a></p>
+<span class="kicker">Chapter 1 of 8</span>
+<h1>Self-Custody from Scratch: Why Leave the Exchange</h1>
+<div class="meta"><img src="/bio/img/dione-guia.webp" alt="" width="34" height="34"><span>By <b>Dione Folador</b> · Updated November 6, 2026 · 7 min read</span></div>
+<p class="aviso">Educational content. Not investment advice. No legitimate person will ever ask for your seed: not me, not wallet support, not an exchange.</p>
+<article><p>I have been in the Bitcoin market since 2011. In that time I have seen exchanges go bankrupt, exchanges freeze withdrawals, and people lose everything by trusting the wrong company. I have also seen people lose everything by doing self-custody without knowing what they were doing. This guide exists so you can avoid both mistakes.</p>
+<p>In this first chapter I explain what self-custody is, why it matters, and what you gain and risk when you take charge of your own bitcoin. No rush and no promises. Just what works.</p>
+<h2>What self-custody is</h2>
+<p>First, a point almost nobody explains properly: <strong>your bitcoin is not stored inside your wallet</strong>. It is recorded on the blockchain, Bitcoin's public ledger, copied across thousands of computers around the world. What the wallet stores are the <strong>private keys</strong>.</p>
+<p>A private key is a very large secret number that gives you the power to spend the bitcoin tied to an address. Whoever holds the private key signs the transaction. The network checks the signature and accepts it. Nobody asks for your name, nobody asks for permission.</p>
+<p>So the right question is never "where is my bitcoin?" The right question is: <strong>who holds the keys?</strong></p>
+<ul>
+<li>If the exchange holds the keys, the exchange is the real owner. You have a balance on a screen, which is a promise to pay you.</li>
+<li>If you hold the keys, nobody else can move that bitcoin. That is <strong>self-custody</strong>: you are the custodian, the guardian.</li>
+</ul>
+<h2>"Not your keys, not your coins"</h2>
+<p>This phrase became a motto in the community. It sounds like an exaggeration until you see it happen.</p>
+<p>When you buy Bitcoin on an exchange and leave it there, what you have is a claim against a company. It is similar to money in a bank, with one important difference: in most cases there is no deposit insurance that pays you back if the company fails.</p>
+<p>This is not theory. A few well-known public cases:</p>
+<ul>
+<li><strong>Mt. Gox</strong>, once the largest Bitcoin exchange in the world, halted withdrawals and went bankrupt in 2014. Payments to creditors only began in 2024, about ten years later, and covered only part of what they had.</li>
+<li><strong>Celsius</strong> froze customer withdrawals in 2022 and then filed for Chapter 11 bankruptcy protection in the United States.</li>
+<li><strong>FTX</strong>, one of the largest exchanges in the world, collapsed in November 2022. Customers had their balances stuck.</li>
+</ul>
+<p>In every one of these cases, people who had moved their bitcoin to their own wallet lost nothing in the collapse.</p>
+<h2>The risks of leaving it on an exchange</h2>
+<p>Even a serious, regulated exchange exposes you to risks that do not depend on you:</p>
+<ol>
+<li><strong>Bankruptcy or fraud.</strong> If the company misuses customer funds, the balance on your screen is worthless.</li>
+<li><strong>Freezes.</strong> The exchange can freeze your account because of an internal decision, an identity review, a court order, or a mistake. Sometimes it takes days to fix, sometimes months.</li>
+<li><strong>Hacks.</strong> Exchanges concentrate a lot of money and are constant targets. Many have been breached.</li>
+<li><strong>Data leaks.</strong> Your name, ID number, home address, and the fact that you own crypto can leak. After a leak, customers usually receive phishing emails and messages (scams that imitate the company to steal passwords or data).</li>
+<li><strong>Limits and rules.</strong> The company decides when and how much you can withdraw.</li>
+</ol>
+<p>None of this means exchanges are useless. They are the most common way to buy Bitcoin with local currency. The problem is using the front door as a vault.</p>
+<h2>The risks of self-custody</h2>
+<p>Here is the part many influencers hide. Self-custody removes the company risk, but it creates new risks, and all of them are now yours:</p>
+<ul>
+<li><strong>Losing the backup.</strong> Every serious wallet generates a <strong>seed</strong>, also called a recovery phrase: a list of 12 or 24 words, almost always following a standard called BIP39, that lets you recreate all your keys. If the device breaks and you do not have the seed, it is over. There is no "forgot my password."</li>
+<li><strong>Leaking the backup.</strong> If someone sees or copies your seed, they can take everything, from anywhere in the world, without needing your device.</li>
+<li><strong>Falling for a scam.</strong> Fake websites, fake apps, fake support. Most self-custody losses come from social engineering, not from broken cryptography.</li>
+<li><strong>Sending to the wrong address.</strong> A confirmed Bitcoin transaction cannot be reversed.</li>
+<li><strong>Dying without a plan.</strong> If nobody in your family knows how to access it, the bitcoin is lost forever.</li>
+</ul>
+<blockquote>
+<p>Nobody legitimate will ever ask for your seed. Not me, not any wallet's support team, not an exchange, not a "technician." Anyone asking for your seed is trying to rob you.</p>
+</blockquote>
+<p>The good news is that each of these risks has a known, tested solution. That is exactly what the next chapters teach.</p>
+<h2>When self-custody makes sense</h2>
+<p>There is no magic number. I use a simple rule: <strong>if losing what is on the exchange would truly hurt you, it is time for self-custody.</strong></p>
+<p>Situations where it makes sense:</p>
+<ul>
+<li>You plan to hold Bitcoin for years, not trade it short term.</li>
+<li>The amount is already meaningful for your net worth.</li>
+<li>You want your family to be able to inherit that bitcoin in an organized way.</li>
+</ul>
+<p>Situations where you can wait a little:</p>
+<ul>
+<li>You are still learning and the amount is very small. In that case, use it to practice with a phone wallet before buying a device.</li>
+<li>You have no reasonably safe place to store a piece of paper or a metal plate.</li>
+</ul>
+<p>The point is: self-custody is a skill. You learn it with a small amount, you practice, and then you apply it to the large amount.</p>
+<h2>Self-custody is legal</h2>
+<p>Holding your own bitcoin is legal in Brazil, where I live, and in most countries. Self-custody is not about hiding anything from anyone. In Brazil, crypto assets must be reported on the income tax return, following the tax authority's rules and thresholds, under <strong>Bens e Direitos</strong> (Assets and Rights), in the crypto asset group, whether your Bitcoin is on an exchange or in your own wallet. Most countries have similar reporting rules. Rules change from time to time, so confirm the details with an accountant where you live.</p>
+<p>In this guide, privacy is about security: not becoming a target for scammers, kidnappers, or data leaks. Always within the law.</p>
+<h2>The path of this guide</h2>
+<p>I organized the guide like a staircase. Each step depends on the one before. You do not need to climb all of them. Stop at the step that makes sense for your net worth and your comfort level.</p>
+<table>
+<thead>
+<tr>
+<th>Chapter</th>
+<th>What you learn</th>
+<th>Who it is for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2. Hardware Wallet Step by Step</td>
+<td>Buying and setting up a hardware wallet, receiving, and the first test</td>
+<td>Everyone doing self-custody</td>
+</tr>
+<tr>
+<td>3. 12 or 24 Word Seed Phrase and the Recovery Test</td>
+<td>Writing down, storing, and testing the backup</td>
+<td>Everyone</td>
+</tr>
+<tr>
+<td>4. Passphrase and Protection Against Coercion</td>
+<td>Extra protection against seed theft and physical threats</td>
+<td>Anyone with a meaningful amount</td>
+</tr>
+<tr>
+<td>5. Multisig: Self-Custody for Larger Holdings</td>
+<td>Splitting control across several keys</td>
+<td>Larger holdings</td>
+</tr>
+<tr>
+<td>6. Your Own Bitcoin Node: Verify, Don't Trust</td>
+<td>Verifying the network yourself, with more privacy</td>
+<td>Anyone who wants full independence</td>
+</tr>
+<tr>
+<td>7. Bitcoin Privacy and Scam Protection</td>
+<td>The real scams and how to avoid them</td>
+<td>Everyone</td>
+</tr>
+<tr>
+<td>8. Bitcoin Inheritance: How Your Family Gets Access</td>
+<td>Making sure your family can access and report it</td>
+<td>Everyone</td>
+</tr>
+</tbody>
+</table>
+<p>A setup with a hardware wallet, a well-stored and tested seed, and an inheritance plan already puts you ahead of the vast majority of people. The rest is refinement.</p>
+<p>One last thing before we start: <strong>go slowly</strong>. Urgency is a scammer's best friend. No step in this guide has to be done in a hurry. If someone is rushing you, be suspicious.</p>
+<h2>Checklist</h2>
+<ul>
+<li class="ck">I understand that a wallet stores keys, not coins.</li>
+<li class="ck">I know the difference between an exchange balance (a promise) and self-custody (control).</li>
+<li class="ck">I know the exchange risks: bankruptcy, freezes, hacks, and leaks.</li>
+<li class="ck">I know the self-custody risks: losing or leaking the seed, scams, and wrong addresses.</li>
+<li class="ck">I know that nobody legitimate asks for my seed.</li>
+<li class="ck">I know I must report my crypto assets on my tax return.</li>
+<li class="ck">I decided which step of this guide makes sense for me right now.</li>
+</ul>
+</article>
+<nav class="nav"><a class="prox" href="/guia/en/02-carteira-fisica/"><small>Next →</small><b>Hardware Wallet Step by Step</b></a></nav><a class="todos" href="/guia/en/">All chapters</a>
+<section class="cta"><h2>Want to do this with guidance?</h2><p>In one-on-one mentoring, you set everything up on your own device, with me guiding each step.</p><a class="btn" href="https://wa.me/5534993421500?text=Hi%20Dione!%20I%20read%20your%20self-custody%20guide%20and%20I%27d%20like%20to%20know%20about%20your%20mentoring." target="_blank" rel="noopener">Talk to Dione</a></section>
+<div class="autor"><img src="/bio/img/dione-guia.webp" alt="Dione Folador" width="64" height="64" loading="lazy"><div><h2>About the author: Dione Folador</h2><p>Dione Folador has been in the crypto market since 2011 and teaches Bitcoin self-custody and security to people who want to take control of their own wealth. On Instagram, he is @dionefol.</p></div></div>
+</main>
+<footer><p>© 2026 Dione Folador · <a href="https://dionefolador.com/">dionefolador.com</a> · <a href="https://instagram.com/dionefol" rel="noopener">@dionefol</a></p><p style="margin-top:6px">Educational content. Not investment advice. No legitimate person will ever ask for your seed: not me, not wallet support, not an exchange.</p></footer>
+<script src="https://biovenda.app.br/atendente/zebu.js" data-trilha="cripto" data-nome="Fol" data-api="dionefol-bio" data-whats="5534993421500" defer></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passphrase e segurança contra coação | Guia de Autocustódia de Bitcoin</title>
+<meta name="description" content="Como a passphrase BIP39 cria uma carteira oculta, os riscos de esquecê-la, como guardá-la separada da seed e como usar uma carteira de distração.">
+<meta name="author" content="Dione Folador">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dionefolador.com/guia/04-passphrase-e-coacao/">
+<link rel="alternate" hreflang="pt-BR" href="https://dionefolador.com/guia/04-passphrase-e-coacao/">
+<link rel="alternate" hreflang="en" href="https://dionefolador.com/guia/en/04-passphrase-e-coacao/">
+<link rel="alternate" hreflang="es" href="https://dionefolador.com/guia/es/04-passphrase-e-coacao/">
+<link rel="alternate" hreflang="x-default" href="https://dionefolador.com/guia/04-passphrase-e-coacao/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Passphrase e segurança contra coação | Guia de Autocustódia de Bitcoin">
+<meta property="og:description" content="Como a passphrase BIP39 cria uma carteira oculta, os riscos de esquecê-la, como guardá-la separada da seed e como usar uma carteira de distração.">
+<meta property="og:url" content="https://dionefolador.com/guia/04-passphrase-e-coacao/">
+<meta property="og:image" content="https://dionefolador.com/bio/img/hero.webp">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#060606">
+<link rel="icon" href="/zebuoficial.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f59e0b;--gold-l:#fbbf24;--bg:#060606;--card:#111110;--line:rgba(245,158,11,.2);--text:#ecebe8;--muted:#a9a59c;--serif:'Playfair Display',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-l)}img{max-width:100%;display:block}
+.top{position:sticky;top:0;z-index:20;background:rgba(6,6,6,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.marca{color:var(--text);text-decoration:none;font-weight:800;font-size:.9rem;letter-spacing:.02em}.marca span{color:var(--gold)}
+.langs{display:flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:#0d0d0c}
+.langs a{min-width:40px;min-height:32px;display:grid;place-items:center;border-radius:999px;font:700 12px var(--sans);letter-spacing:.08em;color:#d9d6cf;text-decoration:none}
+.langs a[aria-current]{background:var(--gold);color:#111}
+main{max-width:760px;margin:0 auto;padding:28px 16px 40px}
+.trilha{font-size:.78rem;color:var(--muted);margin-bottom:14px}.trilha a{color:var(--muted)}
+.kicker{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h1{font-family:var(--serif);font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.12;margin-bottom:14px}
+.meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:26px;line-height:1.45}.meta img{flex:none}
+.meta img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.meta b{color:var(--text)}
+.aviso{font-size:.86rem;color:#e9dcc0;background:rgba(245,158,11,.08);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:28px}
+article h2{font-family:var(--serif);font-size:1.55rem;line-height:1.25;margin:36px 0 12px;color:#fff}
+article h3{font-size:1.08rem;margin:24px 0 8px;color:var(--gold-l)}
+article p{margin:0 0 16px;font-size:1.03rem}
+article ul,article ol{margin:0 0 18px 22px}article li{margin:6px 0}
+article strong{color:#fff}
+article li.ck{list-style:none;margin-left:-22px;padding-left:30px;position:relative}article li.ck::before{content:'';position:absolute;left:0;top:.35em;width:16px;height:16px;border:2px solid var(--gold);border-radius:4px}
+article blockquote{margin:20px 0;padding:14px 16px;border-left:4px solid var(--gold);background:rgba(245,158,11,.07);border-radius:0 12px 12px 0}
+article blockquote p{margin:0}
+article code{font-size:.9em;background:#1a1916;padding:1px 6px;border-radius:6px}
+article table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:.92rem;display:block;overflow-x:auto}
+article th,article td{border:1px solid #2a2823;padding:8px 10px;text-align:left;vertical-align:top}article th{background:#17160f;color:var(--gold-l)}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:36px 0 10px}
+.nav a{display:block;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:var(--text);min-height:64px}
+.nav a small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+.nav a b{font-size:.92rem;line-height:1.3}.nav .prox{text-align:right;grid-column:2}
+.todos{display:block;text-align:center;margin:8px 0 30px;font-weight:700;font-size:.9rem}
+.cta{border:1px solid rgba(245,158,11,.45);border-radius:20px;padding:22px 18px;background:linear-gradient(160deg,#1a1408,var(--card) 60%);margin:30px 0}
+.cta h2{font-family:var(--serif);font-size:1.35rem;margin-bottom:6px}.cta p{color:#d8d4ca;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,var(--gold-l),var(--gold) 55%,#b45309);color:#1a1208;font-weight:800;text-decoration:none}
+.autor{display:flex;gap:14px;align-items:flex-start;border-top:1px solid #222;padding-top:24px;margin-top:10px}
+.autor img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none}
+.autor h2{font-size:1rem;margin-bottom:4px}.autor p{font-size:.9rem;color:var(--muted)}
+.lista{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.lista a{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card);text-decoration:none;color:var(--text)}
+.lista .n{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;min-width:34px}
+.lista b{display:block;font-size:1rem;line-height:1.3}.lista span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px;line-height:1.45}
+.lead{font-size:1.08rem;color:#d8d4ca;margin-bottom:22px}
+footer{border-top:1px solid #1d1d1b;margin-top:30px;padding:22px 16px 40px;text-align:center;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--gold-l)}
+@media(max-width:420px){.nav{grid-template-columns:1fr}.nav .prox{grid-column:1}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "headline": "Passphrase e segurança contra coação", "description": "Como a passphrase BIP39 cria uma carteira oculta, os riscos de esquecê-la, como guardá-la separada da seed e como usar uma carteira de distração.", "inLanguage": "pt-BR", "url": "https://dionefolador.com/guia/04-passphrase-e-coacao/", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "author": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "publisher": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "isPartOf": {"@type": "CreativeWorkSeries", "name": "Guia de Autocustódia de Bitcoin", "url": "https://dionefolador.com/guia/"}, "image": "https://dionefolador.com/bio/img/hero.webp", "about": ["Bitcoin", "self-custody"], "isAccessibleForFree": true}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://dionefolador.com/"}, {"@type": "ListItem", "position": 2, "name": "Guia de Autocustódia de Bitcoin", "item": "https://dionefolador.com/guia/"}, {"@type": "ListItem", "position": 3, "name": "Passphrase e segurança contra coação", "item": "https://dionefolador.com/guia/04-passphrase-e-coacao/"}]}]}</script>
+</head>
+<body>
+<header class="top"><div class="top-in"><a class="marca" href="/guia/">Dione <span>Folador</span> · Guia</a><nav class="langs" aria-label="Idioma / Language"><a href="/guia/04-passphrase-e-coacao/" hreflang="pt-BR" lang="pt-BR" aria-current="page">PT</a><a href="/guia/en/04-passphrase-e-coacao/" hreflang="en" lang="en">EN</a><a href="/guia/es/04-passphrase-e-coacao/" hreflang="es" lang="es">ES</a></nav></div></header>
+<main>
+<p class="trilha"><a href="https://dionefolador.com/">Início</a> › <a href="/guia/">Guia de Autocustódia de Bitcoin</a></p>
+<span class="kicker">Capítulo 4 de 8</span>
+<h1>Passphrase e segurança contra coação</h1>
+<div class="meta"><img src="/bio/img/dione-guia.webp" alt="" width="34" height="34"><span>Por <b>Dione Folador</b> · Atualizado em 6 de novembro de 2026 · 6 min de leitura</span></div>
+<p class="aviso">Conteúdo educativo. Não é recomendação de investimento. Ninguém legítimo pede sua seed: nem eu, nem suporte de carteira, nem corretora.</p>
+<article><p>No capítulo anterior a seed virou o centro de tudo: quem tem as palavras tem o bitcoin. A passphrase muda essa regra. Com ela, a seed sozinha deixa de abrir a sua carteira principal. Neste capítulo eu explico como isso funciona, onde está o perigo, e como usar a passphrase para se proteger de roubo do backup e até de coação física.</p>
+<h2>O que é a passphrase</h2>
+<p>A passphrase é um texto extra, escolhido por você, que se soma à seed. Ela faz parte do mesmo padrão <strong>BIP39</strong> e muita gente chama de <strong>"25ª palavra"</strong>. O nome engana um pouco: ela não precisa ser uma palavra da lista. Pode ser qualquer texto, com letras, números, espaços e símbolos.</p>
+<p>Não confunda com o PIN. O <strong>PIN</strong> destrava o aparelho e fica só nele. Se você esquecer o PIN, reseta o aparelho e restaura pela seed. A <strong>passphrase</strong> entra no cálculo das chaves. Ela faz parte do backup, não do aparelho.</p>
+<h2>Como funciona</h2>
+<p>A carteira pega a seed e a passphrase juntas e passa por uma função matemática (no BIP39, a PBKDF2 com 2048 rodadas). O resultado é a semente binária que gera todas as chaves.</p>
+<p>A consequência prática:</p>
+<ul>
+<li><strong>Cada passphrase diferente gera uma carteira completamente diferente</strong>, com outros endereços e outro saldo.</li>
+<li>A seed sem passphrase também é uma carteira válida. Ela continua existindo.</li>
+<li><strong>Não existe passphrase "errada".</strong> Se você digitar "Bitcoin2011" em vez de "bitcoin2011", a carteira abre normalmente, só que vazia. Nenhum aviso de erro aparece.</li>
+</ul>
+<p>Esse último ponto é ao mesmo tempo a força e o risco. Força porque um ladrão com a seed não tem como saber se existe passphrase nem qual é. Risco porque você também não recebe aviso quando erra.</p>
+<h2>O risco de esquecer</h2>
+<p>Seja muito claro com você mesmo: <strong>se você perder a passphrase, perdeu o bitcoin</strong>. Não há suporte, não há recuperação, não há "esqueci minha senha". Seed sem passphrase correta abre outra carteira, vazia.</p>
+<p>Por isso:</p>
+<ul>
+<li><strong>Anote a passphrase em papel ou metal.</strong> Não confie só na memória. Memória falha com o tempo, com estresse, com um acidente.</li>
+<li>Anote exatamente como é: maiúsculas e minúsculas, espaços, acentos. Cada detalhe muda a carteira. Eu prefiro evitar acentos e caracteres especiais difíceis de digitar no aparelho, justamente para reduzir erro.</li>
+<li><strong>Anote a impressão digital (fingerprint) da carteira.</strong> Muitas carteiras e softwares como o Sparrow mostram um código curto de 8 caracteres que identifica a carteira gerada. Se você digitar a passphrase e o fingerprint bater com o anotado, a passphrase está certa. Esse código não permite gastar, mas revela que existe uma carteira com passphrase e ajuda um ladrão a testar palpites. Por isso guarde o fingerprint junto da passphrase, nunca junto da seed.</li>
+<li>Faça o <strong>teste de recuperação</strong> completo, como no capítulo anterior, agora com seed mais passphrase: restaure, confira o primeiro endereço, só depois deposite valores maiores.</li>
+<li>Ao conectar a carteira ao software do computador, faça isso com a passphrase já aplicada no aparelho. Sem ela, o software importa a xpub da carteira sem passphrase e mostra outra carteira, vazia ou de distração.</li>
+</ul>
+<h3>Força da passphrase</h3>
+<p>Se alguém encontrar a sua seed, a passphrase é a última barreira. Uma passphrase curta e previsível (nome do filho, data de nascimento, "senha123") pode ser descoberta por tentativa. Use algo longo e que não tenha relação com você, por exemplo uma sequência de várias palavras aleatórias. Longa e anotada é melhor que curta e "decorada".</p>
+<h2>Guardar separado</h2>
+<p>A passphrase só protege se <strong>não estiver no mesmo lugar que a seed</strong>. Seed e passphrase juntas na mesma gaveta valem o mesmo que uma seed sem passphrase.</p>
+<p>A regra é simples:</p>
+<ul>
+<li>Seed num local, passphrase em outro.</li>
+<li>Quem encontrar só a seed abre a carteira sem passphrase, que pode estar vazia ou ter pouco.</li>
+<li>Quem encontrar só a passphrase tem um texto sem sentido, que não abre nada.</li>
+</ul>
+<p>Exemplo de arranjo: seed em metal num local discreto em casa. Passphrase anotada num envelope lacrado na casa de um familiar de confiança, ou num cofre em outro endereço. Nenhum dos dois papéis diz o que é.</p>
+<p>Pense também nos seus herdeiros desde já. Eles vão precisar das duas partes e de instruções claras. Isso é assunto do capítulo Herança de Bitcoin: como sua família vai acessar, mas a decisão de usar passphrase precisa levar isso em conta.</p>
+<h2>Carteira de distração</h2>
+<p>Aqui entra a segurança contra coação. Coação é quando alguém usa violência ou ameaça para obrigar você a entregar o bitcoin. Esse tipo de crime já aconteceu em vários países e costuma atingir quem ficou conhecido por ter cripto.</p>
+<p>A passphrase permite montar uma <strong>carteira de distração</strong>:</p>
+<ol>
+<li>A seed <strong>sem passphrase</strong> abre uma carteira com um valor pequeno, mas crível.</li>
+<li>A seed <strong>com passphrase</strong> abre a carteira principal.</li>
+<li>Sob ameaça, você pode abrir a carteira sem passphrase. Ela é real, tem histórico, tem saldo.</li>
+</ol>
+<p>Para a distração ser convincente, ela precisa parecer usada: receba nela de verdade, deixe um valor que faça sentido para alguém da sua realidade.</p>
+<p>Alguns aparelhos permitem configurar um <strong>segundo PIN</strong> que abre outra carteira ou aciona outro comportamento. É a mesma ideia, aplicada na tela de desbloqueio. Veja na documentação oficial do seu aparelho se ele oferece isso.</p>
+<blockquote>
+<p>A sua vida vale mais do que qualquer quantidade de bitcoin. Carteira de distração é uma camada de proteção, não um plano para enfrentar criminoso. Sob ameaça real, priorize sair vivo e procure a polícia depois.</p>
+</blockquote>
+<p>Seja honesto sobre o limite: criminoso informado sabe que passphrase existe e pode não acreditar. Por isso a distração funciona melhor somada às outras camadas abaixo. Para patrimônios maiores, o multisig do próximo capítulo também dificulta coação, porque você não consegue movimentar tudo sozinho, num lugar só.</p>
+<p>E um limite legal importante: a carteira oculta é proteção contra criminoso, <strong>não contra o fisco nem contra a Justiça</strong>. Autocustódia é legal no Brasil, e todo o seu bitcoin, inclusive o da carteira com passphrase, deve ser declarado no Imposto de Renda, na ficha Bens e Direitos, no grupo de criptoativos. Na dúvida sobre como declarar, confirme com um contador.</p>
+<h2>Discrição: a melhor defesa</h2>
+<p>A forma mais barata de evitar coação é <strong>ninguém saber que você tem bitcoin</strong>. Ninguém sequestra quem não parece ser alvo.</p>
+<ul>
+<li><strong>Não fale quanto você tem.</strong> Nem em rede social, nem em churrasco, nem no grupo da família.</li>
+<li>Não poste print de saldo, de carteira, de aparelho, de lucro.</li>
+<li>Não deixe a carteira física exposta em casa ou em foto.</li>
+<li>Cuidado com o endereço de entrega. Bases de clientes de empresas do setor já vazaram, com nome e endereço. Se puder, receba em local que não seja a sua casa, dentro da lei.</li>
+<li>Desconfie de quem se aproxima perguntando demais sobre cripto.</li>
+<li>Use e-mail separado para assuntos de bitcoin, para reduzir o estrago se um cadastro vazar.</li>
+</ul>
+<p>Eu ensino autocustódia em público, e por isso sei o peso disso. Falar sobre o assunto é uma coisa. Expor o seu patrimônio é outra. Privacidade aqui é segurança pessoal e da sua família.</p>
+<h2>Checklist</h2>
+<ul>
+<li class="ck">Entendi que passphrase é diferente do PIN e faz parte do backup</li>
+<li class="ck">Escolhi uma passphrase longa, sem relação comigo, e anotei exatamente como é</li>
+<li class="ck">Anotei o fingerprint da carteira com passphrase para conferir depois</li>
+<li class="ck">Fiz o teste de recuperação com seed mais passphrase</li>
+<li class="ck">Seed e passphrase estão guardadas em locais diferentes</li>
+<li class="ck">Montei uma carteira de distração crível, se faz sentido para mim</li>
+<li class="ck">Não exponho meu patrimônio em público e tenho um plano para os herdeiros acessarem as duas partes</li>
+</ul>
+</article>
+<nav class="nav"><a href="/guia/03-seed-e-recuperacao/"><small>← Anterior</small><b>Seed de 12 ou 24 palavras e o teste de recuperação</b></a><a class="prox" href="/guia/05-multisig/"><small>Próximo →</small><b>Multisig: autocustódia para patrimônio maior</b></a></nav><a class="todos" href="/guia/">Todos os capítulos</a>
+<section class="cta"><h2>Quer fazer isso com acompanhamento?</h2><p>Na mentoria individual, você configura tudo no seu próprio equipamento, comigo orientando cada passo.</p><a class="btn" href="https://dionefolador.com/mentoria_checkout.html" target="_blank" rel="noopener">Conhecer a mentoria</a></section>
+<div class="autor"><img src="/bio/img/dione-guia.webp" alt="Dione Folador" width="64" height="64" loading="lazy"><div><h2>Sobre o autor: Dione Folador</h2><p>Dione Folador está no mercado cripto desde 2011 e ensina autocustódia e segurança de Bitcoin para quem quer assumir o controle do próprio patrimônio. No Instagram, é o @dionefol.</p></div></div>
+</main>
+<footer><p>© 2026 Dione Folador · <a href="https://dionefolador.com/">dionefolador.com</a> · <a href="https://instagram.com/dionefol" rel="noopener">@dionefol</a></p><p style="margin-top:6px">Conteúdo educativo. Não é recomendação de investimento. Ninguém legítimo pede sua seed: nem eu, nem suporte de carteira, nem corretora.</p></footer>
+<script src="https://biovenda.app.br/atendente/zebu.js" data-trilha="cripto" data-nome="Fol" data-api="dionefol-bio" data-whats="5534993421500" defer></script>
+</body>
+</html>

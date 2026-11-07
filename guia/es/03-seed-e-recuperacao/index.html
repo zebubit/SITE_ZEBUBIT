@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semilla de 12 o 24 palabras y la prueba de recuperación | Guía de Autocustodia de Bitcoin</title>
+<meta name="description" content="Qué es la semilla BIP39, cómo anotarla y guardarla en metal o papel, por qué nunca fotografiarla y cómo hacer la prueba de recuperación antes de depositar.">
+<meta name="author" content="Dione Folador">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dionefolador.com/guia/es/03-seed-e-recuperacao/">
+<link rel="alternate" hreflang="pt-BR" href="https://dionefolador.com/guia/03-seed-e-recuperacao/">
+<link rel="alternate" hreflang="en" href="https://dionefolador.com/guia/en/03-seed-e-recuperacao/">
+<link rel="alternate" hreflang="es" href="https://dionefolador.com/guia/es/03-seed-e-recuperacao/">
+<link rel="alternate" hreflang="x-default" href="https://dionefolador.com/guia/03-seed-e-recuperacao/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Semilla de 12 o 24 palabras y la prueba de recuperación | Guía de Autocustodia de Bitcoin">
+<meta property="og:description" content="Qué es la semilla BIP39, cómo anotarla y guardarla en metal o papel, por qué nunca fotografiarla y cómo hacer la prueba de recuperación antes de depositar.">
+<meta property="og:url" content="https://dionefolador.com/guia/es/03-seed-e-recuperacao/">
+<meta property="og:image" content="https://dionefolador.com/bio/img/hero.webp">
+<meta property="og:locale" content="es">
+<meta name="theme-color" content="#060606">
+<link rel="icon" href="/zebuoficial.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f59e0b;--gold-l:#fbbf24;--bg:#060606;--card:#111110;--line:rgba(245,158,11,.2);--text:#ecebe8;--muted:#a9a59c;--serif:'Playfair Display',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-l)}img{max-width:100%;display:block}
+.top{position:sticky;top:0;z-index:20;background:rgba(6,6,6,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.marca{color:var(--text);text-decoration:none;font-weight:800;font-size:.9rem;letter-spacing:.02em}.marca span{color:var(--gold)}
+.langs{display:flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:#0d0d0c}
+.langs a{min-width:40px;min-height:32px;display:grid;place-items:center;border-radius:999px;font:700 12px var(--sans);letter-spacing:.08em;color:#d9d6cf;text-decoration:none}
+.langs a[aria-current]{background:var(--gold);color:#111}
+main{max-width:760px;margin:0 auto;padding:28px 16px 40px}
+.trilha{font-size:.78rem;color:var(--muted);margin-bottom:14px}.trilha a{color:var(--muted)}
+.kicker{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h1{font-family:var(--serif);font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.12;margin-bottom:14px}
+.meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:26px;line-height:1.45}.meta img{flex:none}
+.meta img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.meta b{color:var(--text)}
+.aviso{font-size:.86rem;color:#e9dcc0;background:rgba(245,158,11,.08);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:28px}
+article h2{font-family:var(--serif);font-size:1.55rem;line-height:1.25;margin:36px 0 12px;color:#fff}
+article h3{font-size:1.08rem;margin:24px 0 8px;color:var(--gold-l)}
+article p{margin:0 0 16px;font-size:1.03rem}
+article ul,article ol{margin:0 0 18px 22px}article li{margin:6px 0}
+article strong{color:#fff}
+article li.ck{list-style:none;margin-left:-22px;padding-left:30px;position:relative}article li.ck::before{content:'';position:absolute;left:0;top:.35em;width:16px;height:16px;border:2px solid var(--gold);border-radius:4px}
+article blockquote{margin:20px 0;padding:14px 16px;border-left:4px solid var(--gold);background:rgba(245,158,11,.07);border-radius:0 12px 12px 0}
+article blockquote p{margin:0}
+article code{font-size:.9em;background:#1a1916;padding:1px 6px;border-radius:6px}
+article table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:.92rem;display:block;overflow-x:auto}
+article th,article td{border:1px solid #2a2823;padding:8px 10px;text-align:left;vertical-align:top}article th{background:#17160f;color:var(--gold-l)}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:36px 0 10px}
+.nav a{display:block;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:var(--text);min-height:64px}
+.nav a small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+.nav a b{font-size:.92rem;line-height:1.3}.nav .prox{text-align:right;grid-column:2}
+.todos{display:block;text-align:center;margin:8px 0 30px;font-weight:700;font-size:.9rem}
+.cta{border:1px solid rgba(245,158,11,.45);border-radius:20px;padding:22px 18px;background:linear-gradient(160deg,#1a1408,var(--card) 60%);margin:30px 0}
+.cta h2{font-family:var(--serif);font-size:1.35rem;margin-bottom:6px}.cta p{color:#d8d4ca;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,var(--gold-l),var(--gold) 55%,#b45309);color:#1a1208;font-weight:800;text-decoration:none}
+.autor{display:flex;gap:14px;align-items:flex-start;border-top:1px solid #222;padding-top:24px;margin-top:10px}
+.autor img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none}
+.autor h2{font-size:1rem;margin-bottom:4px}.autor p{font-size:.9rem;color:var(--muted)}
+.lista{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.lista a{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card);text-decoration:none;color:var(--text)}
+.lista .n{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;min-width:34px}
+.lista b{display:block;font-size:1rem;line-height:1.3}.lista span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px;line-height:1.45}
+.lead{font-size:1.08rem;color:#d8d4ca;margin-bottom:22px}
+footer{border-top:1px solid #1d1d1b;margin-top:30px;padding:22px 16px 40px;text-align:center;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--gold-l)}
+@media(max-width:420px){.nav{grid-template-columns:1fr}.nav .prox{grid-column:1}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "headline": "Semilla de 12 o 24 palabras y la prueba de recuperación", "description": "Qué es la semilla BIP39, cómo anotarla y guardarla en metal o papel, por qué nunca fotografiarla y cómo hacer la prueba de recuperación antes de depositar.", "inLanguage": "es", "url": "https://dionefolador.com/guia/es/03-seed-e-recuperacao/", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "author": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "publisher": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "isPartOf": {"@type": "CreativeWorkSeries", "name": "Guía de Autocustodia de Bitcoin", "url": "https://dionefolador.com/guia/es/"}, "image": "https://dionefolador.com/bio/img/hero.webp", "about": ["Bitcoin", "self-custody"], "isAccessibleForFree": true}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://dionefolador.com/"}, {"@type": "ListItem", "position": 2, "name": "Guía de Autocustodia de Bitcoin", "item": "https://dionefolador.com/guia/es/"}, {"@type": "ListItem", "position": 3, "name": "Semilla de 12 o 24 palabras y la prueba de recuperación", "item": "https://dionefolador.com/guia/es/03-seed-e-recuperacao/"}]}]}</script>
+</head>
+<body>
+<header class="top"><div class="top-in"><a class="marca" href="/guia/es/">Dione <span>Folador</span> · Guía</a><nav class="langs" aria-label="Idioma / Language"><a href="/guia/03-seed-e-recuperacao/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/guia/en/03-seed-e-recuperacao/" hreflang="en" lang="en">EN</a><a href="/guia/es/03-seed-e-recuperacao/" hreflang="es" lang="es" aria-current="page">ES</a></nav></div></header>
+<main>
+<p class="trilha"><a href="https://dionefolador.com/">Inicio</a> › <a href="/guia/es/">Guía de Autocustodia de Bitcoin</a></p>
+<span class="kicker">Capítulo 3 de 8</span>
+<h1>Semilla de 12 o 24 palabras y la prueba de recuperación</h1>
+<div class="meta"><img src="/bio/img/dione-guia.webp" alt="" width="34" height="34"><span>Por <b>Dione Folador</b> · Actualizado el 6 de noviembre de 2026 · 8 min de lectura</span></div>
+<p class="aviso">Contenido educativo. No es recomendación de inversión. Nadie legítimo te pedirá tu semilla: ni yo, ni el soporte de una billetera, ni un exchange.</p>
+<article><p>La semilla (seed) es la parte más importante de toda la autocustodia. El dispositivo puede romperse, ser robado o caerse a un río. Si la semilla está bien anotada y bien guardada, no pierdes nada. Si la semilla se filtra, lo pierdes todo, aunque el dispositivo esté guardado bajo llave en un cajón. En este capítulo te explico qué es, cómo anotarla, dónde guardarla y cómo comprobar que tu respaldo funciona antes de poner dinero de verdad.</p>
+<h2>Qué es la semilla</h2>
+<p>La semilla (o frase de recuperación) es una secuencia de 12 o 24 palabras, casi siempre en inglés, tomadas de una lista fija de 2048 palabras. Este estándar se llama <strong>BIP39</strong> y lo usa la gran mayoría de las billeteras serias.</p>
+<p>Detrás de las palabras hay un número aleatorio enorme. Con 12 palabras son 128 bits de aleatoriedad. Con 24, son 256 bits. La última palabra incluye un pequeño código de verificación (checksum), por eso la billetera suele detectar una palabra equivocada.</p>
+<p>A partir de la semilla, la billetera calcula todas tus claves privadas y todas tus direcciones, en una estructura de árbol definida por el estándar <strong>BIP32</strong> (derivación jerárquica). Por eso 12 o 24 palabras recuperan una billetera entera, con todas las direcciones que ya usaste.</p>
+<p>Entiende algo: <strong>tu bitcoin no está dentro del dispositivo</strong>. Está registrado en la blockchain. Lo que guarda el dispositivo es la llave para moverlo. Y la semilla es esa llave escrita en palabras. Quien tiene la semilla tiene el bitcoin.</p>
+<h3>¿12 o 24 palabras?</h3>
+<p>Las dos son seguras. 128 bits ya es, en la práctica, imposible de adivinar con cualquier computadora que exista, y 24 palabras dan un margen extra. Usa lo que genere tu dispositivo. Lo que define tu seguridad es cómo la guardas.</p>
+<h3>Reglas sobre la generación</h3>
+<ul>
+<li>La semilla debe generarla <strong>el propio dispositivo</strong>, en la primera configuración, como te mostré en el capítulo anterior.</li>
+<li>Nunca uses una semilla que venía impresa en la caja, en un papel dentro del empaque o en una tarjeta. Es una estafa conocida: quien la imprimió tiene una copia.</li>
+<li>Nunca inventes las palabras tú mismo ni generes una semilla en un sitio web. El cerebro humano es pésimo generando aleatoriedad, y un sitio web puede estar registrándolo todo.</li>
+</ul>
+<blockquote>
+<p>Nadie legítimo te pide tu semilla. Ni yo, ni el soporte de una billetera, ni un exchange, ni ningún "técnico". Si alguien te la pidió, es una estafa. Sin excepción.</p>
+</blockquote>
+<h2>Cómo anotarla</h2>
+<p>En la primera configuración el dispositivo muestra las palabras una por una. Anótalas con calma:</p>
+<ol>
+<li>Escribe con letra de molde, legible, con bolígrafo.</li>
+<li><strong>Numera cada palabra</strong> (1 a 12 o 1 a 24). El orden importa. Las mismas palabras en otro orden forman otra billetera, o ninguna válida.</li>
+<li>Revisa la ortografía. En la lista BIP39, las <strong>4 primeras letras</strong> de cada palabra ya la identifican sin ambigüedad. Si tu letra quedó fea, 4 primeras letras bien claras ya te salvan.</li>
+<li>Anota también, en el mismo papel o en otro, <strong>qué billetera y qué tipo de dirección</strong> usaste (por ejemplo, direcciones que empiezan con bc1q o bc1p). Esto no es secreto y ayuda mucho en la recuperación.</li>
+</ol>
+<p>¿Por qué el punto 4? Billeteras distintas pueden usar rutas de derivación distintas a partir de la misma semilla. Si restauras en un software que busca otro tipo de dirección, puede mostrar saldo cero y vas a creer que lo perdiste todo. No lo perdiste. Solo tienes que elegir el tipo correcto. Un detalle: Electrum, por defecto, crea semillas en un formato propio, que no es BIP39. Funciona bien, pero exige restaurar en Electrum o en un software compatible. Anotar el origen evita ese susto.</p>
+<h2>Papel o metal</h2>
+<p>El papel sirve para empezar, pero tiene puntos débiles: agua, humedad, fuego, polillas, alguien que lo tire a la basura sin querer.</p>
+<p>Para montos que importan, vale la pena pasar la semilla a <strong>metal</strong>. Existen placas de acero inoxidable donde grabas las letras con un punzón, y cápsulas con letritas de metal encajadas. El acero inoxidable aguanta temperaturas muy por encima de las que destruyen el papel y no se deshace con el agua.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Papel</th>
+<th>Metal (acero inoxidable)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Costo</td>
+<td>Casi cero</td>
+<td>Moderado</td>
+</tr>
+<tr>
+<td>Fuego</td>
+<td>Se quema</td>
+<td>Resiste un incendio doméstico común</td>
+</tr>
+<tr>
+<td>Agua y humedad</td>
+<td>Se arruina</td>
+<td>Resiste</td>
+</tr>
+<tr>
+<td>Facilidad</td>
+<td>Inmediato</td>
+<td>Grabarlo da más trabajo</td>
+</tr>
+</tbody>
+</table>
+<p>Consejo práctico: grabar solo las 4 primeras letras de cada palabra en el metal es suficiente, porque identifican la palabra en la lista BIP39.</p>
+<h2>Lo que nunca debes hacer</h2>
+<ul>
+<li><strong>Nunca fotografíes la semilla.</strong> Las fotos terminan en respaldos automáticos en la nube, galerías sincronizadas, un celular que mandaste a reparar.</li>
+<li><strong>Nunca escribas la semilla</strong> en una computadora, celular, gestor de contraseñas, correo, bloc de notas o mensaje para ti mismo.</li>
+<li><strong>Nunca la guardes en la nube</strong>, ni siquiera en un archivo "cifrado". El riesgo no vale la pena.</li>
+<li>Nunca escribas la semilla en ningún sitio web, por más oficial que parezca.</li>
+</ul>
+<p>La idea es simple: la semilla solo puede existir en dos lugares. En el dispositivo y en tu respaldo físico, sin conexión.</p>
+<h2>Dónde guardarla</h2>
+<p>No existe el lugar perfecto. Existe un equilibrio entre dos riesgos: <strong>perderla</strong> (incendio, inundación, olvido) y <strong>que te la roben</strong> (que alguien la encuentre).</p>
+<ul>
+<li>Un escondite en casa protege contra un robo casual, pero no contra un incendio.</li>
+<li>Dos copias en lugares distintos protegen contra la pérdida de un lugar. Pero cada copia es una oportunidad más de que alguien la encuentre.</li>
+<li>Una caja de seguridad en el banco protege contra fuego y robo en casa, pero depende del horario del banco y de terceros.</li>
+</ul>
+<p>Para la mayoría de las personas, un buen punto de partida es: <strong>una copia en metal en un lugar discreto y una segunda copia en otra dirección de confianza</strong>. No escribas "semilla de bitcoin" en el sobre. Quien la guarda por ti no necesita saber qué es.</p>
+<blockquote>
+<p><strong>Atención:</strong> quien tiene la semilla completa tiene acceso total a tu bitcoin. Una copia fuera de tu casa solo es segura en un lugar al que solo tú accedes (una caja de seguridad tuya, por ejemplo) o si la billetera tiene passphrase guardada en otro lugar (mira el capítulo sobre passphrase). Sin passphrase, nunca dejes la semilla completa con otra persona, por más confianza que le tengas.</p>
+</blockquote>
+<p>Si vas a usar passphrase (próximo capítulo), la semilla sola ya no abre tu billetera principal, y eso cambia el cálculo del riesgo a tu favor.</p>
+<h2>La prueba de recuperación</h2>
+<p>Este es el paso que casi todo el mundo se salta. Y es lo que separa un respaldo de verdad de una esperanza. Solo sabes que tu respaldo funciona después de <strong>recuperar la billetera a partir de él</strong>.</p>
+<p>Hazlo así, <strong>antes</strong> de depositar montos grandes. Si la billetera ya tiene un monto alto, haz la prueba en un segundo dispositivo, sin reiniciar el principal.</p>
+<ol>
+<li>Con la billetera nueva, recibe un <strong>monto pequeño</strong>. Anota la primera dirección de recepción.</li>
+<li>Reinicia el dispositivo (borrarlo todo) o usa un segundo dispositivo compatible.</li>
+<li>Elige la opción de <strong>restaurar desde la semilla</strong> y escribe las palabras <strong>en el propio dispositivo</strong>, nunca en la computadora.</li>
+<li>Verifica que aparezca <strong>la misma primera dirección</strong> y el mismo saldo.</li>
+<li>Si todo coincide, tu respaldo está comprobado. Si no coincide, detente y encuentra el error ahora, con poco dinero en juego.</li>
+</ol>
+<p>Si tu billetera usa passphrase (próximo capítulo), la prueba solo vale si restauras con la semilla <strong>y</strong> la passphrase y llegas a la misma primera dirección.</p>
+<p>Muchos dispositivos también tienen una función para verificar el respaldo sin borrar nada: escribes las palabras y te dice si corresponden a la semilla guardada. Es una buena opción para repetir la verificación de vez en cuando.</p>
+<p>Los errores en un respaldo pasan: una palabra cambiada, el orden invertido, una letra mal escrita. Descubrirlo con poco dinero cuesta un susto. Descubrirlo años después cuesta todo.</p>
+<h2>Si sospechas una filtración</h2>
+<p>La sospecha es motivo suficiente para actuar. Ejemplos: escribiste la semilla en algún lugar, alguien vio el papel, alguna vez existió una foto, entraron a robar a tu casa o caíste en un sitio falso.</p>
+<ol>
+<li><strong>No esperes confirmación.</strong> El ladrón no avisa antes de llevárselo.</li>
+<li>Genera una <strong>billetera nueva, con semilla nueva</strong>, de preferencia en un segundo dispositivo. Si solo tienes un dispositivo, no destruyas la semilla vieja todavía: después de reiniciarlo y crear la billetera nueva, anota una dirección de recepción de ella verificada en la pantalla, y vas a necesitar restaurar la semilla vieja para mover el saldo. Cambiar el PIN no resuelve nada, porque el PIN protege el dispositivo, no la semilla.</li>
+<li>Haz el respaldo y la prueba de recuperación de la billetera nueva.</li>
+<li><strong>Envía todo el saldo</strong> de la billetera vieja a una dirección de la nueva, verificando la dirección carácter por carácter.</li>
+<li>Retira la semilla vieja para siempre. Nunca vuelvas a recibir en ella.</li>
+<li>Solo después de confirmar el saldo en la billetera nueva, destruye las copias viejas de forma que no se puedan leer.</li>
+</ol>
+<p>Si al abrir la billetera el saldo ya desapareció, lamentablemente no hay forma de revertir una transacción de bitcoin. Por eso el cuidado va primero.</p>
+<h2>Lista de verificación</h2>
+<ul>
+<li class="ck">La semilla la generó el propio dispositivo, nunca vino lista</li>
+<li class="ck">Anoté todas las palabras numeradas y revisé la ortografía</li>
+<li class="ck">Anoté qué billetera y qué tipo de dirección usé</li>
+<li class="ck">La semilla no existe en ninguna foto, nube, celular ni computadora</li>
+<li class="ck">Tengo una copia en metal (o planeé pasarla a metal) guardada en un lugar discreto</li>
+<li class="ck">Hice la prueba de recuperación con un monto pequeño y la primera dirección coincidió</li>
+<li class="ck">Sé qué hacer si sospecho que mi semilla se filtró</li>
+</ul>
+</article>
+<nav class="nav"><a href="/guia/es/02-carteira-fisica/"><small>← Anterior</small><b>Billetera física paso a paso</b></a><a class="prox" href="/guia/es/04-passphrase-e-coacao/"><small>Siguiente →</small><b>Passphrase y seguridad contra la coacción</b></a></nav><a class="todos" href="/guia/es/">Todos los capítulos</a>
+<section class="cta"><h2>¿Quieres hacerlo con acompañamiento?</h2><p>En la mentoría individual configuras todo en tu propio dispositivo, conmigo guiando cada paso.</p><a class="btn" href="https://wa.me/5534993421500?text=%C2%A1Hola%20Dione!%20Le%C3%AD%20tu%20gu%C3%ADa%20de%20autocustodia%20y%20quiero%20saber%20sobre%20tu%20mentor%C3%ADa." target="_blank" rel="noopener">Hablar con Dione</a></section>
+<div class="autor"><img src="/bio/img/dione-guia.webp" alt="Dione Folador" width="64" height="64" loading="lazy"><div><h2>Sobre el autor: Dione Folador</h2><p>Dione Folador está en el mercado cripto desde 2011 y enseña autocustodia y seguridad de Bitcoin a quienes quieren tomar el control de su propio patrimonio. En Instagram es @dionefol.</p></div></div>
+</main>
+<footer><p>© 2026 Dione Folador · <a href="https://dionefolador.com/">dionefolador.com</a> · <a href="https://instagram.com/dionefol" rel="noopener">@dionefol</a></p><p style="margin-top:6px">Contenido educativo. No es recomendación de inversión. Nadie legítimo te pedirá tu semilla: ni yo, ni el soporte de una billetera, ni un exchange.</p></footer>
+<script src="https://biovenda.app.br/atendente/zebu.js" data-trilha="cripto" data-nome="Fol" data-api="dionefol-bio" data-whats="5534993421500" defer></script>
+</body>
+</html>

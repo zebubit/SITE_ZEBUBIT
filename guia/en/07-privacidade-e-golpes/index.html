@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bitcoin Privacy and Scam Protection | Bitcoin Self-Custody Guide</title>
+<meta name="description" content="How to protect your Bitcoin from real scams (phishing, fake support, address poisoning, malware) and keep your privacy within the law.">
+<meta name="author" content="Dione Folador">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dionefolador.com/guia/en/07-privacidade-e-golpes/">
+<link rel="alternate" hreflang="pt-BR" href="https://dionefolador.com/guia/07-privacidade-e-golpes/">
+<link rel="alternate" hreflang="en" href="https://dionefolador.com/guia/en/07-privacidade-e-golpes/">
+<link rel="alternate" hreflang="es" href="https://dionefolador.com/guia/es/07-privacidade-e-golpes/">
+<link rel="alternate" hreflang="x-default" href="https://dionefolador.com/guia/07-privacidade-e-golpes/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bitcoin Privacy and Scam Protection | Bitcoin Self-Custody Guide">
+<meta property="og:description" content="How to protect your Bitcoin from real scams (phishing, fake support, address poisoning, malware) and keep your privacy within the law.">
+<meta property="og:url" content="https://dionefolador.com/guia/en/07-privacidade-e-golpes/">
+<meta property="og:image" content="https://dionefolador.com/bio/img/hero.webp">
+<meta property="og:locale" content="en">
+<meta name="theme-color" content="#060606">
+<link rel="icon" href="/zebuoficial.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f59e0b;--gold-l:#fbbf24;--bg:#060606;--card:#111110;--line:rgba(245,158,11,.2);--text:#ecebe8;--muted:#a9a59c;--serif:'Playfair Display',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-l)}img{max-width:100%;display:block}
+.top{position:sticky;top:0;z-index:20;background:rgba(6,6,6,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.marca{color:var(--text);text-decoration:none;font-weight:800;font-size:.9rem;letter-spacing:.02em}.marca span{color:var(--gold)}
+.langs{display:flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:#0d0d0c}
+.langs a{min-width:40px;min-height:32px;display:grid;place-items:center;border-radius:999px;font:700 12px var(--sans);letter-spacing:.08em;color:#d9d6cf;text-decoration:none}
+.langs a[aria-current]{background:var(--gold);color:#111}
+main{max-width:760px;margin:0 auto;padding:28px 16px 40px}
+.trilha{font-size:.78rem;color:var(--muted);margin-bottom:14px}.trilha a{color:var(--muted)}
+.kicker{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h1{font-family:var(--serif);font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.12;margin-bottom:14px}
+.meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:26px;line-height:1.45}.meta img{flex:none}
+.meta img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.meta b{color:var(--text)}
+.aviso{font-size:.86rem;color:#e9dcc0;background:rgba(245,158,11,.08);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:28px}
+article h2{font-family:var(--serif);font-size:1.55rem;line-height:1.25;margin:36px 0 12px;color:#fff}
+article h3{font-size:1.08rem;margin:24px 0 8px;color:var(--gold-l)}
+article p{margin:0 0 16px;font-size:1.03rem}
+article ul,article ol{margin:0 0 18px 22px}article li{margin:6px 0}
+article strong{color:#fff}
+article li.ck{list-style:none;margin-left:-22px;padding-left:30px;position:relative}article li.ck::before{content:'';position:absolute;left:0;top:.35em;width:16px;height:16px;border:2px solid var(--gold);border-radius:4px}
+article blockquote{margin:20px 0;padding:14px 16px;border-left:4px solid var(--gold);background:rgba(245,158,11,.07);border-radius:0 12px 12px 0}
+article blockquote p{margin:0}
+article code{font-size:.9em;background:#1a1916;padding:1px 6px;border-radius:6px}
+article table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:.92rem;display:block;overflow-x:auto}
+article th,article td{border:1px solid #2a2823;padding:8px 10px;text-align:left;vertical-align:top}article th{background:#17160f;color:var(--gold-l)}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:36px 0 10px}
+.nav a{display:block;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:var(--text);min-height:64px}
+.nav a small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+.nav a b{font-size:.92rem;line-height:1.3}.nav .prox{text-align:right;grid-column:2}
+.todos{display:block;text-align:center;margin:8px 0 30px;font-weight:700;font-size:.9rem}
+.cta{border:1px solid rgba(245,158,11,.45);border-radius:20px;padding:22px 18px;background:linear-gradient(160deg,#1a1408,var(--card) 60%);margin:30px 0}
+.cta h2{font-family:var(--serif);font-size:1.35rem;margin-bottom:6px}.cta p{color:#d8d4ca;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,var(--gold-l),var(--gold) 55%,#b45309);color:#1a1208;font-weight:800;text-decoration:none}
+.autor{display:flex;gap:14px;align-items:flex-start;border-top:1px solid #222;padding-top:24px;margin-top:10px}
+.autor img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none}
+.autor h2{font-size:1rem;margin-bottom:4px}.autor p{font-size:.9rem;color:var(--muted)}
+.lista{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.lista a{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card);text-decoration:none;color:var(--text)}
+.lista .n{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;min-width:34px}
+.lista b{display:block;font-size:1rem;line-height:1.3}.lista span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px;line-height:1.45}
+.lead{font-size:1.08rem;color:#d8d4ca;margin-bottom:22px}
+footer{border-top:1px solid #1d1d1b;margin-top:30px;padding:22px 16px 40px;text-align:center;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--gold-l)}
+@media(max-width:420px){.nav{grid-template-columns:1fr}.nav .prox{grid-column:1}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "headline": "Bitcoin Privacy and Scam Protection", "description": "How to protect your Bitcoin from real scams (phishing, fake support, address poisoning, malware) and keep your privacy within the law.", "inLanguage": "en", "url": "https://dionefolador.com/guia/en/07-privacidade-e-golpes/", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "author": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "publisher": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "isPartOf": {"@type": "CreativeWorkSeries", "name": "Bitcoin Self-Custody Guide", "url": "https://dionefolador.com/guia/en/"}, "image": "https://dionefolador.com/bio/img/hero.webp", "about": ["Bitcoin", "self-custody"], "isAccessibleForFree": true}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://dionefolador.com/"}, {"@type": "ListItem", "position": 2, "name": "Bitcoin Self-Custody Guide", "item": "https://dionefolador.com/guia/en/"}, {"@type": "ListItem", "position": 3, "name": "Bitcoin Privacy and Scam Protection", "item": "https://dionefolador.com/guia/en/07-privacidade-e-golpes/"}]}]}</script>
+</head>
+<body>
+<header class="top"><div class="top-in"><a class="marca" href="/guia/en/">Dione <span>Folador</span> · Guide</a><nav class="langs" aria-label="Idioma / Language"><a href="/guia/07-privacidade-e-golpes/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/guia/en/07-privacidade-e-golpes/" hreflang="en" lang="en" aria-current="page">EN</a><a href="/guia/es/07-privacidade-e-golpes/" hreflang="es" lang="es">ES</a></nav></div></header>
+<main>
+<p class="trilha"><a href="https://dionefolador.com/">Home</a> › <a href="/guia/en/">Bitcoin Self-Custody Guide</a></p>
+<span class="kicker">Chapter 7 of 8</span>
+<h1>Bitcoin Privacy and Scam Protection</h1>
+<div class="meta"><img src="/bio/img/dione-guia.webp" alt="" width="34" height="34"><span>By <b>Dione Folador</b> · Updated November 6, 2026 · 7 min read</span></div>
+<p class="aviso">Educational content. Not investment advice. No legitimate person will ever ask for your seed: not me, not wallet support, not an exchange.</p>
+<article><p>You can have the best hardware wallet in the world and your seed stamped in steel. Even so, a large share of Bitcoin losses don't come from technical failure. They come from people being tricked. A scammer doesn't break Bitcoin's cryptography. He convinces you to hand over the key or to send the money to the wrong address.</p>
+<p>That's why this chapter covers <strong>privacy</strong> and <strong>scams</strong> together. The fewer people who know you hold Bitcoin, the less of a target you become.</p>
+<blockquote>
+<p>No legitimate person will ever ask for your seed. Not me, not any wallet's support team, not an exchange, not a "recovery specialist." If someone asked, it's a scam. No exceptions.</p>
+</blockquote>
+<h2>Privacy is security, not hiding</h2>
+<p>Let me be clear about what privacy means in this guide. It means not exposing your wealth to strangers, so you don't become a target for scams, extortion, kidnapping or data leaks. It does not mean hiding assets from the tax authorities or the courts.</p>
+<p>In Brazil, holding Bitcoin in self-custody is legal. And Bitcoin must be reported on your income tax return, in the Assets and Rights section, under the crypto-assets group. Other countries have their own reporting rules. You can be discreet with the world and fully compliant with the tax authority. The two go together. For the details of your situation, check with an accountant.</p>
+<p>There is also no such thing as absolute anonymity in Bitcoin. The blockchain is public: anyone can see every transaction and the balance of every address. What protects you is that an address doesn't carry your name. Your privacy starts leaking when someone manages to link an address to you.</p>
+<h2>How your privacy leaks</h2>
+<h3>KYC and customer database leaks</h3>
+<p>KYC (Know Your Customer) is the identity check exchanges are required to perform. You send an ID, a selfie, your address. It's a legal requirement and complying is the right thing to do. The risk is something else: companies get hacked. There have already been leaks of customer databases from exchanges and even from hardware wallet makers, with names, emails, phone numbers and home addresses. People on those lists become targets for phishing (fake messages that imitate well-known companies to steal data or money) and, in the worst case, physical threats.</p>
+<p>What you can do:
+- Use an email address dedicated to Bitcoin matters that you use for nothing else.
+- Turn on two-factor authentication (2FA) with an authenticator app, not SMS.
+- When possible, have packages delivered somewhere other than your home, such as a pickup point.
+- Assume your account details will leak someday. Plan your security with that in mind.</p>
+<h3>Address reuse</h3>
+<p>Serious wallets generate a new address for every payment you receive, automatically. Always use a new one. If you reuse the same address and give it to several people, all of them can see its balance and full history. Someone who paid you once now knows how much you hold there.</p>
+<h3>UTXOs, explained simply</h3>
+<p>Your balance is not a single number. It's made of separate "coins" called <strong>UTXOs</strong> (Unspent Transaction Outputs). Every payment you receive creates a UTXO. If you received three times, you have three UTXOs, like three bills in your wallet.</p>
+<p>When you pay someone, the wallet combines UTXOs to cover the amount and sends the change back to an address of yours. That has two practical effects:</p>
+<ul>
+<li><strong>Privacy:</strong> combining UTXOs in one transaction shows the world they belong to the same owner. If one came from an exchange that has your ID and another came from a source nobody linked to you, now they're linked.</li>
+<li><strong>Fees:</strong> the network fee is charged by the size of the transaction in bytes, not by the amount sent. More UTXOs as inputs means a bigger transaction and a higher fee.</li>
+</ul>
+<p>Wallets such as Sparrow, Electrum and Nunchuk offer <strong>coin control</strong>: you choose which UTXOs to spend and can label each one ("came from exchange X," "client payment"). Labeling from day one helps a lot later.</p>
+<h3>Fees, also explained simply</h3>
+<p>Each block has limited space. Whoever pays more per byte (sat/vB, satoshis per virtual byte) gets in first, and when the network is busy, fees go up. That's why very small UTXOs can cost more to spend than they're worth. Avoid receiving in dozens of tiny pieces.</p>
+<h2>The most common scams</h2>
+<h3>Seed pre-printed in the box</h3>
+<p>You buy a hardware wallet and inside there's a card with 24 words "already generated for you." It's a scam. The seed must be generated by the device itself, in front of you, during first setup. Whoever printed that seed has access to everything you deposit. So: buy only from the manufacturer or an official reseller, never used, and check the tamper seal and the firmware.</p>
+<h3>Fake support</h3>
+<p>You post a question on social media and soon an "official support" account shows up in your DMs. Polite and quick, in the end it asks for your seed to "sync" or "validate" your wallet. Real support doesn't DM you first and never asks for a seed. There are also fake "recovery services" promising to get stolen bitcoin back for a fee. It's a second scam aimed at people who already fell for the first.</p>
+<h3>Fake websites and fake apps</h3>
+<p>Scammers buy search ads pointing to sites identical to well-known wallets. You download the fake program, type in your seed and lose everything. Protection: type the official website address yourself and bookmark it. Download apps only from there. When the project publishes file signatures, verify them.</p>
+<h3>Fake firmware updates</h3>
+<p>An email or pop-up says your wallet needs an urgent update, with a link. Real updates come only from the manufacturer's official app or website, which you open from your bookmark, and they are confirmed on the device's own screen. A serious wallet never asks you to type your seed into a computer or phone to update.</p>
+<h3>Email phishing after a data leak</h3>
+<p>After a customer database leak, very convincing emails arrive, with your name and even your wallet model, saying your account has been compromised and you need to "migrate your funds" or "confirm your seed." Knowing your name and what you bought proves nothing. Don't click. Go to the official site through your bookmark.</p>
+<h3>Address poisoning</h3>
+<p>The scammer looks at your public history and creates an address that starts and ends with the same characters as an address you use. Then he sends you a tiny amount from it, so that address shows up in your history. The next time you copy "that usual address" from your history, you might copy the fake one. This scam is more common on other networks, but it also happens on Bitcoin.</p>
+<p>Protection: never copy an address from your transaction history. Get it straight from the source every time and check the <strong>whole</strong> address, not just the beginning and the end.</p>
+<h3>Clipboard-swapping malware</h3>
+<p>Some malware watches the clipboard on your computer or phone. When you copy a Bitcoin address, it swaps it for the scammer's. You paste without noticing.</p>
+<p>The strongest defense is a hardware wallet: it shows the destination address on its own screen, which the computer's malware doesn't control. Check it on the device screen, character by character, before confirming. The same goes for receiving: check on the hardware wallet screen that the address matches the one you're about to give to the person paying you.</p>
+<h2>Everyday discretion</h2>
+<p>The most dangerous piece of information is "that person has a lot of Bitcoin." A few rules I follow and recommend:</p>
+<ul>
+<li>Don't tell anyone how much you hold. Not friends, not group chats, not social media.</li>
+<li>Don't post screenshots of balances, wallets or transactions.</li>
+<li>Don't wear clothes, stickers or license plates that scream "I own crypto."</li>
+<li>Don't talk about amounts in public places.</li>
+<li>If you're known for talking about Bitcoin, use a passphrase and a decoy wallet, as covered in the chapter Passphrase and Protection Against Coercion.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li class="ck">I use an email dedicated to Bitcoin, with app-based 2FA.</li>
+<li class="ck">I use a new address for every payment and never copy addresses from my history.</li>
+<li class="ck">I check the entire address on the hardware wallet screen before sending or receiving.</li>
+<li class="ck">I only download wallets and firmware from the bookmarked official website.</li>
+<li class="ck">I know no legitimate person asks for my seed, and I don't answer "support" in DMs.</li>
+<li class="ck">I label my UTXOs and understand that combining them links their origins.</li>
+<li class="ck">I don't disclose how much I hold, and my Bitcoin is reported for tax purposes.</li>
+</ul>
+</article>
+<nav class="nav"><a href="/guia/en/06-no-proprio/"><small>← Previous</small><b>Your Own Bitcoin Node: Verify, Don&#x27;t Trust</b></a><a class="prox" href="/guia/en/08-heranca-de-bitcoin/"><small>Next →</small><b>Bitcoin Inheritance: How Your Family Gets Access</b></a></nav><a class="todos" href="/guia/en/">All chapters</a>
+<section class="cta"><h2>Want to do this with guidance?</h2><p>In one-on-one mentoring, you set everything up on your own device, with me guiding each step.</p><a class="btn" href="https://wa.me/5534993421500?text=Hi%20Dione!%20I%20read%20your%20self-custody%20guide%20and%20I%27d%20like%20to%20know%20about%20your%20mentoring." target="_blank" rel="noopener">Talk to Dione</a></section>
+<div class="autor"><img src="/bio/img/dione-guia.webp" alt="Dione Folador" width="64" height="64" loading="lazy"><div><h2>About the author: Dione Folador</h2><p>Dione Folador has been in the crypto market since 2011 and teaches Bitcoin self-custody and security to people who want to take control of their own wealth. On Instagram, he is @dionefol.</p></div></div>
+</main>
+<footer><p>© 2026 Dione Folador · <a href="https://dionefolador.com/">dionefolador.com</a> · <a href="https://instagram.com/dionefol" rel="noopener">@dionefol</a></p><p style="margin-top:6px">Educational content. Not investment advice. No legitimate person will ever ask for your seed: not me, not wallet support, not an exchange.</p></footer>
+<script src="https://biovenda.app.br/atendente/zebu.js" data-trilha="cripto" data-nome="Fol" data-api="dionefol-bio" data-whats="5534993421500" defer></script>
+</body>
+</html>

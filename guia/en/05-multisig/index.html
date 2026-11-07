@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multisig: Self-Custody for Larger Holdings | Bitcoin Self-Custody Guide</title>
+<meta name="description" content="How 2-of-3 Bitcoin multisig works, why to mix hardware brands, how to back up the descriptor and sign with PSBT without overcomplicating it.">
+<meta name="author" content="Dione Folador">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dionefolador.com/guia/en/05-multisig/">
+<link rel="alternate" hreflang="pt-BR" href="https://dionefolador.com/guia/05-multisig/">
+<link rel="alternate" hreflang="en" href="https://dionefolador.com/guia/en/05-multisig/">
+<link rel="alternate" hreflang="es" href="https://dionefolador.com/guia/es/05-multisig/">
+<link rel="alternate" hreflang="x-default" href="https://dionefolador.com/guia/05-multisig/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Multisig: Self-Custody for Larger Holdings | Bitcoin Self-Custody Guide">
+<meta property="og:description" content="How 2-of-3 Bitcoin multisig works, why to mix hardware brands, how to back up the descriptor and sign with PSBT without overcomplicating it.">
+<meta property="og:url" content="https://dionefolador.com/guia/en/05-multisig/">
+<meta property="og:image" content="https://dionefolador.com/bio/img/hero.webp">
+<meta property="og:locale" content="en">
+<meta name="theme-color" content="#060606">
+<link rel="icon" href="/zebuoficial.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f59e0b;--gold-l:#fbbf24;--bg:#060606;--card:#111110;--line:rgba(245,158,11,.2);--text:#ecebe8;--muted:#a9a59c;--serif:'Playfair Display',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-l)}img{max-width:100%;display:block}
+.top{position:sticky;top:0;z-index:20;background:rgba(6,6,6,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.marca{color:var(--text);text-decoration:none;font-weight:800;font-size:.9rem;letter-spacing:.02em}.marca span{color:var(--gold)}
+.langs{display:flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:#0d0d0c}
+.langs a{min-width:40px;min-height:32px;display:grid;place-items:center;border-radius:999px;font:700 12px var(--sans);letter-spacing:.08em;color:#d9d6cf;text-decoration:none}
+.langs a[aria-current]{background:var(--gold);color:#111}
+main{max-width:760px;margin:0 auto;padding:28px 16px 40px}
+.trilha{font-size:.78rem;color:var(--muted);margin-bottom:14px}.trilha a{color:var(--muted)}
+.kicker{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h1{font-family:var(--serif);font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.12;margin-bottom:14px}
+.meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:26px;line-height:1.45}.meta img{flex:none}
+.meta img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.meta b{color:var(--text)}
+.aviso{font-size:.86rem;color:#e9dcc0;background:rgba(245,158,11,.08);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:28px}
+article h2{font-family:var(--serif);font-size:1.55rem;line-height:1.25;margin:36px 0 12px;color:#fff}
+article h3{font-size:1.08rem;margin:24px 0 8px;color:var(--gold-l)}
+article p{margin:0 0 16px;font-size:1.03rem}
+article ul,article ol{margin:0 0 18px 22px}article li{margin:6px 0}
+article strong{color:#fff}
+article li.ck{list-style:none;margin-left:-22px;padding-left:30px;position:relative}article li.ck::before{content:'';position:absolute;left:0;top:.35em;width:16px;height:16px;border:2px solid var(--gold);border-radius:4px}
+article blockquote{margin:20px 0;padding:14px 16px;border-left:4px solid var(--gold);background:rgba(245,158,11,.07);border-radius:0 12px 12px 0}
+article blockquote p{margin:0}
+article code{font-size:.9em;background:#1a1916;padding:1px 6px;border-radius:6px}
+article table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:.92rem;display:block;overflow-x:auto}
+article th,article td{border:1px solid #2a2823;padding:8px 10px;text-align:left;vertical-align:top}article th{background:#17160f;color:var(--gold-l)}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:36px 0 10px}
+.nav a{display:block;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:var(--text);min-height:64px}
+.nav a small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+.nav a b{font-size:.92rem;line-height:1.3}.nav .prox{text-align:right;grid-column:2}
+.todos{display:block;text-align:center;margin:8px 0 30px;font-weight:700;font-size:.9rem}
+.cta{border:1px solid rgba(245,158,11,.45);border-radius:20px;padding:22px 18px;background:linear-gradient(160deg,#1a1408,var(--card) 60%);margin:30px 0}
+.cta h2{font-family:var(--serif);font-size:1.35rem;margin-bottom:6px}.cta p{color:#d8d4ca;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,var(--gold-l),var(--gold) 55%,#b45309);color:#1a1208;font-weight:800;text-decoration:none}
+.autor{display:flex;gap:14px;align-items:flex-start;border-top:1px solid #222;padding-top:24px;margin-top:10px}
+.autor img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none}
+.autor h2{font-size:1rem;margin-bottom:4px}.autor p{font-size:.9rem;color:var(--muted)}
+.lista{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.lista a{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card);text-decoration:none;color:var(--text)}
+.lista .n{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;min-width:34px}
+.lista b{display:block;font-size:1rem;line-height:1.3}.lista span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px;line-height:1.45}
+.lead{font-size:1.08rem;color:#d8d4ca;margin-bottom:22px}
+footer{border-top:1px solid #1d1d1b;margin-top:30px;padding:22px 16px 40px;text-align:center;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--gold-l)}
+@media(max-width:420px){.nav{grid-template-columns:1fr}.nav .prox{grid-column:1}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "headline": "Multisig: Self-Custody for Larger Holdings", "description": "How 2-of-3 Bitcoin multisig works, why to mix hardware brands, how to back up the descriptor and sign with PSBT without overcomplicating it.", "inLanguage": "en", "url": "https://dionefolador.com/guia/en/05-multisig/", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "author": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "publisher": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "isPartOf": {"@type": "CreativeWorkSeries", "name": "Bitcoin Self-Custody Guide", "url": "https://dionefolador.com/guia/en/"}, "image": "https://dionefolador.com/bio/img/hero.webp", "about": ["Bitcoin", "self-custody"], "isAccessibleForFree": true}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://dionefolador.com/"}, {"@type": "ListItem", "position": 2, "name": "Bitcoin Self-Custody Guide", "item": "https://dionefolador.com/guia/en/"}, {"@type": "ListItem", "position": 3, "name": "Multisig: Self-Custody for Larger Holdings", "item": "https://dionefolador.com/guia/en/05-multisig/"}]}]}</script>
+</head>
+<body>
+<header class="top"><div class="top-in"><a class="marca" href="/guia/en/">Dione <span>Folador</span> · Guide</a><nav class="langs" aria-label="Idioma / Language"><a href="/guia/05-multisig/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/guia/en/05-multisig/" hreflang="en" lang="en" aria-current="page">EN</a><a href="/guia/es/05-multisig/" hreflang="es" lang="es">ES</a></nav></div></header>
+<main>
+<p class="trilha"><a href="https://dionefolador.com/">Home</a> › <a href="/guia/en/">Bitcoin Self-Custody Guide</a></p>
+<span class="kicker">Chapter 5 of 8</span>
+<h1>Multisig: Self-Custody for Larger Holdings</h1>
+<div class="meta"><img src="/bio/img/dione-guia.webp" alt="" width="34" height="34"><span>By <b>Dione Folador</b> · Updated November 6, 2026 · 8 min read</span></div>
+<p class="aviso">Educational content. Not investment advice. No legitimate person will ever ask for your seed: not me, not wallet support, not an exchange.</p>
+<article><p>So far you have protected your bitcoin with a single seed. For most people, that works very well. But a single seed has one clear limit: it is a single point of failure. If someone finds those words, they take everything. If you lose them, you lose everything.</p>
+<p>When the amount you hold starts to matter in your overall net worth, there is a way to remove that single point of failure: <strong>multisig</strong>, short for multi-signature. It is the right tool for a specific problem, not a mandatory next step. I will explain when it is worth it and when it just gets in the way.</p>
+<h2>What multisig is: the m-of-n concept</h2>
+<p>In a regular wallet, one key signs and the money moves. In a multisig wallet, the address is built so that spending requires <strong>m signatures out of a total of n keys</strong>.</p>
+<p>The most common example is <strong>2-of-3</strong>: there are three keys, each with its own seed, and any two of them are enough to sign a transaction. That gives you two protections at once:</p>
+<ul>
+<li><strong>Against theft:</strong> whoever gets a single key cannot move anything. They would need two.</li>
+<li><strong>Against loss:</strong> if you lose one key (the device broke, the seed got wet, the house burned down), the other two can still move everything. Then you create a new wallet and move the balance calmly.</li>
+</ul>
+<p>This rule does not depend on a company or a server. It is written into Bitcoin's own script, and the network only accepts the transaction if the required signatures are there.</p>
+<p>There are other setups, like 2-of-2 (lose one key, lose access) or 3-of-5 (more common in companies). For an individual, 2-of-3 is the balance that makes the most sense.</p>
+<h2>Each key is a complete wallet</h2>
+<p>Each of the three keys is created the way you learned in the previous chapters: a BIP39 seed of 12 or 24 words, generated inside a hardware wallet, written on paper or metal, and tested.</p>
+<p>Ideally, each key lives on a <strong>device from a different manufacturer</strong>. For example, one on a Coldcard, one on a Trezor and one on a Jade, or any mix of BitBox02, Ledger, SeedSigner or Krux. The reason is simple: if a serious firmware bug ever shows up in one brand, or a tampered batch enters the supply chain, that problem hits only one of your keys. On its own, it is not enough to spend.</p>
+<p>The buying rule stays the same: straight from the manufacturer or an official reseller, never used, checking the seal and the firmware.</p>
+<p>And it is worth repeating: no legitimate person or company will ever ask for your seed. That applies to all three. Not me, not wallet support, not an exchange.</p>
+<h2>The coordinator: the software that builds the wallet</h2>
+<p>The devices hold the private keys. But something has to bring the three parts together and build the multisig wallet. That job belongs to a program called the <strong>coordinator</strong>. Examples: Sparrow, Nunchuk and Electrum.</p>
+<p>In any serious coordinator, the process follows these steps:</p>
+<ol>
+<li>Each hardware wallet exports its <strong>xpub</strong> (extended public key), along with the key fingerprint and the derivation path (BIP32). The xpub lets you generate addresses and see the balance, but it <strong>cannot spend</strong>.</li>
+<li>The coordinator combines the three xpubs with the 2-of-3 rule and generates the wallet's addresses.</li>
+<li>You register this multisig wallet on every device that supports it. That way the device itself can confirm, on its own screen, that an address belongs to the right set and that the change from a transaction comes back to you.</li>
+</ol>
+<p>No seed ever touches the computer. It only sees public information.</p>
+<p>If any of the keys uses a passphrase, the passphrase becomes part of that key. The xpub has to be exported with the passphrase already applied on the device, and the passphrase needs a backup just like the seed. Without it, that seed produces a different key, one that does not belong to your multisig.</p>
+<h2>The backup almost everyone forgets: the descriptor</h2>
+<p>This is the most common mistake, and it is a serious one. Many people believe that in a 2-of-3, having two seeds is enough to recover everything. <strong>It is not.</strong></p>
+<p>To rebuild the addresses of a multisig, you need to know <strong>all three public keys</strong>, plus the rule (2-of-3), the script type and the derivation paths. With two seeds you can recreate two xpubs. The third xpub cannot be derived from your two seeds. Without it, the software does not know which addresses to look for.</p>
+<p>That is why the <strong>output descriptor</strong> exists. It is a piece of text that describes the entire wallet. It usually looks something like <code>wsh(sortedmulti(2,[fingerprint/path]xpub...,...,...))</code>. Coordinators export this file, often also as a QR code or PDF.</p>
+<p>What you need to know about the descriptor:</p>
+<ul>
+<li><strong>It cannot move money.</strong> Without two private keys, nobody can spend anything with it.</li>
+<li><strong>It reveals everything.</strong> Whoever has the descriptor can see all your addresses, balance and history. Treat it as sensitive privacy information.</li>
+<li><strong>Keep a copy with each seed.</strong> That way, any combination of two locations lets you recover the complete wallet.</li>
+</ul>
+<blockquote>
+<p>Without the descriptor (or all three xpubs), two seeds may not be enough to recover a multisig. Back up the descriptor the same day you create the wallet, in more than one place.</p>
+</blockquote>
+<h2>How to spend: PSBT</h2>
+<p>To sign with two keys sitting on different devices, Bitcoin uses the <strong>PSBT</strong> standard (Partially Signed Bitcoin Transaction, defined in BIP174). It works like this:</p>
+<ol>
+<li>The coordinator builds the transaction: destination, amount and fee.</li>
+<li>You take that PSBT to the first device, by USB cable, microSD card or QR code. You check the destination address and amount on its screen, and sign.</li>
+<li>You take the PSBT, now carrying one signature, to the second device. Check again and sign.</li>
+<li>Back in the coordinator, it finalizes the transaction and broadcasts it to the network.</li>
+</ol>
+<p>Devices that sign by microSD or QR never touch the computer. This is called offline (air-gapped) signing, and it reduces the attack surface.</p>
+<p>The most important point in this flow: <strong>check the address on each device's screen</strong>, never only on the computer screen. Malware on the computer can swap the destination. The device screen is where the truth is.</p>
+<p>Multisig transactions take up more space, so they pay a bit more in fees. For larger holdings, that is a minor detail.</p>
+<h2>Where to keep each part</h2>
+<p>The logic is to never keep two keys in the same place. If two sit in the same drawer, a single burglar or a single fire defeats the whole setup.</p>
+<p>A common 2-of-3 arrangement:</p>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>What stays there</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Your home</td>
+<td>Device A, seed A, copy of the descriptor</td>
+</tr>
+<tr>
+<td>Second secure location (another property of yours, a safe deposit box)</td>
+<td>Seed B, copy of the descriptor</td>
+</tr>
+<tr>
+<td>Third location (trusted person or collaborative custody service)</td>
+<td>Seed C or device C, copy of the descriptor</td>
+</tr>
+</tbody>
+</table>
+<p>Some companies offer to hold one of the three keys (collaborative custody). On their own, they cannot move anything. Before using one, understand what happens if the company shuts down: with the descriptor and two seeds, you need to remain independent.</p>
+<h2>Test before you move a large amount</h2>
+<p>Before you transfer your holdings, run a full rehearsal:</p>
+<ol>
+<li>Send a small amount to the multisig.</li>
+<li>Spend it by signing with the A + B combination.</li>
+<li>Make another spend with B + C.</li>
+<li>On another computer, ideally in a different coordinator, import only the descriptor. Check that the addresses and balance match. Then sign a test spend there with two of the keys.</li>
+</ol>
+<p>If everything worked, the plan is proven in practice.</p>
+<h2>When it is worth it and when it is too much</h2>
+<p><strong>It is worth it</strong> when the amount is something you could not accept losing under any circumstances, when you already master a single-key wallet, and when you are willing to keep three locations organized. Multisig also helps a lot with inheritance planning, the topic of the last chapter.</p>
+<p><strong>It is too much</strong> when you are still learning, when the amount is small, or when you do not have three separate locations. A badly done multisig is worse than a well done single key. In self-custody, many people lose bitcoin through their own mistakes, not through attacks: incomplete backup, lost descriptor, untested seed.</p>
+<p>If in doubt, start with a well protected seed and a passphrase. When the amount grows and you feel comfortable, migrate.</p>
+<h2>Checklist</h2>
+<ul>
+<li class="ck">I understand that in a 2-of-3 any two keys can spend and one alone moves nothing</li>
+<li class="ck">I generated each seed on its own device, ideally from different manufacturers, bought through official channels</li>
+<li class="ck">I saved the wallet descriptor and keep a copy with each seed</li>
+<li class="ck">I registered the multisig on the devices and checked a receive address on each screen</li>
+<li class="ck">I made test spends with two different key combinations</li>
+<li class="ck">I rebuilt the wallet on another computer from the descriptor and signed a spend there</li>
+<li class="ck">No location holds two keys at the same time</li>
+</ul>
+</article>
+<nav class="nav"><a href="/guia/en/04-passphrase-e-coacao/"><small>← Previous</small><b>Passphrase and Protection Against Coercion</b></a><a class="prox" href="/guia/en/06-no-proprio/"><small>Next →</small><b>Your Own Bitcoin Node: Verify, Don&#x27;t Trust</b></a></nav><a class="todos" href="/guia/en/">All chapters</a>
+<section class="cta"><h2>Want to do this with guidance?</h2><p>In one-on-one mentoring, you set everything up on your own device, with me guiding each step.</p><a class="btn" href="https://wa.me/5534993421500?text=Hi%20Dione!%20I%20read%20your%20self-custody%20guide%20and%20I%27d%20like%20to%20know%20about%20your%20mentoring." target="_blank" rel="noopener">Talk to Dione</a></section>
+<div class="autor"><img src="/bio/img/dione-guia.webp" alt="Dione Folador" width="64" height="64" loading="lazy"><div><h2>About the author: Dione Folador</h2><p>Dione Folador has been in the crypto market since 2011 and teaches Bitcoin self-custody and security to people who want to take control of their own wealth. On Instagram, he is @dionefol.</p></div></div>
+</main>
+<footer><p>© 2026 Dione Folador · <a href="https://dionefolador.com/">dionefolador.com</a> · <a href="https://instagram.com/dionefol" rel="noopener">@dionefol</a></p><p style="margin-top:6px">Educational content. Not investment advice. No legitimate person will ever ask for your seed: not me, not wallet support, not an exchange.</p></footer>
+<script src="https://biovenda.app.br/atendente/zebu.js" data-trilha="cripto" data-nome="Fol" data-api="dionefol-bio" data-whats="5534993421500" defer></script>
+</body>
+</html>

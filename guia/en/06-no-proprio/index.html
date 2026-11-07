@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Own Bitcoin Node: Verify, Don&#x27;t Trust | Bitcoin Self-Custody Guide</title>
+<meta name="description" content="Why to run your own Bitcoin node, what it verifies, how it protects your privacy, hardware options and how to connect your wallet to it.">
+<meta name="author" content="Dione Folador">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dionefolador.com/guia/en/06-no-proprio/">
+<link rel="alternate" hreflang="pt-BR" href="https://dionefolador.com/guia/06-no-proprio/">
+<link rel="alternate" hreflang="en" href="https://dionefolador.com/guia/en/06-no-proprio/">
+<link rel="alternate" hreflang="es" href="https://dionefolador.com/guia/es/06-no-proprio/">
+<link rel="alternate" hreflang="x-default" href="https://dionefolador.com/guia/06-no-proprio/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Your Own Bitcoin Node: Verify, Don&#x27;t Trust | Bitcoin Self-Custody Guide">
+<meta property="og:description" content="Why to run your own Bitcoin node, what it verifies, how it protects your privacy, hardware options and how to connect your wallet to it.">
+<meta property="og:url" content="https://dionefolador.com/guia/en/06-no-proprio/">
+<meta property="og:image" content="https://dionefolador.com/bio/img/hero.webp">
+<meta property="og:locale" content="en">
+<meta name="theme-color" content="#060606">
+<link rel="icon" href="/zebuoficial.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f59e0b;--gold-l:#fbbf24;--bg:#060606;--card:#111110;--line:rgba(245,158,11,.2);--text:#ecebe8;--muted:#a9a59c;--serif:'Playfair Display',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-l)}img{max-width:100%;display:block}
+.top{position:sticky;top:0;z-index:20;background:rgba(6,6,6,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.marca{color:var(--text);text-decoration:none;font-weight:800;font-size:.9rem;letter-spacing:.02em}.marca span{color:var(--gold)}
+.langs{display:flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:#0d0d0c}
+.langs a{min-width:40px;min-height:32px;display:grid;place-items:center;border-radius:999px;font:700 12px var(--sans);letter-spacing:.08em;color:#d9d6cf;text-decoration:none}
+.langs a[aria-current]{background:var(--gold);color:#111}
+main{max-width:760px;margin:0 auto;padding:28px 16px 40px}
+.trilha{font-size:.78rem;color:var(--muted);margin-bottom:14px}.trilha a{color:var(--muted)}
+.kicker{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h1{font-family:var(--serif);font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.12;margin-bottom:14px}
+.meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:26px;line-height:1.45}.meta img{flex:none}
+.meta img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.meta b{color:var(--text)}
+.aviso{font-size:.86rem;color:#e9dcc0;background:rgba(245,158,11,.08);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:28px}
+article h2{font-family:var(--serif);font-size:1.55rem;line-height:1.25;margin:36px 0 12px;color:#fff}
+article h3{font-size:1.08rem;margin:24px 0 8px;color:var(--gold-l)}
+article p{margin:0 0 16px;font-size:1.03rem}
+article ul,article ol{margin:0 0 18px 22px}article li{margin:6px 0}
+article strong{color:#fff}
+article li.ck{list-style:none;margin-left:-22px;padding-left:30px;position:relative}article li.ck::before{content:'';position:absolute;left:0;top:.35em;width:16px;height:16px;border:2px solid var(--gold);border-radius:4px}
+article blockquote{margin:20px 0;padding:14px 16px;border-left:4px solid var(--gold);background:rgba(245,158,11,.07);border-radius:0 12px 12px 0}
+article blockquote p{margin:0}
+article code{font-size:.9em;background:#1a1916;padding:1px 6px;border-radius:6px}
+article table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:.92rem;display:block;overflow-x:auto}
+article th,article td{border:1px solid #2a2823;padding:8px 10px;text-align:left;vertical-align:top}article th{background:#17160f;color:var(--gold-l)}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:36px 0 10px}
+.nav a{display:block;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:var(--text);min-height:64px}
+.nav a small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+.nav a b{font-size:.92rem;line-height:1.3}.nav .prox{text-align:right;grid-column:2}
+.todos{display:block;text-align:center;margin:8px 0 30px;font-weight:700;font-size:.9rem}
+.cta{border:1px solid rgba(245,158,11,.45);border-radius:20px;padding:22px 18px;background:linear-gradient(160deg,#1a1408,var(--card) 60%);margin:30px 0}
+.cta h2{font-family:var(--serif);font-size:1.35rem;margin-bottom:6px}.cta p{color:#d8d4ca;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,var(--gold-l),var(--gold) 55%,#b45309);color:#1a1208;font-weight:800;text-decoration:none}
+.autor{display:flex;gap:14px;align-items:flex-start;border-top:1px solid #222;padding-top:24px;margin-top:10px}
+.autor img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none}
+.autor h2{font-size:1rem;margin-bottom:4px}.autor p{font-size:.9rem;color:var(--muted)}
+.lista{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.lista a{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card);text-decoration:none;color:var(--text)}
+.lista .n{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;min-width:34px}
+.lista b{display:block;font-size:1rem;line-height:1.3}.lista span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px;line-height:1.45}
+.lead{font-size:1.08rem;color:#d8d4ca;margin-bottom:22px}
+footer{border-top:1px solid #1d1d1b;margin-top:30px;padding:22px 16px 40px;text-align:center;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--gold-l)}
+@media(max-width:420px){.nav{grid-template-columns:1fr}.nav .prox{grid-column:1}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "headline": "Your Own Bitcoin Node: Verify, Don't Trust", "description": "Why to run your own Bitcoin node, what it verifies, how it protects your privacy, hardware options and how to connect your wallet to it.", "inLanguage": "en", "url": "https://dionefolador.com/guia/en/06-no-proprio/", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "author": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "publisher": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "isPartOf": {"@type": "CreativeWorkSeries", "name": "Bitcoin Self-Custody Guide", "url": "https://dionefolador.com/guia/en/"}, "image": "https://dionefolador.com/bio/img/hero.webp", "about": ["Bitcoin", "self-custody"], "isAccessibleForFree": true}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://dionefolador.com/"}, {"@type": "ListItem", "position": 2, "name": "Bitcoin Self-Custody Guide", "item": "https://dionefolador.com/guia/en/"}, {"@type": "ListItem", "position": 3, "name": "Your Own Bitcoin Node: Verify, Don't Trust", "item": "https://dionefolador.com/guia/en/06-no-proprio/"}]}]}</script>
+</head>
+<body>
+<header class="top"><div class="top-in"><a class="marca" href="/guia/en/">Dione <span>Folador</span> · Guide</a><nav class="langs" aria-label="Idioma / Language"><a href="/guia/06-no-proprio/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/guia/en/06-no-proprio/" hreflang="en" lang="en" aria-current="page">EN</a><a href="/guia/es/06-no-proprio/" hreflang="es" lang="es">ES</a></nav></div></header>
+<main>
+<p class="trilha"><a href="https://dionefolador.com/">Home</a> › <a href="/guia/en/">Bitcoin Self-Custody Guide</a></p>
+<span class="kicker">Chapter 6 of 8</span>
+<h1>Your Own Bitcoin Node: Verify, Don&#x27;t Trust</h1>
+<div class="meta"><img src="/bio/img/dione-guia.webp" alt="" width="34" height="34"><span>By <b>Dione Folador</b> · Updated November 6, 2026 · 7 min read</span></div>
+<p class="aviso">Educational content. Not investment advice. No legitimate person will ever ask for your seed: not me, not wallet support, not an exchange.</p>
+<article><p>You already hold your keys. The seed is stored, the hardware wallet signs, maybe you even set up a multisig. But there is a question few people ask: <strong>when your wallet shows your balance, where does that information come from?</strong></p>
+<p>In most cases, it comes from someone else's server. Your app asks a computer on the internet "how much is in these addresses?" and believes the answer. It works, but it has two costs: you trust someone to tell you the truth, and you hand that someone the list of your addresses.</p>
+<p>Your <strong>own node</strong> solves both. In this chapter I explain what it is, what it does, what it costs and how to connect your wallet to it.</p>
+<h2>What a node is</h2>
+<p>A <strong>full node</strong> is a computer running Bitcoin software that downloads and checks every block in the network's history, starting with the first one, from 2009. The reference implementation, and the most widely used, is <strong>Bitcoin Core</strong>, free and open source.</p>
+<p>One point confuses a lot of people: <strong>the node does not hold your bitcoin</strong>. Your keys stay on your hardware wallet. The node is your trusted source of information about the network and your channel for broadcasting transactions. If the node breaks, your bitcoin is untouched and your seed still works.</p>
+<p>It is not mining either. A node does not burn energy competing for blocks. It only verifies.</p>
+<h2>What the node verifies</h2>
+<p>When your node downloads the blockchain for the first time (a process called initial block download, or IBD), it does not accept anything just because someone sent it. It checks on its own, among other rules:</p>
+<ul>
+<li>that every block has the required <strong>proof of work</strong>;</li>
+<li>that every transaction has <strong>valid signatures</strong> and only spends coins that exist;</li>
+<li>that no coin was <strong>spent twice</strong>;</li>
+<li>that <strong>issuance</strong> follows the schedule, with the 21 million limit;</li>
+<li>that block size and the other <strong>consensus rules</strong> were followed.</li>
+</ul>
+<p>A detail for those who like precision: to speed up syncing, Bitcoin Core by default skips checking the signatures of old blocks that are already buried under a lot of proof of work (a setting called assumevalid). Every other rule is still checked, and full checking can be turned on in the settings.</p>
+<p>If a block breaks any rule, your node rejects it. It does not matter who mined it or how many people say otherwise. That is where the common Bitcoin phrase comes from: "don't trust, verify." With a node, when your wallet says "confirmed," it was your own computer that checked.</p>
+<h2>Privacy: what a public server sees</h2>
+<p>When your wallet uses a public server, that server can see:</p>
+<ul>
+<li>the addresses or the xpub you query, and therefore your balance and history;</li>
+<li>your IP address, which can point to your city and your internet provider;</li>
+<li>when you broadcast each transaction.</li>
+</ul>
+<p>That does not mean the server will steal anything. It does not have your keys. But it does mean someone can link an IP address to a pile of money. In a data leak, or with a malicious server, that information becomes a map for scams or physical attacks. Discretion is security.</p>
+<p>With your own node, your queries stay inside your home. No third-party server receives the list of your addresses. Transactions are still public on the blockchain, as always, but nobody outside gets from you the information about which addresses are yours. Privacy here is personal protection, within the law. You still report your bitcoin on your taxes as usual.</p>
+<h2>Hardware options</h2>
+<p>You do not need a powerful computer. You need stability and disk space.</p>
+<ul>
+<li><strong>Storage:</strong> the full blockchain is already more than 700 GB, and it only grows. Use a <strong>2 TB SSD</strong>. A 1 TB drive is already tight. Spinning hard drives and memory cards make everything slow and tend to corrupt data.</li>
+<li><strong>Memory:</strong> 4 GB works; 8 GB or more makes syncing much faster.</li>
+<li><strong>Internet:</strong> the initial sync downloads hundreds of gigabytes. After that, usage drops a lot. If your plan has a data cap, adjust the upload settings.</li>
+<li><strong>Power:</strong> an outage in the middle of a write can corrupt the database. A small UPS (battery backup) helps.</li>
+</ul>
+<p>Common paths:</p>
+<ol>
+<li><strong>A computer you already own.</strong> Install Bitcoin Core on a desktop or laptop that stays on. It is the cheapest way to start.</li>
+<li><strong>A mini PC or Raspberry Pi with an SSD</strong>, running a ready-made node system. Well known examples: <strong>Umbrel</strong>, <strong>Start9</strong> and <strong>RaspiBlitz</strong>. They install Bitcoin Core, an Electrum server and a browser interface.</li>
+<li><strong>A prebuilt node.</strong> Some projects sell the device already assembled. It costs more and saves work.</li>
+</ol>
+<p>There is also the <strong>pruned node</strong>. It validates everything the same way, but deletes old blocks after checking them, taking up only a few gigabytes. It is for people with little disk space. The limitation: most Electrum servers require a non-pruned node.</p>
+<h2>Electrum server: the bridge to your wallet</h2>
+<p>Many wallets do not talk to Bitcoin Core directly. They speak the Electrum protocol. That is why node systems usually include their own <strong>Electrum server</strong>, such as Electrs or Fulcrum. It indexes your node's blockchain and answers your wallet's queries quickly.</p>
+<p>The path in short: the hardware wallet signs, the wallet software (Sparrow, Electrum, Nunchuk, BlueWallet, among others) queries the Electrum server, which queries your Bitcoin Core.</p>
+<h2>How to connect your wallet</h2>
+<p>These steps apply to any serious wallet, even if menu names change:</p>
+<ol>
+<li><strong>Wait for the sync to finish.</strong> It can take from a day to more than a week, depending on your hardware and internet. Until then, balances will not show correctly.</li>
+<li><strong>Write down your server address.</strong> On your home network, it is the node's local IP plus the Electrum server port. Away from home, the safest way is to use the <strong>Tor</strong> address (Tor is a network that hides where a connection comes from and needs no open ports on your router) your node system provides, or a private VPN.</li>
+<li><strong>In the wallet, replace the public server with yours.</strong> Look for the server or network settings and enter the address. Some wallets, like Sparrow, can also connect straight to Bitcoin Core.</li>
+<li><strong>Turn off fallback to public servers</strong>, if the wallet has that option. Otherwise it may query another server when yours is down.</li>
+<li><strong>Check.</strong> Your balance and history should look the same. Make a small transaction and confirm it is broadcast through your node.</li>
+</ol>
+<blockquote>
+<p>Never expose Bitcoin Core's control port (RPC) to the internet, and never open ports on your router without understanding what you are doing. For remote access, use Tor or a VPN.</p>
+</blockquote>
+<h2>Updates</h2>
+<p>Update your node software from time to time, always from the official source. If you install Bitcoin Core manually, download it from bitcoincore.org and verify the file's hash and signatures. On ready-made systems, update through their own interface. Be suspicious of any "urgent update" that arrives by email, ad or message. That is a classic scam.</p>
+<h2>Cost and effort: is it for you?</h2>
+<p>To be direct:</p>
+<ul>
+<li><strong>Money:</strong> from almost nothing (a computer you already own) up to the price of a mini PC with an SSD, plus electricity, which is low.</li>
+<li><strong>Time:</strong> an afternoon to install, a few days of syncing, and a few minutes a month to check that everything is running.</li>
+<li><strong>Knowledge:</strong> ready-made systems have made this much simpler. If you have made it this far in the guide, you can handle it.</li>
+</ul>
+<p>A node is not a requirement for self-custody. A well configured hardware wallet with a well stored seed already puts you far ahead. The node is the next step for those who want full independence: checking the rules yourself and no longer handing your addresses to third parties.</p>
+<h2>Checklist</h2>
+<ul>
+<li class="ck">I understand that the node verifies the network and does not hold my keys</li>
+<li class="ck">I chose the hardware, with a 2 TB SSD for a full node</li>
+<li class="ck">I installed Bitcoin Core or a node system (Umbrel, Start9, RaspiBlitz or similar) from the official source</li>
+<li class="ck">I waited for the initial sync to finish</li>
+<li class="ck">I connected my wallet to my own server and turned off public servers</li>
+<li class="ck">I tested with a small transaction broadcast through my node</li>
+<li class="ck">I did not leave the RPC port exposed, and I use Tor or a VPN for outside access</li>
+</ul>
+</article>
+<nav class="nav"><a href="/guia/en/05-multisig/"><small>← Previous</small><b>Multisig: Self-Custody for Larger Holdings</b></a><a class="prox" href="/guia/en/07-privacidade-e-golpes/"><small>Next →</small><b>Bitcoin Privacy and Scam Protection</b></a></nav><a class="todos" href="/guia/en/">All chapters</a>
+<section class="cta"><h2>Want to do this with guidance?</h2><p>In one-on-one mentoring, you set everything up on your own device, with me guiding each step.</p><a class="btn" href="https://wa.me/5534993421500?text=Hi%20Dione!%20I%20read%20your%20self-custody%20guide%20and%20I%27d%20like%20to%20know%20about%20your%20mentoring." target="_blank" rel="noopener">Talk to Dione</a></section>
+<div class="autor"><img src="/bio/img/dione-guia.webp" alt="Dione Folador" width="64" height="64" loading="lazy"><div><h2>About the author: Dione Folador</h2><p>Dione Folador has been in the crypto market since 2011 and teaches Bitcoin self-custody and security to people who want to take control of their own wealth. On Instagram, he is @dionefol.</p></div></div>
+</main>
+<footer><p>© 2026 Dione Folador · <a href="https://dionefolador.com/">dionefolador.com</a> · <a href="https://instagram.com/dionefol" rel="noopener">@dionefol</a></p><p style="margin-top:6px">Educational content. Not investment advice. No legitimate person will ever ask for your seed: not me, not wallet support, not an exchange.</p></footer>
+<script src="https://biovenda.app.br/atendente/zebu.js" data-trilha="cripto" data-nome="Fol" data-api="dionefol-bio" data-whats="5534993421500" defer></script>
+</body>
+</html>

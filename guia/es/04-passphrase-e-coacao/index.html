@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passphrase y seguridad contra la coacción | Guía de Autocustodia de Bitcoin</title>
+<meta name="description" content="Cómo la passphrase BIP39 crea una billetera oculta, el riesgo de olvidarla, cómo guardarla separada de la semilla y cómo usar una billetera señuelo.">
+<meta name="author" content="Dione Folador">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dionefolador.com/guia/es/04-passphrase-e-coacao/">
+<link rel="alternate" hreflang="pt-BR" href="https://dionefolador.com/guia/04-passphrase-e-coacao/">
+<link rel="alternate" hreflang="en" href="https://dionefolador.com/guia/en/04-passphrase-e-coacao/">
+<link rel="alternate" hreflang="es" href="https://dionefolador.com/guia/es/04-passphrase-e-coacao/">
+<link rel="alternate" hreflang="x-default" href="https://dionefolador.com/guia/04-passphrase-e-coacao/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Passphrase y seguridad contra la coacción | Guía de Autocustodia de Bitcoin">
+<meta property="og:description" content="Cómo la passphrase BIP39 crea una billetera oculta, el riesgo de olvidarla, cómo guardarla separada de la semilla y cómo usar una billetera señuelo.">
+<meta property="og:url" content="https://dionefolador.com/guia/es/04-passphrase-e-coacao/">
+<meta property="og:image" content="https://dionefolador.com/bio/img/hero.webp">
+<meta property="og:locale" content="es">
+<meta name="theme-color" content="#060606">
+<link rel="icon" href="/zebuoficial.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f59e0b;--gold-l:#fbbf24;--bg:#060606;--card:#111110;--line:rgba(245,158,11,.2);--text:#ecebe8;--muted:#a9a59c;--serif:'Playfair Display',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-l)}img{max-width:100%;display:block}
+.top{position:sticky;top:0;z-index:20;background:rgba(6,6,6,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.marca{color:var(--text);text-decoration:none;font-weight:800;font-size:.9rem;letter-spacing:.02em}.marca span{color:var(--gold)}
+.langs{display:flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:#0d0d0c}
+.langs a{min-width:40px;min-height:32px;display:grid;place-items:center;border-radius:999px;font:700 12px var(--sans);letter-spacing:.08em;color:#d9d6cf;text-decoration:none}
+.langs a[aria-current]{background:var(--gold);color:#111}
+main{max-width:760px;margin:0 auto;padding:28px 16px 40px}
+.trilha{font-size:.78rem;color:var(--muted);margin-bottom:14px}.trilha a{color:var(--muted)}
+.kicker{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h1{font-family:var(--serif);font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.12;margin-bottom:14px}
+.meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:26px;line-height:1.45}.meta img{flex:none}
+.meta img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.meta b{color:var(--text)}
+.aviso{font-size:.86rem;color:#e9dcc0;background:rgba(245,158,11,.08);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:28px}
+article h2{font-family:var(--serif);font-size:1.55rem;line-height:1.25;margin:36px 0 12px;color:#fff}
+article h3{font-size:1.08rem;margin:24px 0 8px;color:var(--gold-l)}
+article p{margin:0 0 16px;font-size:1.03rem}
+article ul,article ol{margin:0 0 18px 22px}article li{margin:6px 0}
+article strong{color:#fff}
+article li.ck{list-style:none;margin-left:-22px;padding-left:30px;position:relative}article li.ck::before{content:'';position:absolute;left:0;top:.35em;width:16px;height:16px;border:2px solid var(--gold);border-radius:4px}
+article blockquote{margin:20px 0;padding:14px 16px;border-left:4px solid var(--gold);background:rgba(245,158,11,.07);border-radius:0 12px 12px 0}
+article blockquote p{margin:0}
+article code{font-size:.9em;background:#1a1916;padding:1px 6px;border-radius:6px}
+article table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:.92rem;display:block;overflow-x:auto}
+article th,article td{border:1px solid #2a2823;padding:8px 10px;text-align:left;vertical-align:top}article th{background:#17160f;color:var(--gold-l)}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:36px 0 10px}
+.nav a{display:block;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:var(--text);min-height:64px}
+.nav a small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+.nav a b{font-size:.92rem;line-height:1.3}.nav .prox{text-align:right;grid-column:2}
+.todos{display:block;text-align:center;margin:8px 0 30px;font-weight:700;font-size:.9rem}
+.cta{border:1px solid rgba(245,158,11,.45);border-radius:20px;padding:22px 18px;background:linear-gradient(160deg,#1a1408,var(--card) 60%);margin:30px 0}
+.cta h2{font-family:var(--serif);font-size:1.35rem;margin-bottom:6px}.cta p{color:#d8d4ca;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,var(--gold-l),var(--gold) 55%,#b45309);color:#1a1208;font-weight:800;text-decoration:none}
+.autor{display:flex;gap:14px;align-items:flex-start;border-top:1px solid #222;padding-top:24px;margin-top:10px}
+.autor img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none}
+.autor h2{font-size:1rem;margin-bottom:4px}.autor p{font-size:.9rem;color:var(--muted)}
+.lista{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.lista a{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card);text-decoration:none;color:var(--text)}
+.lista .n{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;min-width:34px}
+.lista b{display:block;font-size:1rem;line-height:1.3}.lista span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px;line-height:1.45}
+.lead{font-size:1.08rem;color:#d8d4ca;margin-bottom:22px}
+footer{border-top:1px solid #1d1d1b;margin-top:30px;padding:22px 16px 40px;text-align:center;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--gold-l)}
+@media(max-width:420px){.nav{grid-template-columns:1fr}.nav .prox{grid-column:1}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "headline": "Passphrase y seguridad contra la coacción", "description": "Cómo la passphrase BIP39 crea una billetera oculta, el riesgo de olvidarla, cómo guardarla separada de la semilla y cómo usar una billetera señuelo.", "inLanguage": "es", "url": "https://dionefolador.com/guia/es/04-passphrase-e-coacao/", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "author": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "publisher": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "isPartOf": {"@type": "CreativeWorkSeries", "name": "Guía de Autocustodia de Bitcoin", "url": "https://dionefolador.com/guia/es/"}, "image": "https://dionefolador.com/bio/img/hero.webp", "about": ["Bitcoin", "self-custody"], "isAccessibleForFree": true}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://dionefolador.com/"}, {"@type": "ListItem", "position": 2, "name": "Guía de Autocustodia de Bitcoin", "item": "https://dionefolador.com/guia/es/"}, {"@type": "ListItem", "position": 3, "name": "Passphrase y seguridad contra la coacción", "item": "https://dionefolador.com/guia/es/04-passphrase-e-coacao/"}]}]}</script>
+</head>
+<body>
+<header class="top"><div class="top-in"><a class="marca" href="/guia/es/">Dione <span>Folador</span> · Guía</a><nav class="langs" aria-label="Idioma / Language"><a href="/guia/04-passphrase-e-coacao/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/guia/en/04-passphrase-e-coacao/" hreflang="en" lang="en">EN</a><a href="/guia/es/04-passphrase-e-coacao/" hreflang="es" lang="es" aria-current="page">ES</a></nav></div></header>
+<main>
+<p class="trilha"><a href="https://dionefolador.com/">Inicio</a> › <a href="/guia/es/">Guía de Autocustodia de Bitcoin</a></p>
+<span class="kicker">Capítulo 4 de 8</span>
+<h1>Passphrase y seguridad contra la coacción</h1>
+<div class="meta"><img src="/bio/img/dione-guia.webp" alt="" width="34" height="34"><span>Por <b>Dione Folador</b> · Actualizado el 6 de noviembre de 2026 · 7 min de lectura</span></div>
+<p class="aviso">Contenido educativo. No es recomendación de inversión. Nadie legítimo te pedirá tu semilla: ni yo, ni el soporte de una billetera, ni un exchange.</p>
+<article><p>En el capítulo anterior la semilla se volvió el centro de todo: quien tiene las palabras tiene el bitcoin. La passphrase cambia esa regla. Con ella, la semilla sola ya no abre tu billetera principal. En este capítulo te explico cómo funciona, dónde está el peligro y cómo usar la passphrase para protegerte del robo de tu respaldo e incluso de la coacción física.</p>
+<h2>Qué es la passphrase</h2>
+<p>La passphrase es un texto extra, elegido por ti, que se suma a la semilla. Forma parte del mismo estándar <strong>BIP39</strong> y mucha gente la llama <strong>"palabra 25"</strong>. El nombre engaña un poco: no tiene que ser una palabra de la lista. Puede ser cualquier texto, con letras, números, espacios y símbolos.</p>
+<p>No la confundas con el PIN. El <strong>PIN</strong> desbloquea el dispositivo y vive solo en él. Si olvidas el PIN, reinicias el dispositivo y restauras desde la semilla. La <strong>passphrase</strong> entra en el cálculo de las claves. Forma parte del respaldo, no del dispositivo.</p>
+<h2>Cómo funciona</h2>
+<p>La billetera toma la semilla y la passphrase juntas y las pasa por una función matemática (en BIP39, PBKDF2 con 2048 rondas). El resultado es la semilla binaria que genera todas las claves.</p>
+<p>La consecuencia práctica:</p>
+<ul>
+<li><strong>Cada passphrase distinta genera una billetera completamente distinta</strong>, con otras direcciones y otro saldo.</li>
+<li>La semilla sin passphrase también es una billetera válida. Sigue existiendo.</li>
+<li><strong>No existe una passphrase "incorrecta".</strong> Si escribes "Bitcoin2011" en lugar de "bitcoin2011", la billetera se abre normalmente, solo que vacía. No aparece ningún mensaje de error.</li>
+</ul>
+<p>Ese último punto es al mismo tiempo la fuerza y el riesgo. La fuerza: un ladrón con tu semilla no tiene forma de saber si existe una passphrase ni cuál es. El riesgo: tú tampoco recibes ningún aviso cuando te equivocas.</p>
+<h2>El riesgo de olvidarla</h2>
+<p>Sé muy claro contigo mismo: <strong>si pierdes la passphrase, pierdes el bitcoin</strong>. No hay soporte, no hay recuperación, no hay "olvidé mi contraseña". La semilla sin la passphrase correcta abre otra billetera, vacía.</p>
+<p>Por eso:</p>
+<ul>
+<li><strong>Anota la passphrase en papel o metal.</strong> No confíes solo en la memoria. La memoria falla con el tiempo, con el estrés, después de un accidente.</li>
+<li>Anótala exactamente como es: mayúsculas y minúsculas, espacios, acentos. Cada detalle cambia la billetera. Yo prefiero evitar acentos y caracteres especiales difíciles de escribir en el dispositivo, justamente para reducir errores.</li>
+<li><strong>Anota la huella (fingerprint) de la billetera.</strong> Muchas billeteras y programas como Sparrow muestran un código corto de 8 caracteres que identifica la billetera generada. Si escribes la passphrase y la huella coincide con la anotada, la passphrase es correcta. Ese código no permite gastar, pero revela que existe una billetera con passphrase y ayuda a un ladrón a probar intentos. Por eso guarda la huella junto a la passphrase, nunca junto a la semilla.</li>
+<li>Haz la <strong>prueba de recuperación</strong> completa, como en el capítulo anterior, ahora con semilla más passphrase: restaura, verifica la primera dirección y solo después deposita montos mayores.</li>
+<li>Al conectar la billetera al software de la computadora, hazlo con la passphrase ya aplicada en el dispositivo. Sin ella, el software importa la xpub de la billetera sin passphrase y muestra otra billetera, vacía o el señuelo.</li>
+</ul>
+<h3>Fuerza de la passphrase</h3>
+<p>Si alguien encuentra tu semilla, la passphrase es la última barrera. Una passphrase corta y predecible (el nombre de tu hijo, una fecha de nacimiento, "clave123") puede descubrirse probando. Usa algo largo y que no tenga relación contigo, por ejemplo una secuencia de varias palabras aleatorias. Larga y anotada es mejor que corta y "memorizada".</p>
+<h2>Guardarla por separado</h2>
+<p>La passphrase solo te protege si <strong>no está en el mismo lugar que la semilla</strong>. Semilla y passphrase juntas en el mismo cajón valen lo mismo que una semilla sin passphrase.</p>
+<p>La regla es simple:</p>
+<ul>
+<li>Semilla en un lugar, passphrase en otro.</li>
+<li>Quien encuentre solo la semilla abre la billetera sin passphrase, que puede estar vacía o tener poco.</li>
+<li>Quien encuentre solo la passphrase tiene un texto sin sentido, que no abre nada.</li>
+</ul>
+<p>Ejemplo de arreglo: semilla en metal en un lugar discreto de tu casa. Passphrase anotada en un sobre cerrado en la casa de un familiar de confianza, o en una caja fuerte en otra dirección. Ninguno de los dos papeles dice qué es.</p>
+<p>Piensa también en tus herederos desde ya. Van a necesitar las dos partes e instrucciones claras. Ese es tema del capítulo Herencia de Bitcoin: cómo accederá tu familia, pero la decisión de usar passphrase tiene que tenerlo en cuenta.</p>
+<h2>Billetera señuelo</h2>
+<p>Aquí entra la seguridad contra la coacción. Coacción es cuando alguien usa violencia o amenazas para obligarte a entregar tu bitcoin. Este tipo de delito ya ocurrió en varios países y suele afectar a quien se hizo conocido por tener cripto.</p>
+<p>La passphrase permite armar una <strong>billetera señuelo</strong>:</p>
+<ol>
+<li>La semilla <strong>sin passphrase</strong> abre una billetera con un monto pequeño, pero creíble.</li>
+<li>La semilla <strong>con passphrase</strong> abre la billetera principal.</li>
+<li>Bajo amenaza, puedes abrir la billetera sin passphrase. Es real, tiene historial, tiene saldo.</li>
+</ol>
+<p>Para que el señuelo sea convincente, tiene que parecer usado: recibe en él de verdad y deja un monto que tenga sentido para alguien de tu realidad.</p>
+<p>Algunos dispositivos permiten configurar un <strong>segundo PIN</strong> que abre otra billetera o activa otro comportamiento. Es la misma idea, aplicada en la pantalla de desbloqueo. Revisa en la documentación oficial de tu dispositivo si lo ofrece.</p>
+<blockquote>
+<p>Tu vida vale más que cualquier cantidad de bitcoin. Una billetera señuelo es una capa de protección, no un plan para enfrentar a un delincuente. Ante una amenaza real, prioriza salir con vida y acude a la policía después.</p>
+</blockquote>
+<p>Sé honesto sobre el límite: un delincuente informado sabe que la passphrase existe y puede no creerte. Por eso el señuelo funciona mejor sumado a las otras capas de abajo. Para patrimonios mayores, el multisig del próximo capítulo también dificulta la coacción, porque no puedes mover todo tú solo, desde un único lugar.</p>
+<p>Y un límite legal importante: la billetera oculta es una protección contra delincuentes, <strong>no contra el fisco ni contra la Justicia</strong>. La autocustodia es legal, y todo tu bitcoin, incluido el de la billetera con passphrase, debe declararse según las reglas tributarias de tu país. En Brasil, eso significa la ficha Bens e Direitos de la declaración de renta, en el grupo de criptoactivos. Si tienes dudas sobre cómo declarar, confírmalo con un contador.</p>
+<h2>Discreción: la mejor defensa</h2>
+<p>La forma más barata de evitar la coacción es que <strong>nadie sepa que tienes bitcoin</strong>. Nadie secuestra a quien no parece un objetivo.</p>
+<ul>
+<li><strong>No digas cuánto tienes.</strong> Ni en redes sociales, ni en una reunión con amigos, ni en el grupo de la familia.</li>
+<li>No publiques capturas de saldo, de billetera, de dispositivo ni de ganancias.</li>
+<li>No dejes tu billetera física a la vista en casa ni en fotos.</li>
+<li>Cuidado con la dirección de envío. Bases de clientes de empresas del sector ya se filtraron, con nombre y dirección. Si puedes, recibe los paquetes en un lugar que no sea tu casa, dentro de la ley.</li>
+<li>Desconfía de quien se acerca preguntando demasiado sobre cripto.</li>
+<li>Usa un correo separado para asuntos de bitcoin, para reducir el daño si se filtra una base de clientes.</li>
+</ul>
+<p>Enseño autocustodia en público, y por eso sé el peso de esto. Hablar del tema es una cosa. Exponer tu patrimonio es otra. Aquí la privacidad es seguridad personal, tuya y de tu familia.</p>
+<h2>Lista de verificación</h2>
+<ul>
+<li class="ck">Entendí que la passphrase es distinta del PIN y forma parte del respaldo</li>
+<li class="ck">Elegí una passphrase larga, sin relación conmigo, y la anoté exactamente como es</li>
+<li class="ck">Anoté la huella (fingerprint) de la billetera con passphrase para verificarla después</li>
+<li class="ck">Hice la prueba de recuperación con semilla más passphrase</li>
+<li class="ck">La semilla y la passphrase están guardadas en lugares distintos</li>
+<li class="ck">Armé una billetera señuelo creíble, si tiene sentido para mí</li>
+<li class="ck">No expongo mi patrimonio en público y tengo un plan para que mis herederos accedan a las dos partes</li>
+</ul>
+</article>
+<nav class="nav"><a href="/guia/es/03-seed-e-recuperacao/"><small>← Anterior</small><b>Semilla de 12 o 24 palabras y la prueba de recuperación</b></a><a class="prox" href="/guia/es/05-multisig/"><small>Siguiente →</small><b>Multisig: autocustodia para un patrimonio mayor</b></a></nav><a class="todos" href="/guia/es/">Todos los capítulos</a>
+<section class="cta"><h2>¿Quieres hacerlo con acompañamiento?</h2><p>En la mentoría individual configuras todo en tu propio dispositivo, conmigo guiando cada paso.</p><a class="btn" href="https://wa.me/5534993421500?text=%C2%A1Hola%20Dione!%20Le%C3%AD%20tu%20gu%C3%ADa%20de%20autocustodia%20y%20quiero%20saber%20sobre%20tu%20mentor%C3%ADa." target="_blank" rel="noopener">Hablar con Dione</a></section>
+<div class="autor"><img src="/bio/img/dione-guia.webp" alt="Dione Folador" width="64" height="64" loading="lazy"><div><h2>Sobre el autor: Dione Folador</h2><p>Dione Folador está en el mercado cripto desde 2011 y enseña autocustodia y seguridad de Bitcoin a quienes quieren tomar el control de su propio patrimonio. En Instagram es @dionefol.</p></div></div>
+</main>
+<footer><p>© 2026 Dione Folador · <a href="https://dionefolador.com/">dionefolador.com</a> · <a href="https://instagram.com/dionefol" rel="noopener">@dionefol</a></p><p style="margin-top:6px">Contenido educativo. No es recomendación de inversión. Nadie legítimo te pedirá tu semilla: ni yo, ni el soporte de una billetera, ni un exchange.</p></footer>
+<script src="https://biovenda.app.br/atendente/zebu.js" data-trilha="cripto" data-nome="Fol" data-api="dionefol-bio" data-whats="5534993421500" defer></script>
+</body>
+</html>

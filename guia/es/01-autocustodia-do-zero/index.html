@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autocustodia desde cero: por qué salir del exchange | Guía de Autocustodia de Bitcoin</title>
+<meta name="description" content="Qué es la autocustodia de Bitcoin, por qué importa &quot;not your keys, not your coins&quot; y qué riesgos cambias al sacar tus bitcoins del exchange.">
+<meta name="author" content="Dione Folador">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dionefolador.com/guia/es/01-autocustodia-do-zero/">
+<link rel="alternate" hreflang="pt-BR" href="https://dionefolador.com/guia/01-autocustodia-do-zero/">
+<link rel="alternate" hreflang="en" href="https://dionefolador.com/guia/en/01-autocustodia-do-zero/">
+<link rel="alternate" hreflang="es" href="https://dionefolador.com/guia/es/01-autocustodia-do-zero/">
+<link rel="alternate" hreflang="x-default" href="https://dionefolador.com/guia/01-autocustodia-do-zero/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Autocustodia desde cero: por qué salir del exchange | Guía de Autocustodia de Bitcoin">
+<meta property="og:description" content="Qué es la autocustodia de Bitcoin, por qué importa &quot;not your keys, not your coins&quot; y qué riesgos cambias al sacar tus bitcoins del exchange.">
+<meta property="og:url" content="https://dionefolador.com/guia/es/01-autocustodia-do-zero/">
+<meta property="og:image" content="https://dionefolador.com/bio/img/hero.webp">
+<meta property="og:locale" content="es">
+<meta name="theme-color" content="#060606">
+<link rel="icon" href="/zebuoficial.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f59e0b;--gold-l:#fbbf24;--bg:#060606;--card:#111110;--line:rgba(245,158,11,.2);--text:#ecebe8;--muted:#a9a59c;--serif:'Playfair Display',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-l)}img{max-width:100%;display:block}
+.top{position:sticky;top:0;z-index:20;background:rgba(6,6,6,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.marca{color:var(--text);text-decoration:none;font-weight:800;font-size:.9rem;letter-spacing:.02em}.marca span{color:var(--gold)}
+.langs{display:flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:#0d0d0c}
+.langs a{min-width:40px;min-height:32px;display:grid;place-items:center;border-radius:999px;font:700 12px var(--sans);letter-spacing:.08em;color:#d9d6cf;text-decoration:none}
+.langs a[aria-current]{background:var(--gold);color:#111}
+main{max-width:760px;margin:0 auto;padding:28px 16px 40px}
+.trilha{font-size:.78rem;color:var(--muted);margin-bottom:14px}.trilha a{color:var(--muted)}
+.kicker{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h1{font-family:var(--serif);font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.12;margin-bottom:14px}
+.meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:26px;line-height:1.45}.meta img{flex:none}
+.meta img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.meta b{color:var(--text)}
+.aviso{font-size:.86rem;color:#e9dcc0;background:rgba(245,158,11,.08);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:28px}
+article h2{font-family:var(--serif);font-size:1.55rem;line-height:1.25;margin:36px 0 12px;color:#fff}
+article h3{font-size:1.08rem;margin:24px 0 8px;color:var(--gold-l)}
+article p{margin:0 0 16px;font-size:1.03rem}
+article ul,article ol{margin:0 0 18px 22px}article li{margin:6px 0}
+article strong{color:#fff}
+article li.ck{list-style:none;margin-left:-22px;padding-left:30px;position:relative}article li.ck::before{content:'';position:absolute;left:0;top:.35em;width:16px;height:16px;border:2px solid var(--gold);border-radius:4px}
+article blockquote{margin:20px 0;padding:14px 16px;border-left:4px solid var(--gold);background:rgba(245,158,11,.07);border-radius:0 12px 12px 0}
+article blockquote p{margin:0}
+article code{font-size:.9em;background:#1a1916;padding:1px 6px;border-radius:6px}
+article table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:.92rem;display:block;overflow-x:auto}
+article th,article td{border:1px solid #2a2823;padding:8px 10px;text-align:left;vertical-align:top}article th{background:#17160f;color:var(--gold-l)}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:36px 0 10px}
+.nav a{display:block;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:var(--text);min-height:64px}
+.nav a small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+.nav a b{font-size:.92rem;line-height:1.3}.nav .prox{text-align:right;grid-column:2}
+.todos{display:block;text-align:center;margin:8px 0 30px;font-weight:700;font-size:.9rem}
+.cta{border:1px solid rgba(245,158,11,.45);border-radius:20px;padding:22px 18px;background:linear-gradient(160deg,#1a1408,var(--card) 60%);margin:30px 0}
+.cta h2{font-family:var(--serif);font-size:1.35rem;margin-bottom:6px}.cta p{color:#d8d4ca;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,var(--gold-l),var(--gold) 55%,#b45309);color:#1a1208;font-weight:800;text-decoration:none}
+.autor{display:flex;gap:14px;align-items:flex-start;border-top:1px solid #222;padding-top:24px;margin-top:10px}
+.autor img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none}
+.autor h2{font-size:1rem;margin-bottom:4px}.autor p{font-size:.9rem;color:var(--muted)}
+.lista{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.lista a{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card);text-decoration:none;color:var(--text)}
+.lista .n{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;min-width:34px}
+.lista b{display:block;font-size:1rem;line-height:1.3}.lista span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px;line-height:1.45}
+.lead{font-size:1.08rem;color:#d8d4ca;margin-bottom:22px}
+footer{border-top:1px solid #1d1d1b;margin-top:30px;padding:22px 16px 40px;text-align:center;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--gold-l)}
+@media(max-width:420px){.nav{grid-template-columns:1fr}.nav .prox{grid-column:1}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "headline": "Autocustodia desde cero: por qué salir del exchange", "description": "Qué es la autocustodia de Bitcoin, por qué importa \"not your keys, not your coins\" y qué riesgos cambias al sacar tus bitcoins del exchange.", "inLanguage": "es", "url": "https://dionefolador.com/guia/es/01-autocustodia-do-zero/", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "author": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "publisher": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "isPartOf": {"@type": "CreativeWorkSeries", "name": "Guía de Autocustodia de Bitcoin", "url": "https://dionefolador.com/guia/es/"}, "image": "https://dionefolador.com/bio/img/hero.webp", "about": ["Bitcoin", "self-custody"], "isAccessibleForFree": true}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://dionefolador.com/"}, {"@type": "ListItem", "position": 2, "name": "Guía de Autocustodia de Bitcoin", "item": "https://dionefolador.com/guia/es/"}, {"@type": "ListItem", "position": 3, "name": "Autocustodia desde cero: por qué salir del exchange", "item": "https://dionefolador.com/guia/es/01-autocustodia-do-zero/"}]}]}</script>
+</head>
+<body>
+<header class="top"><div class="top-in"><a class="marca" href="/guia/es/">Dione <span>Folador</span> · Guía</a><nav class="langs" aria-label="Idioma / Language"><a href="/guia/01-autocustodia-do-zero/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/guia/en/01-autocustodia-do-zero/" hreflang="en" lang="en">EN</a><a href="/guia/es/01-autocustodia-do-zero/" hreflang="es" lang="es" aria-current="page">ES</a></nav></div></header>
+<main>
+<p class="trilha"><a href="https://dionefolador.com/">Inicio</a> › <a href="/guia/es/">Guía de Autocustodia de Bitcoin</a></p>
+<span class="kicker">Capítulo 1 de 8</span>
+<h1>Autocustodia desde cero: por qué salir del exchange</h1>
+<div class="meta"><img src="/bio/img/dione-guia.webp" alt="" width="34" height="34"><span>Por <b>Dione Folador</b> · Actualizado el 6 de noviembre de 2026 · 7 min de lectura</span></div>
+<p class="aviso">Contenido educativo. No es recomendación de inversión. Nadie legítimo te pedirá tu semilla: ni yo, ni el soporte de una billetera, ni un exchange.</p>
+<article><p>Estoy en el mercado de Bitcoin desde 2011. En este tiempo he visto exchanges quebrar, exchanges bloquear retiros y personas perderlo todo por confiar en quien no debían. También he visto personas perderlo todo por hacer autocustodia sin saber lo que estaban haciendo. Esta guía existe para que evites los dos errores.</p>
+<p>En este primer capítulo te explico qué es la autocustodia, por qué importa y qué ganas y qué arriesgas cuando asumes la custodia de tus bitcoins. Sin prisa y sin promesas. Solo lo que funciona.</p>
+<h2>Qué es la autocustodia</h2>
+<p>Primero, un punto que casi nadie explica bien: <strong>tus bitcoins no están dentro de la billetera</strong>. Están registrados en la blockchain, el libro contable público de Bitcoin, copiado en miles de computadoras en todo el mundo. Lo que la billetera guarda son las <strong>claves privadas</strong>.</p>
+<p>Una clave privada es un número secreto, muy grande, que da el poder de gastar los bitcoins asociados a una dirección. Quien tiene la clave privada firma la transacción. La red verifica la firma y la acepta. Nadie te pregunta tu nombre, nadie te pide autorización.</p>
+<p>Entonces la pregunta correcta nunca es "¿dónde están mis bitcoins?". La pregunta correcta es: <strong>¿quién tiene las claves?</strong></p>
+<ul>
+<li>Si las claves las tiene el exchange, el exchange es el dueño real. Tú tienes un saldo en pantalla, que es una promesa de pagarte.</li>
+<li>Si las claves las tienes tú, nadie más puede mover esos bitcoins. Eso es <strong>autocustodia</strong>: tú eres el custodio, el guardián.</li>
+</ul>
+<h2>"Not your keys, not your coins"</h2>
+<p>La frase en inglés se volvió un lema en la comunidad: "si las claves no son tuyas, las monedas no son tuyas". Parece exagerado hasta que lo ves pasar.</p>
+<p>Cuando compras Bitcoin en un exchange y lo dejas ahí, lo que tienes es un crédito contra una empresa. Se parece al dinero en el banco, con una diferencia importante: en la mayoría de los casos no existe un seguro de depósitos que te devuelva el valor si la empresa quiebra.</p>
+<p>Esto no es teoría. Algunos casos públicos y conocidos:</p>
+<ul>
+<li><strong>Mt. Gox</strong>, que llegó a ser el mayor exchange de Bitcoin del mundo, detuvo los retiros y quebró en 2014. Los pagos a los acreedores solo empezaron en 2024, cerca de diez años después, y cubriendo solo parte de lo que tenían.</li>
+<li><strong>Celsius</strong> congeló los retiros de sus clientes en 2022 y después se acogió a la protección por bancarrota en Estados Unidos (el llamado Chapter 11).</li>
+<li><strong>FTX</strong>, uno de los mayores exchanges del mundo, quebró en noviembre de 2022. Los clientes se quedaron con el saldo atrapado.</li>
+</ul>
+<p>En todos esos casos, quien había retirado sus bitcoins a una billetera propia no perdió nada con la quiebra.</p>
+<h2>Los riesgos de dejarlo en el exchange</h2>
+<p>Incluso un exchange serio y regulado te expone a riesgos que no dependen de ti:</p>
+<ol>
+<li><strong>Quiebra o fraude.</strong> Si la empresa usa mal el dinero de los clientes, el saldo en pantalla no vale nada.</li>
+<li><strong>Bloqueo.</strong> El exchange puede congelar tu cuenta por una decisión interna, una revisión de datos, una orden judicial o un error. A veces se resuelve en días, a veces en meses.</li>
+<li><strong>Hackeo.</strong> Los exchanges concentran mucho dinero y son un blanco constante. Varios ya han sido atacados con éxito.</li>
+<li><strong>Filtración de datos.</strong> Tu nombre, tu número de documento, tu dirección y el hecho de que tienes cripto pueden filtrarse. Después de una filtración, los clientes suelen recibir correos y mensajes de phishing (estafas que imitan a la empresa para robar contraseñas o datos).</li>
+<li><strong>Límites y reglas.</strong> La empresa decide cuándo y cuánto puedes retirar.</li>
+</ol>
+<p>Nada de esto significa que el exchange sea inútil. Es la puerta de entrada más común para comprar Bitcoin con moneda local. El problema es usar la puerta de entrada como caja fuerte.</p>
+<h2>Los riesgos de la autocustodia</h2>
+<p>Aquí está la parte que muchos influencers esconden. La autocustodia elimina el riesgo de la empresa, pero crea riesgos nuevos, y todos pasan a ser tuyos:</p>
+<ul>
+<li><strong>Perder el respaldo.</strong> Toda billetera seria genera una <strong>semilla</strong> (en inglés, seed), también llamada frase de recuperación: una lista de 12 o 24 palabras, casi siempre según un estándar llamado BIP39, que permite recrear todas tus claves. Si el dispositivo se daña y no tienes la semilla, se acabó. No existe "olvidé mi contraseña".</li>
+<li><strong>Filtrar el respaldo.</strong> Si alguien ve o copia tu semilla, puede llevárselo todo, desde cualquier lugar del mundo, sin necesitar tu dispositivo.</li>
+<li><strong>Caer en una estafa.</strong> Sitio falso, app falsa, soporte falso. La mayoría de las pérdidas en autocustodia vienen de la ingeniería social, no de fallas en la criptografía.</li>
+<li><strong>Equivocarte de dirección.</strong> Una transacción de Bitcoin confirmada no tiene reversa.</li>
+<li><strong>Morir sin un plan.</strong> Si nadie en tu familia sabe cómo acceder, los bitcoins se pierden para siempre.</li>
+</ul>
+<blockquote>
+<p>Nadie legítimo te pide tu semilla. Ni yo, ni el soporte de ninguna billetera, ni un exchange, ni un "técnico". Quien te pide la semilla está intentando robarte.</p>
+</blockquote>
+<p>La buena noticia es que cada uno de estos riesgos tiene una solución conocida y probada. Eso es exactamente lo que enseñan los próximos capítulos.</p>
+<h2>Cuándo tiene sentido la autocustodia</h2>
+<p>No existe un monto mágico. Uso una regla simple: <strong>si perder lo que tienes en el exchange te haría falta de verdad, es hora de hacer autocustodia.</strong></p>
+<p>Algunas situaciones en las que tiene sentido:</p>
+<ul>
+<li>Piensas guardar Bitcoin por años, no hacer operaciones de corto plazo.</li>
+<li>El monto ya es relevante para tu patrimonio.</li>
+<li>Quieres que tu familia pueda heredar esos bitcoins de forma organizada.</li>
+</ul>
+<p>Y algunas en las que todavía puedes esperar un poco:</p>
+<ul>
+<li>Todavía estás aprendiendo y tienes un monto muy pequeño. En ese caso, usa ese monto para practicar con una billetera en el celular antes de comprar un dispositivo.</li>
+<li>No tienes ningún lugar mínimamente seguro para guardar un papel o una placa de metal.</li>
+</ul>
+<p>El punto es este: la autocustodia es una habilidad. Se aprende con un monto pequeño, se practica y después se aplica al monto grande.</p>
+<h2>La autocustodia es legal</h2>
+<p>Guardar tus propios bitcoins es legal en Brasil, donde vivo, y en la mayoría de los países. Hacer autocustodia no es esconderle nada a nadie. En Brasil, los criptoactivos deben declararse en el impuesto sobre la renta, según las reglas y límites de la autoridad tributaria, en la ficha <strong>Bens e Direitos</strong> (Bienes y Derechos), en el grupo de criptoactivos, ya sea que el Bitcoin esté en un exchange o en tu billetera. La mayoría de los países tiene reglas de declaración parecidas. Las reglas cambian de vez en cuando, así que confirma los detalles con un contador de tu país.</p>
+<p>En esta guía, la privacidad es una cuestión de seguridad: no convertirte en blanco de estafadores, secuestradores o filtraciones. Siempre dentro de la ley.</p>
+<h2>El camino de esta guía</h2>
+<p>Organicé la guía como una escalera. Cada escalón depende del anterior. No necesitas subirlos todos. Detente en el escalón que tenga sentido para tu patrimonio y tu nivel de comodidad.</p>
+<table>
+<thead>
+<tr>
+<th>Capítulo</th>
+<th>Qué aprendes</th>
+<th>Para quién</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2. Billetera física paso a paso</td>
+<td>Comprar y configurar una hardware wallet, recibir y hacer la primera prueba</td>
+<td>Todos los que van a hacer autocustodia</td>
+</tr>
+<tr>
+<td>3. Semilla de 12 o 24 palabras y la prueba de recuperación</td>
+<td>Anotar, guardar y probar el respaldo</td>
+<td>Todos</td>
+</tr>
+<tr>
+<td>4. Passphrase y seguridad contra la coacción</td>
+<td>Protección extra contra el robo de la semilla y amenazas físicas</td>
+<td>Quien tiene un monto relevante</td>
+</tr>
+<tr>
+<td>5. Multisig: autocustodia para un patrimonio mayor</td>
+<td>Repartir el control entre varias claves</td>
+<td>Patrimonio mayor</td>
+</tr>
+<tr>
+<td>6. Nodo propio de Bitcoin: verificar en vez de confiar</td>
+<td>Verificar la red tú mismo, con más privacidad</td>
+<td>Quien quiere independencia total</td>
+</tr>
+<tr>
+<td>7. Privacidad y protección contra estafas en Bitcoin</td>
+<td>Las estafas reales y cómo evitarlas</td>
+<td>Todos</td>
+</tr>
+<tr>
+<td>8. Herencia de Bitcoin: cómo accederá tu familia</td>
+<td>Asegurar que tu familia pueda acceder y declarar</td>
+<td>Todos</td>
+</tr>
+</tbody>
+</table>
+<p>Una configuración con billetera física, semilla bien guardada y probada y un plan de herencia ya te pone por delante de la gran mayoría de las personas. Lo demás es refinamiento.</p>
+<p>Una última cosa antes de empezar: <strong>ve despacio</strong>. La prisa es la mejor aliada del estafador. Ningún paso de esta guía tiene que hacerse con urgencia. Si alguien te está apurando, desconfía.</p>
+<h2>Lista de verificación</h2>
+<ul>
+<li class="ck">Entendí que la billetera guarda claves, no monedas.</li>
+<li class="ck">Sé la diferencia entre saldo en exchange (promesa) y autocustodia (control).</li>
+<li class="ck">Conozco los riesgos del exchange: quiebra, bloqueo, hackeo y filtración.</li>
+<li class="ck">Conozco los riesgos de la autocustodia: perder o filtrar la semilla, estafas y error de dirección.</li>
+<li class="ck">Sé que nadie legítimo pide mi semilla.</li>
+<li class="ck">Sé que debo declarar mis criptoactivos en el impuesto sobre la renta.</li>
+<li class="ck">Decidí hasta qué escalón de la guía tiene sentido llegar ahora.</li>
+</ul>
+</article>
+<nav class="nav"><a class="prox" href="/guia/es/02-carteira-fisica/"><small>Siguiente →</small><b>Billetera física paso a paso</b></a></nav><a class="todos" href="/guia/es/">Todos los capítulos</a>
+<section class="cta"><h2>¿Quieres hacerlo con acompañamiento?</h2><p>En la mentoría individual configuras todo en tu propio dispositivo, conmigo guiando cada paso.</p><a class="btn" href="https://wa.me/5534993421500?text=%C2%A1Hola%20Dione!%20Le%C3%AD%20tu%20gu%C3%ADa%20de%20autocustodia%20y%20quiero%20saber%20sobre%20tu%20mentor%C3%ADa." target="_blank" rel="noopener">Hablar con Dione</a></section>
+<div class="autor"><img src="/bio/img/dione-guia.webp" alt="Dione Folador" width="64" height="64" loading="lazy"><div><h2>Sobre el autor: Dione Folador</h2><p>Dione Folador está en el mercado cripto desde 2011 y enseña autocustodia y seguridad de Bitcoin a quienes quieren tomar el control de su propio patrimonio. En Instagram es @dionefol.</p></div></div>
+</main>
+<footer><p>© 2026 Dione Folador · <a href="https://dionefolador.com/">dionefolador.com</a> · <a href="https://instagram.com/dionefol" rel="noopener">@dionefol</a></p><p style="margin-top:6px">Contenido educativo. No es recomendación de inversión. Nadie legítimo te pedirá tu semilla: ni yo, ni el soporte de una billetera, ni un exchange.</p></footer>
+<script src="https://biovenda.app.br/atendente/zebu.js" data-trilha="cripto" data-nome="Fol" data-api="dionefol-bio" data-whats="5534993421500" defer></script>
+</body>
+</html>

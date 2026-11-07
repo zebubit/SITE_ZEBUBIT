@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12 or 24 Word Seed Phrase and the Recovery Test | Bitcoin Self-Custody Guide</title>
+<meta name="description" content="What a BIP39 seed is, how to write it down and store it on metal or paper, why you never photograph it, and how to run a recovery test before depositing.">
+<meta name="author" content="Dione Folador">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dionefolador.com/guia/en/03-seed-e-recuperacao/">
+<link rel="alternate" hreflang="pt-BR" href="https://dionefolador.com/guia/03-seed-e-recuperacao/">
+<link rel="alternate" hreflang="en" href="https://dionefolador.com/guia/en/03-seed-e-recuperacao/">
+<link rel="alternate" hreflang="es" href="https://dionefolador.com/guia/es/03-seed-e-recuperacao/">
+<link rel="alternate" hreflang="x-default" href="https://dionefolador.com/guia/03-seed-e-recuperacao/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="12 or 24 Word Seed Phrase and the Recovery Test | Bitcoin Self-Custody Guide">
+<meta property="og:description" content="What a BIP39 seed is, how to write it down and store it on metal or paper, why you never photograph it, and how to run a recovery test before depositing.">
+<meta property="og:url" content="https://dionefolador.com/guia/en/03-seed-e-recuperacao/">
+<meta property="og:image" content="https://dionefolador.com/bio/img/hero.webp">
+<meta property="og:locale" content="en">
+<meta name="theme-color" content="#060606">
+<link rel="icon" href="/zebuoficial.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f59e0b;--gold-l:#fbbf24;--bg:#060606;--card:#111110;--line:rgba(245,158,11,.2);--text:#ecebe8;--muted:#a9a59c;--serif:'Playfair Display',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-l)}img{max-width:100%;display:block}
+.top{position:sticky;top:0;z-index:20;background:rgba(6,6,6,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.marca{color:var(--text);text-decoration:none;font-weight:800;font-size:.9rem;letter-spacing:.02em}.marca span{color:var(--gold)}
+.langs{display:flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:#0d0d0c}
+.langs a{min-width:40px;min-height:32px;display:grid;place-items:center;border-radius:999px;font:700 12px var(--sans);letter-spacing:.08em;color:#d9d6cf;text-decoration:none}
+.langs a[aria-current]{background:var(--gold);color:#111}
+main{max-width:760px;margin:0 auto;padding:28px 16px 40px}
+.trilha{font-size:.78rem;color:var(--muted);margin-bottom:14px}.trilha a{color:var(--muted)}
+.kicker{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h1{font-family:var(--serif);font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.12;margin-bottom:14px}
+.meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:26px;line-height:1.45}.meta img{flex:none}
+.meta img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.meta b{color:var(--text)}
+.aviso{font-size:.86rem;color:#e9dcc0;background:rgba(245,158,11,.08);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:28px}
+article h2{font-family:var(--serif);font-size:1.55rem;line-height:1.25;margin:36px 0 12px;color:#fff}
+article h3{font-size:1.08rem;margin:24px 0 8px;color:var(--gold-l)}
+article p{margin:0 0 16px;font-size:1.03rem}
+article ul,article ol{margin:0 0 18px 22px}article li{margin:6px 0}
+article strong{color:#fff}
+article li.ck{list-style:none;margin-left:-22px;padding-left:30px;position:relative}article li.ck::before{content:'';position:absolute;left:0;top:.35em;width:16px;height:16px;border:2px solid var(--gold);border-radius:4px}
+article blockquote{margin:20px 0;padding:14px 16px;border-left:4px solid var(--gold);background:rgba(245,158,11,.07);border-radius:0 12px 12px 0}
+article blockquote p{margin:0}
+article code{font-size:.9em;background:#1a1916;padding:1px 6px;border-radius:6px}
+article table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:.92rem;display:block;overflow-x:auto}
+article th,article td{border:1px solid #2a2823;padding:8px 10px;text-align:left;vertical-align:top}article th{background:#17160f;color:var(--gold-l)}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:36px 0 10px}
+.nav a{display:block;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:var(--text);min-height:64px}
+.nav a small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+.nav a b{font-size:.92rem;line-height:1.3}.nav .prox{text-align:right;grid-column:2}
+.todos{display:block;text-align:center;margin:8px 0 30px;font-weight:700;font-size:.9rem}
+.cta{border:1px solid rgba(245,158,11,.45);border-radius:20px;padding:22px 18px;background:linear-gradient(160deg,#1a1408,var(--card) 60%);margin:30px 0}
+.cta h2{font-family:var(--serif);font-size:1.35rem;margin-bottom:6px}.cta p{color:#d8d4ca;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,var(--gold-l),var(--gold) 55%,#b45309);color:#1a1208;font-weight:800;text-decoration:none}
+.autor{display:flex;gap:14px;align-items:flex-start;border-top:1px solid #222;padding-top:24px;margin-top:10px}
+.autor img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none}
+.autor h2{font-size:1rem;margin-bottom:4px}.autor p{font-size:.9rem;color:var(--muted)}
+.lista{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.lista a{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card);text-decoration:none;color:var(--text)}
+.lista .n{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;min-width:34px}
+.lista b{display:block;font-size:1rem;line-height:1.3}.lista span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px;line-height:1.45}
+.lead{font-size:1.08rem;color:#d8d4ca;margin-bottom:22px}
+footer{border-top:1px solid #1d1d1b;margin-top:30px;padding:22px 16px 40px;text-align:center;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--gold-l)}
+@media(max-width:420px){.nav{grid-template-columns:1fr}.nav .prox{grid-column:1}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "headline": "12 or 24 Word Seed Phrase and the Recovery Test", "description": "What a BIP39 seed is, how to write it down and store it on metal or paper, why you never photograph it, and how to run a recovery test before depositing.", "inLanguage": "en", "url": "https://dionefolador.com/guia/en/03-seed-e-recuperacao/", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "author": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "publisher": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "isPartOf": {"@type": "CreativeWorkSeries", "name": "Bitcoin Self-Custody Guide", "url": "https://dionefolador.com/guia/en/"}, "image": "https://dionefolador.com/bio/img/hero.webp", "about": ["Bitcoin", "self-custody"], "isAccessibleForFree": true}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://dionefolador.com/"}, {"@type": "ListItem", "position": 2, "name": "Bitcoin Self-Custody Guide", "item": "https://dionefolador.com/guia/en/"}, {"@type": "ListItem", "position": 3, "name": "12 or 24 Word Seed Phrase and the Recovery Test", "item": "https://dionefolador.com/guia/en/03-seed-e-recuperacao/"}]}]}</script>
+</head>
+<body>
+<header class="top"><div class="top-in"><a class="marca" href="/guia/en/">Dione <span>Folador</span> · Guide</a><nav class="langs" aria-label="Idioma / Language"><a href="/guia/03-seed-e-recuperacao/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/guia/en/03-seed-e-recuperacao/" hreflang="en" lang="en" aria-current="page">EN</a><a href="/guia/es/03-seed-e-recuperacao/" hreflang="es" lang="es">ES</a></nav></div></header>
+<main>
+<p class="trilha"><a href="https://dionefolador.com/">Home</a> › <a href="/guia/en/">Bitcoin Self-Custody Guide</a></p>
+<span class="kicker">Chapter 3 of 8</span>
+<h1>12 or 24 Word Seed Phrase and the Recovery Test</h1>
+<div class="meta"><img src="/bio/img/dione-guia.webp" alt="" width="34" height="34"><span>By <b>Dione Folador</b> · Updated November 6, 2026 · 8 min read</span></div>
+<p class="aviso">Educational content. Not investment advice. No legitimate person will ever ask for your seed: not me, not wallet support, not an exchange.</p>
+<article><p>The seed is the most important part of self-custody. Your device can break, get stolen or fall into a river. If your seed is written down correctly and stored well, you lose nothing. If your seed leaks, you lose everything, even with the device locked in a drawer. In this chapter I explain what the seed is, how to write it down, where to store it and how to prove your backup works before you put real money in.</p>
+<h2>What the seed is</h2>
+<p>The seed (or recovery phrase) is a sequence of 12 or 24 words, almost always in English, taken from a fixed list of 2048 words. This standard is called <strong>BIP39</strong>, and the vast majority of serious wallets use it.</p>
+<p>Behind the words there is a huge random number. With 12 words you get 128 bits of randomness. With 24, you get 256 bits. The last word includes a small verification code (checksum), so a wrong word is usually detected by the wallet.</p>
+<p>From the seed, the wallet calculates all your private keys and all your addresses, in a tree structure defined by the <strong>BIP32</strong> standard (hierarchical derivation). That is why 12 or 24 words recover an entire wallet, with every address you have ever used.</p>
+<p>Understand one thing: <strong>your bitcoin is not inside the device</strong>. It is recorded on the blockchain. What the device holds is the key to move it. And the seed is that key written as words. Whoever has the seed has the bitcoin.</p>
+<h3>12 or 24 words?</h3>
+<p>Both are secure. 128 bits is already, in practice, impossible to guess with any computer that exists, and 24 words add extra margin. Use whatever your device generates. What defines your security is how you store it.</p>
+<h3>Rules about generation</h3>
+<ul>
+<li>The seed must be generated <strong>by the device itself</strong>, during the first setup, as I showed in the previous chapter.</li>
+<li>Never use a seed that came printed in the box, on a slip of paper inside the packaging or on a card. This is a known scam: whoever printed it has a copy.</li>
+<li>Never make up the words yourself or generate a seed on a website. The human brain is a terrible source of randomness, and a website may be recording everything.</li>
+</ul>
+<blockquote>
+<p>No legitimate person will ever ask for your seed. Not me, not wallet support, not an exchange, not a "technician" of any kind. If someone asked, it is a scam. No exceptions.</p>
+</blockquote>
+<h2>How to write it down</h2>
+<p>During the first setup the device shows the words one at a time. Write them down calmly:</p>
+<ol>
+<li>Use clear block letters, in pen.</li>
+<li><strong>Number every word</strong> (1 to 12 or 1 to 24). Order matters. The same words in a different order make a different wallet, or no valid wallet at all.</li>
+<li>Check the spelling. In the BIP39 list, the <strong>first 4 letters</strong> of each word identify it without ambiguity. If your handwriting is messy, 4 clear first letters will still save you.</li>
+<li>Also write down, on the same paper or a separate one, <strong>which wallet and which address type</strong> you used (for example, addresses starting with bc1q or bc1p). This is not secret and it helps a lot during recovery.</li>
+</ol>
+<p>Why item 4? Different wallets may use different derivation paths from the same seed. If you restore in software that looks for a different address type, it may show a zero balance and you will think you lost everything. You did not. You just need to pick the right type. One detail: Electrum, by default, creates seeds in its own format, which is not BIP39. It works fine, but you have to restore in Electrum or compatible software. Writing down where the seed came from avoids that scare.</p>
+<h2>Paper or metal</h2>
+<p>Paper is fine to start with, but it has weak points: water, humidity, fire, insects, someone throwing it away by accident.</p>
+<p>For amounts that matter, it is worth moving your seed to <strong>metal</strong>. There are stainless steel plates where you stamp the letters with a punch, and capsules with small metal letter tiles. Stainless steel withstands temperatures far above what destroys paper, and it does not dissolve in water.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Paper</th>
+<th>Metal (stainless steel)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cost</td>
+<td>Almost zero</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>Fire</td>
+<td>Burns</td>
+<td>Survives a typical house fire</td>
+</tr>
+<tr>
+<td>Water and humidity</td>
+<td>Gets ruined</td>
+<td>Resists</td>
+</tr>
+<tr>
+<td>Ease</td>
+<td>Immediate</td>
+<td>Takes more work to stamp</td>
+</tr>
+</tbody>
+</table>
+<p>Practical tip: stamping only the first 4 letters of each word on metal is enough, because they identify the word in the BIP39 list.</p>
+<h2>What to never do</h2>
+<ul>
+<li><strong>Never photograph your seed.</strong> Photos end up in automatic cloud backups, synced galleries, a phone sent in for repair.</li>
+<li><strong>Never type your seed</strong> into a computer, phone, password manager, email, notes app or a message to yourself.</li>
+<li><strong>Never store it in the cloud</strong>, not even in an "encrypted" file. The risk is not worth it.</li>
+<li>Never type your seed into any website, no matter how official it looks.</li>
+</ul>
+<p>The idea is simple: your seed should exist in only two places. On the device and on your physical, offline backup.</p>
+<h2>Where to store it</h2>
+<p>There is no perfect place. There is a balance between two risks: <strong>losing it</strong> (fire, flood, forgetting) and <strong>having it stolen</strong> (someone finding it).</p>
+<ul>
+<li>A hidden spot at home protects against casual theft, but not against fire.</li>
+<li>Two copies in different places protect against losing one location. But each copy is one more chance for someone to find it.</li>
+<li>A bank safe deposit box protects against fire and home burglary, but depends on bank hours and on third parties.</li>
+</ul>
+<p>For most people, a good starting point is: <strong>one metal copy in a discreet place and a second copy at another trusted address</strong>. Do not write "bitcoin seed" on the envelope. Whoever keeps it for you does not need to know what it is.</p>
+<blockquote>
+<p><strong>Warning:</strong> whoever has the full seed has full access to your bitcoin. A copy outside your home is only safe in a place that only you can access (your own safe deposit box, for example) or if the wallet has a passphrase stored somewhere else (see the passphrase chapter). Without a passphrase, never leave the full seed with another person, no matter how much you trust them.</p>
+</blockquote>
+<p>If you are going to use a passphrase (next chapter), the seed alone no longer opens your main wallet, and that shifts the risk math in your favor.</p>
+<h2>The recovery test</h2>
+<p>This is the step almost everyone skips. And it is what separates a real backup from wishful thinking. You only know your backup works after you <strong>recover the wallet from it</strong>.</p>
+<p>Do it like this, <strong>before</strong> depositing large amounts. If the wallet already holds a large amount, do the test on a second device instead of resetting the main one.</p>
+<ol>
+<li>With the new wallet, receive a <strong>small amount</strong>. Write down the first receiving address.</li>
+<li>Reset the device (wipe everything) or use a second compatible device.</li>
+<li>Choose the option to <strong>restore from seed</strong> and enter the words <strong>on the device itself</strong>, never on the computer.</li>
+<li>Check that <strong>the same first address</strong> and the same balance appear.</li>
+<li>If everything matches, your backup is proven. If it does not, stop and find the mistake now, with little money at stake.</li>
+</ol>
+<p>If your wallet uses a passphrase (next chapter), the test only counts if you restore with the seed <strong>and</strong> the passphrase and reach the same first address.</p>
+<p>Many devices also have a function to check the backup without wiping anything: you enter the words and it tells you whether they match the stored seed. It is a good option for repeating the check from time to time.</p>
+<p>Backup mistakes happen: a swapped word, reversed order, a badly written letter. Finding out with little money costs you a scare. Finding out years later costs you everything.</p>
+<h2>If you suspect a leak</h2>
+<p>Suspicion is reason enough to act. Examples: you typed the seed somewhere, someone saw the paper, a photo existed at some point, your home was broken into, or you fell for a fake website.</p>
+<ol>
+<li><strong>Do not wait for confirmation.</strong> Thieves do not warn you before they take it.</li>
+<li>Generate a <strong>new wallet with a new seed</strong>, ideally on a second device. If you only have one device, do not destroy the old seed yet: after resetting and creating the new wallet, write down one of its receive addresses verified on the screen, and you will need to restore the old seed to move the balance. Changing the PIN does not help, because the PIN protects the device, not the seed.</li>
+<li>Back up and run the recovery test on the new wallet.</li>
+<li><strong>Send the entire balance</strong> from the old wallet to an address in the new one, checking the address character by character.</li>
+<li>Retire the old seed forever. Never receive to it again.</li>
+<li>Only after confirming the balance in the new wallet, destroy the old copies so they cannot be read.</li>
+</ol>
+<p>If you open the wallet and the balance is already gone, unfortunately there is no way to reverse a bitcoin transaction. That is why the care comes first.</p>
+<h2>Checklist</h2>
+<ul>
+<li class="ck">The seed was generated by the device itself and never came pre-made</li>
+<li class="ck">I wrote down every word, numbered, and checked the spelling</li>
+<li class="ck">I wrote down which wallet and which address type I used</li>
+<li class="ck">The seed does not exist in any photo, cloud, phone or computer</li>
+<li class="ck">I have a metal copy (or a plan to move to metal) stored in a discreet place</li>
+<li class="ck">I ran the recovery test with a small amount and the first address matched</li>
+<li class="ck">I know what to do if I suspect my seed has leaked</li>
+</ul>
+</article>
+<nav class="nav"><a href="/guia/en/02-carteira-fisica/"><small>← Previous</small><b>Hardware Wallet Step by Step</b></a><a class="prox" href="/guia/en/04-passphrase-e-coacao/"><small>Next →</small><b>Passphrase and Protection Against Coercion</b></a></nav><a class="todos" href="/guia/en/">All chapters</a>
+<section class="cta"><h2>Want to do this with guidance?</h2><p>In one-on-one mentoring, you set everything up on your own device, with me guiding each step.</p><a class="btn" href="https://wa.me/5534993421500?text=Hi%20Dione!%20I%20read%20your%20self-custody%20guide%20and%20I%27d%20like%20to%20know%20about%20your%20mentoring." target="_blank" rel="noopener">Talk to Dione</a></section>
+<div class="autor"><img src="/bio/img/dione-guia.webp" alt="Dione Folador" width="64" height="64" loading="lazy"><div><h2>About the author: Dione Folador</h2><p>Dione Folador has been in the crypto market since 2011 and teaches Bitcoin self-custody and security to people who want to take control of their own wealth. On Instagram, he is @dionefol.</p></div></div>
+</main>
+<footer><p>© 2026 Dione Folador · <a href="https://dionefolador.com/">dionefolador.com</a> · <a href="https://instagram.com/dionefol" rel="noopener">@dionefol</a></p><p style="margin-top:6px">Educational content. Not investment advice. No legitimate person will ever ask for your seed: not me, not wallet support, not an exchange.</p></footer>
+<script src="https://biovenda.app.br/atendente/zebu.js" data-trilha="cripto" data-nome="Fol" data-api="dionefol-bio" data-whats="5534993421500" defer></script>
+</body>
+</html>

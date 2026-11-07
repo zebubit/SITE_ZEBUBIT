@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nó próprio de Bitcoin: verificar em vez de confiar | Guia de Autocustódia de Bitcoin</title>
+<meta name="description" content="Por que rodar seu próprio nó de Bitcoin, o que ele verifica, como protege sua privacidade, opções de hardware e como conectar sua carteira.">
+<meta name="author" content="Dione Folador">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dionefolador.com/guia/06-no-proprio/">
+<link rel="alternate" hreflang="pt-BR" href="https://dionefolador.com/guia/06-no-proprio/">
+<link rel="alternate" hreflang="en" href="https://dionefolador.com/guia/en/06-no-proprio/">
+<link rel="alternate" hreflang="es" href="https://dionefolador.com/guia/es/06-no-proprio/">
+<link rel="alternate" hreflang="x-default" href="https://dionefolador.com/guia/06-no-proprio/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nó próprio de Bitcoin: verificar em vez de confiar | Guia de Autocustódia de Bitcoin">
+<meta property="og:description" content="Por que rodar seu próprio nó de Bitcoin, o que ele verifica, como protege sua privacidade, opções de hardware e como conectar sua carteira.">
+<meta property="og:url" content="https://dionefolador.com/guia/06-no-proprio/">
+<meta property="og:image" content="https://dionefolador.com/bio/img/hero.webp">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#060606">
+<link rel="icon" href="/zebuoficial.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f59e0b;--gold-l:#fbbf24;--bg:#060606;--card:#111110;--line:rgba(245,158,11,.2);--text:#ecebe8;--muted:#a9a59c;--serif:'Playfair Display',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-l)}img{max-width:100%;display:block}
+.top{position:sticky;top:0;z-index:20;background:rgba(6,6,6,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.marca{color:var(--text);text-decoration:none;font-weight:800;font-size:.9rem;letter-spacing:.02em}.marca span{color:var(--gold)}
+.langs{display:flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:#0d0d0c}
+.langs a{min-width:40px;min-height:32px;display:grid;place-items:center;border-radius:999px;font:700 12px var(--sans);letter-spacing:.08em;color:#d9d6cf;text-decoration:none}
+.langs a[aria-current]{background:var(--gold);color:#111}
+main{max-width:760px;margin:0 auto;padding:28px 16px 40px}
+.trilha{font-size:.78rem;color:var(--muted);margin-bottom:14px}.trilha a{color:var(--muted)}
+.kicker{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h1{font-family:var(--serif);font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.12;margin-bottom:14px}
+.meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:26px;line-height:1.45}.meta img{flex:none}
+.meta img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.meta b{color:var(--text)}
+.aviso{font-size:.86rem;color:#e9dcc0;background:rgba(245,158,11,.08);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:28px}
+article h2{font-family:var(--serif);font-size:1.55rem;line-height:1.25;margin:36px 0 12px;color:#fff}
+article h3{font-size:1.08rem;margin:24px 0 8px;color:var(--gold-l)}
+article p{margin:0 0 16px;font-size:1.03rem}
+article ul,article ol{margin:0 0 18px 22px}article li{margin:6px 0}
+article strong{color:#fff}
+article li.ck{list-style:none;margin-left:-22px;padding-left:30px;position:relative}article li.ck::before{content:'';position:absolute;left:0;top:.35em;width:16px;height:16px;border:2px solid var(--gold);border-radius:4px}
+article blockquote{margin:20px 0;padding:14px 16px;border-left:4px solid var(--gold);background:rgba(245,158,11,.07);border-radius:0 12px 12px 0}
+article blockquote p{margin:0}
+article code{font-size:.9em;background:#1a1916;padding:1px 6px;border-radius:6px}
+article table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:.92rem;display:block;overflow-x:auto}
+article th,article td{border:1px solid #2a2823;padding:8px 10px;text-align:left;vertical-align:top}article th{background:#17160f;color:var(--gold-l)}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:36px 0 10px}
+.nav a{display:block;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:var(--text);min-height:64px}
+.nav a small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+.nav a b{font-size:.92rem;line-height:1.3}.nav .prox{text-align:right;grid-column:2}
+.todos{display:block;text-align:center;margin:8px 0 30px;font-weight:700;font-size:.9rem}
+.cta{border:1px solid rgba(245,158,11,.45);border-radius:20px;padding:22px 18px;background:linear-gradient(160deg,#1a1408,var(--card) 60%);margin:30px 0}
+.cta h2{font-family:var(--serif);font-size:1.35rem;margin-bottom:6px}.cta p{color:#d8d4ca;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,var(--gold-l),var(--gold) 55%,#b45309);color:#1a1208;font-weight:800;text-decoration:none}
+.autor{display:flex;gap:14px;align-items:flex-start;border-top:1px solid #222;padding-top:24px;margin-top:10px}
+.autor img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none}
+.autor h2{font-size:1rem;margin-bottom:4px}.autor p{font-size:.9rem;color:var(--muted)}
+.lista{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.lista a{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card);text-decoration:none;color:var(--text)}
+.lista .n{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;min-width:34px}
+.lista b{display:block;font-size:1rem;line-height:1.3}.lista span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px;line-height:1.45}
+.lead{font-size:1.08rem;color:#d8d4ca;margin-bottom:22px}
+footer{border-top:1px solid #1d1d1b;margin-top:30px;padding:22px 16px 40px;text-align:center;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--gold-l)}
+@media(max-width:420px){.nav{grid-template-columns:1fr}.nav .prox{grid-column:1}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "headline": "Nó próprio de Bitcoin: verificar em vez de confiar", "description": "Por que rodar seu próprio nó de Bitcoin, o que ele verifica, como protege sua privacidade, opções de hardware e como conectar sua carteira.", "inLanguage": "pt-BR", "url": "https://dionefolador.com/guia/06-no-proprio/", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "author": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "publisher": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "isPartOf": {"@type": "CreativeWorkSeries", "name": "Guia de Autocustódia de Bitcoin", "url": "https://dionefolador.com/guia/"}, "image": "https://dionefolador.com/bio/img/hero.webp", "about": ["Bitcoin", "self-custody"], "isAccessibleForFree": true}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://dionefolador.com/"}, {"@type": "ListItem", "position": 2, "name": "Guia de Autocustódia de Bitcoin", "item": "https://dionefolador.com/guia/"}, {"@type": "ListItem", "position": 3, "name": "Nó próprio de Bitcoin: verificar em vez de confiar", "item": "https://dionefolador.com/guia/06-no-proprio/"}]}]}</script>
+</head>
+<body>
+<header class="top"><div class="top-in"><a class="marca" href="/guia/">Dione <span>Folador</span> · Guia</a><nav class="langs" aria-label="Idioma / Language"><a href="/guia/06-no-proprio/" hreflang="pt-BR" lang="pt-BR" aria-current="page">PT</a><a href="/guia/en/06-no-proprio/" hreflang="en" lang="en">EN</a><a href="/guia/es/06-no-proprio/" hreflang="es" lang="es">ES</a></nav></div></header>
+<main>
+<p class="trilha"><a href="https://dionefolador.com/">Início</a> › <a href="/guia/">Guia de Autocustódia de Bitcoin</a></p>
+<span class="kicker">Capítulo 6 de 8</span>
+<h1>Nó próprio de Bitcoin: verificar em vez de confiar</h1>
+<div class="meta"><img src="/bio/img/dione-guia.webp" alt="" width="34" height="34"><span>Por <b>Dione Folador</b> · Atualizado em 6 de novembro de 2026 · 7 min de leitura</span></div>
+<p class="aviso">Conteúdo educativo. Não é recomendação de investimento. Ninguém legítimo pede sua seed: nem eu, nem suporte de carteira, nem corretora.</p>
+<article><p>Você já tem a chave na mão. A seed está guardada, a carteira física assina, talvez você até tenha montado uma multisig. Mas existe uma pergunta que pouca gente faz: <strong>quando sua carteira mostra o saldo, de onde vem essa informação?</strong></p>
+<p>Na maioria dos casos, vem do servidor de outra pessoa. Seu aplicativo pergunta a um computador na internet "quanto tem nesses endereços?" e acredita na resposta. Funciona, mas tem dois custos: você confia em alguém para te dizer a verdade e você entrega a esse alguém a lista dos seus endereços.</p>
+<p>O <strong>nó próprio</strong> resolve as duas coisas. Neste capítulo explico o que ele é, o que ele faz, quanto custa e como ligar sua carteira nele.</p>
+<h2>O que é um nó</h2>
+<p>Um <strong>nó completo</strong> (full node) é um computador rodando um software de Bitcoin que baixa e confere todos os blocos da história da rede, desde o primeiro, de 2009. A implementação de referência e a mais usada é o <strong>Bitcoin Core</strong>, gratuito e de código aberto.</p>
+<p>Um ponto que confunde muita gente: <strong>o nó não guarda seus bitcoins</strong>. Suas chaves continuam na carteira física. O nó é a sua fonte de informação confiável sobre a rede e o seu canal para transmitir transações. Se o nó quebrar, seus bitcoins continuam intactos e sua seed continua valendo.</p>
+<p>Também não é mineração. Nó não gasta energia disputando blocos. Ele só verifica.</p>
+<h2>O que o nó verifica</h2>
+<p>Quando seu nó baixa a blockchain pela primeira vez (processo chamado sincronização inicial, ou IBD), ele não aceita nada só porque alguém mandou. Ele confere por conta própria, entre outras regras:</p>
+<ul>
+<li>que cada bloco tem a <strong>prova de trabalho</strong> exigida;</li>
+<li>que cada transação tem <strong>assinaturas válidas</strong> e só gasta moedas que existem;</li>
+<li>que nenhuma moeda foi <strong>gasta duas vezes</strong>;</li>
+<li>que a <strong>emissão</strong> respeita o cronograma, com o limite de 21 milhões;</li>
+<li>que tamanho de bloco e demais <strong>regras de consenso</strong> foram cumpridas.</li>
+</ul>
+<p>Um detalhe para quem gosta de precisão: para acelerar a sincronização, o Bitcoin Core, por padrão, pula a checagem das assinaturas de blocos antigos que já estão enterrados sob muita prova de trabalho (configuração chamada assumevalid). Todas as outras regras continuam sendo conferidas, e a checagem completa pode ser ligada nas configurações.</p>
+<p>Se um bloco quebra qualquer regra, seu nó rejeita. Não importa quem minerou, não importa quantas pessoas digam o contrário. É daí que vem a frase comum no Bitcoin: "não confie, verifique". Com um nó, quando aparece "confirmada" na sua carteira, foi o seu computador que conferiu.</p>
+<h2>Privacidade: o que o servidor público vê</h2>
+<p>Quando sua carteira usa um servidor público, esse servidor pode ver:</p>
+<ul>
+<li>os endereços ou a xpub que você consulta, e por isso o seu saldo e o seu histórico;</li>
+<li>o seu endereço IP, que pode indicar sua cidade e o seu provedor;</li>
+<li>quando você transmite cada transação.</li>
+</ul>
+<p>Isso não significa que o servidor vai roubar nada. Ele não tem suas chaves. Mas significa que alguém pode ligar um IP a um patrimônio. Em caso de vazamento ou de servidor mal-intencionado, essa informação vira mapa para golpe ou para ataque físico. Discrição é segurança.</p>
+<p>Com seu próprio nó, as consultas ficam dentro da sua casa. Nenhum servidor de terceiros recebe a lista dos seus endereços. As transações continuam públicas na blockchain, como sempre, mas ninguém de fora recebe de você a informação de quais endereços são seus. Privacidade aqui é proteção pessoal, dentro da lei. Você continua declarando seus bitcoins normalmente.</p>
+<h2>Opções de hardware</h2>
+<p>Você não precisa de um computador potente. Precisa de estabilidade e de espaço em disco.</p>
+<ul>
+<li><strong>Disco:</strong> a blockchain completa já tem mais de 700 GB, e só cresce. Use um <strong>SSD de 2 TB</strong>. Um de 1 TB já fica apertado. HD mecânico e cartão de memória deixam tudo lento e tendem a corromper dados.</li>
+<li><strong>Memória:</strong> 4 GB funcionam; 8 GB ou mais deixam a sincronização bem mais rápida.</li>
+<li><strong>Internet:</strong> a sincronização inicial baixa centenas de gigabytes. Depois, o consumo cai bastante. Se sua franquia é limitada, ajuste as configurações de envio.</li>
+<li><strong>Energia:</strong> queda de luz no meio da escrita pode corromper o banco de dados. Um nobreak pequeno ajuda.</li>
+</ul>
+<p>Caminhos comuns:</p>
+<ol>
+<li><strong>Computador que você já tem.</strong> Instale o Bitcoin Core num desktop ou notebook que fique ligado. É o jeito mais barato de começar.</li>
+<li><strong>Mini PC ou Raspberry Pi com SSD</strong>, usando um sistema pronto para nó. Exemplos conhecidos: <strong>Umbrel</strong>, <strong>Start9</strong> e <strong>RaspiBlitz</strong>. Eles instalam o Bitcoin Core, um servidor Electrum e uma interface no navegador.</li>
+<li><strong>Nó pronto comprado.</strong> Alguns projetos vendem o aparelho já montado. Custa mais, poupa trabalho.</li>
+</ol>
+<p>Existe também o <strong>nó podado</strong> (pruned). Ele valida tudo do mesmo jeito, mas apaga blocos antigos depois de conferir, ocupando poucos gigabytes. Serve para quem tem pouco disco. A limitação: a maioria dos servidores Electrum precisa de um nó não podado.</p>
+<h2>Servidor Electrum: a ponte com a carteira</h2>
+<p>Muitas carteiras não conversam direto com o Bitcoin Core. Elas falam o protocolo Electrum. Por isso os sistemas de nó costumam incluir um <strong>servidor Electrum</strong> próprio, como Electrs ou Fulcrum. Ele indexa a blockchain do seu nó e responde rápido às consultas da carteira.</p>
+<p>Resumo do caminho: carteira física assina, programa da carteira (Sparrow, Electrum, Nunchuk, BlueWallet, entre outros) consulta o servidor Electrum, que consulta o seu Bitcoin Core.</p>
+<h2>Como conectar sua carteira</h2>
+<p>Os passos valem para qualquer carteira séria, mesmo que os nomes dos menus mudem:</p>
+<ol>
+<li><strong>Espere a sincronização terminar.</strong> Pode levar de um dia a mais de uma semana, conforme o hardware e a internet. Enquanto isso, saldos não aparecem corretos.</li>
+<li><strong>Anote o endereço do seu servidor.</strong> Na rede de casa, é o IP local do nó com a porta do servidor Electrum. Fora de casa, o caminho mais seguro é usar o endereço <strong>Tor</strong> (rede que esconde de onde vem a conexão e dispensa abrir portas no roteador) que o sistema do nó fornece, ou uma VPN privada.</li>
+<li><strong>Na carteira, troque o servidor público pelo seu.</strong> Procure as configurações de servidor ou de rede e informe o endereço. Algumas carteiras, como a Sparrow, também conectam direto ao Bitcoin Core.</li>
+<li><strong>Desative a opção de cair para servidores públicos</strong>, se a carteira tiver. Senão ela pode consultar outro servidor quando o seu estiver fora do ar.</li>
+<li><strong>Confira.</strong> O saldo e o histórico devem aparecer iguais. Faça uma transação pequena e veja se ela é transmitida pelo seu nó.</li>
+</ol>
+<blockquote>
+<p>Nunca exponha a porta de controle (RPC) do Bitcoin Core para a internet, e nunca abra portas no roteador sem entender o que está fazendo. Para acesso remoto, use Tor ou VPN.</p>
+</blockquote>
+<h2>Atualizações</h2>
+<p>Atualize o software do nó de tempos em tempos, sempre pela fonte oficial. Se instalar o Bitcoin Core manualmente, baixe de bitcoincore.org e confira o hash e as assinaturas do arquivo. Nos sistemas prontos, atualize pela própria interface. Desconfie de qualquer "atualização urgente" que chegue por e-mail, anúncio ou mensagem. Isso é golpe clássico.</p>
+<h2>Custo e esforço: vale para você?</h2>
+<p>Sendo direto:</p>
+<ul>
+<li><strong>Dinheiro:</strong> de quase zero (computador que você já tem) até o preço de um mini PC com SSD, mais a energia, que é baixa.</li>
+<li><strong>Tempo:</strong> uma tarde para instalar, alguns dias de sincronização e uns minutos por mês para conferir se está tudo rodando.</li>
+<li><strong>Conhecimento:</strong> os sistemas prontos simplificaram muito. Se você chegou até aqui no guia, dá conta.</li>
+</ul>
+<p>O nó não é pré-requisito para autocustódia. Uma carteira física bem configurada com seed bem guardada já te coloca muito à frente. O nó é o passo seguinte para quem quer independência total: verificar as regras por conta própria e parar de entregar seus endereços a terceiros.</p>
+<h2>Checklist</h2>
+<ul>
+<li class="ck">Entendi que o nó verifica a rede e não guarda minhas chaves</li>
+<li class="ck">Escolhi o hardware, com SSD de 2 TB para nó completo</li>
+<li class="ck">Instalei Bitcoin Core ou um sistema de nó (Umbrel, Start9, RaspiBlitz ou similar) a partir da fonte oficial</li>
+<li class="ck">Esperei a sincronização inicial terminar</li>
+<li class="ck">Conectei minha carteira ao meu servidor e desativei servidores públicos</li>
+<li class="ck">Testei com uma transação pequena transmitida pelo meu nó</li>
+<li class="ck">Não deixei a porta RPC exposta e uso Tor ou VPN para acesso de fora</li>
+</ul>
+</article>
+<nav class="nav"><a href="/guia/05-multisig/"><small>← Anterior</small><b>Multisig: autocustódia para patrimônio maior</b></a><a class="prox" href="/guia/07-privacidade-e-golpes/"><small>Próximo →</small><b>Privacidade e proteção contra golpes no Bitcoin</b></a></nav><a class="todos" href="/guia/">Todos os capítulos</a>
+<section class="cta"><h2>Quer fazer isso com acompanhamento?</h2><p>Na mentoria individual, você configura tudo no seu próprio equipamento, comigo orientando cada passo.</p><a class="btn" href="https://dionefolador.com/mentoria_checkout.html" target="_blank" rel="noopener">Conhecer a mentoria</a></section>
+<div class="autor"><img src="/bio/img/dione-guia.webp" alt="Dione Folador" width="64" height="64" loading="lazy"><div><h2>Sobre o autor: Dione Folador</h2><p>Dione Folador está no mercado cripto desde 2011 e ensina autocustódia e segurança de Bitcoin para quem quer assumir o controle do próprio patrimônio. No Instagram, é o @dionefol.</p></div></div>
+</main>
+<footer><p>© 2026 Dione Folador · <a href="https://dionefolador.com/">dionefolador.com</a> · <a href="https://instagram.com/dionefol" rel="noopener">@dionefol</a></p><p style="margin-top:6px">Conteúdo educativo. Não é recomendação de investimento. Ninguém legítimo pede sua seed: nem eu, nem suporte de carteira, nem corretora.</p></footer>
+<script src="https://biovenda.app.br/atendente/zebu.js" data-trilha="cripto" data-nome="Fol" data-api="dionefol-bio" data-whats="5534993421500" defer></script>
+</body>
+</html>

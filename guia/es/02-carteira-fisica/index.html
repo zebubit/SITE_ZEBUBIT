@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Billetera física paso a paso | Guía de Autocustodia de Bitcoin</title>
+<meta name="description" content="Cómo comprar, configurar y usar una hardware wallet de Bitcoin con seguridad: PIN, semilla generada en el dispositivo, dirección verificada y prueba.">
+<meta name="author" content="Dione Folador">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dionefolador.com/guia/es/02-carteira-fisica/">
+<link rel="alternate" hreflang="pt-BR" href="https://dionefolador.com/guia/02-carteira-fisica/">
+<link rel="alternate" hreflang="en" href="https://dionefolador.com/guia/en/02-carteira-fisica/">
+<link rel="alternate" hreflang="es" href="https://dionefolador.com/guia/es/02-carteira-fisica/">
+<link rel="alternate" hreflang="x-default" href="https://dionefolador.com/guia/02-carteira-fisica/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Billetera física paso a paso | Guía de Autocustodia de Bitcoin">
+<meta property="og:description" content="Cómo comprar, configurar y usar una hardware wallet de Bitcoin con seguridad: PIN, semilla generada en el dispositivo, dirección verificada y prueba.">
+<meta property="og:url" content="https://dionefolador.com/guia/es/02-carteira-fisica/">
+<meta property="og:image" content="https://dionefolador.com/bio/img/hero.webp">
+<meta property="og:locale" content="es">
+<meta name="theme-color" content="#060606">
+<link rel="icon" href="/zebuoficial.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f59e0b;--gold-l:#fbbf24;--bg:#060606;--card:#111110;--line:rgba(245,158,11,.2);--text:#ecebe8;--muted:#a9a59c;--serif:'Playfair Display',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-l)}img{max-width:100%;display:block}
+.top{position:sticky;top:0;z-index:20;background:rgba(6,6,6,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.marca{color:var(--text);text-decoration:none;font-weight:800;font-size:.9rem;letter-spacing:.02em}.marca span{color:var(--gold)}
+.langs{display:flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:#0d0d0c}
+.langs a{min-width:40px;min-height:32px;display:grid;place-items:center;border-radius:999px;font:700 12px var(--sans);letter-spacing:.08em;color:#d9d6cf;text-decoration:none}
+.langs a[aria-current]{background:var(--gold);color:#111}
+main{max-width:760px;margin:0 auto;padding:28px 16px 40px}
+.trilha{font-size:.78rem;color:var(--muted);margin-bottom:14px}.trilha a{color:var(--muted)}
+.kicker{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h1{font-family:var(--serif);font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.12;margin-bottom:14px}
+.meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:26px;line-height:1.45}.meta img{flex:none}
+.meta img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.meta b{color:var(--text)}
+.aviso{font-size:.86rem;color:#e9dcc0;background:rgba(245,158,11,.08);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:28px}
+article h2{font-family:var(--serif);font-size:1.55rem;line-height:1.25;margin:36px 0 12px;color:#fff}
+article h3{font-size:1.08rem;margin:24px 0 8px;color:var(--gold-l)}
+article p{margin:0 0 16px;font-size:1.03rem}
+article ul,article ol{margin:0 0 18px 22px}article li{margin:6px 0}
+article strong{color:#fff}
+article li.ck{list-style:none;margin-left:-22px;padding-left:30px;position:relative}article li.ck::before{content:'';position:absolute;left:0;top:.35em;width:16px;height:16px;border:2px solid var(--gold);border-radius:4px}
+article blockquote{margin:20px 0;padding:14px 16px;border-left:4px solid var(--gold);background:rgba(245,158,11,.07);border-radius:0 12px 12px 0}
+article blockquote p{margin:0}
+article code{font-size:.9em;background:#1a1916;padding:1px 6px;border-radius:6px}
+article table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:.92rem;display:block;overflow-x:auto}
+article th,article td{border:1px solid #2a2823;padding:8px 10px;text-align:left;vertical-align:top}article th{background:#17160f;color:var(--gold-l)}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:36px 0 10px}
+.nav a{display:block;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:var(--text);min-height:64px}
+.nav a small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+.nav a b{font-size:.92rem;line-height:1.3}.nav .prox{text-align:right;grid-column:2}
+.todos{display:block;text-align:center;margin:8px 0 30px;font-weight:700;font-size:.9rem}
+.cta{border:1px solid rgba(245,158,11,.45);border-radius:20px;padding:22px 18px;background:linear-gradient(160deg,#1a1408,var(--card) 60%);margin:30px 0}
+.cta h2{font-family:var(--serif);font-size:1.35rem;margin-bottom:6px}.cta p{color:#d8d4ca;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,var(--gold-l),var(--gold) 55%,#b45309);color:#1a1208;font-weight:800;text-decoration:none}
+.autor{display:flex;gap:14px;align-items:flex-start;border-top:1px solid #222;padding-top:24px;margin-top:10px}
+.autor img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none}
+.autor h2{font-size:1rem;margin-bottom:4px}.autor p{font-size:.9rem;color:var(--muted)}
+.lista{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.lista a{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card);text-decoration:none;color:var(--text)}
+.lista .n{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;min-width:34px}
+.lista b{display:block;font-size:1rem;line-height:1.3}.lista span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px;line-height:1.45}
+.lead{font-size:1.08rem;color:#d8d4ca;margin-bottom:22px}
+footer{border-top:1px solid #1d1d1b;margin-top:30px;padding:22px 16px 40px;text-align:center;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--gold-l)}
+@media(max-width:420px){.nav{grid-template-columns:1fr}.nav .prox{grid-column:1}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "headline": "Billetera física paso a paso", "description": "Cómo comprar, configurar y usar una hardware wallet de Bitcoin con seguridad: PIN, semilla generada en el dispositivo, dirección verificada y prueba.", "inLanguage": "es", "url": "https://dionefolador.com/guia/es/02-carteira-fisica/", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "author": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "publisher": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "isPartOf": {"@type": "CreativeWorkSeries", "name": "Guía de Autocustodia de Bitcoin", "url": "https://dionefolador.com/guia/es/"}, "image": "https://dionefolador.com/bio/img/hero.webp", "about": ["Bitcoin", "self-custody"], "isAccessibleForFree": true}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://dionefolador.com/"}, {"@type": "ListItem", "position": 2, "name": "Guía de Autocustodia de Bitcoin", "item": "https://dionefolador.com/guia/es/"}, {"@type": "ListItem", "position": 3, "name": "Billetera física paso a paso", "item": "https://dionefolador.com/guia/es/02-carteira-fisica/"}]}]}</script>
+</head>
+<body>
+<header class="top"><div class="top-in"><a class="marca" href="/guia/es/">Dione <span>Folador</span> · Guía</a><nav class="langs" aria-label="Idioma / Language"><a href="/guia/02-carteira-fisica/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/guia/en/02-carteira-fisica/" hreflang="en" lang="en">EN</a><a href="/guia/es/02-carteira-fisica/" hreflang="es" lang="es" aria-current="page">ES</a></nav></div></header>
+<main>
+<p class="trilha"><a href="https://dionefolador.com/">Inicio</a> › <a href="/guia/es/">Guía de Autocustodia de Bitcoin</a></p>
+<span class="kicker">Capítulo 2 de 8</span>
+<h1>Billetera física paso a paso</h1>
+<div class="meta"><img src="/bio/img/dione-guia.webp" alt="" width="34" height="34"><span>Por <b>Dione Folador</b> · Actualizado el 6 de noviembre de 2026 · 8 min de lectura</span></div>
+<p class="aviso">Contenido educativo. No es recomendación de inversión. Nadie legítimo te pedirá tu semilla: ni yo, ni el soporte de una billetera, ni un exchange.</p>
+<article><p>La billetera física, o <strong>hardware wallet</strong>, es el primer equipo serio de autocustodia. En este capítulo te muestro el camino completo: comprar sin caer en una estafa, configurar, recibir tu primer bitcoin y hacer una prueba antes de enviar el monto de verdad.</p>
+<p>No voy a enseñar menús, que cambian con cada versión. Voy a enseñar los pasos y el porqué de cada uno, que valen para cualquier billetera seria. El orden exacto puede variar un poco de un dispositivo a otro.</p>
+<h2>Qué es una hardware wallet</h2>
+<p>Es un pequeño dispositivo hecho para una sola función: <strong>guardar tus claves privadas y firmar transacciones sin que las claves salgan de él</strong>.</p>
+<p>Compáralo con una billetera en el celular o en la computadora. En esos equipos, la clave vive en un sistema conectado a internet, lleno de aplicaciones, expuesto a virus. En la hardware wallet, la clave está aislada. La computadora prepara la transacción, el dispositivo muestra los datos en su propia pantalla, tú los revisas y apruebas con un botón físico. La firma sale, la clave no.</p>
+<p>Por eso la <strong>pantalla del dispositivo</strong> es la parte más importante. Es la única pantalla en la que puedes confiar. La pantalla de la computadora puede estar manipulada por un malware. La del dispositivo la controla solo el dispositivo, lejos de la computadora infectada.</p>
+<p>Algunos ejemplos conocidos, solo como referencia y sin orden de preferencia: Coldcard, Trezor, Ledger, Blockstream Jade y BitBox02. También existen opciones del tipo "hazlo tú mismo", como SeedSigner y Krux, armadas con piezas comunes y software abierto. Algunas billeteras funcionan siempre desconectadas (llamadas <strong>air-gapped</strong>), intercambiando datos con la computadora por tarjeta microSD o código QR. Elige por la facilidad de uso y la reputación del fabricante.</p>
+<h2>Paso 1: comprar de la forma correcta</h2>
+<p>La seguridad empieza antes de abrir la caja.</p>
+<ul>
+<li><strong>Compra directamente en el sitio oficial del fabricante o en un revendedor oficial que aparezca en ese sitio.</strong> Escribe tú mismo la dirección del sitio. No hagas clic en anuncios patrocinados, porque los estafadores pagan anuncios con sitios falsos casi idénticos.</li>
+<li><strong>Nunca compres usado</strong>, ni a un amigo, ni "sellado" en un marketplace. Un dispositivo alterado puede venir con una semilla que el estafador ya conoce.</li>
+<li><strong>Revisa el empaque</strong> y el mecanismo de autenticidad que indique el fabricante. Algunos usan sellos, otros usan una verificación de autenticidad en el propio dispositivo o en el software oficial. Sigue la instrucción del fabricante.</li>
+<li>Si puedes, pide la entrega en una dirección que no revele que tienes Bitcoin. La discreción es seguridad.</li>
+</ul>
+<blockquote>
+<p>Si la caja trae una semilla ya impresa, una tarjeta con palabras o cualquier instrucción para usar palabras que venían incluidas, es una estafa. No uses el dispositivo. Una billetera seria siempre genera la semilla frente a ti, dentro del dispositivo.</p>
+</blockquote>
+<h2>Paso 2: el software de la computadora o del celular</h2>
+<p>La mayoría de las hardware wallets funcionan junto con un programa en la computadora o en el celular. Puede ser la aplicación oficial del fabricante o un software independiente compatible, como Sparrow, Nunchuk, Electrum o BlueWallet.</p>
+<p>Descárgalo <strong>solo</strong> del sitio oficial o de la tienda oficial de aplicaciones, revisando el nombre del desarrollador. Las apps falsas de billetera son una de las estafas más comunes. Si el software ofrece verificación de la firma de la descarga, vale la pena aprender a hacerla.</p>
+<p>Este programa no guarda tus claves. Muestra el saldo, genera direcciones para que las verifiques y arma transacciones. Quien firma es el dispositivo.</p>
+<h2>Paso 3: firmware</h2>
+<p>El <strong>firmware</strong> es el sistema interno del dispositivo. En la primera configuración, el dispositivo o el software oficial puede pedirte instalar o actualizar el firmware.</p>
+<ul>
+<li>Actualiza <strong>solo</strong> con el software oficial o con el método descrito en el sitio del fabricante.</li>
+<li>Nunca instales una actualización recibida por correo, mensaje o enlace. La "actualización urgente" que llega por correo es una estafa clásica.</li>
+<li>Una actualización legítima <strong>nunca</strong> te pide escribir tu semilla en la computadora.</li>
+</ul>
+<h2>Paso 4: definir el PIN</h2>
+<p>El <strong>PIN</strong> es la clave que desbloquea el dispositivo. Te protege contra quien tome el dispositivo en sus manos.</p>
+<ul>
+<li>Usa un PIN largo, de preferencia con más dígitos que el mínimo exigido.</li>
+<li>No uses tu fecha de nacimiento, una secuencia ni el mismo PIN del celular.</li>
+<li>Ten en cuenta que, en la mayoría de los dispositivos, cierto número de intentos fallidos borra o bloquea el dispositivo. Eso es protección, no un defecto. Por eso el respaldo de la semilla es obligatorio.</li>
+</ul>
+<p>Las billeteras sin memoria permanente, como SeedSigner, funcionan de otra manera: no guardan la semilla y la cargas en cada uso, normalmente con un código QR. El resto del capítulo vale igual.</p>
+<p>Importante: el PIN protege el <strong>dispositivo</strong>. No protege la <strong>semilla</strong>. Quien tenga tus palabras no necesita el PIN ni el dispositivo.</p>
+<h2>Paso 5: generar la semilla en el dispositivo</h2>
+<p>Ahora el dispositivo va a crear tu semilla: 12 o 24 palabras de una lista estándar de 2048 palabras (el estándar BIP39). Esas palabras son el origen de todas las claves de tu billetera.</p>
+<ul>
+<li>La semilla tiene que ser <strong>generada por el dispositivo, en el momento, en su propia pantalla</strong>.</li>
+<li>Anótala a mano, en orden, con la numeración. Revisa cada palabra dos veces.</li>
+<li><strong>Nunca</strong> le tomes foto, nunca la escribas en la computadora ni en el celular, nunca la guardes en la nube, en el correo ni en un gestor de contraseñas.</li>
+<li>El dispositivo te va a pedir que confirmes algunas palabras. Hazlo con calma.</li>
+</ul>
+<p>Cómo guardar la semilla con seguridad, en papel o en metal, y cómo probar que funciona es el tema del próximo capítulo. Por ahora, guarda la anotación en un lugar seguro y no pongas un monto grande en la billetera antes de hacer la prueba de recuperación.</p>
+<blockquote>
+<p>Nadie legítimo te pide tu semilla. Ni el soporte, ni el fabricante, ni un exchange, ni yo. Si alguien te la pide, es una estafa.</p>
+</blockquote>
+<h2>Paso 6: conectar al software y recibir</h2>
+<p>Con el dispositivo configurado, conéctalo al software. Este va a importar solo la información <strong>pública</strong> de la billetera, como la <strong>xpub</strong> (clave pública extendida, que permite ver el saldo y generar direcciones, pero no permite gastar). Así el software puede mostrar el saldo y crear direcciones sin tener nunca acceso a la clave privada. La xpub no permite robar nada, pero revela todo tu saldo e historial, así que no la compartas con nadie sin motivo.</p>
+<p>Para recibir:</p>
+<ol>
+<li>Pide una nueva dirección de recepción en el software. Las direcciones modernas empiezan con <strong>bc1</strong> (las más antiguas, que empiezan con 1 o 3, también son válidas).</li>
+<li><strong>Muestra la misma dirección en la pantalla del dispositivo</strong> y compárala carácter por carácter con la que aparece en la computadora. Revisa la dirección completa, no solo el inicio y el final.</li>
+<li>Solo después copia esa dirección al exchange o a quien te va a pagar.</li>
+</ol>
+<p>Por qué importa: existe malware que cambia la dirección copiada en el portapapeles por la dirección del estafador. Y existe el <strong>envenenamiento de direcciones</strong> (address poisoning), en el que el estafador envía una transacción mínima desde una dirección parecida a la tuya, con el mismo inicio y el mismo final, para que copies la dirección equivocada de tu historial. La defensa contra los dos es la misma: una dirección siempre generada en el momento y verificada en la pantalla del dispositivo.</p>
+<p>Usa una dirección nueva en cada recepción. Reutilizar direcciones perjudica tu privacidad. El software genera direcciones nuevas automáticamente.</p>
+<h2>Paso 7: la transacción de prueba</h2>
+<p>Antes de enviar el monto principal, haz una prueba con un monto pequeño.</p>
+<ol>
+<li>Envía una cantidad pequeña desde el exchange a una dirección de tu billetera, verificada en la pantalla.</li>
+<li>Espera a que la transacción aparezca y se confirme en la blockchain.</li>
+<li>Después, haz el camino de vuelta: envía una parte de ese monto de prueba a otra dirección tuya. Vas a ver que el dispositivo muestra la dirección de destino, el monto y la <strong>comisión de red</strong> (lo que se paga a los mineros para incluir la transacción en un bloque). Revisa todo en la pantalla del dispositivo antes de aprobar.</li>
+</ol>
+<p>Esta prueba demuestra que puedes recibir y gastar, antes de necesitarlo de verdad.</p>
+<p>Cuando esta prueba esté hecha, y también la prueba de recuperación de la semilla (próximo capítulo), entonces sí transfieres el monto principal. Si el monto es grande, puedes transferirlo en partes.</p>
+<h2>Cuidados de rutina</h2>
+<ul>
+<li>Mantén el firmware actualizado, siempre por el canal oficial, pero no tengas prisa por actualizar el primer día de una versión nueva si no hay un motivo de seguridad. Antes de cualquier actualización, confirma que el respaldo de la semilla existe y ya pasó la prueba de recuperación.</li>
+<li>Desconfía de cualquier contacto que tú no iniciaste y que hable de un "problema con tu billetera".</li>
+<li>Perder el dispositivo no es un desastre si tienes la semilla. Perder la semilla sí lo es.</li>
+</ul>
+<h2>Lista de verificación</h2>
+<ul>
+<li class="ck">Compré la hardware wallet nueva, directamente al fabricante o a un revendedor oficial, y verifiqué su autenticidad.</li>
+<li class="ck">Descargué el software solo del sitio o de la tienda oficial.</li>
+<li class="ck">Definí un PIN fuerte y distinto de mis otros PIN.</li>
+<li class="ck">Generé la semilla en el propio dispositivo y la anoté a mano, sin fotos y sin escribirla en ningún lugar digital.</li>
+<li class="ck">Verifiqué la dirección de recepción completa en la pantalla del dispositivo.</li>
+<li class="ck">Hice una transacción de prueba pequeña de entrada y de salida.</li>
+<li class="ck">Solo voy a enviar el monto principal después de la prueba de recuperación de la semilla.</li>
+</ul>
+</article>
+<nav class="nav"><a href="/guia/es/01-autocustodia-do-zero/"><small>← Anterior</small><b>Autocustodia desde cero: por qué salir del exchange</b></a><a class="prox" href="/guia/es/03-seed-e-recuperacao/"><small>Siguiente →</small><b>Semilla de 12 o 24 palabras y la prueba de recuperación</b></a></nav><a class="todos" href="/guia/es/">Todos los capítulos</a>
+<section class="cta"><h2>¿Quieres hacerlo con acompañamiento?</h2><p>En la mentoría individual configuras todo en tu propio dispositivo, conmigo guiando cada paso.</p><a class="btn" href="https://wa.me/5534993421500?text=%C2%A1Hola%20Dione!%20Le%C3%AD%20tu%20gu%C3%ADa%20de%20autocustodia%20y%20quiero%20saber%20sobre%20tu%20mentor%C3%ADa." target="_blank" rel="noopener">Hablar con Dione</a></section>
+<div class="autor"><img src="/bio/img/dione-guia.webp" alt="Dione Folador" width="64" height="64" loading="lazy"><div><h2>Sobre el autor: Dione Folador</h2><p>Dione Folador está en el mercado cripto desde 2011 y enseña autocustodia y seguridad de Bitcoin a quienes quieren tomar el control de su propio patrimonio. En Instagram es @dionefol.</p></div></div>
+</main>
+<footer><p>© 2026 Dione Folador · <a href="https://dionefolador.com/">dionefolador.com</a> · <a href="https://instagram.com/dionefol" rel="noopener">@dionefol</a></p><p style="margin-top:6px">Contenido educativo. No es recomendación de inversión. Nadie legítimo te pedirá tu semilla: ni yo, ni el soporte de una billetera, ni un exchange.</p></footer>
+<script src="https://biovenda.app.br/atendente/zebu.js" data-trilha="cripto" data-nome="Fol" data-api="dionefol-bio" data-whats="5534993421500" defer></script>
+</body>
+</html>

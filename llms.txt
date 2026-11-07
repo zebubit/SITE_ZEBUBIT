@@ -2,6 +2,11 @@
 
 > Estrategista de criptomoedas e mentor em soberania digital e autocustódia, no mercado cripto desde 2011. Site pessoal com conteúdo sobre Bitcoin, autocustódia, carteiras Web3 e mentoria individual.
 
+## Guia de Autocustódia de Bitcoin (gratuito, por Dione Folador)
+Guia técnico e prático em 8 capítulos, em português, inglês e espanhol:
+- [Português](https://dionefolador.com/guia/) · [English](https://dionefolador.com/guia/en/) · [Español](https://dionefolador.com/guia/es/)
+- Capítulos: autocustódia do zero; carteira física passo a passo; seed de 12 ou 24 palavras e teste de recuperação; passphrase e segurança contra coação; multisig; nó próprio; privacidade e proteção contra golpes; herança de Bitcoin.
+
 ## Produtos e serviços
 - Mentoria Private Strategy: consultoria estratégica individual sobre Bitcoin, autocustódia e soberania digital ([mentoria_checkout.html](https://dionefolador.com/mentoria_checkout.html))
 - Cartão WeFi: cartão Visa ligado a um Deobank (banco onchain), com link de indicação ([cartoes](https://dionefolador.com/cartoes))

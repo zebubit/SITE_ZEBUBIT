@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herencia de Bitcoin: cómo accederá tu familia | Guía de Autocustodia de Bitcoin</title>
+<meta name="description" content="Cómo armar un plan de herencia de Bitcoin en autocustodia: carta de instrucciones, separación de secretos, multisig, sucesión y declaración.">
+<meta name="author" content="Dione Folador">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dionefolador.com/guia/es/08-heranca-de-bitcoin/">
+<link rel="alternate" hreflang="pt-BR" href="https://dionefolador.com/guia/08-heranca-de-bitcoin/">
+<link rel="alternate" hreflang="en" href="https://dionefolador.com/guia/en/08-heranca-de-bitcoin/">
+<link rel="alternate" hreflang="es" href="https://dionefolador.com/guia/es/08-heranca-de-bitcoin/">
+<link rel="alternate" hreflang="x-default" href="https://dionefolador.com/guia/08-heranca-de-bitcoin/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Herencia de Bitcoin: cómo accederá tu familia | Guía de Autocustodia de Bitcoin">
+<meta property="og:description" content="Cómo armar un plan de herencia de Bitcoin en autocustodia: carta de instrucciones, separación de secretos, multisig, sucesión y declaración.">
+<meta property="og:url" content="https://dionefolador.com/guia/es/08-heranca-de-bitcoin/">
+<meta property="og:image" content="https://dionefolador.com/bio/img/hero.webp">
+<meta property="og:locale" content="es">
+<meta name="theme-color" content="#060606">
+<link rel="icon" href="/zebuoficial.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f59e0b;--gold-l:#fbbf24;--bg:#060606;--card:#111110;--line:rgba(245,158,11,.2);--text:#ecebe8;--muted:#a9a59c;--serif:'Playfair Display',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-l)}img{max-width:100%;display:block}
+.top{position:sticky;top:0;z-index:20;background:rgba(6,6,6,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.marca{color:var(--text);text-decoration:none;font-weight:800;font-size:.9rem;letter-spacing:.02em}.marca span{color:var(--gold)}
+.langs{display:flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:#0d0d0c}
+.langs a{min-width:40px;min-height:32px;display:grid;place-items:center;border-radius:999px;font:700 12px var(--sans);letter-spacing:.08em;color:#d9d6cf;text-decoration:none}
+.langs a[aria-current]{background:var(--gold);color:#111}
+main{max-width:760px;margin:0 auto;padding:28px 16px 40px}
+.trilha{font-size:.78rem;color:var(--muted);margin-bottom:14px}.trilha a{color:var(--muted)}
+.kicker{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h1{font-family:var(--serif);font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.12;margin-bottom:14px}
+.meta{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:26px;line-height:1.45}.meta img{flex:none}
+.meta img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.meta b{color:var(--text)}
+.aviso{font-size:.86rem;color:#e9dcc0;background:rgba(245,158,11,.08);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:28px}
+article h2{font-family:var(--serif);font-size:1.55rem;line-height:1.25;margin:36px 0 12px;color:#fff}
+article h3{font-size:1.08rem;margin:24px 0 8px;color:var(--gold-l)}
+article p{margin:0 0 16px;font-size:1.03rem}
+article ul,article ol{margin:0 0 18px 22px}article li{margin:6px 0}
+article strong{color:#fff}
+article li.ck{list-style:none;margin-left:-22px;padding-left:30px;position:relative}article li.ck::before{content:'';position:absolute;left:0;top:.35em;width:16px;height:16px;border:2px solid var(--gold);border-radius:4px}
+article blockquote{margin:20px 0;padding:14px 16px;border-left:4px solid var(--gold);background:rgba(245,158,11,.07);border-radius:0 12px 12px 0}
+article blockquote p{margin:0}
+article code{font-size:.9em;background:#1a1916;padding:1px 6px;border-radius:6px}
+article table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:.92rem;display:block;overflow-x:auto}
+article th,article td{border:1px solid #2a2823;padding:8px 10px;text-align:left;vertical-align:top}article th{background:#17160f;color:var(--gold-l)}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:36px 0 10px}
+.nav a{display:block;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;color:var(--text);min-height:64px}
+.nav a small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+.nav a b{font-size:.92rem;line-height:1.3}.nav .prox{text-align:right;grid-column:2}
+.todos{display:block;text-align:center;margin:8px 0 30px;font-weight:700;font-size:.9rem}
+.cta{border:1px solid rgba(245,158,11,.45);border-radius:20px;padding:22px 18px;background:linear-gradient(160deg,#1a1408,var(--card) 60%);margin:30px 0}
+.cta h2{font-family:var(--serif);font-size:1.35rem;margin-bottom:6px}.cta p{color:#d8d4ca;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,var(--gold-l),var(--gold) 55%,#b45309);color:#1a1208;font-weight:800;text-decoration:none}
+.autor{display:flex;gap:14px;align-items:flex-start;border-top:1px solid #222;padding-top:24px;margin-top:10px}
+.autor img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none}
+.autor h2{font-size:1rem;margin-bottom:4px}.autor p{font-size:.9rem;color:var(--muted)}
+.lista{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.lista a{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card);text-decoration:none;color:var(--text)}
+.lista .n{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;min-width:34px}
+.lista b{display:block;font-size:1rem;line-height:1.3}.lista span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px;line-height:1.45}
+.lead{font-size:1.08rem;color:#d8d4ca;margin-bottom:22px}
+footer{border-top:1px solid #1d1d1b;margin-top:30px;padding:22px 16px 40px;text-align:center;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--gold-l)}
+@media(max-width:420px){.nav{grid-template-columns:1fr}.nav .prox{grid-column:1}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "headline": "Herencia de Bitcoin: cómo accederá tu familia", "description": "Cómo armar un plan de herencia de Bitcoin en autocustodia: carta de instrucciones, separación de secretos, multisig, sucesión y declaración.", "inLanguage": "es", "url": "https://dionefolador.com/guia/es/08-heranca-de-bitcoin/", "datePublished": "2026-11-06", "dateModified": "2026-11-06", "author": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "publisher": {"@type": "Person", "@id": "https://dionefolador.com/#dione", "name": "Dione Folador", "url": "https://dionefolador.com", "sameAs": ["https://www.instagram.com/dionefol/", "https://www.linkedin.com/in/dione-folador-97a1711b4/", "https://x.com/DioneFol"]}, "isPartOf": {"@type": "CreativeWorkSeries", "name": "Guía de Autocustodia de Bitcoin", "url": "https://dionefolador.com/guia/es/"}, "image": "https://dionefolador.com/bio/img/hero.webp", "about": ["Bitcoin", "self-custody"], "isAccessibleForFree": true}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://dionefolador.com/"}, {"@type": "ListItem", "position": 2, "name": "Guía de Autocustodia de Bitcoin", "item": "https://dionefolador.com/guia/es/"}, {"@type": "ListItem", "position": 3, "name": "Herencia de Bitcoin: cómo accederá tu familia", "item": "https://dionefolador.com/guia/es/08-heranca-de-bitcoin/"}]}]}</script>
+</head>
+<body>
+<header class="top"><div class="top-in"><a class="marca" href="/guia/es/">Dione <span>Folador</span> · Guía</a><nav class="langs" aria-label="Idioma / Language"><a href="/guia/08-heranca-de-bitcoin/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/guia/en/08-heranca-de-bitcoin/" hreflang="en" lang="en">EN</a><a href="/guia/es/08-heranca-de-bitcoin/" hreflang="es" lang="es" aria-current="page">ES</a></nav></div></header>
+<main>
+<p class="trilha"><a href="https://dionefolador.com/">Inicio</a> › <a href="/guia/es/">Guía de Autocustodia de Bitcoin</a></p>
+<span class="kicker">Capítulo 8 de 8</span>
+<h1>Herencia de Bitcoin: cómo accederá tu familia</h1>
+<div class="meta"><img src="/bio/img/dione-guia.webp" alt="" width="34" height="34"><span>Por <b>Dione Folador</b> · Actualizado el 6 de noviembre de 2026 · 7 min de lectura</span></div>
+<p class="aviso">Contenido educativo. No es recomendación de inversión. Nadie legítimo te pedirá tu semilla: ni yo, ni el soporte de una billetera, ni un exchange.</p>
+<article><p>Autocustodia significa que solo tú controlas tu Bitcoin. Esa es su fuerza. Y también es el problema que resuelve este capítulo: si solo tú sabes cómo acceder, el día que faltes, nadie podrá. No hay ejecutivo de cuenta a quien llamar, no hay "olvidé mi contraseña", no hay juez que pueda abrir una billetera sin la clave.</p>
+<p>Un Bitcoin sin plan de herencia puede perderse para siempre. Y también pasa lo contrario: un heredero encuentra una semilla sin entender qué es, se lo cuenta a la persona equivocada o cae en la primera estafa.</p>
+<p>El objetivo es equilibrar dos cosas que tiran hacia lados opuestos: <strong>seguridad hoy</strong> (nadie te roba mientras vives) y <strong>acceso mañana</strong> (tu familia puede recuperar todo y ponerlo en regla).</p>
+<blockquote>
+<p>Ningún plan de herencia exige entregarle tu semilla a nadie hoy. Y nadie legítimo le va a pedir la semilla a tu familia después. Ni abogado, ni notario, ni "empresa de recuperación".</p>
+</blockquote>
+<h2>Paso 1: la carta de instrucciones, sin la semilla</h2>
+<p>El centro del plan es un documento sencillo, escrito por ti, en un lenguaje que tu familia entienda. Explica <strong>qué existe y cómo llegar a ello</strong>, pero <strong>no contiene la semilla ni la passphrase</strong>. Si la carta se filtra, nadie puede robar nada con ella.</p>
+<p>Qué poner en la carta:</p>
+<ul>
+<li><strong>Qué tienes:</strong> "tengo Bitcoin en autocustodia". No hace falta poner el monto.</li>
+<li><strong>Qué tipo de billetera es:</strong> billetera simple (una semilla), semilla con passphrase o multisig. Eso lo cambia todo en la recuperación.</li>
+<li><strong>Qué dispositivos y programas:</strong> el modelo de la billetera física y qué programa usar (ejemplos: Sparrow, Nunchuk, Electrum). Explica que deben descargarlos solo del sitio oficial.</li>
+<li><strong>Dónde está cada parte:</strong> "la semilla está en tal lugar", "la passphrase está en otro lugar", sin escribir su contenido.</li>
+<li><strong>Quiénes son las personas de confianza:</strong> alguien que entienda de Bitcoin y pueda ayudar, y el contador o abogado de la familia.</li>
+<li><strong>Avisos de seguridad:</strong> no tener prisa, no escribir la semilla en ningún sitio web, no aceptar ayuda de desconocidos, desconfiar de quien aparezca ofreciendo "recuperación".</li>
+<li><strong>Dónde están los registros fiscales:</strong> fechas y montos de compra, que sirven para declarar y calcular el costo de adquisición.</li>
+</ul>
+<p>Guarda la carta junto con tu testamento u otros documentos importantes, y dile al menos a una persona que existe. Una carta que nadie sabe que existe no sirve.</p>
+<h3>Un consejo que ayuda mucho: billetera de solo lectura</h3>
+<p>Una <strong>billetera de solo lectura</strong> (watch-only) es una billetera armada solo con la clave pública extendida, la <strong>xpub</strong>, o con el descriptor de la billetera. Muestra saldo e historial, pero <strong>no puede gastar</strong>. Dejar instrucciones para armar una watch-only ayuda a la familia a comprobar el patrimonio en la sucesión sin tocar nada.</p>
+<p>Recuerda que la xpub no permite gastar, pero revela todo tu saldo e historial. Trátala como información confidencial, no como un secreto de gasto.</p>
+<blockquote>
+<p>Si tu billetera usa passphrase, la xpub o el descriptor tienen que exportarse con la billetera ya abierta con la passphrase. Si los exportas solo desde la semilla, sin la passphrase, la billetera de solo lectura va a mostrar otra billetera, vacía, y tu familia puede creer que el patrimonio desapareció.</p>
+</blockquote>
+<h2>Paso 2: separar los secretos, sin complicarse</h2>
+<p>Una regla sencilla protege mucho: <strong>semilla y passphrase nunca en el mismo lugar</strong>. Quien encuentre solo la semilla no abre la billetera protegida por la passphrase. Quien encuentre solo la passphrase no tiene nada.</p>
+<p>Un arreglo común:</p>
+<ul>
+<li>Semilla en acero en un lugar seguro (por ejemplo, una caja fuerte en casa).</li>
+<li>Passphrase anotada en otro lugar (por ejemplo, con un familiar de confianza o en una caja de seguridad del banco).</li>
+<li>Carta de instrucciones con el testamento, indicando dónde está cada parte.</li>
+</ul>
+<p>Anota la passphrase exactamente como es, con mayúsculas, minúsculas, espacios y acentos. Un solo carácter distinto abre otra billetera, vacía, sin ningún mensaje de error.</p>
+<h3>Lo que no recomiendo: cortar la semilla a la mitad</h3>
+<p>Mucha gente piensa en darle 12 palabras a un hijo y 12 a otro. Parece astuto, pero debilita tu seguridad: quien tiene la mitad de las palabras necesita adivinar mucho menos, y en una semilla de 12 palabras ese margen queda peligrosamente pequeño. Peor aún: si una de las mitades se pierde, la otra no sirve para nada.</p>
+<p>Existen esquemas matemáticos hechos para dividir secretos, como Shamir (SLIP39), donde defines, por ejemplo, que 2 de 3 partes recuperan todo y una parte sola no revela nada. Funciona, pero no es el mismo estándar BIP39 de 12/24 palabras y no todas las billeteras lo soportan. Si lo usas, confirma que tu billetera lo soporta y que tu familia encontrará herramientas compatibles en el futuro. Para la mayoría de las personas, multisig lo resuelve mejor.</p>
+<h2>Paso 3: multisig con una persona de confianza</h2>
+<p>Como vimos en el capítulo Multisig: autocustodia para un patrimonio mayor, en una billetera <strong>2 de 3</strong> hay tres claves y cualquier par de ellas firma una transacción. Eso encaja muy bien con la herencia, porque ninguna clave sola mueve el dinero.</p>
+<p>Un ejemplo de arreglo:</p>
+<ul>
+<li><strong>Clave A:</strong> contigo, en casa.</li>
+<li><strong>Clave B:</strong> contigo, en otro lugar (una caja de seguridad del banco, por ejemplo).</li>
+<li><strong>Clave C:</strong> con una persona de confianza o con un servicio de custodia colaborativa.</li>
+</ul>
+<p>En vida, usas A y B y no dependes de nadie. Si la persona de la clave C quiere actuar sola, no puede. Cuando faltes, la familia reúne la clave C y una de las otras, siguiendo la carta, y recupera los fondos.</p>
+<p>Lo que más tumba los planes con multisig es olvidar el <strong>descriptor de la billetera</strong> (output descriptor), el archivo o texto con las xpub de todas las claves y la regla 2 de 3. Sin él, aun con dos semillas, la recuperación se vuelve muy difícil. Guarda una copia del descriptor junto con cada clave y otra con la carta. El descriptor no permite gastar, pero revela el saldo, así que guárdalo con discreción.</p>
+<p>También existen billeteras con <strong>rutas de recuperación con tiempo</strong> (timelock): la clave de un heredero solo empieza a valer después de un periodo sin movimientos. En la práctica, eso exige que muevas los fondos de vez en cuando para renovar el plazo. Es una solución elegante, pero más avanzada. Úsala solo si la entiendes bien y la probaste.</p>
+<h2>Paso 4: revisar y probar el plan</h2>
+<p>Un plan de herencia no se hace una vez y se olvida. Revísalo:</p>
+<ul>
+<li><strong>Una vez al año</strong>, en una fecha fija.</li>
+<li>Cuando cambies de billetera, de programa o de tipo de configuración.</li>
+<li>Cuando te mudes, cambies de caja fuerte o de persona de confianza.</li>
+<li>Cuando cambie tu familia: matrimonio, separación, nacimiento de un hijo.</li>
+</ul>
+<p>Una buena prueba: pídele a alguien de confianza que lea la carta y explique, con sus propias palabras, qué haría. Si se traba, la carta tiene que ser más clara. Si tu arreglo incluye multisig, haz tú mismo una recuperación de prueba con un monto pequeño, siguiendo solo la carta y los respaldos.</p>
+<h2>Paso 5: sucesión, declaración y profesionales</h2>
+<p>En Brasil, Bitcoin es patrimonio y entra en la herencia como cualquier otro bien. Eso significa:</p>
+<ul>
+<li><strong>Sucesión (inventário):</strong> los bienes del fallecido pasan por un proceso de sucesión, judicial o ante notario, según el caso. El Bitcoin tiene que estar listado.</li>
+<li><strong>Impuesto a la herencia:</strong> existe un impuesto estatal sobre la transmisión por herencia (ITCMD), con reglas que varían según el estado.</li>
+<li><strong>Declaración:</strong> el Bitcoin debe declararse en el Impuesto sobre la Renta, en la ficha de Bienes y Derechos, en el grupo de criptoactivos. Después, los herederos declaran lo que recibieron.</li>
+</ul>
+<p>Otros países tienen sus propias reglas, pero el principio es el mismo. El plan tiene que permitir que tu familia <strong>acceda y declare</strong>. Tener las claves sin los registros de compra crea un dolor de cabeza fiscal. Tener los registros sin las claves es perder el patrimonio. La billetera de solo lectura y los registros de compra resuelven la parte de comprobar. Las claves y la carta resuelven la parte de acceder.</p>
+<p>No doy asesoría legal ni fiscal específica. Las reglas cambian y cada familia es un caso distinto. Lleva tu plan a un <strong>contador</strong> y a un <strong>abogado</strong> de sucesiones, explícales que el Bitcoin está en autocustodia y confirma cómo declararlo e incluirlo en la sucesión. No necesitas mostrarles la semilla. Ellos necesitan saber que el bien existe y cómo se va a comprobar.</p>
+<h2>Lista de verificación</h2>
+<ul>
+<li class="ck">Escribí una carta de instrucciones sin semilla y sin passphrase.</li>
+<li class="ck">La carta indica el tipo de billetera, los programas y dónde está cada parte.</li>
+<li class="ck">La semilla y la passphrase están guardadas en lugares distintos.</li>
+<li class="ck">Si uso multisig, el descriptor está guardado con las claves y la carta.</li>
+<li class="ck">Al menos una persona de confianza sabe que la carta existe y dónde está.</li>
+<li class="ck">Mi Bitcoin está declarado y mis registros de compra están organizados.</li>
+<li class="ck">Agendé una revisión anual y hablé con un contador y un abogado.</li>
+</ul>
+</article>
+<nav class="nav"><a href="/guia/es/07-privacidade-e-golpes/"><small>← Anterior</small><b>Privacidad y protección contra estafas en Bitcoin</b></a></nav><a class="todos" href="/guia/es/">Todos los capítulos</a>
+<section class="cta"><h2>¿Quieres hacerlo con acompañamiento?</h2><p>En la mentoría individual configuras todo en tu propio dispositivo, conmigo guiando cada paso.</p><a class="btn" href="https://wa.me/5534993421500?text=%C2%A1Hola%20Dione!%20Le%C3%AD%20tu%20gu%C3%ADa%20de%20autocustodia%20y%20quiero%20saber%20sobre%20tu%20mentor%C3%ADa." target="_blank" rel="noopener">Hablar con Dione</a></section>
+<div class="autor"><img src="/bio/img/dione-guia.webp" alt="Dione Folador" width="64" height="64" loading="lazy"><div><h2>Sobre el autor: Dione Folador</h2><p>Dione Folador está en el mercado cripto desde 2011 y enseña autocustodia y seguridad de Bitcoin a quienes quieren tomar el control de su propio patrimonio. En Instagram es @dionefol.</p></div></div>
+</main>
+<footer><p>© 2026 Dione Folador · <a href="https://dionefolador.com/">dionefolador.com</a> · <a href="https://instagram.com/dionefol" rel="noopener">@dionefol</a></p><p style="margin-top:6px">Contenido educativo. No es recomendación de inversión. Nadie legítimo te pedirá tu semilla: ni yo, ni el soporte de una billetera, ni un exchange.</p></footer>
+<script src="https://biovenda.app.br/atendente/zebu.js" data-trilha="cripto" data-nome="Fol" data-api="dionefol-bio" data-whats="5534993421500" defer></script>
+</body>
+</html>
