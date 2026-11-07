@@ -20,7 +20,6 @@
   var GUIA     = LOJA + '#gratis';
   var MENTORIA = SITE + 'mentoria_checkout.html';
   var CARTAO   = SITE + 'cartoes';
-  var CONSULTA = 'https://mpago.la/28d4s8n';
 
   var CONVITES = ['Dúvida sobre cripto?', 'Qual ebook é pra você?', 'Posso te ajudar?'];
   var ABERTURA = 'Oi! Sou o assistente do Dione Folador. Posso te explicar sobre autocustódia e segurança em cripto, te ajudar a escolher o ebook certo e mostrar a mentoria. Escolha uma opção ou escreva sua dúvida.';
@@ -269,16 +268,16 @@
       r: 'A cotação ao vivo do Bitcoin, Ethereum, Solana e outras aparece na faixa no rodapé da página inicial do site.' },
 
     { k: ['consultoria','1 hora','1h','uma hora','call','videochamada','ligacao','sessao individual'],
-      r: 'A Consultoria Bitcoin 1h é uma conversa individual com o Dione para montar a sua estratégia de segurança e soberania. Está saindo por R$ 97 (o valor normal é R$ 1.199).',
-      l: [['Reservar a consultoria', CONSULTA]] },
+      r: 'A consultoria individual é uma conversa com o Dione para montar a sua estratégia de segurança e soberania. O valor é sob consulta, fale direto com ele no WhatsApp:',
+      z: 'Olá Dione! Quero saber sobre a consultoria individual.' },
 
     { k: ['heranca','herança','familia','família','falecer','morrer','sucessao','herdeiro'],
       r: 'Esse é um dos temas da Mentoria Private: o Dione desenha com você um protocolo para que sua família consiga acessar o patrimônio se for preciso, sem que ninguém tenha acesso enquanto você estiver no comando.',
       l: [['Ver a mentoria', MENTORIA]] },
 
     { k: ['mentoria','private','acompanhamento','sessoes','aulas particulares','individual'],
-      r: 'A Mentoria Private Strategy é o acompanhamento individual com o Dione:\n• 1 sessão: R$ 1.199\n• 4 sessões: R$ 3.999\n• 8 sessões: R$ 7.199 (a mais procurada)\n• 12 sessões: R$ 9.999\nSe quiser começar menor, tem a Consultoria Bitcoin 1h por R$ 97.',
-      l: [['Ver a mentoria', MENTORIA]] },
+      r: 'A Mentoria Private Strategy é o acompanhamento individual com o Dione, em pacotes de 1, 4, 8 ou 12 sessões. O valor é sob consulta, fale direto com ele no WhatsApp:',
+      z: 'Olá Dione! Quero saber o valor da mentoria Private Strategy.' },
 
     { k: ['receb','entrega','acesso','download','baixar o ebook','email','e-mail','nao chegou','não chegou'],
       r: 'Assim que o pagamento é aprovado, o link de download chega automaticamente no seu e-mail. Se não chegou, confira o spam. Ainda não achou? O Dione resolve no WhatsApp.',
@@ -294,7 +293,7 @@
       chips: ['Qual devo começar?', 'O que vem no combo?'] },
 
     { k: ['preco','preço','valor','quanto','custa','barato'],
-      r: 'Os valores:\n• Soberania Blindada: R$ 27\n• Vol 1: R$ 39,99\n• Vol 2: R$ 59,99\n• Combo com os 3: R$ 89,99\n• Consultoria Bitcoin 1h: R$ 97\n• Mentoria: a partir de R$ 1.199',
+      r: 'Os valores:\n• Soberania Blindada: R$ 27\n• Vol 1: R$ 39,99\n• Vol 2: R$ 59,99\n• Combo com os 3: R$ 89,99\n• Consultoria e mentoria: valor sob consulta, direto com o Dione no WhatsApp',
       l: [VER_LOJA] },
 
     { k: ['pagamento','pagar','pix','boleto','cartao de credito','parcel','mercado pago'],
@@ -323,8 +322,8 @@
       chips: ['Qual devo começar?', 'O que é seed?'] },
 
     { k: ['vai subir','vai cair','comprar agora','qual moeda','qual cripto','investir em','previsao','previsão','sinal','dica de','vale a pena','altcoin','memecoin'],
-      r: 'Aqui eu não dou recomendação de compra nem previsão de preço. O foco do Dione é te ensinar a proteger e cuidar do seu próprio patrimônio. Para uma estratégia pensada para você, o caminho é a consultoria ou a mentoria.',
-      l: [['Consultoria 1h por R$ 97', CONSULTA]] },
+      r: 'Aqui eu não dou recomendação de compra nem previsão de preço. O foco do Dione é te ensinar a proteger e cuidar do seu próprio patrimônio. Para uma estratégia pensada para você, fale com ele sobre a consultoria ou a mentoria:',
+      z: 'Olá Dione! Quero uma estratégia de proteção pensada para mim.' },
 
     { k: ['bitcoin','btc','o que e cripto','criptomoeda','blockchain'],
       r: 'Bitcoin é dinheiro digital que ninguém controla: nem banco, nem governo. Para entender do zero, comece pelo guia grátis "Bitcoin para Iniciantes".',
