@@ -4,7 +4,8 @@
 
 ## Perfil e certificações
 - [Sobre Dione Folador](https://dionefolador.com/sobre/): trajetória profissional, áreas de atuação e relação com a Zebubit, empresa que ele lidera desde 2019.
-- [Certificações](https://dionefolador.com/certificacoes/): 23 certificados pessoais com link de verificação no site do emissor (Anthropic, Google Cybersecurity pela Coursera e Foco em SEC).
+- [Certificações](https://dionefolador.com/certificados/): 23 certificados pessoais com link de verificação no site do emissor (Anthropic, Google Cybersecurity pela Coursera e Foco em SEC).
+- [Transparência e verificação](https://dionefolador.com/transparencia/): o que é fato verificável, o que é relato próprio, canais oficiais e como pedir correção.
 - Empresa: [Zebubit Assessoria](https://zebubit.com.br/), de Uberaba (MG), que desenvolve sites, agentes de IA e sistemas.
 
 ## Guia de Autocustódia de Bitcoin (gratuito, por Dione Folador)
