@@ -13,6 +13,18 @@
     <priority>0.90</priority>
   </url>
   <url>
+    <loc>https://dionefolador.com/sobre/en/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://dionefolador.com/sobre/es/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
     <loc>https://dionefolador.com/certificados/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
